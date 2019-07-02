@@ -1,0 +1,53 @@
+#!/bin/sh
+
+# bash
+alias ":wq"="exit"
+alias ":q"="exit"
+
+# cd
+alias ".."="cd .."
+alias "..1"="cd .."
+alias "..2"="cd ../.."
+alias "..3"="cd ../../.."
+alias "..4"="cd ../../../.."
+alias "..5"="cd ../../../../.."
+
+# clear
+alias clear="clear && neofetch"
+
+# config
+alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+
+# grep
+alias grep="grep --color=auto"
+
+# lastpass
+alias lastpass="lpass"
+
+# ls(d)
+alias l="lsd"
+alias la="lsd -la"
+alias ll="lsd -l"
+alias tree="lsd --tree"
+
+# mount
+alias mount="mount |column -t"
+
+# pacman
+alias pac="sudo pacman"
+alias pacclean="sudo pacman -Rs $(pacman -Qtdq)"
+
+# ping
+alias ping="ping -c 5"
+
+# root/sudo
+alias root="sudo -i"
+alias su="sudo -i"
+
+# vim
+alias svim="sudo vim"
+
+alias image="sxiv"
+alias mail="neomutt"
+alias reddit="rtv"
+alias video="mpv"
