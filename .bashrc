@@ -1,5 +1,5 @@
 #!/bin/bash
-set -o vi
+##set -o vi
 stty -ixon # Disable ctrl-s and ctrl-q.
 shopt -s autocd #Allows you to cd into directory merely by typing the directory name.
 HISTSIZE= HISTFILESIZE= # Infinite history.
