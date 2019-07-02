@@ -30,6 +30,9 @@ alias la="lsd -la"
 alias ll="lsd -l"
 alias tree="lsd --tree"
 
+# mkdir
+alias mkdir="mkdir -p"
+
 # mount
 alias mount="mount |column -t"
 
