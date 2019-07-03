@@ -8,7 +8,7 @@ My Arch Linux dotfiles. Most of them are personalized variants of the LARBS dotf
 ```git clone --bare https://github.com/TiynGER/.dotfiles $HOME/.dotfiles```
 ### checkout changes
 ```config checkout```
-###backup old files
+### backup old files
 ```mkdir -p .config-backup && \ 
 config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
 xargs -I{} mv {} .config-backup/{}
