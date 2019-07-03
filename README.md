@@ -1,5 +1,5 @@
 # .dotfiles
-My Arch Linux dotfiles. Most of them are personalized variants of the LARBS dotfiles files.
+My Arch Linux dotfiles. Most of them are personalized variants of the LARBS dotfiles.
 
 ## Migration of my dotfiles to other system
 ### set alias in .bashrc
