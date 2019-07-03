@@ -62,7 +62,11 @@ alias su="sudo -i"
 # vim
 alias svim="sudo vim"
 
+# random
+alias apt-get='echo "no"'
 alias image="sxiv"
 alias mail="neomutt"
 alias reddit="rtv"
 alias video="mpv"
+
+
