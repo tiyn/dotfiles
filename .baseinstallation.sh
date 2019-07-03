@@ -1,26 +1,26 @@
 #!/bin/bash
 
 ##remove firefox
-pacman -Rns firefox
+sudo pacman -Rns firefox
 
 ##remove vifm
-pacman -Rns vifm
+sudo pacman -Rns vifm
 
 ##remove tree
-pacman -Rns tree
+sudo pacman -Rns tree
 
 ##remove calcurse
-pacman -Rns calcurse
+sudo pacman -Rns calcurse
 
 ##remove vi
-pacman -Rns vi
+sudo pacman -Rns vi
 
 
 ##add ranger
-pacman -S ranger
+sudo pacman -S ranger
 
 ##add lsd
-pacman -S lsd
+sudo pacman -S lsd
 
 ##add discord
 git clone https://aur.archlinux.org/discord.git $HOME/downloads/set-ups/discord
@@ -31,7 +31,7 @@ git clone https://aur.archlinux.org/lastpass-cli-git.git $HOME/downloads/set-ups
 cd $HOME/downloads/set-ups/lastpass-cli-git && makepkg -sirc
 
 ##add maxima
-pacman -S maxima
+sudo pacman -S maxima
 
 ##add mutt-wizard-git
 git clone https://aur.archlinux.org/mutt-wizard-git.git $HOME/downloads/set-ups/mutt-wizard-git
@@ -50,38 +50,38 @@ git clone https://aur.archlinux.org/vivaldi.git $HOME/downloads/set-ups/vivaldi
 cd $HOME/downloads/set-ups/vivaldi && makepkg -sirc
 
 ##add jdk8-openjdk
-pacman -S jdk8-openjdk
+sudo pacman -S jdk8-openjdk
 
 ##add zip
-pacman -S jdk8-openjdk
+sudo pacman -S jdk8-openjdk
 
 ##add intellij-idea-community-edition
-pacman -S intellij-idea-community-edition
+sudo pacman -S intellij-idea-community-edition
 
 ##add rtv
-pacman -S rtv
+sudo pacman -S rtv
 
 ##add owncloud-client
-pacman -S owncloud-client
+sudo pacman -S owncloud-client
 
 ##add qt5ct
-pacman -S qt5ct
+sudo pacman -S qt5ct
 
 ##add nm-connection-editor
-pacman -S nm-connection-editor
+sudo pacman -S nm-connection-editor
 
 ##add cmatrix
-pacman -S cmatrix
+sudo pacman -S cmatrix
 
 ##add imagemagick
-pacman -S imagemagick
+sudo pacman -S imagemagick
 
 ##add texlive
-pacman -S texlive-most
-pacman -S texlive-lang
+sudo pacman -S texlive-most
+sudo pacman -S texlive-lang
 
 ##add xournalpp
-pacman -S xournalpp
+sudo pacman -S xournalpp
 
 ##add code
 git clone https://aur.archlinux.org/visual-studio-code-bin.git $HOME/downloads/set-ups/visual-studio-code-bin
