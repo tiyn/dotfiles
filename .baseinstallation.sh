@@ -1,8 +1,5 @@
 #!/bin/bash
 
-##remove firefox
-sudo pacman -Rns firefox
-
 ##remove vifm
 sudo pacman -Rns vifm
 
