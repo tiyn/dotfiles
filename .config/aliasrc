@@ -12,6 +12,9 @@ alias "..3"="cd ../../.."
 alias "..4"="cd ../../../.."
 alias "..5"="cd ../../../../.."
 
+# cp
+alias cp="cp -i"
+
 # clear
 alias clear="clear && neofetch"
 
@@ -25,7 +28,7 @@ alias grep="grep --color=auto"
 alias lastpass="lpass"
 
 # latex
-alias TexHandout='cp ~/github/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex'
+alias TexHandout="cp ~/github/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
 
 # ls(d)
 alias l="lsd"
@@ -39,12 +42,18 @@ alias mkdir="mkdir -p"
 # mount
 alias mount="mount |column -t"
 
+# mv
+alias mv="mv -i"
+
 # pacman
 alias pac="sudo pacman"
 alias pacclean="sudo pacman -Rs $(pacman -Qtdq)"
 
 # ping
 alias ping="ping -c 5"
+
+# rm
+alias rm="rm -i"
 
 # root/sudo
 alias root="sudo -i"
