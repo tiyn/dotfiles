@@ -16,7 +16,7 @@ alias "..5"="cd ../../../../.."
 alias cp="cp -i"
 
 # clear
-alias clear="clear && neofetch"
+alias c="clear && neofetch"
 
 # config
 alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
