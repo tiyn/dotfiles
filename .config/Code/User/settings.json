@@ -1,0 +1,31 @@
+{
+    "editor.fontSize": 18,
+    "debug.console.fontSize": 16,
+    "markdown.preview.fontSize": 16,
+    "terminal.integrated.fontSize": 16,
+
+    "explorer.confirmDelete": false,
+    "java.errors.incompleteClasspath.severity": "ignore",
+    "latex-workshop.view.pdf.viewer": "tab",
+    "terminal.explorerKind": "external",
+    "workbench.sideBar.location": "left",
+    "remote.onstartup": true,
+    "git.autofetch": true,
+    "files.autoSave": "afterDelay",
+    "editor.wordWrap": "on",
+    "python.jediEnabled": false,
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "bracket-pair-colorizer-2.showBracketsInGutter": true,
+    "bracket-pair-colorizer-2.colors": [
+        "Gold",
+        "Orchid",
+        "LightSkyBlue"
+    ],
+    "[latex]": {
+        "editor.defaultFormatter": "nickfode.latex-formatter"
+    },
+    "liveServer.settings.donotVerifyTags": true,
+    
+}
