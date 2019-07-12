@@ -88,4 +88,4 @@ git clone https://aur.archlinux.org/visual-studio-code-bin.git $HOME/downloads/s
 cd $HOME/downloads/set-ups/visual-studio-code-bin && makepkg -sirc
 
 ## add lynx
-sudo pacman lynx
+sudo pacman -S lynx
