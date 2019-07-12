@@ -19,7 +19,7 @@ alias cp="cp -i"
 alias c="clear && neofetch"
 
 # config
-alias config="/usr/bin/git --git-dir=$HOME/dotfiles --work-tree=$HOME"
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # grep
 alias grep="grep --color=auto"
@@ -65,7 +65,7 @@ alias svim="sudo vim"
 # random
 alias apt-get='echo "no"'
 alias image="sxiv"
-alias mail="neomutt"
+alias mail="mailsync -a && neomutt"
 alias reddit="rtv"
 alias video="mpv"
 
