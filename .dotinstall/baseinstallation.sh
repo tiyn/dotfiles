@@ -13,6 +13,9 @@ sudo pacman -Rns calcurse
 sudo pacman -Rns vi
 
 
+## add neofetch
+sudo pacman -S neofetch
+
 ## add ranger
 sudo pacman -S ranger
 
@@ -83,3 +86,6 @@ sudo pacman -S xournalpp
 ## add code
 git clone https://aur.archlinux.org/visual-studio-code-bin.git $HOME/downloads/set-ups/visual-studio-code-bin
 cd $HOME/downloads/set-ups/visual-studio-code-bin && makepkg -sirc
+
+## add lynx
+sudo pacman lynx
