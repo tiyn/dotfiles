@@ -1,3 +1,3 @@
 #!/bin/bash
 
-sudo pacman -S tip10
+sudo pacman -S tipp10
