@@ -9,11 +9,11 @@
 
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
-gaps inner 15
-gaps outer 15
+gaps inner 0
+gaps outer 0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
-font xft:mono 16
+font xft:mono 12
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -28,7 +28,7 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 bar {
-	font pango:mono 14
+	font pango:mono 12
 	status_command i3blocks
 	position top
 	mode dock
