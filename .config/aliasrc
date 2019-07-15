@@ -4,6 +4,9 @@
 alias ":wq"="exit"
 alias ":q"="exit"
 
+# battery
+alias "battery"="acpi"
+
 # cd
 alias ".."="cd .."
 alias "..1"="cd .."
