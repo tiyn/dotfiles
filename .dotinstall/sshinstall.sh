@@ -2,3 +2,6 @@
 
 ##add openssh
 sudo pacman -S openssh
+
+##add sshpass
+sudo pacman -S sshpass
