@@ -103,6 +103,9 @@ sudo pacman -S texlive-lang
 git clone https://aur.archlinux.org/tor-browser.git $HOME/downloads/set\-ups/tor-browser
 cd $HOME/downloads/set\-ups/tor-browser && makepkg -sirc
 
+## add gvim
+sudo pacman -S gvim
+
 ## add vivaldi
 git clone https://aur.archlinux.org/vivaldi.git $HOME/downloads/set\-ups/vivaldi
 cd $HOME/downloads/set\-ups/vivaldi && makepkg -sirc
