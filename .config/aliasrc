@@ -70,6 +70,8 @@ alias apt-get='echo "no"'
 alias image="sxiv"
 alias mail="mailsync -a && neomutt"
 alias reddit="rtv"
+alias table="sc-im"
+alias table="sc-im"
 alias video="mpv"
 
 
