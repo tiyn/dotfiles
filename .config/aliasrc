@@ -66,6 +66,8 @@ alias su="sudo -i"
 alias svim="sudo vim"
 
 # random
+alias file="ranger"
+alias files="ranger"
 alias image="sxiv"
 alias mail="mailsync -a && neomutt"
 alias music="mpd"
