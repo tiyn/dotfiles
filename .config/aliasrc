@@ -66,12 +66,12 @@ alias su="sudo -i"
 alias svim="sudo vim"
 
 # random
-alias apt-get='echo "no"'
 alias image="sxiv"
 alias mail="mailsync -a && neomutt"
+alias music="mpd"
 alias reddit="rtv"
 alias table="sc-im"
-alias table="sc-im"
+alias text="vim"
 alias video="mpv"
 
 
