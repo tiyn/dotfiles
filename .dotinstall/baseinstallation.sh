@@ -72,6 +72,9 @@ sudo pacman -S openssh
 ## add owncloud-client
 sudo pacman -S owncloud-client
 
+## add bluez bluezutils
+sudo pacman -S bluez bluez-util
+
 ## add qt5ct
 sudo pacman -S qt5ct
 
