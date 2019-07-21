@@ -16,6 +16,9 @@ sudo pacman -Rns vifm
 ## add acpi
 sudo pacman -S acpi
 
+## add bluez bluezutils
+sudo pacman -S bluez bluez-util
+
 ## add cmatrix
 sudo pacman -S cmatrix
 
@@ -47,6 +50,9 @@ sudo pacman -S jdk8-openjdk
 git clone https://aur.archlinux.org/lastpass-cli-git.git $HOME/downloads/set\-ups/lastpass-cli-git
 cd $HOME/downloads/set\-ups/lastpass-cli-git && makepkg -sirc
 
+## add light
+sudo pacman -S light
+
 ## add lsd
 sudo pacman -S lsd
 
@@ -72,8 +78,8 @@ sudo pacman -S openssh
 ## add owncloud-client
 sudo pacman -S owncloud-client
 
-## add bluez bluezutils
-sudo pacman -S bluez bluez-util
+## add pulseaudio-alsa pulseaudio-bluetooth
+sudo pacman -S pulseaudio-alsa pulseaudio-bluetoot
 
 ## add qt5ct
 sudo pacman -S qt5ct
