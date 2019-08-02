@@ -1,8 +1,5 @@
 #!/bin/bash
 
-## remove calcurse
-sudo pacman -Rns calcurse
-
 ## remove tree
 sudo pacman -Rns tree
 

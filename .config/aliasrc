@@ -66,6 +66,7 @@ alias su="sudo -i"
 alias svim="sudo vim"
 
 # random
+alias calendar="calcurse"
 alias file="ranger"
 alias files="ranger"
 alias image="sxiv"
