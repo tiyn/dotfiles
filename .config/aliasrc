@@ -65,6 +65,9 @@ alias su="sudo -i"
 # vim
 alias svim="sudo vim"
 
+# weather
+alias weather="curl wttr.in"
+
 # random
 alias calendar="calcurse"
 alias file="ranger"
