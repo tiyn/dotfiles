@@ -7,6 +7,10 @@ alias ":q"="exit"
 # battery
 alias "battery"="acpi"
 
+# calcurse
+alias cal="calcurse-caldav --init=keep-remote && calcurse"
+alias calchange="cd ~/.calcurse/caldav"
+
 # cd
 alias ".."="cd .."
 alias "..1"="cd .."
@@ -66,11 +70,10 @@ alias su="sudo -i"
 alias svim="sudo vim"
 
 # random
-alias calendar="calcurse"
 alias file="ranger"
 alias files="ranger"
 alias image="sxiv"
-alias mail="mailsync -a && neomutt"
+alias mail="neomutt"
 alias music="mpd"
 alias reddit="rtv"
 alias table="sc-im"
