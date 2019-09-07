@@ -122,3 +122,9 @@ sudo pacman -S xournalpp
 ## add zip
 sudo pacman -S jdk8-openjdk
 
+## add pip3
+sudo pacman -S python-pip
+
+## add pip3 module httplib2 for calcurse
+pip3 install --user httplib2
+
