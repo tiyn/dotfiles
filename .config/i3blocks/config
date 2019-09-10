@@ -2,36 +2,14 @@ command=~/.local/bin/statusbar/$BLOCK_NAME
 separator_block_width=15
 markup=pango
 
-#[record]
-#command=cat /tmp/recordingicon
-#interval=once
-#signal=9
-
-#[music]
-#label=🎼
-#interval=once
-#signal=11
-
-#[news]
-#label=📰
-#interval=once
-#signal=6
-
-#[iplocate]
-#interval=30
-
 [pacpackages]
 label=📦
 interval=once
 signal=8
 
-#[torrent]
-#interval=20
-#signal=7
-
-#[weather]
-#interval=180
-#signal=5
+[weather]
+interval=180
+signal=5
 
 [mailbox]
 label=📬
@@ -50,9 +28,9 @@ label=💻
 interval=once
 signal=10
 
-#[disk]
-#interval=60
-#command=disk /
+[disk]
+interval=60
+command=disk /
 
 [disk]
 interval=60

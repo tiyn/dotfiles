@@ -75,6 +75,12 @@ sudo pacman -S openssh
 ## add owncloud-client
 sudo pacman -S owncloud-client
 
+## add pip3
+sudo pacman -S python-pip
+
+## add pip3 module httplib2 for calcurse
+pip3 install --user httplib2
+
 ## add pulseaudio-alsa pulseaudio-bluetooth
 sudo pacman -S pulseaudio-alsa pulseaudio-bluetoot
 
@@ -122,9 +128,5 @@ sudo pacman -S xournalpp
 ## add zip
 sudo pacman -S jdk8-openjdk
 
-## add pip3
-sudo pacman -S python-pip
-
-## add pip3 module httplib2 for calcurse
-pip3 install --user httplib2
-
+## remove unwanted files
+rm -r ~/.local/share/larbs
