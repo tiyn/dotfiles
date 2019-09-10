@@ -1,8 +1,20 @@
 # Basic binds
 super + Return
 	$TERMINAL
+super + b
+	$BROWSER
+super + c
+	code
 super + d
 	dmenu_run
+super + f
+	$TERMINAL -e $FILE
+super + j
+	xournalpp
+super + m
+	$TERMINAL -e neomutt
+super + i
+	idea
 
 # Et cetera...
 XF86Launch1
@@ -36,21 +48,6 @@ XF86MonBrightnessUp
 
 
 # Function keys
-# Show readme
-super + F1
-	groff -mom $HOME/.local/share/larbs/readme.mom -Tpdf | zathura -
-# Browser
-super + F2
-	$BROWSER
-# File Manager
-super + F3
-	$TERMINAL -e $FILE
-# VS Code
-super + F4
-	code
-# xournal
-super + F5
-	xournalpp
 # Mount a USB drive or Android device
 super + F6
 	dmenumount
@@ -63,12 +60,12 @@ super + F8
 # Network Manager interface
 super + F9
 	$TERMINAL -e sudo -A nmtui
-# Reboot
-super + F11
-	prompt "Reboot computer?" "sudo -A shutdown -r now"
 # Hibernate
 super + F10
 	prompt 'Hibernate computer?' 'sudo systemctl suspend'
+# Reboot
+super + F11
+	prompt "Reboot computer?" "sudo -A shutdown -r now"
 # Shutdown
 super + F12
 	prompt "Shutdown computer?" "sudo -A shutdown -h now"
