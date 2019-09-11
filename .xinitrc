@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ -f "$HOME/.xprofile" ] && xrdb -merge "$HOME/.xprofile"
+[ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
 [ -f "$HOME/.Xdefaults" ] && xrdb -merge "$HOME/.Xdefaults"
 [ -f "$HOME/.Xpcspec" ] && xrdb -merge "$HOME/.Xpcspec"
 
