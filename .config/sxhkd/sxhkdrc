@@ -7,13 +7,17 @@ super + b
 super + c
 	code
 super + d
-	dmenu_run
+	ducksearch
 super + f
 	$TERMINAL -e $FILE
+super + g
+	googlesearch
 super + i
 	idea
 super + m
 	$TERMINAL -e neomutt
+super + r
+	dmenu_run
 super + x
 	xournalpp
 
