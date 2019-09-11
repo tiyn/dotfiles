@@ -1,5 +1,4 @@
 ## Basic binds
-
 super + Return
 	$TERMINAL
 super + b
@@ -17,13 +16,17 @@ super + i
 super + m
 	$TERMINAL -e neomutt
 super + r
-	dmenu_run
+	$TERMINAL -e rtv
 super + x
 	xournalpp
 
 
-## Et cetera...
+## Basic combinations
+super + shift + r
+	dmenu_run
 
+
+## FN combinations
 XF86Launch1
 	xset dpms force off
 XF86AudioMute
@@ -49,7 +52,6 @@ XF86MonBrightnessUp
 
 
 ## Function keys
-
 # Toggle Touchpad
 super + F5
 	toggletouchpad
