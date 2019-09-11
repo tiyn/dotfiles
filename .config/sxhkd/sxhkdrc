@@ -1,4 +1,5 @@
-# Basic binds
+## Basic binds
+
 super + Return
 	$TERMINAL
 super + b
@@ -9,34 +10,30 @@ super + d
 	dmenu_run
 super + f
 	$TERMINAL -e $FILE
-super + j
-	xournalpp
-super + m
-	$TERMINAL -e neomutt
 super + i
 	idea
+super + m
+	$TERMINAL -e neomutt
+super + x
+	xournalpp
 
-# Et cetera...
+
+## Et cetera...
+
 XF86Launch1
 	xset dpms force off
 XF86AudioMute
-	lmc mute
+	lmc m
+XF86AudioMicMute
+	pactl set-source-mute 1 toggle
 XF86AudioLowerVolume
 	lmc down 5
-shift+XF86AudioLowerVolume
-	lmc down 10
-control+XF86AudioLowerVolume
-	lmc down 1
 XF86AudioRaiseVolume
 	lmc up 5
-shift+XF86AudioRaiseVolume
-	lmc up 10
-control+XF86AudioRaiseVolume
-	lmc up 1
 XF86AudioNext
 	lmc next
 XF86AudioPlay
-	lmc toggle
+	lmc play
 XF86AudioPrev
 	lmc prev
 XF86AudioStop
@@ -47,7 +44,11 @@ XF86MonBrightnessUp
 	light -A 15
 
 
-# Function keys
+## Function keys
+
+# Toggle Touchpad
+super + F5
+	toggletouchpad
 # Mount a USB drive or Android device
 super + F6
 	dmenumount

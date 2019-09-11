@@ -1,5 +1,17 @@
 #!/bin/bash
 
+## remove arandr
+sudo pacman -Rns arandr
+
+## remove ed
+sudo pacman -Rns ed
+
+## remove gnome-keyring
+sudo pacman -Rns gnome-keyring
+
+## remove neovim
+sudo pacman -Rns neovim
+
 ## remove tree
 sudo pacman -Rns tree
 
@@ -14,7 +26,7 @@ sudo pacman -Rns vifm
 sudo pacman -S acpi
 
 ## add bluez bluezutils
-sudo pacman -S bluez bluez-util
+sudo pacman -S bluez bluez-utils
 
 ## add cmatrix
 sudo pacman -S cmatrix
