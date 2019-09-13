@@ -50,7 +50,7 @@ super + F8
 super + F9
 	$TERMINAL -e sudo -A nmtui
 super + F10
-	prompt 'Hibernate computer?' 'i3lock -c 222222 && sudo systemctl suspend'
+	prompt 'Lock computer?' "i3lock -c 222222"
 super + F11
 	prompt "Reboot computer?" "sudo -A shutdown -r now"
 super + F12
