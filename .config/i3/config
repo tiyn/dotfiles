@@ -40,8 +40,6 @@ bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
 #bindsym $mod+Return taken by sxhkd
 
-bindsym $mod+a			exec --no-startup-id ddspawn maxima -f mono:pixelsize=24
-
 #bindym $mod+b taken by sxhkd
 bindsym $mod+Shift+b			bar mode toggle
 
@@ -49,7 +47,7 @@ bindsym $mod+Shift+b			bar mode toggle
 
 #bindsym $mod+d taken by sxhkd
 
-bindsym $mod+f			fullscreen toggle
+bindsym $mod+Shift+f			fullscreen toggle
 
 #bindsym $mod+g taken by sxhkd
 
