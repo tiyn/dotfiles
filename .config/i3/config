@@ -36,37 +36,28 @@ bar {
 }
 
 # #---Basic Bindings---# #
-
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 
-# #---Letter Key Bindings---# #
-bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
-bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
+#bindsym $mod+Return taken by sxhkd
 
-bindsym $mod+t			split toggle
-bindsym $mod+Shift+t		gaps inner current set 15; gaps outer current set 15
+bindsym $mod+a			exec --no-startup-id ddspawn maxima -f mono:pixelsize=24
 
-bindsym $mod+Shift+z		exec --no-startup-id i3resize left
+#bindym $mod+b taken by sxhkd
+bindsym $mod+Shift+b			bar mode toggle
 
-bindsym $mod+u			exec --no-startup-id ddspawn tmuxdd
-bindsym $mod+Shift+u		exec --no-startup-id i3resize down
+#bindsym $mod+c taken by sxhkd
 
-bindsym $mod+Shift+i		exec --no-startup-id i3resize up
-
-bindsym $mod+o			sticky toggle
-bindsym $mod+Shift+o		exec --no-startup-id i3resize right
-
-bindsym $mod+a			exec --no-startup-id ddspawn dropdowncalc -f mono:pixelsize=24
-
-bindsym $mod+s			gaps inner current plus 5
-bindsym $mod+Shift+s		gaps inner current minus 5
-
-bindsym $mod+Shift+d		gaps inner current set 0; gaps outer current set 0
+#bindsym $mod+d taken by sxhkd
 
 bindsym $mod+f			fullscreen toggle
 
+#bindsym $mod+g taken by sxhkd
+
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h		move left 30
+
+#bindsym $mod+i taken by sxhkd
+bindsym $mod+Shift+i		exec --no-startup-id i3resize up
 
 bindsym $mod+j			focus down
 bindsym $mod+Shift+j		move down 30
@@ -77,13 +68,40 @@ bindsym $mod+Shift+k		move up 30
 bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 
-bindsym $mod+y			gaps outer current plus 5
-bindsym $mod+Shift+y		gaps outer current minus 5
+#bindsym $mod+m taken by sxhkd
 
-bindsym $mod+b			bar mode toggle
-bindsym $mod+Shift+b		floating toggle; sticky toggle; exec --no-startup-id hover left
+bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
-bindsym $mod+Shift+n		floating toggle; sticky toggle; exec --no-startup-id hover right
+bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
+bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`
+
+#bindsym $mod+r taken by sxhkd
+#bindsym $mod+shift+r taken by sxhkd
+
+bindsym $mod+t			split toggle
+
+bindsym $mod+Shift+u		exec --no-startup-id i3resize down
+
+#bindsym $mod+x taken by sxhkd
+
+bindsym $mod+Shift+z		exec --no-startup-id i3resize left
+
+#bindsym $mod+F5 taken by sxhkd
+
+#bindsym $mod+F6 taken by sxhkd
+
+#bindsym $mod+F7 taken by sxhkd
+
+#bindsym $mod+F8 taken by sxhkd
+
+#bindsym $mod+F9 taken by sxhkd
+
+#bindsym $mod+F10 taken by sxhkd
+
+#bindsym $mod+F11 taken by sxhkd
+
+#bindsym $mod+F12 taken by sxhkd
+
 
 # #---Workspace Bindings---# #
 set $ws1 "DEF"
@@ -128,17 +146,3 @@ for_window [class="Gimp"] move workspace $ws5
 for_window [window_role="GtkFileChooserDialog"] resize set 800 600
 for_window [window_role="GtkFileChooserDialog"] move position center
 for_window [title="Default - Wine desktop"] floating enable
-
-# #---Arrow Keys---# #
-bindsym $mod+Left		focus left
-bindsym $mod+Ctrl+Left		move workspace to output left
-bindsym $mod+Down		focus down
-bindsym $mod+Ctrl+Down		move workspace to output down
-bindsym $mod+Up			focus up
-bindsym $mod+Ctrl+Up		move workspace to output up
-bindsym $mod+Right 		focus right
-bindsym $mod+Ctrl+Right		move workspace to output right
-bindsym $mod+Shift+Left		move left
-bindsym $mod+Shift+Down		move down
-bindsym $mod+Shift+Up		move up
-bindsym $mod+Shift+Right 	move right
