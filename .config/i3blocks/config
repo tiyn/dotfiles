@@ -9,7 +9,7 @@ signal=8
 
 [weather]
 command=~/.local/bin/statusbar/weather
-interval=3600
+interval=1200
 signal=5
 
 [mailbox]
@@ -34,15 +34,15 @@ interval=once
 signal=10
 
 [disk]
-interval=60
-command=disk /
+interval=180
+command=~/.local/bin/statusbar/disk /
 
 [disk]
-interval=60
-command=disk /home 🏠
+interval=180
+command=~/.local/bin/statusbar/disk /home
 
 [battery]
-command=~/.local/bin/statusbar/battery BAT0
+command=~/.local/bin/statusbar/battery
 interval=5
 
 [clock]
