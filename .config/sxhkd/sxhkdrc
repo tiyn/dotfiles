@@ -1,4 +1,5 @@
 ## Basic binds
+#super + shift + escape taken by i3
 super + Return
 	$TERMINAL
 super + b
@@ -7,24 +8,73 @@ super + c
 	code
 super + d
 	ducksearch
+super + e
+	$TERMINAL -e neomutt
 super + f
 	$TERMINAL -e $FILE
+#super + shift + f taken by i3
 super + g
 	googlesearch
+#super + h taken by i3
+#super + shift + h taken by i3
 super + i
 	idea
-super + m
-	$TERMINAL -e neomutt
+#super + shift + i taken by i3
+#super + j taken by i3
+#super + shift + j taken by i3
+#super + k taken by i3
+#super + shift + k taken by i3
+#super + l taken by i3
+#super + shift + l taken by i3
+#super + shift + o taken by i3
+#super + q taken by i3
+#super + shift + q taken by i3
 super + r
 	$TERMINAL -e rtv
-super + x
-	xournalpp
-
-
-## Basic combinations
 super + shift + r
 	dmenu_run
+#super + t taken by i3
+#super + shift + u taken by i3
+super + x
+	xournalpp
+#super + shift + z taken by i3
 
+super + F5
+	toggletouchpad
+super + F6
+	dmenumount
+super + F7
+	dmenuumount
+super + F8
+	sudo -A systemctl restart NetworkManager
+super + F9
+	$TERMINAL -e sudo -A nmtui
+super + F10
+	prompt 'Hibernate computer?' 'sudo systemctl suspend'
+super + F11
+	prompt "Reboot computer?" "sudo -A shutdown -r now"
+super + F12
+	prompt "Shutdown computer?" "sudo -A shutdown -h now"
+#super + 1 taken by i3
+#super + 2 taken by i3
+#super + 3 taken by i3
+#super + 4 taken by i3
+#super + 5 taken by i3
+#super + 6 taken by i3
+#super + 7 taken by i3
+#super + 8 taken by i3
+#super + 9 taken by i3
+#super + 0 taken by i3
+#super + shift + 1 taken by i3
+#super + shift + 2 taken by i3
+#super + shift + 3 taken by i3
+#super + shift + 4 taken by i3
+#super + shift + 5 taken by i3
+#super + shift + 6 taken by i3
+#super + shift + 7 taken by i3
+#super + shift + 8 taken by i3
+#super + shift + 9 taken by i3
+#super + shift + 0 taken by i3
 
 ## FN combinations
 XF86Launch1
@@ -49,32 +99,3 @@ XF86MonBrightnessDown
 	light -U 15
 XF86MonBrightnessUp
 	light -A 15
-
-
-## Function keys
-# Toggle Touchpad
-super + F5
-	toggletouchpad
-# Mount a USB drive or Android device
-super + F6
-	dmenumount
-# Unmount a USB drive or Android device
-super + F7
-	dmenuumount
-# Restart/rescan wifi/eth networks
-super + F8
-	sudo -A systemctl restart NetworkManager
-# Network Manager interface
-super + F9
-	$TERMINAL -e sudo -A nmtui
-# Hibernate
-super + F10
-	prompt 'Hibernate computer?' 'sudo systemctl suspend'
-# Reboot
-super + F11
-	prompt "Reboot computer?" "sudo -A shutdown -r now"
-# Shutdown
-super + F12
-	prompt "Shutdown computer?" "sudo -A shutdown -h now"
-
-
