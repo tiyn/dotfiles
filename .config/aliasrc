@@ -28,14 +28,18 @@ alias c="clear && neofetch"
 # config
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
+# fzf
+sc() { du -a ~/.config/* ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
+sd() { du -a ~/ownCloud/* | awk '{print $2}' | fzf | xargs -r $READER ;}
+
+# git
+alias TexHandout="cp ~/github/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
+
 # grep
 alias grep="grep --color=auto"
 
 # lastpass
 alias lastpass="lpass"
-
-# latex
-alias TexHandout="cp ~/github/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
 
 # ls(d)
 alias l="lsd"
@@ -66,22 +70,11 @@ alias rm="rm -i"
 alias root="sudo -i"
 alias su="sudo -i"
 
-# vim
-alias svim="sudo vim"
+# nvim
+alias svim="sudo nvim"
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # weather
 alias weather="curl wttr.in"
-
-# random
-alias file="ranger"
-alias files="ranger"
-alias image="sxiv"
-alias mail="neomutt"
-alias music="mpv"
-alias news="newsboat"
-alias reddit="rtv"
-alias table="sc-im"
-alias text="vim"
-alias video="mpv"
 
 
