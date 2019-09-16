@@ -26,6 +26,8 @@ super + i
 #super + shift + k taken by i3
 #super + l taken by i3
 #super + shift + l taken by i3
+super + n
+	$TERMINAL -e newsboat
 #super + shift + o taken by i3
 #super + q taken by i3
 #super + shift + q taken by i3
