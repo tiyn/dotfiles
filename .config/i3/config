@@ -7,6 +7,10 @@
 # export FILE="ranger"
 # export TERMINAL="st"
 
+# #------Auto Start-------# #
+exec --no-startup-id owncloud
+exec --no-startup-id toggletouchpad
+
 # #---Basic Definitions---# #
 for_window [class="^.*"] border pixel 2
 gaps inner 0
