@@ -42,7 +42,7 @@ interval=180
 command=~/.local/bin/statusbar/disk /home
 
 [battery]
-command=~/.local/bin/statusbar/battery
+command=~/.local/bin/statusbar/battery BAT0
 interval=5
 
 [clock]

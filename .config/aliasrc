@@ -4,9 +4,6 @@
 alias ":wq"="exit"
 alias ":q"="exit"
 
-# battery
-alias "battery"="acpi"
-
 # calcurse
 alias cal="calcurse-caldav --init=keep-remote && calcurse"
 alias calchange="cd ~/.calcurse/caldav"
