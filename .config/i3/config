@@ -70,6 +70,8 @@ bindsym $mod+Shift+k		move up 30
 bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 
+#bindsym $mod+m taken by sxhkd
+
 #bindsym $mod+n taken by sxhkd
 
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
