@@ -13,8 +13,6 @@ super + e
 super + f
 	$TERMINAL -e $FILE
 #super + shift + f taken by i3
-super + g
-	googlesearch
 #super + h taken by i3
 #super + shift + h taken by i3
 super + i

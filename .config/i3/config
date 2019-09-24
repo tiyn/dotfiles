@@ -53,8 +53,6 @@ bindsym $mod+Shift+b			bar mode toggle
 
 bindsym $mod+Shift+f			fullscreen toggle
 
-#bindsym $mod+g taken by sxhkd
-
 bindsym $mod+h			focus left
 bindsym $mod+Shift+h		move left 30
 
