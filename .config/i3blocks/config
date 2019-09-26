@@ -7,16 +7,16 @@ label=📦
 interval=once
 signal=8
 
-[weather]
-command=~/.local/bin/statusbar/weather
-interval=1200
-signal=5
-
 [mailbox]
 command=~/.local/bin/statusbar/mailbox
 label=📬
 interval=180
 signal=12
+
+[weather]
+command=~/.local/bin/statusbar/weather
+interval=1200
+signal=5
 
 [memory]
 command=~/.local/bin/statusbar/memory
