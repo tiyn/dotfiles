@@ -1,18 +1,6 @@
 separator_block_width=15
 markup=pango
 
-[pacpackages]
-command=~/.local/bin/statusbar/pacpackages
-label=📦
-interval=once
-signal=8
-
-[mailbox]
-command=~/.local/bin/statusbar/mailbox
-label=📬
-interval=180
-signal=12
-
 [weather]
 command=~/.local/bin/statusbar/weather
 interval=1200

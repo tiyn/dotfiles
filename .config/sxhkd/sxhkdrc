@@ -8,8 +8,6 @@ super + c
 	code
 super + d
 	ducksearch
-super + e
-	$TERMINAL -e neomutt
 super + f
 	$TERMINAL -e $FILE
 #super + shift + f taken by i3
