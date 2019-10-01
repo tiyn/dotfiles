@@ -1,5 +1,6 @@
 #!/bin/sh
 
+#adding ressources
 [ -f "$HOME/.xprofile" ] && . "$HOME/.xprofile"
 [ -f "$HOME/.Xdefaults" ] && xrdb -merge "$HOME/.Xdefaults"
 [ -f "$HOME/.Xpcspec" ] && xrdb -merge "$HOME/.Xpcspec"
