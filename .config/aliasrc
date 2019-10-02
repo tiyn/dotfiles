@@ -26,8 +26,8 @@ alias c="clear"
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
 # fzf
-sc() { du -a ~/.config/* ~/.local/bin/* | awk '{print $2}' | fzf | xargs -r $EDITOR ;}
-sd() { du -a ~/ownCloud/* | awk '{print $2}' | grep ".pdf" | fzf | xargs -r $READER ;}
+sc() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
+sd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 
 # git
 alias TexHandout="cp ~/github/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
