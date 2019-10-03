@@ -87,14 +87,6 @@ XF86AudioLowerVolume
 	lmc down 5
 XF86AudioRaiseVolume
 	lmc up 5
-XF86AudioNext
-	lmc next
-XF86AudioPlay
-	lmc play
-XF86AudioPrev
-	lmc prev
-XF86AudioStop
-	lmc toggle
 XF86MonBrightnessDown
 	light -U 15
 XF86MonBrightnessUp
