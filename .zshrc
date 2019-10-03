@@ -1,1 +1,1 @@
-.config/shell/shellrc
+.config/zsh/zshrc
