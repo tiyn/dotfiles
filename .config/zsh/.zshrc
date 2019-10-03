@@ -4,7 +4,6 @@ HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE=~/.cache/shhistory
 
-[ -f "$HOME/.config/shortcutrc" ] && source "$HOME/.config/shortcutrc" # Load shortcut aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Load aliases
 
-pfetch && echo $(vrms) | grep "non-free"
+pfetch
