@@ -1,1 +1,1 @@
-.config/shellrc
+.config/shell/shellrc
