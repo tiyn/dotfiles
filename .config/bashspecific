@@ -1,0 +1,2 @@
+#!/bin/bash
+shopt -s autocd #Allows you to cd into directory without cd
