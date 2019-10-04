@@ -73,6 +73,3 @@ command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 
 # weather
 alias weather="curl wttr.in"
-
-# various
-alias fuck='sudo $(history -p !!)'
