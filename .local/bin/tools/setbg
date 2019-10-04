@@ -1,4 +1,25 @@
 #!/bin/sh
 # Sets the background. If given an argument, will set file as background.
-[ ! -z "$1" ] && cp "$1" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Wallpaper changed."
-xwallpaper --zoom ~/.config/wall.png
+if [ $(date | awk '{print $1}') = "Mon" ]; then
+	wallDir=~/.config/wallpaper/mon
+fi
+if [ $(date | awk '{print $1}') = "Tue" ]; then
+	wallDir=~/.config/wallpaper/tue
+fi
+if [ $(date | awk '{print $1}') = "Wed" ]; then
+	wallDir=~/.config/wallpaper/wed
+fi
+if [ $(date | awk '{print $1}') = "Thu" ]; then
+	wallDir=~/.config/wallpaper/thu
+fi
+if [ $(date | awk '{print $1}') = "Fri" ]; then
+	wallDir=~/.config/wallpaper/fri
+fi
+if [ $(date | awk '{print $1}') = "Sat" ]; then
+	wallDir=~/.config/wallpaper/sat
+fi
+if [ $(date | awk '{print $1}') = "Sun" ]; then
+	wallDir=~/.config/wallpaper/sun
+fi
+currWall=$wallDir/$(ls $wallDir | shuf -n 1)
+xwallpaper --zoom $currWall
