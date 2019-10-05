@@ -6,8 +6,6 @@ super + b
 	$BROWSER
 super + c
 	code
-super + d
-	ducksearch
 super + f
 	$TERMINAL -e $FILE
 #super + shift + f taken by i3
@@ -31,6 +29,8 @@ super + n
 #super + shift + q taken by i3
 super + r
 	$TERMINAL -e rtv
+super + s
+	startpagesearch
 super + shift + r
 	dmenu_run
 #super + t taken by i3
