@@ -1,25 +1,5 @@
 #!/bin/sh
-# Sets the background. If given an argument, will set file as background.
-if [ $(date | awk '{print $1}') = "Mon" ]; then
-	wallDir=~/.config/wallpaper/mon
-fi
-if [ $(date | awk '{print $1}') = "Tue" ]; then
-	wallDir=~/.config/wallpaper/tue
-fi
-if [ $(date | awk '{print $1}') = "Wed" ]; then
-	wallDir=~/.config/wallpaper/wed
-fi
-if [ $(date | awk '{print $1}') = "Thu" ]; then
-	wallDir=~/.config/wallpaper/thu
-fi
-if [ $(date | awk '{print $1}') = "Fri" ]; then
-	wallDir=~/.config/wallpaper/fri
-fi
-if [ $(date | awk '{print $1}') = "Sat" ]; then
-	wallDir=~/.config/wallpaper/sat
-fi
-if [ $(date | awk '{print $1}') = "Sun" ]; then
-	wallDir=~/.config/wallpaper/sun
-fi
+# Sets the background.
+wallDir=~/.config/wallpaper/$(date | awk '{print $1}')
 currWall=$wallDir/$(ls $wallDir | shuf -n 1)
 xwallpaper --zoom $currWall
