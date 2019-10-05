@@ -17,7 +17,7 @@ gaps inner 0
 gaps outer 0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
-font xft:mono 12
+font xft:mono 14
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -32,7 +32,7 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 bar {
-	font pango:mono 12
+	font pango:mono 13
 	status_command i3blocks
 	position top
 	mode dock
@@ -48,8 +48,6 @@ bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 bindsym $mod+Shift+b			bar mode toggle
 
 #bindsym $mod+c taken by sxhkd
-
-#bindsym $mod+d taken by sxhkd
 
 bindsym $mod+Shift+f			fullscreen toggle
 
@@ -79,6 +77,8 @@ bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec -
 
 #bindsym $mod+r taken by sxhkd
 #bindsym $mod+shift+r taken by sxhkd
+
+#bindsym $mod+s taken by sxhkd
 
 bindsym $mod+t			split toggle
 
