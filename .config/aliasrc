@@ -4,10 +4,6 @@
 alias ":wq"="exit"
 alias ":q"="exit"
 
-# calcurse
-alias cal="calcurse-caldav --init=keep-remote && calcurse"
-alias calchange="cd ~/.calcurse/caldav"
-
 # cd
 alias ".."="cd .."
 alias "..1"="cd .."
@@ -30,7 +26,7 @@ sc() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 sd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 
 # git
-alias TexHandout="cp ~/github/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
+alias TexHandout="cp ~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
 
 # grep
 alias grep="grep --color=auto"
@@ -64,7 +60,6 @@ alias ping="ping -c 5"
 alias rm="rm -i"
 
 # root/sudo
-alias root="sudo -i"
 alias su="sudo -i"
 
 # nvim
