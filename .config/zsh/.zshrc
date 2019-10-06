@@ -49,6 +49,9 @@ preexec() { echo -ne '\e[5 q' ;}
 
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Load aliases
 
+# Load command-not-found-handler
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
