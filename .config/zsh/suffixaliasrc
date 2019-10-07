@@ -3,3 +3,5 @@
 alias -s pdf="background $READER"
 alias -s tex="background $LATEX"
 alias -s {png,jpg,jpeg}="background $IMAGE"
+alias -s mp4="background $VIDEO"
+alias -s mp3="background $AUDIO"
