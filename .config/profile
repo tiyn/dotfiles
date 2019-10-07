@@ -18,6 +18,7 @@ export VIDEO="mpv"
 export AUDIO="mpv"
 export TABLE="sc-im"
 export IMAGE="sxiv"
+export LATEX="code"
 
 # less/man colors
 export LESS=-R
