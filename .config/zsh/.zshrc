@@ -49,6 +49,14 @@ zle -N zle-line-init
 echo -ne '\e[5 q'
 preexec() { echo -ne '\e[5 q' ;}
 
+# starts one or multiple args in background
+background() {
+	for ((i=2;i<=$#;i++)); do
+		${@[1]} ${@[$i]} &> /dev/null &|
+	done
+}
+
+source $HOME/.config/zsh/suffixaliasrc 2>/dev/null # Load suffix aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Load aliases
 
 # Load command-not-found-handler
