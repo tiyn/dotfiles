@@ -1,6 +1,5 @@
 [Default Applications]
-x-scheme-handler/magnet=torrent.desktop;
-x-scheme-handler/mailto=userapp-Thunderbird-JMVJ8Z.desktop
+x-scheme-handler/mailto=mail.desktop
 text/plain=text.desktop;
 text/x-shellscript=text.desktop;
 application/pdf=pdf.desktop;
@@ -8,8 +7,3 @@ image/png=img.desktop;
 image/jpeg=img.desktop;
 image/gif=img.desktop;
 application/rss+xml=rss.desktop
-message/rfc822=userapp-Thunderbird-JMVJ8Z.desktop
-
-[Added Associations]
-x-scheme-handler/mailto=userapp-Thunderbird-JMVJ8Z.desktop;
-message/rfc822=userapp-Thunderbird-JMVJ8Z.desktop;
