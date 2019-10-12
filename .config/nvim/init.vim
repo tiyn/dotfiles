@@ -32,7 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'donRaphaco/neotex', { 'for': 'tex'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'lervag/vimtex', {'for': 'tex'}
-"Plug 'artur-shaik/vim-javacomplete2'
+Plug 'artur-shaik/vim-javacomplete2'
 call plug#end()
 
 " neotex
@@ -59,4 +59,4 @@ function! s:check_back_space() abort "" {{{
 endfunction "" }}}
 
 " javacomplete2
-"autocmd FileType java setlocal omnifunc=vim-javacomplete2#Complete
+autocmd FileType java setlocal omnifunc=javacomplete#Complete
