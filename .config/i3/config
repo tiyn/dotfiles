@@ -32,7 +32,7 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 bar {
-	font pango:mono 13
+	font pango:mono 14
 	status_command i3blocks
 	position top
 	mode dock
@@ -48,6 +48,8 @@ bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
 bindsym $mod+Shift+b			bar mode toggle
 
 #bindsym $mod+c taken by sxhkd
+
+bindsym $mod+Shift+d  			floating toggle 
 
 bindsym $mod+Shift+f			fullscreen toggle
 
@@ -67,8 +69,10 @@ bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 
 #bindsym $mod+m taken by sxhkd
+bindsym $mod+Shift+m 		move scratchpad 
 
 #bindsym $mod+n taken by sxhkd
+#bindsym $mod+Shift+n taken by sxhkd
 
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
 
@@ -113,9 +117,9 @@ set $ws4 "CHT"
 set $ws5 "DOC"
 set $ws6 "WRK"
 set $ws7 "EXT"
-set $ws8 "ET1"
-set $ws9 "ET2"
-set $ws0 "ET3"
+set $ws8 "GMG"
+set $ws9 "ET1"
+set $ws0 "ET2"
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
