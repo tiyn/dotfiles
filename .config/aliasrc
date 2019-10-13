@@ -26,7 +26,7 @@ sc() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 sd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 
 # git
-alias TexHandout="cp ~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
+alias texhandout="cp ~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex"
 
 # grep
 alias grep="grep --color=auto"
