@@ -19,6 +19,3 @@ xargs -I{} mv {} .config-backup/{}
 ```config config --local status.showUntrackedFiles no```
 ### pull current setup
 ```config pull```
-
-## baseinstallation.sh
-This is a shell-script for setting up the most important programs in my opinion after the basic setup of Arch and the set-up done by LARBS by Luke Smith.
