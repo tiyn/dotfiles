@@ -1,0 +1,27 @@
+#!/usr/bin/env sh
+# copying tex templates
+
+[ -z "$2" ] && echo "missing argument: filename (no ending)" && return 1
+
+articletemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Article/Article.tex
+beamertemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Beamer/Beamer.tex
+exercisetemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Exercise\ Header/Header.tex
+handouttemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex
+
+case "$1" in
+	a*) cp "$articletemp" $2.tex ;;
+	b*) cp "$beamertemp" $2.tex ;;
+	e*) cp "$exercisetemp" $2.tex ;;
+	h*) cp "$handouttemp" $2.tex ;;
+	*) cat << EOF
+
+Allowed options
+	article NAME 		get handout-template with given NAME
+	beamer NAME 		get handout-template with given NAME
+	exercise NAME 		get handout-template with given NAME
+	handout NAME 		get handout-template with given NAME
+
+All of these commands can be truncated,
+i.e. \`textemp a\` for \`textemp article`\.
+EOF
+esac
