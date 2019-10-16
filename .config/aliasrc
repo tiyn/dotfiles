@@ -26,9 +26,9 @@ sc() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 sd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 
 # git
-texhandout() { 
+texhandout() {
 	[[ -z $1 ]] && echo "missing argument: filename (no ending)" && return 1
-	cp ~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex $1.tex && xelatex $1.tex  
+	cp ~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex $1.tex && compile $1.tex
 }
 
 # grep
