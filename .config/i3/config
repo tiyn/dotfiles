@@ -49,7 +49,7 @@ bindsym $mod+Shift+b			bar mode toggle
 
 #bindsym $mod+c taken by sxhkd
 
-bindsym $mod+Shift+d  			floating toggle 
+bindsym $mod+Shift+d  			floating toggle
 
 bindsym $mod+Shift+f			fullscreen toggle
 
@@ -69,12 +69,14 @@ bindsym $mod+l			focus right
 bindsym $mod+Shift+l		move right 30
 
 #bindsym $mod+m taken by sxhkd
-bindsym $mod+Shift+m 		move scratchpad 
+bindsym $mod+Shift+m 		move scratchpad
 
 #bindsym $mod+n taken by sxhkd
 #bindsym $mod+Shift+n taken by sxhkd
 
 bindsym $mod+Shift+o		exec --no-startup-id i3resize right
+
+#bindym $mod+p taken by sxhkd
 
 bindsym $mod+q			[con_id="__focused__" instance="^(?!dropdown_).*$"] kill
 bindsym $mod+Shift+q		[con_id="__focused__" instance="^(?!dropdown_).*$"] exec --no-startup-id kill -9 `xdotool getwindowfocus getwindowpid`

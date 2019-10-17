@@ -20,6 +20,7 @@ export TABLE="sc-im"
 export IMAGE="sxiv"
 export LATEX="code"
 export MAIL="thunderbird"
+export MUSIC="ncmpcpp"
 
 # less/man colors
 export LESS=-R

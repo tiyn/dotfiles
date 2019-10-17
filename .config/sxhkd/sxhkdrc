@@ -29,6 +29,8 @@ super + n
 super + shift + n
 	i3-scratchpad-dmenu.py
 #super + shift + o taken by i3
+super + p
+	$MUSIC
 #super + q taken by i3
 #super + shift + q taken by i3
 super + r
