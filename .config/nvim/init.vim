@@ -6,7 +6,7 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	silent !curl "https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim" > ~/.config/nvim/autoload/plug.vim
 endif
 
-set bg=light
+"set bg=light
 set go=a
 set mouse=a
 set nohlsearch
@@ -29,14 +29,24 @@ set splitbelow splitright
 vnoremap <C-c> "+y
 map <C-p> "+P
 
+" Mapping Dictionaries
+map <F5> :setlocal spell! spelllang=de<CR>
+map <F6> :set spelllang=en_us<CR>
+
 " Read files correctly
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 
-" Compiler for languages
-map <leader>c :w! \| !compiler <c-r>%<CR>
-
+""" LATEX
 " Clean LaTex build files
 autocmd VimLeave *.tex !texclear %
+autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><++><Esc>3kA\item<Space>
+autocmd FileType tex inoremap ,li <Enter>\item<Space>
+autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+
+" Compiler for languages
+map <leader>c :w! \| !compiler <c-r>%<CR>
 
 " Delete trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
