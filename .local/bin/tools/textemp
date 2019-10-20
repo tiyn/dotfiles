@@ -3,10 +3,10 @@
 
 [ -z "$2" ] && echo "missing argument: filename (no ending)" && return 1
 
-articletemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Article/Article.tex
-beamertemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Beamer/Beamer.tex
-exercisetemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Exercise\ Header/Header.tex
-handouttemp=~/gitrepos/Tools/LaTeX\ Templates/LaTeX\ Handout/Handout.tex
+articletemp=~/gitrepos/tools/latex_templates/latex_article/article.tex
+beamertemp=~/gitrepos/tools/latex_templates/latex_beamer/beamer.tex
+exercisetemp=~/gitrepos/tools/latex_templates/latex_exercise_header/header.tex
+handouttemp=~/gitrepos/tools/latex_templates/latex_handout/handout.tex
 
 case "$1" in
 	a*) cp "$articletemp" $2.tex ;;
