@@ -21,6 +21,13 @@ set encoding=utf-8
 set number relativenumber
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Setting Tab-length
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+"set expandtab
+"set autoindent
+"set copyindent
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
@@ -41,9 +48,9 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd VimLeave *.tex !texclear %
 autocmd FileType tex inoremap ,ul \begin{itemize}<Enter><Enter>\end{itemize}<Enter><Enter><Esc>3kA\item<Space>
 autocmd FileType tex inoremap ,li <Enter>\item<Space>
-autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><Esc>2kf}i
-autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><Esc>2kf}i
-autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><Esc>2kf}i
+autocmd FileType tex inoremap ,sec \section*{}<Enter><Enter><Esc>2kf}i
+autocmd FileType tex inoremap ,ssec \subsection*{}<Enter><Enter><Esc>2kf}i
+autocmd FileType tex inoremap ,sssec \subsubsection*{}<Enter><Enter><Esc>2kf}i
 
 " Compiler for languages
 map <leader>c :w! \| !compiler <c-r>%<CR>
