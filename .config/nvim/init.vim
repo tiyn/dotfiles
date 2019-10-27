@@ -21,6 +21,13 @@ set encoding=utf-8
 set number relativenumber
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Setting Tab-length
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+"set expandtab
+"set autoindent
+"set copyindent
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
