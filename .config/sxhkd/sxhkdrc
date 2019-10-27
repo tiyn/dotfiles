@@ -45,6 +45,8 @@ super + x
 	xournalpp
 #super + shift + z taken by i3
 
+super + F4
+	togglemonitor
 super + F5
 	toggletouchpad
 super + F6
