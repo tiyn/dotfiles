@@ -1,0 +1,7 @@
+#!/bin/sh
+# toggle external monitor
+intern=LVDS-1
+extern=HDMI-1
+(xrandr | grep "$extern disconnected") && exit
+(xrandr --listactivemonitors | grep $extern) || (xrandr --output $extern --right-of $intern --auto & exit)
+(xrandr --listactivemonitors | grep $extern) && xrandr --output $extern --off
