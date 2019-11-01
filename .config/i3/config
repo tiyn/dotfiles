@@ -17,7 +17,7 @@ gaps inner 0
 gaps outer 0
 set $term --no-startup-id $TERMINAL
 set $mod Mod4
-font xft:mono 14
+font xft:mono 10
 
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
@@ -32,7 +32,7 @@ for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
 bar {
-	font pango:mono 14
+	font pango:mono 10
 	status_command i3blocks
 	position top
 	mode dock
