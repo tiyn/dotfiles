@@ -113,15 +113,15 @@ bindsym $mod+Shift+z		exec --no-startup-id i3resize left
 
 # #---Workspace Bindings---# #
 set $ws1 "DEF"
-set $ws2 "WWW"
-set $ws3 "MED"
-set $ws4 "CHT"
-set $ws5 "DOC"
-set $ws6 "WRK"
-set $ws7 "EXT"
-set $ws8 "GMG"
-set $ws9 "ET1"
-set $ws0 "ET2"
+set $ws2 "VAR"
+set $ws3 "RS0"
+set $ws4 "RS1"
+set $ws5 "WK0"
+set $ws6 "WK1"
+set $ws7 "MED"
+set $ws8 "COM"
+set $ws9 "GMG"
+set $ws0 "EXT"
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
