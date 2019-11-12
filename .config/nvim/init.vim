@@ -68,9 +68,9 @@ autocmd FileType tex inoremap ,tab \begin{tabular}<Enter><++><Enter>\end{tabular
 autocmd FileType tex inoremap ,a \href{}{<++>}<Space><++><Esc>2T{i
 autocmd FileType tex inoremap ,sc \textsc{}<Space><++><Esc>T{i
 autocmd FileType tex inoremap ,chap \chapter{}<Enter><Enter><++><Esc>2kf}i
-autocmd FileType tex inoremap ,sec \section{}<Enter><Enter><++><Esc>2kf}i
-autocmd FileType tex inoremap ,ssec \subsection{}<Enter><Enter><++><Esc>2kf}i
-autocmd FileType tex inoremap ,sssec \subsubsection{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ,sec \section*{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ,ssec \subsection*{}<Enter><Enter><++><Esc>2kf}i
+autocmd FileType tex inoremap ,sssec \subsubsection*{}<Enter><Enter><++><Esc>2kf}i
 autocmd FileType tex inoremap ,beg \begin{DELRN}<Enter><++><Enter>\end{DELRN}<Enter><Enter><++><Esc>4k0fR:MultipleCursorsFind<Space>DELRN<Enter>c
 autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
