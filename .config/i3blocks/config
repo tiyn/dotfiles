@@ -25,10 +25,6 @@ signal=10
 interval=180
 command=~/.local/bin/statusbar/disk /
 
-[disk]
-interval=180
-command=~/.local/bin/statusbar/disk /home
-
 [battery]
 command=~/.local/bin/statusbar/battery BAT0
 interval=180
