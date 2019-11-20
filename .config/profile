@@ -18,7 +18,7 @@ export VIDEO="mpv"
 export AUDIO="mpv"
 export TABLE="sc-im"
 export IMAGE="sxiv"
-export LATEX="code"
+export LATEX="vim"
 export MAIL="thunderbird"
 export MUSIC="ncmpcpp"
 
