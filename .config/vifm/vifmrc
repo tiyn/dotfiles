@@ -12,8 +12,6 @@
 " you will need to change this setting.
 
 set vicmd=nvim
-" set vicmd=elvis\ -G\ termcap
-" set vicmd=vile
 
 " This makes vifm perform file operations on its own instead of relying on
 " standard utilities like `cp`.  While using `cp` and alike is a more universal
@@ -70,7 +68,7 @@ colorscheme Default
 " TIME_STAMP_FORMAT=%m/%d-%H:%M
 " See man date or man strftime for details.
 
-set timefmt=%m/%d\ %H:%M
+set timefmt=%d.%m.%y\ %H:%M
 
 " Show list of matches on tab completion in command-line mode
 
