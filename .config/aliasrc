@@ -28,9 +28,6 @@ sd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 # grep
 alias grep="grep --color=auto"
 
-# lastpass
-alias lastpass="lpass"
-
 # ls(d)
 alias l="lsd"
 alias la="lsd -la"
