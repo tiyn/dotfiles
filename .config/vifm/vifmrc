@@ -172,7 +172,11 @@ command! reload :write | restart
 
 " Pdf
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
-fileviewer *.pdf pdftotext -nopgbrk %c -
+fileviewer *.pdf
+		\ vifmimg pdfpreview %px %py %pw %ph %c
+		\ %pc
+		\ vifmimg clear
+		"\ pdftotext -nopgbrk %c -
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
@@ -238,7 +242,13 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
         \ {View in shotwell}
         \ shotwell,
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ identify %f
+         \ vifmimg draw %px %py %pw %ph %c
+		 \ %pc
+		 \ vifmimg clear
+fileviewer *.gif
+		\ vifmimg gifpreview %px %py %pw %ph %c
+		\ %pc
+		\vifmimg clear
 
 " OpenRaster
 filextype *.ora
