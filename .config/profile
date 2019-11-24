@@ -21,7 +21,6 @@ export IMAGE="sxiv"
 export LATEX="nvim"
 export MAIL="thunderbird"
 export MUSIC="ncmpcpp"
-export TERM=screen-256color #this makes tmux work with nvim/st
 
 # less/man colors
 export LESS=-R
