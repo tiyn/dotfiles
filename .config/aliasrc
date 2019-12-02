@@ -56,12 +56,17 @@ alias rm="rm -i"
 # root/sudo
 alias su="sudo -i"
 
+#sc-im
+alias sc-im="sc"
+
 # script
 alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
 
 # nvim
 alias svim="sudo nvim"
+alias svi="sudo nvim"
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+command -v nvim >/dev/null && alias vi="nvim" vidiff="nvim -d"
 
 # weather
 alias weather="curl wttr.in"
