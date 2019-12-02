@@ -57,7 +57,7 @@ alias rm="rm -i"
 alias su="sudo -i"
 
 #sc-im
-alias sc-im="sc"
+alias sc="sc-im"
 
 # script
 alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
