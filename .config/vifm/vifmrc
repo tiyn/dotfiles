@@ -168,13 +168,16 @@ command! reload :write | restart
 " You can also add %CLEAR if you want to clear screen before running FUSE
 " program.
 
-" Pdf
+" PDF
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf
 		\ vifmimg pdfpreview %px %py %pw %ph %c
 		\ %pc
 		\ vifmimg clear
 		"\ pdftotext -nopgbrk %c -
+
+" CSV
+filetype *.csv,*.xlsx sc-im %f
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
