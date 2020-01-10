@@ -51,7 +51,7 @@ alias pacclean="sudo pacman -Rs $(pacman -Qtdq)"
 alias ping="ping -c 5"
 
 # rm
-alias rm="rm -i"
+alias rm="prompt 'Are you sure?' && rm"
 
 # root/sudo
 alias su="sudo -i"
