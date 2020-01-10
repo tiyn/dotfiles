@@ -12,7 +12,7 @@ exec --no-startup-id owncloud
 exec --no-startup-id toggletouchpad
 
 # #---Basic Definitions---# #
-for_window [class="^.*"] border pixel 2
+for_window [class="^.*"] border pixel 1
 gaps inner 0
 gaps outer 0
 set $term --no-startup-id $TERMINAL
