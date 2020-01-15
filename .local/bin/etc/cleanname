@@ -1,0 +1,3 @@
+#!/bin/sh
+[ -z "$1" ] && (echo "Error: missing argument (what to remain)" && exit)
+rename 'y/[A-Z]/[a-z]/; s/Ö/oe/; s/Ä/ae/; s/Ü/ue/; s/ß/ss/' $1
