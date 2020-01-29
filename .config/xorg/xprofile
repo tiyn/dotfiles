@@ -7,4 +7,4 @@ unclutter &		# Remove mouse when idle
 xcompmgr &		# xcompmgr for transparency
 dunst &			# dunst for notifications
 redshift &		# redshift for saving your eyes
-mopidy &		# starts the mopidy server for music
+mpd &		# starts the mpd server for music
