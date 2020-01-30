@@ -1,5 +1,4 @@
 let mapleader =","
-
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
@@ -111,9 +110,11 @@ Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'artur-shaik/vim-javacomplete2'
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
+Plug 'airblade/vim-gitgutter'
 call plug#end()
 "tagbar
 map <F3> :TagbarToggle<CR>
+let g:tagbar_left = 1
 "nerdtree
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
