@@ -109,8 +109,18 @@ Plug 'donRaphaco/neotex', { 'for': 'tex'}
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'lervag/vimtex', {'for': 'tex'}
 Plug 'artur-shaik/vim-javacomplete2'
+Plug 'preservim/nerdtree'
+Plug 'majutsushi/tagbar'
 call plug#end()
+"tagbar
+map <F3> :TagbarToggle<CR>
+"nerdtree
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinPos = "right"
+"neotex
 let g:neotex_enabled = 2
+"deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_smart_case = 1
 let g:deoplete#sources = {}
@@ -118,7 +128,7 @@ let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer']
 call deoplete#custom#var('omni', 'input_patterns', {
 	\ 'tex': g:vimtex#re#deoplete
 	\})
-"tab as remapping for deoplete
+""tab as remapping for deoplete
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
