@@ -1,3 +1,9 @@
 #!/bin/sh
 [ -z "$1" ] && (echo "Error: missing argument (what to remain)" && exit)
-perl-rename 's/\ /_/g; y/[A-Z]/[a-z]/; s/Ö/oe/g; s/ö/oe/g; s/Ä/ae/g; s/ä/ae/g; s/Ü/ue/g; s/ü/ue/g; s/ß/ss/g' "$1"
+for oldname in "$@"
+do
+	newname=`echo "$oldname" | tr '[:upper:]' '[:lower:]' | sed 's/\ /_/g; s/Ö/oe/g; s/Ä/ae/g; s/Ü/ue/g; s/ö/oe/g; s/ä/ae/g; s/ü/ue/g; s/ß/ss/g'`;
+	if [[ "$oldname" != "$newname" ]]; then
+		mv "$oldname" "$newname";
+	fi
+done
