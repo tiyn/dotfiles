@@ -11,11 +11,10 @@ do
 			if [ -f "$oldname" ]; then
 				echo "renaming file $oldname to $newname"
 				cp "$oldname" "$newname" && rm "$oldname";
-			else
+			elif [ -d "$oldname" ]; then
 				echo "renaming directory $oldname to $newname"
 				cp -r "$oldname/." "$newname" && rm -r "$oldname";
 			fi
 		fi
-
 	fi
 done
