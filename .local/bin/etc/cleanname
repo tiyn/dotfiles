@@ -3,7 +3,14 @@
 for oldname in "$@"
 do
 	newname=`echo "$oldname" | tr '[:upper:]' '[:lower:]' | sed 's/\ /_/g; s/Ö/oe/g; s/Ä/ae/g; s/Ü/ue/g; s/ö/oe/g; s/ä/ae/g; s/ü/ue/g; s/ß/ss/g'`;
-	if [[ "$oldname" != "$newname" ]]; then
-		mv "$oldname" "$newname";
+	if [ "$oldname" != "$newname" ]; then
+		if [ -f "$newname" ]; then
+			echo "skipping $newname, because it already exists";
+		else
+			echo "$newname exists, copying $oldname to $newname"
+			rsync -a "$oldname/." "$newname"
+			rm -r "$oldname";
+		fi
+
 	fi
 done
