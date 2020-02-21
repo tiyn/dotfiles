@@ -10,7 +10,7 @@ do
 		else
 			if [ -f "$oldname" ]; then
 				echo "renaming file $oldname to $newname"
-				cp "$oldname" "$newname" && rm "$oldname";
+				mv "$oldname" "$newname";
 			elif [ -d "$oldname" ]; then
 				echo "renaming directory $oldname to $newname"
 				cp -r "$oldname/." "$newname" && rm -r "$oldname";
