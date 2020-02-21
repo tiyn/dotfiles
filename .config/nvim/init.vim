@@ -111,6 +111,8 @@ Plug 'artur-shaik/vim-javacomplete2'
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
 Plug 'airblade/vim-gitgutter'
+Plug 'FredKSchott/CoVim'
+Plug 'qpkorr/vim-renamer'
 call plug#end()
 "tagbar
 map <F3> :TagbarToggle<CR>
@@ -140,3 +142,6 @@ function! s:check_back_space() abort "" {{{
 endfunction "" }}}
 " javacomplete2
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" CoVim
+let CoVim_default_name = "TiynGER"
+let CoVim_default_port = "7000"
