@@ -8,12 +8,13 @@ do
 			echo "skipping $newname, because it already exists"
 			rm "$oldname";
 		else
-			if [ -f "$oldname" ]; then
 				echo "renaming file $oldname to $newname"
+			if [ -f "$oldname" ]; then
 				mv "$oldname" "$newname";
 			elif [ -d "$oldname" ]; then
-				echo "renaming directory $oldname to $newname"
 				cp -r "$oldname/." "$newname" && rm -r "$oldname";
+			else
+				mv "$oldname" "$newname"
 			fi
 		fi
 	fi
