@@ -10,11 +10,16 @@ do
 		else
 			echo "renaming file $oldname to $newname"
 			if [ -f "$oldname" ]; then
+				echo "using mv"
 				mv "$oldname" "$newname";
 			elif [ -d "$oldname" ]; then
-				cp -r "$oldname/." "$newname" && rm -r "$oldname";
-			else
-				mv "$oldname" "$newname";
+				if [ -e "$newname" ]; then
+					echo "using cp"
+					cp -r "$oldname/." "$newname" && rm -r "$oldname";
+				else
+					echo "using mv"
+					mv "$oldname" "$newname";
+				fi
 			fi
 		fi
 	fi
