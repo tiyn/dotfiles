@@ -22,6 +22,7 @@ font xft:mono 10
 # #---Dropdown Windows---# #
 # General dropdown window traits. The order can matter.
 for_window [instance="dropdown_*"] floating enable
+for_window [class="de.uol.swp.client.ClientApp"] floating enable
 for_window [instance="dropdown_*"] move scratchpad
 for_window [instance="dropdown_*"] sticky enable
 for_window [instance="dropdown_*"] scratchpad show
@@ -31,13 +32,31 @@ for_window [instance="dropdown_tmuxdd"] border pixel 3
 for_window [instance="dropdown_dropdowncalc"] border pixel 2
 for_window [instance="dropdown_*"] move position center
 
+
 bar {
 	font pango:mono 10
 	status_command i3blocks
 	position top
 	mode dock
 	modifier None
+	colors {
+		background #000000
+		statusline #ffffff
+		separator #333333
+		#Bord #Back #Text
+		focused_workspace #ffa500 #4a4a4a #ffa500
+		active_workspace #ffa500 #33333 #ffa500
+		inactive_workspace #ffa500 #000000 #ffa500
+		urgent_workspace #ffa500 #000000 #900000
+	}
 }
+client.placeholder #242424 #242424 #242424
+client.background #242424 #242424 #242424
+client.focused #4a4a4a #4a4a4a #e5e5e5 #6a6a6a
+client.unfocused #4a4a4a #222222 #aaaaaa #222222
+client.focused_inactive #4a4a4a #222222 #a9a9a9 #222222
+client.urgent #4a4a4a #4a4a4a #f7f7f7 #4a4a4a
+
 
 # #---Basic Bindings---# #
 bindsym $mod+Shift+Escape 	exec --no-startup-id prompt "Exit i3?" "i3-msg exit"
@@ -112,16 +131,16 @@ bindsym $mod+Shift+z		exec --no-startup-id i3resize left
 
 
 # #---Workspace Bindings---# #
-set $ws1 "DEF"
-set $ws2 "VAR"
-set $ws3 "RS0"
-set $ws4 "RS1"
-set $ws5 "WK0"
-set $ws6 "WK1"
-set $ws7 "MED"
-set $ws8 "COM"
-set $ws9 "GMG"
-set $ws0 "EXT"
+set $ws1 "1DF"
+set $ws2 "2VR"
+set $ws3 "3RS"
+set $ws4 "4RS"
+set $ws5 "5WK"
+set $ws6 "6WK"
+set $ws7 "7ME"
+set $ws8 "8CM"
+set $ws9 "9GM"
+set $ws0 "0EX"
 
 # switch to workspace
 bindsym $mod+1		workspace $ws1
