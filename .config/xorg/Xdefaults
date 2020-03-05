@@ -1,27 +1,46 @@
 ! st.termname: st-256color
-! st.borderpx: 2
+st.borderpx: 2
 
 dmenu.foreground: #ffffff
-dmenu.background: #000000
+dmenu.background: #800000
 dmenu.selforeground: #ffffff
-dmenu.selbackground: #000000
+dmenu.selbackground: #c0c0c0
 
-!!standard theme
+!!3024-night
 /*
-*.color0: #000000
-*.color1: #800000
-*.color2: #008000
-*.color3: #808000
-*.color4: #000080
-*.color5: #800080
-*.color6: #008080
-*.color7: #c0c0c0
-*.color8: #808080
-*.color9: #ff0000
-*.color10: #00ff00
-*.color11: #ffff00
-*.color12: #0000ff
-*.color13: #ff00ff
-*.color14: #00ffff
-*.color15: #ffffff
+*.color0:  #090300
+*.color1:  #db2d20
+*.color2:  #01a252
+*.color3:  #fded02
+*.color4:  #01a0e4
+*.color5:  #a16a94
+*.color6:  #b5e4f4
+*.color7:  #a5a2a2
+*.color8:  #5c5855
+*.color9:  #e8bbd0
+*.color10: #3a3432
+*.color11: #4a4543
+*.color12: #807d7c
+*.color13: #d6d5d4
+*.color14: #cdab53
+*.color15: #f7f7f7
 */
+
+!!brogrammer
+*.color0:  #1f1f1f
+*.color1:  #f81118
+*.color2:  #2dc55e
+*.color3:  #ecba0f
+*.color4:  #2a84d2
+*.color5:  #4e5ab7
+*.color6:  #1081d6
+*.color7:  #d6dbe5
+*.color8:  #d6dbe5
+*.color9:  #de352e
+*.color10: #1dd361
+*.color11: #f3bd09
+*.color12: #1081d6
+*.color13: #5350b9
+*.color14: #0f7ddb
+*.color15: #ffffff
+
