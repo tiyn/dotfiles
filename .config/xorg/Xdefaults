@@ -1,6 +1,11 @@
 ! st.termname: st-256color
 ! st.borderpx: 2
 
+dmenu.foreground: #ffffff
+dmenu.background: #000000
+dmenu.selforeground: #ffffff
+dmenu.selbackground: #000000
+
 !!standard theme
 /*
 *.color0: #000000
