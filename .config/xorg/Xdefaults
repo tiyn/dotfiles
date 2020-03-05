@@ -1,10 +1,10 @@
 ! st.termname: st-256color
 st.borderpx: 2
 
-dmenu.foreground: #ffffff
-dmenu.background: #800000
-dmenu.selforeground: #ffffff
-dmenu.selbackground: #c0c0c0
+dmenu.foreground: #ffa500
+dmenu.background: #000000
+dmenu.selforeground: #000000
+dmenu.selbackground: #ffa500
 
 !!3024-night
 /*
