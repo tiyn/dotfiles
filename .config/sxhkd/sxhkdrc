@@ -38,7 +38,7 @@ super + r
 super + s
 	startpagesearch
 super + shift + r
-	dmenu_run
+	dmenu_run -c -l 20
 #super + t taken by i3
 #super + shift + u taken by i3
 super + x
