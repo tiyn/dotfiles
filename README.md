@@ -1,6 +1,15 @@
 # .dotfiles
 My Arch Linux dotfiles. Most of them are personalized variants of the LARBS dotfiles.
 
+## Required and Recommended Software
+### Required
+- lsd
+- git
+- tmux
+- neovim
+### Recommended
+- sc-im
+
 ## Migration of my dotfiles to other system
 ### set alias in .bashrc
 ```alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'```
