@@ -2,13 +2,7 @@
 My Arch Linux dotfiles. Most of them are personalized variants of the LARBS dotfiles.
 
 ## Required and Recommended Software
-### Required
-- lsd
-- git
-- tmux
-- neovim
-### Recommended
-- sc-im
+All requirements and recommendations get installed by my version of LARBS.
 
 ## Migration of my dotfiles to other system
 ### set alias in .bashrc
