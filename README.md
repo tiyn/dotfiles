@@ -1,6 +1,10 @@
 # .dotfiles
 My Arch Linux dotfiles. Most of them are personalized variants of the LARBS dotfiles.
 
+## Required and Recommended Software
+All requirements and recommendations get installed by my version of LARBS.
+To take a look at all the software it installs look at the progs.csv in my LARBS repository (https://github.com/TiynGER/larbs/blob/master/progs.csv)
+
 ## Migration of my dotfiles to other system
 ### set alias in .bashrc
 ```alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'```
