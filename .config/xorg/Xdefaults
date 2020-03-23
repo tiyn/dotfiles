@@ -1,6 +1,13 @@
 ! st.termname: st-256color
 st.borderpx: 2
 
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: true
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcdfilter
+
 dmenu.foreground: #ffa500
 dmenu.background: #000000
 dmenu.selforeground: #000000
@@ -43,4 +50,3 @@ dmenu.selbackground: #ffa500
 *.color13: #5350b9
 *.color14: #0f7ddb
 *.color15: #ffffff
-
