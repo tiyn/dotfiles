@@ -52,7 +52,6 @@ RPROMPT='%B%{$fg[magenta]%}$vcs_info_msg_0_%{$reset_color%}%b'
 # History in cache directory
 HISTSIZE=10000
 SAVEHIST=10000
-HISTFILE=~/.cache/shhistory
 
 # Basic auto/tab complete
 autoload -U compinit
