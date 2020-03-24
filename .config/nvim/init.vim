@@ -104,15 +104,24 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Plugin section
 call plug#begin('~/.config/nvim/plugged')
-Plug 'donRaphaco/neotex', { 'for': 'tex'}
+" Autocorrect
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Latex Upgrades
+Plug 'donRaphaco/neotex', { 'for': 'tex'}
 Plug 'lervag/vimtex', {'for': 'tex'}
+" Java Upgrades
 Plug 'artur-shaik/vim-javacomplete2'
+" Indexing and Overview tools
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
+" Git Upgrades
 Plug 'airblade/vim-gitgutter'
+" Use Vim together
 Plug 'FredKSchott/CoVim'
+" Bulk Renamer
 Plug 'qpkorr/vim-renamer'
+" Python3 Upgrades
+Plug 'zchee/deoplete-jedi'
 call plug#end()
 "tagbar
 map <F3> :TagbarToggle<CR>
