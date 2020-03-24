@@ -62,6 +62,9 @@ alias sc="sc-im"
 # script
 alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
 
+# tmux
+alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
+
 # nvim
 alias svim="sudo nvim"
 alias svi="sudo nvim"
@@ -70,3 +73,6 @@ command -v nvim >/dev/null && alias vi="nvim" vidiff="nvim -d"
 
 # weather
 alias weather="curl wttr.in"
+
+#wget
+alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
