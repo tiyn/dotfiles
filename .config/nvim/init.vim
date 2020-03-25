@@ -6,9 +6,6 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall
 endif
 
-" PlugInstall when entering vim
-autocmd VimEnter * PlugInstall
-
 "set bg=light
 set go=a
 set mouse=a
