@@ -4,7 +4,7 @@ stty -ixon
 setopt autocd autopushd \
 
 # Enable autosuggestions
-source ~/gitrepos/pc/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 bindkey '^ ' autosuggest-accept
 
 # Enable colors and change prompt
