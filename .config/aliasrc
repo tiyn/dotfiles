@@ -9,7 +9,6 @@ alias ".."="cd .."
 alias "..."="cd ../.."
 alias "...."="cd ../../.."
 alias "....."="cd ../../../.."
-alias "......"="cd ../../../../.."
 
 # cp
 alias cp="cp -i"
