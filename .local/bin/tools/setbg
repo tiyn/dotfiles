@@ -16,7 +16,7 @@
 type wal >/dev/null 2>&1 && { wal -c
 	wal -s -i ~/.config/wall.png -o ~/.config/wal/postrun
 	xsetroot -name "fsignal:xrdb"
-	killall dwmblocks
-	setsid dwmblocks >/dev/null & } >/dev/null 2>&1
+	killall i3blocks
+	setsid i3blocks >/dev/null & } >/dev/null 2>&1
 
 xwallpaper --zoom ~/.config/wall.png
