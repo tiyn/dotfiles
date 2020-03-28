@@ -1,6 +1,6 @@
 #!/bin/sh
 status() { \
-	echo "$(volume) | $(internet) | $(clock)"
+	echo "$(memory) | $(cpu) | $(disk /) | $(volume) | $(battery BAT0) | $(internet) | $(clock)"
 }
 while :; do
 	xsetroot -name "$(status | tr '\n' ' ')"
