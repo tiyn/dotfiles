@@ -1,0 +1,2 @@
+#!/bin/zsh
+make clean && rm -f config.h && reset --hard origin/master
