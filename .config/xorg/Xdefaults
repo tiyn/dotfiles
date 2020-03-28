@@ -1,6 +1,7 @@
+*.font: monospace:size=10
+
 ! st.termname: st-256color
 st.borderpx: 2
-st.face: mono
 
 Xft.antialias: true
 Xft.hinting: true
