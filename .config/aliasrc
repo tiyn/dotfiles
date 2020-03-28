@@ -9,7 +9,6 @@ alias ".."="cd .."
 alias "..."="cd ../.."
 alias "...."="cd ../../.."
 alias "....."="cd ../../../.."
-alias "......"="cd ../../../../.."
 
 # cp
 alias cp="cp -i"
@@ -45,7 +44,6 @@ alias mv="mv -i"
 
 # pacman
 alias pac="sudo pacman"
-alias pacclean="sudo pacman -Rs $(pacman -Qtdq)"
 
 # ping
 alias ping="ping -c 5"

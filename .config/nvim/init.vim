@@ -99,6 +99,9 @@ autocmd FileType html inoremap ü &uuml;
 " Compiler for languages
 map <leader>c :w! \| !compiler <c-r>%<CR>
 
+" Open corresponding file (pdf/html/...)
+map <leader>p :!opout <c-r>%<CR><CR>
+
 " Delete trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
