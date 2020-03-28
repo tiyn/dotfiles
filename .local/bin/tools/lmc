@@ -19,5 +19,3 @@ Allowed options:
 
 EOF
 esac
-
-pkill -RTMIN+10 i3blocks
