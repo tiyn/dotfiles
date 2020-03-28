@@ -1,0 +1,10 @@
+#!/bin/sh
+status() { \
+	echo "$(volume) | $(internet) | $(clock)"
+}
+while :; do
+	xsetroot -name "$(status | tr '\n' ' ')"
+
+	sleep 1m
+done
+
