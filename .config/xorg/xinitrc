@@ -1,5 +1,6 @@
 #!/bin/sh
 
+xrandr --auto
 #adding ressources
 [ -f "$HOME/.config/xorg/xprofile" ] && . "$HOME/.config/xorg/xprofile"
 [ -f "$HOME/.config/xorg/Xdefaults" ] && xrdb -merge "$HOME/.config/xorg/Xdefaults"
