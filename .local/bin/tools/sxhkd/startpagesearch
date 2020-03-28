@@ -1,0 +1,20 @@
+#!/bin/sh
+# Gives a dmenu prompt to search Startpage.
+# Without input, will open Startpage.com.
+# URLs will be directly handed to the browser.
+# Anything else, it search it.
+browser=${RTVBROWSER:-firefox}
+
+pgrep -x dmenu && exit
+
+choice=$(echo "Startpage" | dmenu -i -p "Search Startpage:") || exit 1
+
+if [ "$choice" = "Startpage"  ]; then
+    $RTV_BROWSER "https://startpage.com"
+else
+    if echo "$choice" | grep "^(http:\/\/|https:\/\/)?[a-zA-Z0-9]+\.[a-zA-Z]+(/)?.*$"; then
+        $RTV_BROWSER "$choice"
+    else
+        $RTV_BROWSER "https://startpage.com/do/search/?q=$choice"
+    fi
+fi
