@@ -8,4 +8,5 @@ xrandr --auto
 
 xterm -geometry 80x24+10+10 -fn 10x20
 
-exec i3
+setbg
+exec dwm

@@ -42,6 +42,7 @@ export TMUX_TMPDIR="$XDG_RUNTIME_HOME/tmux"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export XAUTHORITY="$XDG_RUNTIME_HOME/Xauthority"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
+export _JAVA_AWT_WM_NONREPARENTING=1
 
 # less/man colors
 export LESS=-R

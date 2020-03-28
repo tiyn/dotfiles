@@ -1,5 +1,22 @@
 #!/bin/sh
-# Sets the background.
-wallDir=~/.config/wallpaper/$(date | awk '{print $1}')
-currWall=$wallDir/$(ls $wallDir | shuf -n 1)
-xwallpaper --zoom $currWall
+
+# In LARBS, ~/.config/wall.png is the location of the system wallpaper.  This
+# script, if given an argument, moves it there.  This script without an
+# argument sets ~/.config/wall.png as the wallpaper, which is required on login
+# if you don't want a black screen.
+#
+# You may also give a directory name to select a random image from that
+# directory as a wallpaper. Be careful that the directory only has images.
+
+[ -f "$1" ] && cp "$1" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Wallpaper changed."
+
+[ -d "$1" ] && cp "$(find "$1" -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -type f | shuf -n 1)" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Random Wallpaper chosen."
+
+# If pywal is installed, use it.
+type wal >/dev/null 2>&1 && { wal -c
+	wal -s -i ~/.config/wall.png -o ~/.config/wal/postrun
+	xsetroot -name "fsignal:xrdb"
+	killall i3blocks
+	setsid i3blocks >/dev/null & } >/dev/null 2>&1
+
+xwallpaper --zoom ~/.config/wall.png
