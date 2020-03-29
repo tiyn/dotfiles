@@ -1,2 +1,2 @@
 #!/bin/zsh
-make clean && rm -f config.h && reset --hard origin/master
+make clean && rm -f config.h && git reset --hard origin/base

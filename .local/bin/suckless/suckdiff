@@ -1,6 +1,6 @@
 #!/usr/bin/zsh
 git checkout master &&
-dotfiles="/home/drew/.config/dotfiles/suckless"
+dotfiles="/home/tiynger/.config/dotfiles/suckless"
 project=$(basename $(pwd))
 diffdir="${dotfiles}/${project}_diffs/"
 olddiffdir="${dotfiles}/${project}_diffs/old/"
@@ -8,10 +8,10 @@ rm -rf "$olddiffdir" &&
 mkdir -p "$olddiffdir" &&
 mkdir -p "$diffdir" &&
 mv "$diffdir"*.diff "$olddiffdir" || true &&
-make clean && rm -f config.h && git reset --hard origin/master &&
+make clean && rm -f config.h && git reset --hard origin/base &&
 for branch in $(git for-each-ref --format='%(refname)' refs/heads/ | cut -d'/' -f3); do
 	if [ "$branch" != "master" ];then
-		git diff master..$branch > "${diffdir}${project}_${branch}.diff"
+		git diff base..$branch > "${diffdir}${project}_${branch}.diff"
 	fi
 done
 
