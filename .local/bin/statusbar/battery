@@ -9,4 +9,4 @@ status=$(cat /sys/class/power_supply/"$1"/status)
 
 [ "$status" = "Charging" ] && color="#ffffff"
 
-printf "%s%s%s\n" "$(echo "$status" | sed -e "s/,//;s/Discharging/-/;s/Not Charging/X/;s/Charging/+/;s/Unknown/0/;s/Full/F/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity"  | sed -e 's/$/%/' ) " " ($time)"
+printf "%s%s%s\n" "$(echo "$status" | sed -e "s/,//;s/Discharging/🔋/;s/Not Charging/🛑/;s/Charging/🔌/;s/Unknown/♻️/;s/Full/⚡/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity"  | sed -e 's/$/%/' ) " " ($time)"
