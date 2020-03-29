@@ -10,11 +10,6 @@ Xft.autohint: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcdfilter
 
-dmenu.foreground: #ffa500
-dmenu.background: #000000
-dmenu.selforeground: #000000
-dmenu.selbackground: #ffa500
-
 !!3024-night
 /*
 *.color0:  #090300
