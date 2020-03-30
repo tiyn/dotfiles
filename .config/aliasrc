@@ -27,6 +27,9 @@ srd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 # grep
 alias grep="grep --color=auto"
 
+# hastebin
+haste() { a=$(cat); curl -X POST -s -d "$a" https://www.hastebin.martenkante.eu/documents | awk -F '"' '{print "https://www.hastebin.martenkante.eu/"$4}'; }
+
 # ls(d)
 alias l="lsd"
 alias la="lsd -la"
