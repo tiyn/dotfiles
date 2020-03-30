@@ -3,5 +3,5 @@
 intern=LVDS-1
 extern=HDMI-1
 (xrandr | grep "$extern disconnected")
-(xrandr --listactivemonitors | grep $extern) || (xrandr --output $extern --right-of $intern --auto & exit)
+(xrandr --listactivemonitors | grep $extern) || ((xrandr --output $extern --right-of $intern --auto && setbg) & exit)
 (xrandr --listactivemonitors | grep $extern) && xrandr --output $extern --off
