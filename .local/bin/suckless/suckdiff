@@ -1,4 +1,8 @@
 #!/usr/bin/zsh
+
+# for showing the diffs to the master branch of a git directory according to my suckless patch structure
+# e.g. see dwm/st/etc
+
 git checkout master &&
 dotfiles="/home/tiynger/.config/dotfiles/suckless"
 project=$(basename $(pwd))
