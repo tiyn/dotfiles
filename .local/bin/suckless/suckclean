@@ -1,2 +1,6 @@
 #!/bin/zsh
+
+# for cleaning up the master branch of a git directory according to my suckless patch structure
+# e.g. see dwm/st/etc
+
 make clean && rm -f config.h && git reset --hard origin/base

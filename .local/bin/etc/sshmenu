@@ -1,0 +1,5 @@
+#!/bin/sh
+
+ssh_host=$(cat ~/.ssh/config | grep "Host " | sed "s/Host\ //g" | dmenu)
+
+[[ -z ssh_host ]] || st -e ssh -t $ssh_host
