@@ -7,6 +7,7 @@
 #
 # You may also give a directory name to select a random image from that
 # directory as a wallpaper. Be careful that the directory only has images.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 [ -f "$1" ] && cp "$1" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Wallpaper changed."
 

@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
 [ "$(pulsemixer --get-mute)" = "1" ] && printf "🔇\\n" && exit
 
 vol=$(pulsemixer --get-volume | awk '{print $1}')

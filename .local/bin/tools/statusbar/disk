@@ -3,6 +3,7 @@
 # Status bar module for disk space
 # $1 should be drive mountpoint
 # $2 is optional icon, otherwise mountpoint will displayed
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 [ -z "$1" ] && exit
 
