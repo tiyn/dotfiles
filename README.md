@@ -1,5 +1,7 @@
 # .dotfiles
-My Arch Linux dotfiles. Most of them are personalized variants of the LARBS dotfiles.
+My Arch Linux dotfiles. 
+They were originally based on the dotfiles of [lukesmithxyz](https://github.com/lukesmithxyz/voidrice).
+This being some time, hundreds of commits and my personalized version of [larbs](https://github.com/TiynGER/larbs) ago, they are now quite different.
 
 ## Required and Recommended Software
 All requirements and recommendations get installed by my version of LARBS.
