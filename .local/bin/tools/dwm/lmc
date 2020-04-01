@@ -1,5 +1,7 @@
 #!/bin/sh
+
 # A general audio interface for LARBS.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 [ -z "$2" ] && num="2" || num="$2"
 

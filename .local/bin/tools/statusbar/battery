@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
+
 # Give a battery name (e.g. BAT0) as an argument.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
 time=$(acpi | awk '{ print $5 }')

@@ -1,8 +1,11 @@
 #!/bin/sh
+
 # Gives a dmenu prompt to search Startpage.
 # Without input, will open Startpage.com.
 # URLs will be directly handed to the browser.
 # Anything else, it search it.
+# original by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
 browser=${RTVBROWSER:-firefox}
 
 pgrep -x dmenu && exit

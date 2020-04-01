@@ -1,2 +1,5 @@
 #!/bin/sh
+
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
 dmenu -P -p "$1" <&- && echo

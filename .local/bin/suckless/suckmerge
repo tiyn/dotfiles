@@ -2,6 +2,7 @@
 
 # for merging all branches into the master branch of a git directory according to my suckless patch structure
 # e.g. see dwm/st/etc
+# by uoou, checkout gitlab.com/uoou/dotfiles
 
 suckdiff &&
 git reset --hard origin/base &&

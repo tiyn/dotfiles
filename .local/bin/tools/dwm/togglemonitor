@@ -1,5 +1,8 @@
 #!/bin/sh
+
 # toggle external monitor
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
 intern=LVDS-1
 extern=HDMI-1
 (xrandr | grep "$extern disconnected")

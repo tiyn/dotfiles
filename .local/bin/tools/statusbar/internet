@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
 [ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="📡"
 
 [ ! -n "${wifiicon+var}" ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print "📶", int($3 * 100 / 70) "%" }')

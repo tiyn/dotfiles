@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# by cirala, checkout github.com/cirala/vifmimg
+
 export FIFO_UEBERZUG="/tmp/vifm-ueberzug-${PPID}"
 
 if [ ! -f "/usr/bin/ueberzug" ]; then

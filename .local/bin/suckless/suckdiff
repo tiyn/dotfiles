@@ -2,6 +2,7 @@
 
 # for showing the diffs to the master branch of a git directory according to my suckless patch structure
 # e.g. see dwm/st/etc
+# by uoou, checkout gitlab.com/uoou/dotfiles
 
 git checkout master &&
 dotfiles="/home/tiynger/.config/dotfiles/suckless"

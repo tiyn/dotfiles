@@ -1,3 +1,5 @@
 #!/bin/sh
 
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
 free -h | awk '/^Mem:/ {print $3 "/" $2}'

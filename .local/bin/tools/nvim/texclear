@@ -2,6 +2,7 @@
 
 # Clears the build files of a LaTeX/XeLaTeX build.
 # I have vim run this file whenever I exit a .tex file.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 case "$1" in
 	*.tex)

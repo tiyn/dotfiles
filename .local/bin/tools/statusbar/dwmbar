@@ -1,4 +1,7 @@
 #!/bin/sh
+
+# inspired by  by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
 status() { \
 	echo "$(memory)|$(cpu)|$(disk /)|$(volume)|$(battery BAT0)|$(internet)|$(clock)"
 }

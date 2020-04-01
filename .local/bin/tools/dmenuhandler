@@ -1,6 +1,7 @@
 #!/bin/sh
 # Feed this script a link and it will give dmenu
 # some choice programs to use to open it.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 case "$(printf "copy url\\nmpv\\nmpv (loop)\\nqueue download\\n\\nqueue youtube-dl\\nfeh\\nbrowser\\nw3m\\nmpv (float)" | dmenu -i -p "Open link with what program?")" in
 	"copy url") echo "$1" | xclip -selection clipboard ;;

@@ -1,8 +1,10 @@
 #!/bin/sh
+
 # Gives a dmenu prompt to mount unmounted drives.
 # If they're in /etc/fstab, they'll be mounted automatically.
 # Otherwise, you'll be prompted to give a mountpoint from already existsing directories.
 # If you input a novel directory, it will prompt you to create that directory.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 getmount() { \
 	[ -z "$chosen" ] && exit 1

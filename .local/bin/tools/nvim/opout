@@ -3,6 +3,7 @@
 # opout: "open output": A general handler for opening a file's intended output,
 # usually the pdf of a compiled document.  I find this useful especially
 # running from vim.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 basename="$(echo "$1" | sed 's/\.[^\/.]*$//')"
 
