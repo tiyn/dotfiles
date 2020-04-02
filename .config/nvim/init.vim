@@ -107,13 +107,11 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Plugin section
 call plug#begin('~/.config/nvim/plugged')
-" Autocorrect
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" Autocomplete
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Latex Upgrades
 Plug 'donRaphaco/neotex', { 'for': 'tex'}
 Plug 'lervag/vimtex', {'for': 'tex'}
-" Java Upgrades
-Plug 'artur-shaik/vim-javacomplete2'
 " Indexing and Overview tools
 Plug 'preservim/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -123,37 +121,26 @@ Plug 'airblade/vim-gitgutter'
 Plug 'FredKSchott/CoVim'
 " Bulk Renamer
 Plug 'qpkorr/vim-renamer'
-" Python3 Upgrades
-Plug 'zchee/deoplete-jedi'
 call plug#end()
 "tagbar
 map <F3> :TagbarToggle<CR>
-let g:tagbar_left = 1
 "nerdtree
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeWinPos = "right"
+let g:NERDTreeWinPos = "left"
 "neotex
 let g:neotex_enabled = 2
-"deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-let g:deoplete#sources = {}
-let g:deoplete#sources.java = ['jc', 'javacomplete2', 'file', 'buffer']
-call deoplete#custom#var('omni', 'input_patterns', {
-	\ 'tex': g:vimtex#re#deoplete
-	\})
-""tab as remapping for deoplete
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ deoplete#mappings#manual_complete()
-function! s:check_back_space() abort "" {{{
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~ '\s'
-endfunction "" }}}
-" javacomplete2
-autocmd FileType java setlocal omnifunc=javacomplete#Complete
 " CoVim
 let CoVim_default_name = "TiynGER"
 let CoVim_default_port = "7000"
+" Coc
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
+endfunction
