@@ -107,20 +107,15 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Plugin section
 call plug#begin('~/.config/nvim/plugged')
-" Autocomplete
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Latex Upgrades
-Plug 'donRaphaco/neotex', { 'for': 'tex'}
-Plug 'lervag/vimtex', {'for': 'tex'}
-" Indexing and Overview tools
-Plug 'preservim/nerdtree'
-Plug 'majutsushi/tagbar'
-" Git Upgrades
-Plug 'airblade/vim-gitgutter'
-" Use Vim together
-Plug 'FredKSchott/CoVim'
-" Bulk Renamer
-Plug 'qpkorr/vim-renamer'
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
+Plug 'lervag/vimtex', {'for': 'tex'} " library for coc autocomplete
+Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'} " connect vimtex to coc
+Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
+Plug 'preservim/nerdtree' " Filetree
+Plug 'majutsushi/tagbar' " Show tags
+Plug 'airblade/vim-gitgutter' " Git Upgrades
+Plug 'FredKSchott/CoVim' "Use vim together
+Plug 'qpkorr/vim-renamer' " Bulk renamer
 call plug#end()
 "tagbar
 map <F3> :TagbarToggle<CR>
