@@ -1,23 +1,23 @@
-" G80
+" G80 modded to be a bit more transparent
 
 " Reset all styles first
 highlight clear
 
-highlight Border	cterm=none	ctermfg=237	ctermbg=237
+highlight Border	cterm=none	ctermfg=237	ctermbg=-1
 
-highlight TopLine	cterm=none	ctermfg=188	ctermbg=237
-highlight TopLineSel	cterm=underline	ctermfg=188	ctermbg=237
+highlight TopLine	cterm=none	ctermfg=188	ctermbg=-1
+highlight TopLineSel	cterm=underline	ctermfg=188	ctermbg=-1
 
-highlight Win		cterm=none	ctermfg=188	ctermbg=237
-highlight Directory	cterm=none	ctermfg=188	ctermbg=237
+highlight Win		cterm=none	ctermfg=188	ctermbg=-1
+highlight Directory	cterm=none	ctermfg=188	ctermbg=-1
 highlight CurrLine	cterm=none	ctermfg=188	ctermbg=236
-highlight OtherLine	cterm=none	ctermfg=247	ctermbg=237
+highlight OtherLine	cterm=none	ctermfg=247	ctermbg=-1
 highlight Selected	cterm=none	ctermfg=188	ctermbg=238
 
 highlight JobLine	cterm=bold	ctermfg=188	ctermbg=238
 highlight StatusLine	cterm=none	ctermfg=188	ctermbg=235
 highlight WildMenu	cterm=none	ctermfg=188	ctermbg=238
-highlight CmdLine	cterm=none	ctermfg=188	ctermbg=237
+highlight CmdLine	cterm=none	ctermfg=188	ctermbg=-1
 highlight ErrorMsg	cterm=none	ctermfg=188	ctermbg=237
 
 highlight Executable	cterm=none	ctermfg=188	ctermbg=237
