@@ -3,10 +3,10 @@
 
 [ -z "$2" ] && echo "missing argument: filename (no ending)" && return 1
 
-articletemp=~/gitrepos/tools/latex_templates/latex_article/article.tex
-beamertemp=~/gitrepos/tools/latex_templates/latex_beamer/beamer.tex
-exercisetemp=~/gitrepos/tools/latex_templates/latex_exercise_header/header.tex
-handouttemp=~/gitrepos/tools/latex_templates/latex_handout/handout.tex
+articletemp=~/gitrepos/etc/latextemplates/latex_article/article.tex
+beamertemp=~/gitrepos/etc/latextemplates/latex_beamer/beamer.tex
+exercisetemp=~/gitrepos/etc/latextemplates/latex_exercise_header/header.tex
+handouttemp=~/gitrepos/etc/latextemplates/latex_handout/handout.tex
 
 case "$1" in
 	a*) cp "$articletemp" $2.tex ;;
@@ -16,9 +16,9 @@ case "$1" in
 	*) cat << EOF
 
 Allowed options
-	article NAME 		get handout-template with given NAME
-	beamer NAME 		get handout-template with given NAME
-	exercise NAME 		get handout-template with given NAME
+	article NAME 		get article-template with given NAME
+	beamer NAME 		get beamer-template with given NAME
+	exercise NAME 		get exercise-template with given NAME
 	handout NAME 		get handout-template with given NAME
 
 All of these commands can be truncated,
