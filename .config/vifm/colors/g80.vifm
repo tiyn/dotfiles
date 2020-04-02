@@ -10,7 +10,7 @@ highlight TopLineSel	cterm=underline	ctermfg=188	ctermbg=-1
 
 highlight Win		cterm=none	ctermfg=188	ctermbg=-1
 highlight Directory	cterm=none	ctermfg=188	ctermbg=-1
-highlight CurrLine	cterm=none	ctermfg=188	ctermbg=236
+highlight CurrLine	cterm=none	ctermfg=238	ctermbg=188
 highlight OtherLine	cterm=none	ctermfg=247	ctermbg=-1
 highlight Selected	cterm=none	ctermfg=188	ctermbg=238
 
@@ -21,7 +21,7 @@ highlight CmdLine	cterm=none	ctermfg=188	ctermbg=-1
 highlight ErrorMsg	cterm=none	ctermfg=188	ctermbg=237
 
 highlight Executable	cterm=none	ctermfg=188	ctermbg=237
-highlight Link		cterm=none	ctermfg=188	ctermbg=237
+highlight Link		cterm=none	ctermfg=188	ctermbg=-1
 highlight BrokenLink	cterm=none	ctermfg=188	ctermbg=237
 highlight Device	cterm=none	ctermfg=188	ctermbg=237
 highlight Fifo		cterm=none	ctermfg=188	ctermbg=237
