@@ -79,7 +79,7 @@ Plug 'qpkorr/vim-renamer' " Bulk renamer
 call plug#end()
 
 " Coc extensions
-let g:coc_global_extensions = ['coc-snippets', 'coc-vimtex']
+let g:coc_global_extensions = ['coc-snippets', 'coc-vimtex', 'coc-snippets']
 
 " Coc remaps
 inoremap <silent><expr> <TAB>
