@@ -1,0 +1,81 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet ,b "Bold" A
+<b>$0</b>
+endsnippet
+
+snippet ,it "Italics" A
+<em>$0</em>
+endsnippet
+
+snippet ,1 "Header 1" A
+<h1>$0</h1>
+endsnippet
+
+snippet ,2 "Header 2" A
+<h2>$0</h2>
+endsnippet
+
+snippet ,3 "Header 3" A
+<h3>$0</h3>
+endsnippet
+
+snippet ,p "Paragraph" A
+<p>$0</p>
+endsnippet
+
+snippet ,a "Hyperlink" A
+<a href="$0">$1</a>
+endsnippet
+
+snippet ,e "External Hyperlink" A
+<a target="_blank" href="$0">$1</a>
+endsnippet
+
+snippet ,ul "Itemization" A
+<ul>
+	<li>$0</li>
+</ul>
+endsnippet
+
+snippet ,li "List Element" A
+<li>$0</li>
+endsnippet
+
+snippet ,ol "Enumeration" A
+<ol>
+	<li>$0</li>
+</ol>
+endsnippet
+
+snippet ,im "Image" A
+<img src="$0" alt="$1">
+endsnippet
+
+snippet & "Et Sign" A
+&amp;
+endsnippet
