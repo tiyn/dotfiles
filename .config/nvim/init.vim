@@ -19,10 +19,13 @@ filetype plugin on
 syntax on
 set encoding=utf-8
 set number relativenumber
+
 " Enable autocompletion:
 set wildmode=longest,list,full
+
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
 " Setting Tab-length
 set tabstop=4
 set softtabstop=4
@@ -30,6 +33,9 @@ set shiftwidth=4
 
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
+
+" Clean LaTex build files
+autocmd VimLeave *.tex !texclear %
 
 " Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
 vnoremap <C-c> "+y
@@ -51,9 +57,78 @@ inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
 map <leader><leader> <Esc>/<++><Enter>"_c4l
 
+" Compiler for languages
+map <leader>c :w! \| !compiler <c-r>%<CR>
+
+" Open corresponding file (pdf/html/...)
+map <leader>p :!opout <c-r>%<CR><CR>
+
+" Delete trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
+
+" Plugin section
+call plug#begin('~/.config/nvim/plugged')
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
+Plug 'lervag/vimtex', {'for': 'tex'} " library for coc autocomplete
+Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
+Plug 'preservim/nerdtree' " Filetree
+Plug 'majutsushi/tagbar' " Show tags
+Plug 'airblade/vim-gitgutter' " Git Upgrades
+Plug 'FredKSchott/CoVim' "Use vim together
+Plug 'qpkorr/vim-renamer' " Bulk renamer
+call plug#end()
+
+" Coc extensions
+let g:coc_global_extensions = ['coc-snippets', 'coc-vimtex']
+
+" Coc remaps
+inoremap <silent><expr> <TAB>
+	\ pumvisible() ? "\<C-n>" :
+	\ <SID>check_back_space() ? "\<TAB>" :
+	\ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1] =~# '\s'
+endfunction
+
+"tagbar
+map <F3> :TagbarToggle<CR>
+
+"nerdtree
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinPos = "left"
+
+"neotex
+let g:neotex_enabled = 2
+
+" CoVim
+let CoVim_default_name = "TiynGER"
+let CoVim_default_port = "7000"
+
+"""HTML
+autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
+autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
+autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
+autocmd FileType html inoremap ,2 <h2></h2><Enter><Enter><++><Esc>2kf<i
+autocmd FileType html inoremap ,3 <h3></h3><Enter><Enter><++><Esc>2kf<i
+autocmd FileType html inoremap ,p <p></p><Enter><Enter><++><Esc>02kf>a
+autocmd FileType html inoremap ,a <a<Space>href=""><++></a><Space><++><Esc>14hi
+autocmd FileType html inoremap ,e <a<Space>target="_blank"<Space>href=""><++></a><Space><++><Esc>14hi
+autocmd FileType html inoremap ,ul <ul><Enter><li></li><Enter></ul><Enter><Enter><++><Esc>03kf<i
+autocmd FileType html inoremap ,li <Esc>o<li></li><Esc>F>a
+autocmd FileType html inoremap ,ol <ol><Enter><li></li><Enter></ol><Enter><Enter><++><Esc>03kf<i
+autocmd FileType html inoremap ,im <img src="" alt="<++>"><++><esc>Fcf"a
+autocmd FileType html inoremap &<space> &amp;<space>
+autocmd FileType html inoremap ä &auml;
+autocmd FileType html inoremap ë &euml;
+autocmd FileType html inoremap ï &iuml;
+autocmd FileType html inoremap ö &ouml;
+autocmd FileType html inoremap ü &uuml;
+
 "" LATEX
-" Clean LaTex build files
-autocmd VimLeave *.tex !texclear %
 autocmd FileType tex inoremap ,fr \begin{frame}<Enter>\frametitle{}<Enter><Enter><++><Enter><Enter>\end{frame}<Enter><Enter><++><Esc>6kf}i
 autocmd FileType tex inoremap ,em \emph{}<++><Esc>T{i
 autocmd FileType tex inoremap ,bf \textbf{}<++><Esc>T{i
@@ -76,66 +151,3 @@ autocmd FileType tex inoremap ,up <Esc>/usepackage<Enter>o\usepackage{}<Esc>i
 autocmd FileType tex nnoremap ,up /usepackage<Enter>o\usepackage{}<Esc>i
 autocmd FileType tex inoremap ,tt \texttt{}<Space><++><Esc>T{i
 
-"""HTML
-autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
-autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
-autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
-autocmd FileType html inoremap ,2 <h2></h2><Enter><Enter><++><Esc>2kf<i
-autocmd FileType html inoremap ,3 <h3></h3><Enter><Enter><++><Esc>2kf<i
-autocmd FileType html inoremap ,p <p></p><Enter><Enter><++><Esc>02kf>a
-autocmd FileType html inoremap ,a <a<Space>href=""><++></a><Space><++><Esc>14hi
-autocmd FileType html inoremap ,e <a<Space>target="_blank"<Space>href=""><++></a><Space><++><Esc>14hi
-autocmd FileType html inoremap ,ul <ul><Enter><li></li><Enter></ul><Enter><Enter><++><Esc>03kf<i
-autocmd FileType html inoremap ,li <Esc>o<li></li><Esc>F>a
-autocmd FileType html inoremap ,ol <ol><Enter><li></li><Enter></ol><Enter><Enter><++><Esc>03kf<i
-autocmd FileType html inoremap ,im <img src="" alt="<++>"><++><esc>Fcf"a
-autocmd FileType html inoremap &<space> &amp;<space>
-autocmd FileType html inoremap ä &auml;
-autocmd FileType html inoremap ë &euml;
-autocmd FileType html inoremap ï &iuml;
-autocmd FileType html inoremap ö &ouml;
-autocmd FileType html inoremap ü &uuml;
-
-" Compiler for languages
-map <leader>c :w! \| !compiler <c-r>%<CR>
-
-" Open corresponding file (pdf/html/...)
-map <leader>p :!opout <c-r>%<CR><CR>
-
-" Delete trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
-
-" Plugin section
-call plug#begin('~/.config/nvim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
-Plug 'lervag/vimtex', {'for': 'tex'} " library for coc autocomplete
-Plug 'neoclide/coc-vimtex', {'do': 'yarn install --frozen-lockfile'} " connect vimtex to coc
-Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
-Plug 'preservim/nerdtree' " Filetree
-Plug 'majutsushi/tagbar' " Show tags
-Plug 'airblade/vim-gitgutter' " Git Upgrades
-Plug 'FredKSchott/CoVim' "Use vim together
-Plug 'qpkorr/vim-renamer' " Bulk renamer
-call plug#end()
-"tagbar
-map <F3> :TagbarToggle<CR>
-"nerdtree
-map <F2> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeWinPos = "left"
-"neotex
-let g:neotex_enabled = 2
-" CoVim
-let CoVim_default_name = "TiynGER"
-let CoVim_default_port = "7000"
-" Coc
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~# '\s'
-endfunction
