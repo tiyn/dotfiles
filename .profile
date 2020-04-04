@@ -23,7 +23,6 @@ export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
-export XDG_RUNTIME_HOME="$HOME/.tmp"
 
 export ANDROID_SDK_HOME="$XDG_CONFIG_HOME/android"
 export GNUPGHOME="$XDG_CONFIG_HOME/gnupg"
@@ -41,7 +40,6 @@ export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
 export TMUX_TMPDIR="$XDG_RUNTIME_HOME/tmux"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-export XAUTHORITY="$XDG_RUNTIME_HOME/Xauthority"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export _JAVA_AWT_WM_NONREPARENTING=1
 
