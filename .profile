@@ -18,6 +18,7 @@ export TABLE="sc-im"
 export TERMINAL="st"
 export QT_QPA_PLATFORMTHEME="qt5ct"
 export VIDEO="mpv"
+export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -57,5 +58,5 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "$HOME/.bashrc"
 echo "$0" | grep "zsh$" >/dev/null && [ -f $ZDOTDIR/.zshrc ] && source "$ZDOTDIR/.zshrc"
 
-# Start graphical server if dwm not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x dwm >/dev/null && exec startx
+# Start graphical server if not already running.
+[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
