@@ -4,20 +4,14 @@
 # Adds `~/.local/bin` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
-export AUDIO="mpv"
 export BROWSER="firefox"
+export RTV_BROWSER=$BROWSER
 export EDITOR="nvim"
 export FILE="vifmrun"
 export IMAGE="sxiv"
-export LATEX="nvim"
-export MAIL="thunderbird"
-export MUSIC="ncmpcpp"
 export READER="zathura"
-export RTV_BROWSER="firefox"
-export TABLE="sc-im"
 export TERMINAL="st"
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export VIDEO="mpv"
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 
 export XDG_CACHE_HOME="$HOME/.cache"
@@ -38,7 +32,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export NUGET_PACKAGES="$XDG_CACHE_HOME/nugetpackages"
 export PASSWORD_STORE_DIR="$XDG_DATA_HOME/pass"
 export SUDO_ASKPASS="$HOME/.local/bin/tools/dmenupass"
-export TMUX_TMPDIR="$XDG_RUNTIME_HOME/tmux"
+export TMUX_TMPDIR="$XDG_CACHE_HOME/tmux"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 export _JAVA_AWT_WM_NONREPARENTING=1
