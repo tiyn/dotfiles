@@ -9,6 +9,4 @@ xrandr --auto
 xterm -geometry 80x24+10+10 -fn 10x20
 
 setbg
-while :; do
-	ssh-agent dwm || break
-done
+exec dwm
