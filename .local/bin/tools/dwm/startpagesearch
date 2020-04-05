@@ -6,18 +6,17 @@
 # Anything else, it search it.
 # original by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-browser=${RTVBROWSER:-firefox}
 
 pgrep -x dmenu && exit
 
 choice=$(echo "Startpage" | dmenu -i -p "Search Startpage:") || exit 1
 
 if [ "$choice" = "Startpage"  ]; then
-    $RTV_BROWSER "https://startpage.com"
+    $BROWSER "https://startpage.com"
 else
     if echo "$choice" | grep "^(http:\/\/|https:\/\/)?[a-zA-Z0-9]+\.[a-zA-Z]+(/)?.*$"; then
-        $RTV_BROWSER "$choice"
+        $BROWSER "$choice"
     else
-        $RTV_BROWSER "https://startpage.com/do/search/?q=$choice"
+        $BROWSER "https://startpage.com/do/search/?q=$choice"
     fi
 fi
