@@ -62,7 +62,7 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Plugin section
 call plug#begin('~/.config/nvim/plugged')
-Plug 'lervag/vimtex' , { 'for' : 'tex'} " tex library for coc autocompletion
+Plug 'lervag/vimtex' , { 'for' : 'tex'} " Tex library for coc autocompletion
 Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
 Plug 'preservim/nerdtree' " Filetree
 Plug 'majutsushi/tagbar' " Show tags
@@ -72,6 +72,7 @@ Plug 'qpkorr/vim-renamer' " Bulk renamer
 Plug 'sirver/ultisnips' " Snippets
 call plug#end()
 
+"you complete me
 let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
 let g:ycm_semantic_triggers = {
 	\ 'tex' : ['{']
