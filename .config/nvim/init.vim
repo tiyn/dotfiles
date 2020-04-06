@@ -6,7 +6,6 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall
 endif
 
-"set bg=light
 set go=a
 set mouse=a
 set nohlsearch
@@ -72,7 +71,10 @@ Plug 'qpkorr/vim-renamer' " Bulk renamer
 Plug 'sirver/ultisnips' " Snippets
 call plug#end()
 
-"you complete me
+" Colorscheme
+source /home/tiynger/.config/nvim/codedark.vim
+
+" You complete me
 let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
 let g:ycm_semantic_triggers = {
 	\ 'tex' : ['{']
@@ -82,15 +84,15 @@ if !exists('g:ycm_semantic_triggers')
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
-"tagbar
+" Tagbar
 map <F3> :TagbarToggle<CR>
 
-"nerdtree
+" Nerdtree
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeWinPos = "left"
 
-"neotex
+" Neotex
 let g:neotex_enabled = 2
 
 " CoVim
