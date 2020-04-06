@@ -26,89 +26,92 @@
 
 snippet ,fr "Frame" A
 \begin{frame}
-	\frametitle{}
-	$0
+	\frametitle{$1}
+	$2
 \end{frame}
 endsnippet
 
 snippet ,em "Emphasis" A
-\emph{$0}
+\emph{$1}
 endsnippet
 
 snippet ,bf "Bold" A
-\textbf{$0}
+\textbf{$1} $2
 endsnippet
 
 snippet ,it "Italic" A
-\textit{$0}
+\textit{$1} $2
 endsnippet
 
 snippet ,ct "Text cite" A
-\textcite{$0}
+\textcite{$1} $2
 endsnippet
 
 snippet ,cp "Parenthesis cite" A
-\parencite{$0}
+\parencite{$1} $2
 endsnippet
 
 snippet ,ol "Enumeration" A
 \begin{enumerate}
-	\item $0
+	\item $1
+	$2
 \end{enumerate}
 endsnippet
 
 snippet ,ul "Itemization" A
 \begin{itemize}
-	\item $0
+	\item $1
+	$2
 \end{itemize}
 endsnippet
 
 snippet ,li "List element" A
-\item $0
+\item $1
+$2
 endsnippet
 
 snippet ,ref "Reference" A
-\ref{$0}
+\ref{$1} $2
 endsnippet
 
 snippet ,tab "Tabular" A
 \begin{tabular}
-$0
+$1
 \end{tabular}
 endsnippet
 
 snippet ,a "Hyperlink" A
-\href{$0}{$1}
+\href{$1}{$2}
 endsnippet
 
 snippet ,sc "Small caps" A
-\textsc{$0}
+\textsc{$1} $2
 endsnippet
 
 snippet ,chap "Chapter" A
-\chapter{$0}
-$1
+\chapter{$1}
+$2
 endsnippet
 
 snippet ,sec "Section" A
-\section{$0}
-$1
+\section{$1}
+$2
 endsnippet
 
 snippet ,ssec "Subsection" A
-\subsection{$0}
-$1
+\subsection{$1}
+$2
 endsnippet
 
 snippet ,sssec "Subsubsection" A
-\subsubsection{$0}
-$1
+\subsubsection{$1}
+$2
 endsnippet
 
 snippet ,up "Use Packagage" A
-\usepackage{$0}
+\usepackage{$1}
 endsnippet
 
 snippet ,tt "Typewriter" A
-\texttt{$0}
+\texttt{$1} $2
 endsnippet
