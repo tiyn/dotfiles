@@ -19,63 +19,70 @@
 #
 #		snippet emitter "emitter properties" b
 #		private readonly ${1} = new Emitter<$2>()
-#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		public readonly ${1/^_(.*)/$2/}: Event<$2> = this.$2.event
 #		endsnippet
 #
 # Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
 
 snippet ,b "Bold" A
-<b>$0</b>
+<b>$1</b> $2
 endsnippet
 
 snippet ,it "Italics" A
-<em>$0</em>
+<em>$1</em> $2
 endsnippet
 
 snippet ,1 "Header 1" A
-<h1>$0</h1>
+<h1>$1</h1>
+$2
 endsnippet
 
 snippet ,2 "Header 2" A
-<h2>$0</h2>
+<h2>$1</h2>
+$2
 endsnippet
 
 snippet ,3 "Header 3" A
-<h3>$0</h3>
+<h3>$1</h3>
+$2
 endsnippet
 
 snippet ,p "Paragraph" A
-<p>$0</p>
+<p>$1</p>
+$2
 endsnippet
 
 snippet ,a "Hyperlink" A
-<a href="$0">$1</a>
+<a href="$1">$2</a> $3
 endsnippet
 
 snippet ,e "External Hyperlink" A
-<a target="_blank" href="$0">$1</a>
+<a target="_blank" href="$1">$2</a> $3
 endsnippet
 
 snippet ,ul "Itemization" A
 <ul>
-	<li>$0</li>
+	<li>$1</li>
+	$2
 </ul>
 endsnippet
 
 snippet ,li "List Element" A
-<li>$0</li>
+<li>$1</li>
+$2
 endsnippet
 
 snippet ,ol "Enumeration" A
 <ol>
-	<li>$0</li>
+	<li>$1</li>
+	$2
 </ol>
 endsnippet
 
 snippet ,im "Image" A
-<img src="$0" alt="$1">
+<img src="$1" alt="$2"> $3
 endsnippet
 
 snippet & "Et Sign" A
-&amp;
+&amp; $1
 endsnippet
