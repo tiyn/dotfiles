@@ -63,7 +63,7 @@ autocmd BufWritePre * %s/\s\+$//e
 " Plugin section
 call plug#begin('~/.config/nvim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
-Plug 'lervag/vimtex', {'for': 'tex'} " library for coc autocomplete
+Plug 'lervag/vimtex' , { 'for' : 'tex'} " tex library for coc autocompletion
 Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
 Plug 'preservim/nerdtree' " Filetree
 Plug 'majutsushi/tagbar' " Show tags
@@ -74,18 +74,21 @@ call plug#end()
 
 " Coc extensions
 let g:coc_global_extensions = ['coc-snippets', 'coc-vimtex']
-
-" Coc remaps
+" tab through suggestions
+let g:coc_snippet_next = '<tab>'
 inoremap <silent><expr> <TAB>
 	\ pumvisible() ? "\<C-n>" :
 	\ <SID>check_back_space() ? "\<TAB>" :
 	\ coc#refresh()
+" jump to next placeholder
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
+" ending suggestions
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1] =~# '\s'
 endfunction
+" expand snippets on enter
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
 
 "tagbar
 map <F3> :TagbarToggle<CR>
