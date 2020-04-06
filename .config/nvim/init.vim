@@ -62,7 +62,6 @@ autocmd BufWritePre * %s/\s\+$//e
 
 " Plugin section
 call plug#begin('~/.config/nvim/plugged')
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " Autocomplete
 Plug 'lervag/vimtex' , { 'for' : 'tex'} " tex library for coc autocompletion
 Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
 Plug 'preservim/nerdtree' " Filetree
@@ -72,23 +71,10 @@ Plug 'FredKSchott/CoVim' "Use vim together
 Plug 'qpkorr/vim-renamer' " Bulk renamer
 call plug#end()
 
-" Coc extensions
-let g:coc_global_extensions = ['coc-snippets', 'coc-vimtex']
-" tab through suggestions
-let g:coc_snippet_next = '<tab>'
-inoremap <silent><expr> <TAB>
-	\ pumvisible() ? "\<C-n>" :
-	\ <SID>check_back_space() ? "\<TAB>" :
-	\ coc#refresh()
-" jump to next placeholder
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-" ending suggestions
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1] =~# '\s'
-endfunction
-" expand snippets on enter
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<CR>"
+let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
+let g:ycm_semantic_triggers = {
+	\ 'tex' : ['{']
+	\}
 
 "tagbar
 map <F3> :TagbarToggle<CR>
