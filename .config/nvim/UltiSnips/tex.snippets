@@ -1,0 +1,117 @@
+# A valid snippet should starts with:
+#
+#		snippet trigger_word [ "description" [ options ] ]
+#
+# and end with:
+#
+#		endsnippet
+#
+# Snippet options:
+#
+#		b - Beginning of line.
+#		i - In-word expansion.
+#		w - Word boundary.
+#		r - Regular expression
+#		e - Custom context snippet
+#		A - Snippet will be triggered automatically, when condition matches.
+#
+# Basic example:
+#
+#		snippet emitter "emitter properties" b
+#		private readonly ${1} = new Emitter<$2>()
+#		public readonly ${1/^_(.*)/$1/}: Event<$2> = this.$1.event
+#		endsnippet
+#
+# Online reference: https://github.com/SirVer/ultisnips/blob/master/doc/UltiSnips.txt
+
+snippet ,fr "Frame" A
+\begin{frame}
+	\frametitle{$1}
+	$2
+\end{frame}
+endsnippet
+
+snippet ,em "Emphasis" A
+\emph{$1}
+endsnippet
+
+snippet ,bf "Bold" A
+\textbf{$1} $2
+endsnippet
+
+snippet ,it "Italic" A
+\textit{$1} $2
+endsnippet
+
+snippet ,ct "Text cite" A
+\textcite{$1} $2
+endsnippet
+
+snippet ,cp "Parenthesis cite" A
+\parencite{$1} $2
+endsnippet
+
+snippet ,ol "Enumeration" A
+\begin{enumerate}
+	\item $1
+	$2
+\end{enumerate}
+endsnippet
+
+snippet ,ul "Itemization" A
+\begin{itemize}
+	\item $1
+	$2
+\end{itemize}
+endsnippet
+
+snippet ,li "List element" A
+\item $1
+$2
+endsnippet
+
+snippet ,ref "Reference" A
+\ref{$1} $2
+endsnippet
+
+snippet ,tab "Tabular" A
+\begin{tabular}
+$1
+\end{tabular}
+endsnippet
+
+snippet ,a "Hyperlink" A
+\href{$1}{$2}
+endsnippet
+
+snippet ,sc "Small caps" A
+\textsc{$1} $2
+endsnippet
+
+snippet ,chap "Chapter" A
+\chapter{$1}
+$2
+endsnippet
+
+snippet ,sec "Section" A
+\section{$1}
+$2
+endsnippet
+
+snippet ,ssec "Subsection" A
+\subsection{$1}
+$2
+endsnippet
+
+snippet ,sssec "Subsubsection" A
+\subsubsection{$1}
+$2
+endsnippet
+
+snippet ,up "Use Packagage" A
+\usepackage{$1}
+endsnippet
+
+snippet ,tt "Typewriter" A
+\texttt{$1} $2
+endsnippet

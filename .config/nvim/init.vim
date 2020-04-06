@@ -69,12 +69,17 @@ Plug 'majutsushi/tagbar' " Show tags
 Plug 'airblade/vim-gitgutter' " Git Upgrades
 Plug 'FredKSchott/CoVim' "Use vim together
 Plug 'qpkorr/vim-renamer' " Bulk renamer
+Plug 'sirver/ultisnips' " Snippets
 call plug#end()
 
 let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
 let g:ycm_semantic_triggers = {
 	\ 'tex' : ['{']
 	\}
+if !exists('g:ycm_semantic_triggers')
+	let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
 
 "tagbar
 map <F3> :TagbarToggle<CR>
