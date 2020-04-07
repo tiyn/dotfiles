@@ -59,11 +59,17 @@ map <leader>p :!opout <c-r>%<CR><CR>
 " Delete trailing whitespaces on save
 autocmd BufWritePre * %s/\s\+$//e
 
+" Shortcut for split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
 " Plugin section
-call plug#begin('~/.config/nvim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lervag/vimtex' , { 'for' : 'tex'} " Tex library for coc autocompletion
 Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
-Plug 'preservim/nerdtree' " Filetree
+Plug 'scrooloose/nerdtree' " Filetree
 Plug 'majutsushi/tagbar' " Show tags
 Plug 'airblade/vim-gitgutter' " Git Upgrades
 Plug 'FredKSchott/CoVim' "Use vim together
