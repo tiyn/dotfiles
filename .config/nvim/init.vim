@@ -75,10 +75,16 @@ Plug 'airblade/vim-gitgutter' " Git Upgrades
 Plug 'FredKSchott/CoVim' "Use vim together
 Plug 'qpkorr/vim-renamer' " Bulk renamer
 Plug 'sirver/ultisnips' " Snippets
+Plug 'uiiaoo/java-syntax.vim' , { 'for': 'java'} " Better syntax highlight for java than default
+Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
+Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 call plug#end()
 
 " Colorscheme
 source /home/tiynger/.config/nvim/codedark.vim
+
+" Rainbow
+au FileType java,c,cpp,py call rainbow#load()
 
 " You complete me
 let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
