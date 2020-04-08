@@ -12,7 +12,7 @@ export IMAGE="sxiv"
 export READER="zathura"
 export TERMINAL="st"
 export QT_QPA_PLATFORMTHEME="qt5ct"
-export WINEPREFIX="$HOME/wine"
+export WINEPREFIX="$HOME/.wine"
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 
 export XDG_CACHE_HOME="$HOME/.cache"
