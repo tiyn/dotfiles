@@ -1,4 +1,74 @@
 let mapleader =","
+
+set go=a
+" Enable mouse for all modes
+set mouse=a
+set nohlsearch
+set clipboard+=unnamedplus
+" Enable command completion
+set wildmode=longest,list,full
+" Setting Tab-length
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+set splitbelow splitright
+" Set lines and colors
+set cursorline
+set cursorcolumn
+" Disable case sensitive matching
+set ignorecase
+" Enable nocompatible mode
+set nocompatible
+" Enable Plugins
+filetype plugin on
+" Enable syntax highlighting
+syntax on
+" Enable true colors
+set termguicolors
+" Set utf-8 encoding
+set encoding=utf-8
+" Show relative numbers on left side
+set number relativenumber
+
+" Colorscheme
+source /home/tiynger/.config/nvim/codedark.vim
+highlight CursorLine ctermbg=Yellow cterm=bold guibg=#1b1b1b
+highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#1b1b1b
+
+" Center screen on Insertion
+autocmd InsertEnter * norm zz
+" Delete trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Clean LaTex build files
+autocmd VimLeave *.tex !texclear %
+" Read files correctly
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+" Mapping Dictionaries
+map <F5> :setlocal spell! spelllang=de_de<CR>
+map <F6> :set spelllang=en_us<CR>
+" Compiler for languages
+map <leader>c :w! \| !compiler <c-r>%<CR>
+" Open corresponding file (pdf/html/...)
+map <leader>p :!opout <c-r>%<CR><CR>
+" Shortcut for split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
+map <C-p> "+P
+vnoremap <C-c> "+y
+" Save file as sudo on files that require root permission
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+" Alias for replacing
+nnoremap S :%s//gI<Left><Left><Left>
+
+" Plugin section
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
@@ -6,66 +76,6 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall
 endif
 
-set go=a
-set mouse=a
-set nohlsearch
-set clipboard=unnamedplus
-
-" Some basics:
-nnoremap c "_c
-set nocompatible
-filetype plugin on
-syntax on
-set encoding=utf-8
-set number relativenumber
-
-" Enable autocompletion:
-set wildmode=longest,list,full
-
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-
-" Setting Tab-length
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-set splitbelow splitright
-
-" Clean LaTex build files
-autocmd VimLeave *.tex !texclear %
-
-" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-vnoremap <C-c> "+y
-map <C-p> "+P
-
-" Save file as sudo on files that require root permission
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-
-" Mapping Dictionaries
-map <F5> :setlocal spell! spelllang=de<CR>
-map <F6> :set spelllang=en_us<CR>
-
-" Read files correctly
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-
-" Compiler for languages
-map <leader>c :w! \| !compiler <c-r>%<CR>
-
-" Open corresponding file (pdf/html/...)
-map <leader>p :!opout <c-r>%<CR><CR>
-
-" Delete trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
-
-" Shortcut for split navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-
-" Plugin section
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lervag/vimtex' , { 'for' : 'tex'} " Tex library for coc autocompletion
 Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
@@ -79,9 +89,6 @@ Plug 'uiiaoo/java-syntax.vim' , { 'for': 'java'} " Better syntax highlight for j
 Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
 Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 call plug#end()
-
-" Colorscheme
-source /home/tiynger/.config/nvim/codedark.vim
 
 " Rainbow
 au FileType java,c,cpp,py call rainbow#load()
