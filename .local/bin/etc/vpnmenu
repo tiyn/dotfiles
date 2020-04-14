@@ -1,0 +1,7 @@
+#!/bin/sh
+
+active=$(nmcli connection show --active | grep vpn | cut -d' ' -f1)
+[[ ! -z "$active" ]] && { prompt "disconnect from $active?"  || exit 1; }
+[[ ! -z "$active" ]] && nmcli connection down $active
+conn=$(nmcli connection | grep vpn | cut -d' ' -f1 | dmenu)
+nmcli connection up $conn
