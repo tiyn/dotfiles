@@ -88,6 +88,7 @@ Plug 'uiiaoo/java-syntax.vim' , { 'for': 'java'} " Better syntax highlight for j
 Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
 Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
+Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " Color Preview
 call plug#end()
 
 " Rainbow
@@ -117,3 +118,18 @@ let g:neotex_enabled = 2
 " CoVim
 let CoVim_default_name = "TiynGER"
 let CoVim_default_port = "7000"
+
+" Hexokinase
+let g:Hexokinase_refreshEvents = ['InsertLeave']
+let g:Hexokinase_optInPatterns = [
+            \   'full_hex',
+            \   'triple_hex',
+            \   'rgb',
+            \   'rgba',
+            \   'hsl',
+            \   'hsla',
+            \   'color_names'
+            \]
+
+let g:Hexokinase_highlighters = ['backgroundfull']
+autocmd VimEnter * HexokinaseTurnOn
