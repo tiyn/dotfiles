@@ -87,6 +87,7 @@ Plug 'sirver/ultisnips' " Snippets
 Plug 'uiiaoo/java-syntax.vim' , { 'for': 'java'} " Better syntax highlight for java than default
 Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
 Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
+Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
 call plug#end()
 
 " Rainbow
