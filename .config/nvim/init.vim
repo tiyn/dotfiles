@@ -3,7 +3,6 @@ let mapleader =","
 set go=a
 " Enable mouse for all modes
 set mouse=a
-set nohlsearch
 set clipboard+=unnamedplus
 " Enable command completion
 set wildmode=longest,list,full
