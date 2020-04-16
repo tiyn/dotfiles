@@ -27,9 +27,6 @@ srd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 # grep
 alias grep="grep --color=auto"
 
-# hastebin
-haste() { a=$(cat); curl -X POST -s -d "$a" https://paste.tiynger.eu/documents | awk -F '"' '{print "https://paste.tiynger.eu/"$4}'; }
-
 #khal
 alias calendar="khal"
 
