@@ -1,73 +1,4 @@
-let mapleader =","
-
-set go=a
-" Enable mouse for all modes
-set mouse=a
-set clipboard+=unnamedplus
-" Enable command completion
-set wildmode=longest,list,full
-" Setting Tab-length
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-set splitbelow splitright
-" Set lines and colors
-set cursorline
-set cursorcolumn
-" Disable case sensitive matching
-set ignorecase
-" Enable nocompatible mode
-set nocompatible
-" Enable Plugins
-filetype plugin on
-" Enable syntax highlighting
-syntax on
-" Enable true colors
-set termguicolors
-" Set utf-8 encoding
-set encoding=utf-8
-" Show relative numbers on left side
-set number relativenumber
-
-" Colorscheme
-source /home/tiynger/.config/nvim/codedark.vim
-highlight CursorLine ctermbg=Yellow cterm=bold guibg=#1b1b1b
-highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#1b1b1b
-
-" Center screen on Insertion
-autocmd InsertEnter * norm zz
-" Delete trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" Clean LaTex build files
-autocmd VimLeave *.tex !texclear %
-" Read files correctly
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-
-" Mapping Dictionaries
-map <F5> :setlocal spell! spelllang=de_de<CR>
-map <F6> :set spelllang=en_us<CR>
-" Compiler for languages
-map <leader>c :w! \| !compiler <c-r>%<CR>
-" Open corresponding file (pdf/html/...)
-map <leader>p :!opout <c-r>%<CR><CR>
-" Shortcut for split navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-map <C-p> "+P
-vnoremap <C-c> "+y
-" Save file as sudo on files that require root permission
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-" Alias for replacing
-nnoremap S :%s//gI<Left><Left><Left>
-
-" Plugin section
+" Begin Plugin section
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
@@ -89,6 +20,7 @@ Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
 Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " Color Preview
+Plug 'tomasiser/vim-code-dark'
 call plug#end()
 
 " Rainbow
@@ -133,3 +65,74 @@ let g:Hexokinase_optInPatterns = [
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 autocmd VimEnter * HexokinaseTurnOn
+
+" End Plugin section
+
+let mapleader =","
+
+set go=a
+" Enable mouse for all modes
+set mouse=a
+set clipboard+=unnamedplus
+" Enable command completion
+set wildmode=longest,list,full
+" Setting Tab-length
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+set splitbelow splitright
+" Set lines and colors
+set cursorline
+set cursorcolumn
+" Disable case sensitive matching
+set ignorecase
+" Enable nocompatible mode
+set nocompatible
+" Enable Plugins
+filetype plugin on
+" Enable syntax highlighting
+syntax on
+" Enable true colors
+set termguicolors
+" Set utf-8 encoding
+set encoding=utf-8
+" Show relative numbers on left side
+set number relativenumber
+
+" Colorscheme
+colorscheme codedark
+highlight CursorLine ctermbg=Yellow cterm=bold guibg=#1b1b1b
+highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#1b1b1b
+
+" Center screen on Insertion
+autocmd InsertEnter * norm zz
+" Delete trailing whitespaces on save
+autocmd BufWritePre * %s/\s\+$//e
+" Disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+" Clean LaTex build files
+autocmd VimLeave *.tex !texclear %
+" Read files correctly
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+
+" Mapping Dictionaries
+map <F5> :setlocal spell! spelllang=de_de<CR>
+map <F6> :set spelllang=en_us<CR>
+" Compiler for languages
+map <leader>c :w! \| !compiler <c-r>%<CR>
+" Open corresponding file (pdf/html/...)
+map <leader>p :!opout <c-r>%<CR><CR>
+" Shortcut for split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
+map <C-p> "+P
+vnoremap <C-c> "+y
+" Save file as sudo on files that require root permission
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+" Alias for replacing
+nnoremap S :%s//gI<Left><Left><Left>
