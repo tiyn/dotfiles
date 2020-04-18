@@ -46,7 +46,7 @@ function +vi-git-stash() {
     fi
 }
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
-PROMPT='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}$%b '
+PS1='%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}\$%b '
 RPROMPT='%B%{$fg[magenta]%}$vcs_info_msg_0_%{$reset_color%}%b'
 
 # History in cache directory
