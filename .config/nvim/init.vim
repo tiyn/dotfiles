@@ -20,11 +20,11 @@ Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
 Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
 Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " Color Preview
-Plug 'tomasiser/vim-code-dark'
+Plug 'tomasiser/vim-code-dark' " adding colorscheme
 call plug#end()
 
 " Rainbow
-au FileType java,c,cpp,py call rainbow#load()
+au FileType java,c,cpp,py,h call rainbow#load()
 
 " You complete me
 let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
