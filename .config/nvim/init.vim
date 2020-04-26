@@ -101,6 +101,12 @@ set encoding=utf-8
 " Show relative numbers on left side
 set number relativenumber
 
+" enable persistent undo
+if has('persistent_undo')
+    set undofile
+    set undodir=$XDG_CACHE_HOME/vim/undo
+endif
+
 " Colorscheme
 colorscheme codedark
 highlight CursorLine ctermbg=Yellow cterm=bold guibg=#1b1b1b
