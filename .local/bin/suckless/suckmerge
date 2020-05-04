@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 # for merging all branches into the master branch of a git directory according to my suckless patch structure
 # e.g. see dwm/st/etc

@@ -1,0 +1,3 @@
+#!/bin/sh
+winetricks sandbox
+wine $WINEPREFIX/drive_c/Program\ Files/Stronghold\ Crusader\ Extreme/Stronghold_Crusader_Extreme.exe

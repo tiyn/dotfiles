@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 # copying tex templates
 
 [ -z "$2" ] && echo "missing argument: filename (no ending)" && return 1

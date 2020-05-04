@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Toggle touchpad. Requires xf86-input-synaptics.
 # by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
