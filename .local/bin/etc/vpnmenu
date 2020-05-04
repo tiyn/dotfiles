@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 active=$(nmcli connection show --active | grep vpn | cut -d' ' -f1)
 [[ ! -z "$active" ]] && { prompt "disconnect from $active?"  || exit 1; }
