@@ -23,9 +23,11 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 src() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 srd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 
-
 # grep
 alias grep="grep --color=auto"
+
+# haste
+haste() { a=$(cat); curl -X POST -s -d "$a" https://paste.tiyn.eu/documents | awk -F '"' '{print "https://paste.tiyn.eu/"$4}'; }
 
 #khal
 alias calendar="khal"

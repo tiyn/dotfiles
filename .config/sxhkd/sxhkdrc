@@ -1,0 +1,44 @@
+super + Return
+        $TERMINAL
+super + b
+        $BROWSER
+super + f
+        $FILE
+super + i
+        intellij-idea-ultimate-edition
+super + m
+        thunderbird
+super + p
+        $TERMINAL -e ncmpcpp
+super + s
+        startpagesearch
+super + F5
+        togglemonitor
+super + F6
+        toggletouchpad
+super + F7
+        dmenumount
+super + F8
+        dmenuumount
+super + F9
+        sudo -A systemmctl restart NetworkManager
+super + F10
+        prompt "Lock computer?" slock
+super + F11
+        prompt "Lock computer?" sudo -A shutdown -h now
+super + F12
+        prompt "Lock computer?" sudo -A reboot now
+XF86Launch1
+        xset dpms force off
+XF86AudioMute
+        lmc m && refbar
+XF86AudioMicMute
+        pactl set-source-mute 1 toggle && refbar
+XF86AudioLowerVolume
+        lmc down 5 && refbar
+XF86AudioRaiseVolume
+        lmc up 5 && refbar
+XF86MonBrightnessDown
+        light -U 15
+XF86MonBrightnessUp
+        light -A 15
