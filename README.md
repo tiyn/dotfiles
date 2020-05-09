@@ -46,33 +46,26 @@ xargs -I{} mv {} .config-backup/{}
 ## Hotkeys
 
 There are various shortcuts and hotkeys used in this version. Included in my build are the following.
-All Shortcuts, that cannot be found in my build of [dwm](https://github.com/tiyn/dwm) are handled via sxhkd.
+
+### DWM
 
 | ModKey | Shift | Key               | Function                                                  |
 | ------ | ----- | ----------------- | --------------------------------------------------------- |
 | Super  | Shift | Escape            | Quit dwm                                                  |
-| Super  |       | Return            | Spawn st                                                  |
-| Super  |       | b                 | Spawn firefox                                             |
 | Super  | Shift | b                 | Toggle dwmbar                                             |
 | Super  | Shift | c                 | Enable deck(/card) layout                                 |
 | Super  | Shift | d                 | Toggle floating/tiled for selected window                 |
-| Super  |       | f                 | Spawn vifm in st                                          |
 | Super  | Shift | f                 | Toggle fullscreen                                         |
 | Super  |       | h                 | (Tiling/Deck) Focus window higher in stack than current   |
 | Super  | Shift | h                 | (Tiling/Deck) Make current window the master window       |
-| Super  |       | i                 | Spawn intellij-idea-ultimate-edition                      |
 | Super  |       | j                 | (Tiling/Deck) Focus window lower in stack than current    |
 | Super  | Shift | j                 | (Tiling/Deck) Make current window the master window       |
 | Super  |       | k                 | (Tiling/Deck) Focus window higher in stack than current   |
 | Super  | Shift | k                 | (Tiling/Deck) Make current window the master window       |
 | Super  |       | l                 | (Tiling/Deck) Focus window lower in stack than current    |
-| Super  |       | m                 | Spawn thunderbird                                         |
 | Super  | Shift | m                 | Enable monocle layout	                                 |
 | Super  | Shift | o                 | (Tiling/Deck) Increase master window size                 |
-| Super  |       | p                 | Spawn ncmpcpp in st                                       |
 | Super  |       | q                 | Close current window                                      |
-| Super  | Shift | r                 | (dmenu) dmenu_run                                         |
-| Super  |       | s                 | (dmenu) startpagesearch                                   |
 | Super  | Shift | t                 | Enable tiling layout                                      |
 | Super  | Shift | z                 | (Tiling/Deck) Decrease master window size                 |
 | Super  |       | 0                 | Show all tags                                             |
@@ -83,6 +76,18 @@ All Shortcuts, that cannot be found in my build of [dwm](https://github.com/tiyn
 | Super  | Shift | .				 | Add to monitor lower in stack                             |
 | Super  |		 | ,				 | Show monitor higher in stack                              |
 | Super  | Shift | ,				 | Add to monitor higher in stack                            |
+
+| ModKey | Shift | Key               | Function                                                  |
+| ------ | ----- | ----------------- | --------------------------------------------------------- |
+| Super  |       | Return            | Spawn st                                                  |
+| Super  |       | b                 | Spawn firefox                                             |
+| Super  | Shift | b                 | Toggle dwmbar                                             |
+| Super  |       | f                 | Spawn vifm in st                                          |
+| Super  |       | i                 | Spawn intellij-idea-ultimate-edition                      |
+| Super  |       | m                 | Spawn thunderbird                                         |
+| Super  |       | p                 | Spawn ncmpcpp in st                                       |
+| Super  | Shift | r                 | (dmenu) dmenu\_run                                         |
+| Super  |       | s                 | (dmenu) startpagesearch                                   |
 | Super  |       | F5                | enable 2 Screen Monitor                                   |
 | Super  |       | F6                | toggle touchpad                                           |
 | Super  |       | F7                | (dmenu) mounting drives                                   |
