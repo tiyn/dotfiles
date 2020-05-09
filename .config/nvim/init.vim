@@ -83,9 +83,6 @@ set softtabstop=4
 set shiftwidth=4
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
-" Set lines and colors
-set cursorline
-set cursorcolumn
 " Disable case sensitive matching
 set ignorecase
 " Enable nocompatible mode
@@ -100,6 +97,9 @@ set termguicolors
 set encoding=utf-8
 " Show relative numbers on left side
 set number relativenumber
+" Speedup vim with long lines
+set ttyfast
+set lazyredraw
 
 " enable persistent undo
 if has('persistent_undo')

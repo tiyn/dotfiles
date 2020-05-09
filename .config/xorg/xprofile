@@ -9,4 +9,4 @@ mpd &		# starts the mpd server for music
 toggletouchpad & # deactivates the touchpad
 owncloud &
 dwmbar &
-#sxhkd &
+sxhkd &
