@@ -3,13 +3,15 @@ super + Return
 super + b
         $BROWSER
 super + f
-        $FILE
+        $TERMINAL -e $FILE
 super + i
         intellij-idea-ultimate-edition
 super + m
         thunderbird
 super + p
         $TERMINAL -e ncmpcpp
+super + shift + r
+        dmenu_run -c -l 20
 super + s
         startpagesearch
 super + F5
