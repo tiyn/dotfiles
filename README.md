@@ -7,7 +7,7 @@ This being some time, hundreds of commits and my personalized version of [larbs]
 ## Required and Recommended Software
 
 All requirements and recommendations get installed by my version of LARBS.
-To take a look at all the software it installs look at the progs.csv in my LARBS repository (https://github.com/TiynGER/larbs/blob/master/progs.csv)
+To take a look at all the software it installs look at the [progs.csv](https://github.com/TiynGER/larbs/blob/master/progs.csv)  in my LARBS repository.
 
 ## Migration of my dotfiles to other system
 
