@@ -76,9 +76,6 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 | Super  | Shift | .				 | Add to monitor lower in stack                             |
 | Super  |		 | ,				 | Show monitor higher in stack                              |
 | Super  | Shift | ,				 | Add to monitor higher in stack                            |
-
-| ModKey | Shift | Key               | Function                                                  |
-| ------ | ----- | ----------------- | --------------------------------------------------------- |
 | Super  |       | Return            | Spawn st                                                  |
 | Super  |       | b                 | Spawn firefox                                             |
 | Super  | Shift | b                 | Toggle dwmbar                                             |
