@@ -76,10 +76,10 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 | Super  | Shift | .				 | Add to monitor lower in stack                             |
 | Super  |		 | ,				 | Show monitor higher in stack                              |
 | Super  | Shift | ,				 | Add to monitor higher in stack                            |
-| Super  |       | Return            | Spawn st                                                  |
-| Super  |       | b                 | Spawn firefox                                             |
+| Super  |       | Return            | Spawn terminal                                                  |
+| Super  |       | b                 | Spawn browser                                             |
 | Super  | Shift | b                 | Toggle dwmbar                                             |
-| Super  |       | f                 | Spawn vifm in st                                          |
+| Super  |       | f                 | Spawn filemanager                                        |
 | Super  |       | i                 | Spawn intellij-idea-ultimate-edition                      |
 | Super  |       | m                 | Spawn thunderbird                                         |
 | Super  |       | p                 | Spawn ncmpcpp in st                                       |
