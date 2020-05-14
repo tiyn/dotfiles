@@ -46,36 +46,12 @@ xargs -I{} mv {} .config-backup/{}
 ## Hotkeys
 
 There are various shortcuts and hotkeys used in this version. Included in my build are the following.
+[Dwm](https://github.com/tiyn/dwm)s and [st](https://github.com/tiyn/st)s hotkeys can be found in their repositories.
 
-### DWM
+### SXHKD
 
 | ModKey | Shift | Key               | Function                                                  |
 | ------ | ----- | ----------------- | --------------------------------------------------------- |
-| Super  | Shift | Escape            | Quit dwm                                                  |
-| Super  | Shift | b                 | Toggle dwmbar                                             |
-| Super  | Shift | c                 | Enable deck(/card) layout                                 |
-| Super  | Shift | d                 | Toggle floating/tiled for selected window                 |
-| Super  | Shift | f                 | Toggle fullscreen                                         |
-| Super  |       | h                 | (Tiling/Deck) Focus window higher in stack than current   |
-| Super  | Shift | h                 | (Tiling/Deck) Make current window the master window       |
-| Super  |       | j                 | (Tiling/Deck) Focus window lower in stack than current    |
-| Super  | Shift | j                 | (Tiling/Deck) Make current window the master window       |
-| Super  |       | k                 | (Tiling/Deck) Focus window higher in stack than current   |
-| Super  | Shift | k                 | (Tiling/Deck) Make current window the master window       |
-| Super  |       | l                 | (Tiling/Deck) Focus window lower in stack than current    |
-| Super  | Shift | m                 | Enable monocle layout	                                 |
-| Super  | Shift | o                 | (Tiling/Deck) Increase master window size                 |
-| Super  |       | q                 | Close current window                                      |
-| Super  | Shift | t                 | Enable tiling layout                                      |
-| Super  | Shift | z                 | (Tiling/Deck) Decrease master window size                 |
-| Super  |       | 0                 | Show all tags                                             |
-| Super  | Shift | 0                 | Add current window to all tag                             |
-| Super  | 		 | 1/2/.../9		 | Show tag 1/2/.../9                                        |
-| Super  | Shift | 1/2/.../9		 | Add current window to tag 1/2/.../9                       |
-| Super  | 		 | .				 | Show monitor lower in stack                               |
-| Super  | Shift | .				 | Add to monitor lower in stack                             |
-| Super  |		 | ,				 | Show monitor higher in stack                              |
-| Super  | Shift | ,				 | Add to monitor higher in stack                            |
 | Super  |       | Return            | Spawn terminal                                                  |
 | Super  |       | b                 | Spawn browser                                             |
 | Super  | Shift | b                 | Toggle dwmbar                                             |
