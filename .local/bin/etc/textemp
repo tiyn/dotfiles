@@ -1,12 +1,14 @@
 #!/bin/bash
 # copying tex templates
 
+latexdir=~/gitrepos/main/latextemplates/
+
 [ -z "$2" ] && echo "missing argument: filename (no ending)" && return 1
 
-articletemp=~/gitrepos/etc/latextemplates/latex_article/article.tex
-beamertemp=~/gitrepos/etc/latextemplates/latex_beamer/beamer.tex
-exercisetemp=~/gitrepos/etc/latextemplates/latex_exercise_header/header.tex
-handouttemp=~/gitrepos/etc/latextemplates/latex_handout/handout.tex
+articletemp=${latexdir}latex_article/article.tex
+beamertemp=${latexdir}latex_beamer/beamer.tex
+exercisetemp=${latexdir}latex_exercise_header/header.tex
+handouttemp=${latexdir}latex_handout/handout.tex
 
 case "$1" in
 	a*) cp "$articletemp" $2.tex ;;
