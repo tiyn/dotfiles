@@ -7,20 +7,22 @@ if ! filereadable(expand('~/.local/share/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'lervag/vimtex' , { 'for' : 'tex'} " Tex library for autocompletion
-Plug 'donRaphaco/neotex', { 'for': 'tex'} " Asynchronous pdf rendering
+Plug 'lervag/vimtex' , {'for' : 'tex'} " Tex library for autocompletion
+Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
 Plug 'scrooloose/nerdtree' " Filetree
 Plug 'majutsushi/tagbar' " Show tags
 Plug 'airblade/vim-gitgutter' " Git Upgrades
 "Plug 'FredKSchott/CoVim' "Use vim together
 Plug 'qpkorr/vim-renamer' " Bulk renamer
 Plug 'sirver/ultisnips' " Snippets
-Plug 'uiiaoo/java-syntax.vim' , { 'for': 'java'} " Better syntax highlight for java than default
+Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " Better syntax highlight for java than default
 Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
 Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
-Plug 'rrethy/vim-hexokinase', { 'do': 'make hexokinase' } " Color Preview
+Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " Color Preview
 Plug 'tomasiser/vim-code-dark' " adding colorscheme
+Plug 'godlygeek/tabular' " Tabularizing things
+Plug 'plasticboy/vim-markdown' , {'for': 'md'} " Helps for markdown
 call plug#end()
 
 " Rainbow
@@ -66,15 +68,21 @@ let g:Hexokinase_optInPatterns = [
 let g:Hexokinase_highlighters = ['backgroundfull']
 autocmd VimEnter * HexokinaseTurnOn
 
+" Vim-Mardown
+let g:vim_markdown_folding_disabled=1
+let g:vim_markdown_no_default_key_mappings=1
+
 " End Plugin section
 
 " Start Formatting section
 
-autocmd FileType java,python noremap <F8> gggqG
+autocmd FileType java,python,c noremap <F8> gggqG
 
 au FileType python setlocal formatprg=autopep8\ -
 
 au FileType java setlocal formatprg=google-java-format\ -
+
+au FileType c setlocal formatprg=astyle\ --mode=c
 
 " End Formatting section
 
@@ -132,6 +140,7 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimLeave *.tex !texclear %
 " Read files correctly
 autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.h set filetype=c
 
 " Mapping Dictionaries
 map <F5> :setlocal spell! spelllang=de_de<CR>
