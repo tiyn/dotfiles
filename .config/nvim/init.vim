@@ -74,18 +74,6 @@ let g:vim_markdown_no_default_key_mappings=1
 
 " End Plugin section
 
-" Start Formatting section
-
-autocmd FileType java,python,c noremap <F8> gggqG
-
-au FileType python setlocal formatprg=autopep8\ -
-
-au FileType java setlocal formatprg=google-java-format\ -
-
-au FileType c setlocal formatprg=astyle\ --mode=c
-
-" End Formatting section
-
 let mapleader =","
 
 set go=a
@@ -96,7 +84,6 @@ set clipboard+=unnamedplus
 set wildmode=longest,list,full
 " Setting Tab-length
 set expandtab
-set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 " Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
@@ -161,3 +148,19 @@ vnoremap <C-c> "+y
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 " Alias for replacing
 nnoremap S :%s//gI<Left><Left><Left>
+
+" Start Formatting section
+
+autocmd FileType java,python,c,tex,latex noremap <F8> gggqG
+
+au FileType python setlocal formatprg=autopep8\ -
+
+au FileType java setlocal formatprg=google-java-format\ -
+autocmd FileType java setlocal shiftwidth=2 softtabstop=2
+
+au FileType c setlocal formatprg=astyle\ --mode=c
+
+au FileType tex,latex setlocal formatprg=latexindent\ -
+
+" End Formatting section
+
