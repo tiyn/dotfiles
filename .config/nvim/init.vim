@@ -155,7 +155,7 @@ autocmd FileType java,python,c,tex,latex noremap <F8> gggqG
 
 au FileType python setlocal formatprg=autopep8\ -
 
-au FileType java setlocal formatprg=google-java-format\ -
+au FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2
 
 au FileType c setlocal formatprg=astyle\ --mode=c
