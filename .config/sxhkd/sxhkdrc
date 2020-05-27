@@ -33,13 +33,13 @@ super + F12
 XF86Launch1
         xset dpms force off
 XF86AudioMute
-        lmc m && refbar
+        lmc m && pkill -RTMIN+4 $STATUSBAR
 XF86AudioMicMute
-        pactl set-source-mute 1 toggle && refbar
+        pactl set-source-mute 1 toggle && pkill -RTMIN+4 $STATUSBAR
 XF86AudioLowerVolume
-        lmc down 5 && refbar
+        lmc down 5 && pkill -RTMIN+4 $STATUSBAR
 XF86AudioRaiseVolume
-        lmc up 5 && refbar
+        lmc up 5 && pkill -RTMIN+4 $STATUSBAR
 XF86MonBrightnessDown
         light -U 15
 XF86MonBrightnessUp

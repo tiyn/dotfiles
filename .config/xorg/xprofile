@@ -7,6 +7,6 @@ dunst &			# dunst for notifications
 redshift &		# redshift for saving your eyes
 mpd &		# starts the mpd server for music
 toggletouchpad & # deactivates the touchpad
+$STATUSBAR &
 owncloud &
-dwmbar &
 sxhkd &
