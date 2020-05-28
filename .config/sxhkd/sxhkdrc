@@ -27,9 +27,9 @@ super + F9
 super + F10
         prompt "Lock computer?" slock
 super + F11
-        prompt "Lock computer?" sudo -A shutdown -h now
+        prompt "Shutdown computer?" sudo -A shutdown -h now
 super + F12
-        prompt "Lock computer?" sudo -A reboot now
+        prompt "Reboot computer?" sudo -A reboot now
 XF86Launch1
         xset dpms force off
 XF86AudioMute
