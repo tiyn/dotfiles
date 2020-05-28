@@ -4,7 +4,7 @@
 # Adds `~/.local/bin` and all subdirectories to $PATH
 export PATH="$PATH:$(du "$HOME/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
-export BROWSER="icecat"
+export BROWSER="firefox"
 export RTV_BROWSER="qutebrowser"
 export EDITOR="nvim"
 export FILE="vifmrun"
