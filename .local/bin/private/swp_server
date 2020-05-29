@@ -1,3 +1,0 @@
-#!/bin/sh
-
-mvn exec:java -Dexec.mainClass="de.uol.swp.server.ServerApp" -f ~/gitrepos/uniOldenburg/inf004swp/Server
