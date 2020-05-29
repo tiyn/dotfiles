@@ -2,4 +2,4 @@
 
 # by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-date +"%d %b %H:%M"
+date +" %d %b %H:%M"

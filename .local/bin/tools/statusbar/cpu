@@ -2,4 +2,4 @@
 
 # by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-sensors | awk '/Core 0/ {print $3}'
+sensors | awk '/Core 0/ {print " " $3}'
