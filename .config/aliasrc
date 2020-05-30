@@ -23,6 +23,12 @@ alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 src() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 srd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 
+# git
+alias ga="git add"
+alias grm="git rm"
+alias gc="git commit"
+alias gp="git push"
+
 # grep
 alias grep="grep --color=auto"
 
@@ -64,6 +70,7 @@ alias rm="prompt 'Are you sure?' && rm"
 
 # root/sudo
 alias su="sudo -i"
+alias sudo="sudo "
 
 #sc-im
 alias sc="sc-im"
