@@ -12,7 +12,6 @@ Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
 Plug 'scrooloose/nerdtree' " Filetree
 Plug 'majutsushi/tagbar' " Show tags
 Plug 'airblade/vim-gitgutter' " Git Upgrades
-"Plug 'FredKSchott/CoVim' "Use vim together
 Plug 'qpkorr/vim-renamer' " Bulk renamer
 Plug 'sirver/ultisnips' " Snippets
 Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " Better syntax highlight for java than default
