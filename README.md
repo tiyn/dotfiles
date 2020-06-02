@@ -75,3 +75,19 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 |        |       | AudioRaiseVolume  | Volume raise                                              |
 |        |       | MonBrightnessDown | Brightness decrease                                       |
 |        |       | MonBrightnessUp   | Brightness increase                                       |
+
+## Browser 
+
+My favorite Browser is icecat (foss firefox).
+There are a couple of addons i really enjoy:
+- AdNauseam
+- AutoFullscreen
+- Dark Reader
+- hide-scrollbars
+- HTTPS Everywhere 
+- NoScript
+- User-Agent Switcher and Manager
+- Vertical Tabs Reloaded
+- Vim Vixen
+
+Additionally i set `full-screen-api.ignore-widgets` in `about:config` to `true`.
