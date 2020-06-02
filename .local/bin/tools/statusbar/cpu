@@ -1,5 +1,3 @@
 #!/bin/sh
 
-# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
-
 sensors | awk '/Core 0/ {print " " $3}'
