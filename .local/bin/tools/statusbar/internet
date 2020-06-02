@@ -1,9 +1,11 @@
 #!/usr/bin/env sh
 
-# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
-
 [ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon=""
 
 [ ! -n "${wifiicon+var}" ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) "%" }')
 
 printf "%s %s\n" "$(cat /sys/class/net/e*/operstate | sed "s/down//;s/up//")" "$wifiicon"
+
+case $BLOCK_BUTTON in
+	1) $TERMINAL -e "nmtui" ;;
+esac

@@ -2,13 +2,10 @@
 
 # Status bar module for disk space
 # $1 should be drive mountpoint
-# $2 is optional icon, otherwise mountpoint will displayed
-# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 disk="/"
 [ ! -z "$1" ] && disk="$1"
 
-icon="$2"
-[ -z "$2" ] && icon="$disk"
+icon="$disk"
 
 printf " %s %s\n" "$icon" "$(df -h "$disk" | awk ' /[0-9]/ {print $3 "/" $2}')"
