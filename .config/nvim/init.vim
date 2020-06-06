@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lervag/vimtex' , {'for' : 'tex'} " Tex library for autocompletion
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
-Plug 'scrooloose/nerdtree' " Filetree
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " Filetree
 Plug 'majutsushi/tagbar' " Show tags
 Plug 'airblade/vim-gitgutter' " Git Upgrades
 Plug 'qpkorr/vim-renamer' " Bulk renamer
@@ -20,15 +20,23 @@ Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " Color Preview
 Plug 'tomasiser/vim-code-dark' " adding colorscheme
+"Plug 'blueshirts/darcula'
 Plug 'godlygeek/tabular' " Tabularizing things
 Plug 'plasticboy/vim-markdown' , {'for': 'md'} " Helps for markdown
+Plug 'tpope/vim-surround' " Help for quotes/parantheses
+Plug 'alvan/vim-closetag' " Auto close HTML tags
 call plug#end()
+
+" Colorscheme
+colorscheme codedark
 
 " Rainbow
 au FileType java,c,cpp,py,h call rainbow#load()
 
 " You complete me
 let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:ycm_semantic_triggers = {
 	\ 'tex' : ['{']
 	\}
@@ -36,6 +44,7 @@ if !exists('g:ycm_semantic_triggers')
 	let g:ycm_semantic_triggers = {}
 endif
 let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+let g:ycm_filepath_blacklist = {'*': 1}
 
 " Tagbar
 map <F3> :TagbarToggle<CR>
@@ -70,6 +79,19 @@ autocmd VimEnter * HexokinaseTurnOn
 " Vim-Mardown
 let g:vim_markdown_folding_disabled=1
 let g:vim_markdown_no_default_key_mappings=1
+
+" Vim-Closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
 
 " End Plugin section
 
@@ -111,15 +133,13 @@ if has('persistent_undo')
     set undodir=$XDG_CACHE_HOME/vim/undo
 endif
 
-" Colorscheme
-colorscheme codedark
-highlight CursorLine ctermbg=Yellow cterm=bold guibg=#1b1b1b
-highlight CursorColumn ctermbg=Yellow cterm=bold guibg=#1b1b1b
-
-" Center screen on Insertion
-autocmd InsertEnter * norm zz
 " Delete trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+autocmd BufWritePre * :call TrimWhitespace()
 " Disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Clean LaTex build files
