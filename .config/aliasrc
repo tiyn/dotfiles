@@ -66,7 +66,7 @@ alias pac="sudo pacman"
 alias ping="ping -c 5"
 
 # rm
-alias rm="prompt 'Are you sure?' && rm"
+alias rm="rm -i"
 
 # root/sudo
 alias su="sudo -i"
