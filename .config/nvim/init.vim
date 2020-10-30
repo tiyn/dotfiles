@@ -83,8 +83,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimLeave *.tex !texclear %
 
 " mapping Dictionaries
-map <F6> :setlocal spell! spelllang=de_de<CR>
-map <F7> :set spelllang=en_us<CR>
+nmap <F6> :setlocal spell! spelllang=de_de<CR>
+nmap <F7> :set spelllang=en_us<CR>
 
 " compiler for languages
 map <leader>c :w! \| !compiler <c-r>%<CR>
@@ -168,6 +168,10 @@ let g:neotex_enabled = 2
 
 " frazrepo/vim-rainbow
 au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()
+
+" junegunn/fzf.vim
+let $FZF_DEFAULT_COMMAND = 'find . ~ -type f'
+nmap <F4> :FZF<CR>
 
 " majutsushi/tagbar
 map <F3> :TagbarToggle<CR>
