@@ -146,6 +146,7 @@ Plug 'ryanoasis/vim-devicons' " enable icons for vim
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
 Plug 'sirver/ultisnips' " snippets
 Plug 'tomasiser/vim-code-dark' " adding colorscheme
+Plug 'tpope/vim-fugitive' " git wrapper
 Plug 'tpope/vim-surround' " help for quotes/parantheses
 Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " better syntax highlight for java than default
 call plug#end()
@@ -256,6 +257,15 @@ let g:NERDTreeWinPos = "left"
 
 " sirver/ultisnips
 let g:UltiSnipsExpandTrigger="<alt-j>"
+
+" tpope/vim-fugitive
+nnoremap <leader>ga :Git add %:p<CR><CR>
+nnoremap <leader>gd :Git diff<CR>
+nnoremap <leader>gc :Gcommit<CR>
+nnoremap <leader>gh :diffget //3<CR>
+nnoremap <leader>gr :Gread<CR>
+nnoremap <leader>gu :diffget //2<CR>
+nnoremap <leader>gs :G<CR>
 
 " tomasiser/vim-code-dark
 colorscheme codedark
