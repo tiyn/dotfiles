@@ -1,4 +1,128 @@
-" Begin Plugin section
+let mapleader =","
+
+set go=a
+
+" enable mouse for all modes
+set mouse=a
+set clipboard+=unnamedplus
+
+" enable command completion
+set wildmode=longest,list,full
+
+" setting Tab-length
+set expandtab
+set softtabstop=4
+set shiftwidth=4
+
+" splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+set splitbelow splitright
+
+" disable case sensitive matching
+set ignorecase
+
+" enable nocompatible mode
+set nocompatible
+
+" enable Plugins
+filetype plugin on
+
+" enable syntax highlighting
+syntax on
+
+" enable true colors
+set termguicolors
+
+" set utf-8 encoding
+set encoding=utf-8
+
+" show relative numbers on left side
+set number relativenumber
+
+" speedup vim with long lines
+set ttyfast
+set lazyredraw
+
+" textEdit might fail without hidden
+set hidden
+
+" disable Backupfiles for Lsp
+set nobackup
+set nowritebackup
+
+" dont pass messages to ins-completion-menu
+set shortmess+=c
+
+" always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+    " Recently vim can merge signcolumn and number column into one
+    set signcolumn=number
+else
+    set signcolumn=yes
+endif
+
+
+" enable persistent undo
+if has('persistent_undo')
+    set undofile
+    set undodir=$XDG_CACHE_HOME/vim/undo
+endif
+
+" delete trailing whitespaces on save
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+autocmd BufWritePre * :call TrimWhitespace()
+
+" disables automatic commenting on newline:
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
+
+" clean LaTex build files
+autocmd VimLeave *.tex !texclear %
+
+" mapping Dictionaries
+map <F6> :setlocal spell! spelllang=de_de<CR>
+map <F7> :set spelllang=en_us<CR>
+
+" compiler for languages
+map <leader>c :w! \| !compiler <c-r>%<CR>
+
+" open corresponding file (pdf/html/...)
+map <leader>p :!opout <c-r>%<CR><CR>
+
+" shortcut for split navigation
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+
+" copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
+map <C-p> "+P
+vnoremap <C-c> "+y
+
+" save file as sudo on files that require root permission
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" alias for replacing
+nnoremap S :%s//gI<Left><Left><Left>
+
+" read files correctly
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.h set filetype=c
+
+" formatting
+au FileType python setlocal formatprg=autopep8\ -
+au FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
+autocmd FileType java setlocal shiftwidth=2 softtabstop=2
+au FileType c setlocal formatprg=astyle\ --mode=c
+au FileType tex,latex setlocal formatprg=latexindent\ -
+autocmd FileType java,python,c,tex,latex noremap <F8> gggqG
+au FileType markdown noremap <F8> :silent %!prettier --stdin-filepath % <CR>
+
+
+""" Begin Plugin section
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
@@ -6,31 +130,49 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall
 endif
 
-" Read files correctly
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-autocmd BufRead,BufNewFile *.h set filetype=c
-
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'raimondi/delimitmate' " Automatic closing of brackets
-Plug 'lervag/vimtex' , {'for' : 'tex'} " Tex library for autocompletion
-Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " Filetree
-Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " Show tags
 Plug 'airblade/vim-gitgutter' " Git Upgrades
-Plug 'qpkorr/vim-renamer' " Bulk renamer
-Plug 'sirver/ultisnips' " Snippets
-Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " Better syntax highlight for java than default
+Plug 'alvan/vim-closetag' " Auto close HTML tags
+Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
 Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
 Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
-Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
+Plug 'lervag/vimtex' , {'for' : 'tex'} " Tex library for autocompletion
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " Show tags
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'qpkorr/vim-renamer' " Bulk renamer
+Plug 'raimondi/delimitmate' " Automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " Color Preview
+Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " Filetree
+Plug 'sirver/ultisnips' " Snippets
 Plug 'tomasiser/vim-code-dark' " adding colorscheme
 Plug 'tpope/vim-surround' " Help for quotes/parantheses
-Plug 'alvan/vim-closetag' " Auto close HTML tags
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
+Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " Better syntax highlight for java than default
 call plug#end()
 
-" Coc
+" alvan/vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
+let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
+let g:closetag_filetypes = 'html,xhtml,phtml'
+let g:closetag_xhtml_filetypes = 'xhtml,jsx'
+let g:closetag_emptyTags_caseSensitive = 1
+let g:closetag_regions = {
+    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
+    \ 'javascript.jsx': 'jsxRegion',
+    \ }
+let g:closetag_shortcut = '>'
+let g:closetag_close_shortcut = '<leader>>'
+
+" donRaphaco/neotex
+let g:neotex_enabled = 2
+
+" frazrepo/vim-rainbow
+au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()
+
+" majutsushi/tagbar
+map <F3> :TagbarToggle<CR>
+
+" neoclide/coc.nvim
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
@@ -88,31 +230,7 @@ augroup mygroup
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
-" Colorscheme
-colorscheme codedark
-
-" Rainbow
-au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()
-
-" Ultisnippets
-let g:UltiSnipsExpandTrigger="<alt-j>"
-
-" Tagbar
-map <F3> :TagbarToggle<CR>
-
-" Nerdtree
-map <F2> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-let g:NERDTreeWinPos = "left"
-
-" Neotex
-let g:neotex_enabled = 2
-
-" CoVim
-let CoVim_default_name = "TiynGER"
-let CoVim_default_port = "7000"
-
-" Hexokinase
+" rrethy/vim-hexokinase
 let g:Hexokinase_refreshEvents = ['InsertLeave']
 let g:Hexokinase_optInPatterns = [
             \   'full_hex',
@@ -127,122 +245,15 @@ let g:Hexokinase_optInPatterns = [
 let g:Hexokinase_highlighters = ['backgroundfull']
 autocmd VimEnter * HexokinaseTurnOn
 
-" Vim-Closetag
-let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
-let g:closetag_xhtml_filenames = '*.xhtml,*.jsx'
-let g:closetag_filetypes = 'html,xhtml,phtml'
-let g:closetag_xhtml_filetypes = 'xhtml,jsx'
-let g:closetag_emptyTags_caseSensitive = 1
-let g:closetag_regions = {
-    \ 'typescript.tsx': 'jsxRegion,tsxRegion',
-    \ 'javascript.jsx': 'jsxRegion',
-    \ }
-let g:closetag_shortcut = '>'
-let g:closetag_close_shortcut = '<leader>>'
+" scrooloose/nerdtree
+map <F2> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let g:NERDTreeWinPos = "left"
 
-" End Plugin section
+" sirver/ultisnips
+let g:UltiSnipsExpandTrigger="<alt-j>"
 
-let mapleader =","
+" tomasiser/vim-code-dark
+colorscheme codedark
 
-set go=a
-" Enable mouse for all modes
-set mouse=a
-set clipboard+=unnamedplus
-" Enable command completion
-set wildmode=longest,list,full
-" Setting Tab-length
-set expandtab
-set softtabstop=4
-set shiftwidth=4
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
-set splitbelow splitright
-" Disable case sensitive matching
-set ignorecase
-" Enable nocompatible mode
-set nocompatible
-" Enable Plugins
-filetype plugin on
-" Enable syntax highlighting
-syntax on
-" Enable true colors
-set termguicolors
-" Set utf-8 encoding
-set encoding=utf-8
-" Show relative numbers on left side
-set number relativenumber
-" Speedup vim with long lines
-set ttyfast
-set lazyredraw
-" TextEdit might fail without hidden
-set hidden
-" Disable Backupfiles for Lsp
-set nobackup
-set nowritebackup
-" Dont pass messages to ins-completion-menu
-set shortmess+=c
-" Always show the signcolumn, otherwise it would shift the text each time
-" diagnostics appear/become resolved.
-if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
-else
-  set signcolumn=yes
-endif
-
-
-" enable persistent undo
-if has('persistent_undo')
-    set undofile
-    set undodir=$XDG_CACHE_HOME/vim/undo
-endif
-
-" Delete trailing whitespaces on save
-fun! TrimWhitespace()
-    let l:save = winsaveview()
-    keeppatterns %s/\s\+$//e
-    call winrestview(l:save)
-endfun
-autocmd BufWritePre * :call TrimWhitespace()
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" Clean LaTex build files
-autocmd VimLeave *.tex !texclear %
-
-" Mapping Dictionaries
-map <F6> :setlocal spell! spelllang=de_de<CR>
-map <F7> :set spelllang=en_us<CR>
-" Compiler for languages
-map <leader>c :w! \| !compiler <c-r>%<CR>
-" Open corresponding file (pdf/html/...)
-map <leader>p :!opout <c-r>%<CR><CR>
-" Shortcut for split navigation
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-" Copy selected text to system clipboard (requires gvim/nvim/vim-x11 installed):
-map <C-p> "+P
-vnoremap <C-c> "+y
-" Save file as sudo on files that require root permission
-cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
-" Alias for replacing
-nnoremap S :%s//gI<Left><Left><Left>
-
-" Start Formatting section
-
-au FileType python setlocal formatprg=autopep8\ -
-
-au FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
-
-autocmd FileType java setlocal shiftwidth=2 softtabstop=2
-
-au FileType c setlocal formatprg=astyle\ --mode=c
-
-au FileType tex,latex setlocal formatprg=latexindent\ -
-
-autocmd FileType java,python,c,tex,latex noremap <F8> gggqG
-
-au FileType markdown noremap <F8> :silent %!prettier --stdin-filepath % <CR>
-
-" End Formatting section
-
+""" end plugin section
