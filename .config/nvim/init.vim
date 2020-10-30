@@ -11,6 +11,7 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead,BufNewFile *.h set filetype=c
 
 call plug#begin('~/.local/share/nvim/plugged')
+Plug 'raimondi/delimitmate' " Automatic closing of brackets
 Plug 'lervag/vimtex' , {'for' : 'tex'} " Tex library for autocompletion
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " Filetree
@@ -43,7 +44,9 @@ endfunction
 
 let g:coc_global_extensions = [
     \ 'coc-java',
+    \ 'coc-markdownlint',
     \ 'coc-python',
+    \ 'coc-sh',
     \ 'coc-vimtex',
     \ ]
 
@@ -74,7 +77,7 @@ endfunction
 
 autocmd CursorHold * silent call CocActionAsync('highlight')
 
-nmap <leader>rn <Plug>(coc-rename)
+nmap <F5> <Plug>(coc-rename)
 
 xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
@@ -84,8 +87,6 @@ augroup mygroup
   autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
-
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Colorscheme
 colorscheme codedark
@@ -208,8 +209,8 @@ autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 autocmd VimLeave *.tex !texclear %
 
 " Mapping Dictionaries
-map <F5> :setlocal spell! spelllang=de_de<CR>
-map <F6> :set spelllang=en_us<CR>
+map <F6> :setlocal spell! spelllang=de_de<CR>
+map <F7> :set spelllang=en_us<CR>
 " Compiler for languages
 map <leader>c :w! \| !compiler <c-r>%<CR>
 " Open corresponding file (pdf/html/...)
