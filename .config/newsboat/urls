@@ -1,7 +1,67 @@
-#most recent
-https://www.archlinux.org/feeds/news/
-
+----------------------------------BLOGS---------------------------------
+#Arch Linux
+https://www.archlinux.org/feeds/news/ "~Arch Linux (Blog)" "blog"
 #Luke Smith
-http://lukesmith.xyz/rss.xml "~Luke Smith (Blog)"
-https://notrelated.libsyn.com/rss "~Luke Smith - Not Related (Podcast)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)"
+http://lukesmith.xyz/rss.xml "~Luke Smith (Blog)" "blog"
+
+---------------------------------PODCASTS-------------------------------
+#Luke Smith
+https://notrelated.libsyn.com/rss "~Luke Smith - Not Related (Podcast)" "podcast"
+
+---------------------------------YOUTUBE--------------------------------
+#Brodie Robertson
+https://www.youtube.com/feeds/videos.xml?channel_id=UCld68syR8Wi-GY_n4CaoJGA "~Brodie Robertson (YouTube)" "youtube"
+#Carykh
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9z7EZAbkphEMg0SP7rw44A "~Carykh (YouTube)" "youtube"
+#Code Bullet
+https://www.youtube.com/feeds/videos.xml?channel_id=UC0e3QhIYukixgh5VVpKHH9Q "~Code Bullte (YouTube)" "youtube"
+#Codys Lab
+https://www.youtube.com/feeds/videos.xml?channel_id=UCu6mSoMNzHQiBIOCkHUa2Aw "~Cody's Lab (YouTube)" "youtube"
+#Computerphile
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9-y-6csu5WGm29I7JiwpnA "~Computerphile (YouTube)" "youtube"
+#Distrotube
+https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg "~Distrotube (YouTube)" "youtube"
+#Electro Boom
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJ0-OtVpF0wOKEqT2Z1HEtA "~Electro Boom (YouTube)" "youtube"
+#Elotrix
+https://www.youtube.com/feeds/videos.xml?channel_id=UCh66vBWM5e9WcdAXa2SvRyg "~Elotrix (Youtube)" "youtube"
+#Eric Rosen
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXy10-NEFGxQ3b4NVrzHw1Q "~Eric Rosen (YouTube)" "youtube"
+#Errichto
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBr_Fu6q9iHYQCh13jmpbrg "~Errichto (YouTube)" "youtube"
+#Everyday Astronaut
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6uKrU_WqJ1R2HMTY3LIx5Q "~Everyday Astronaut (YouTube)" "youtube"
+#I did a thing
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJLZe_NoiG0hT7QCX_9vmqw "~I did a thing (YouTube)" "youtube"
+#Internet Historian
+https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw "~Internet Historian (Youtube)" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8Q7XEy86Q7T-3kNpNjYgwA "~Internet Historian Inc Mode (Youtube)" "youtube"
+#Linus Tech Tips
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "~Linus Tech Tips (YouTube)" "youtube"
+#Louis Rossmann
+https://www.youtube.com/feeds/videos.xml?channel_id=UCl2mFZoRqjw_ELax4Yisf6w "~Louis Rossmann (YouTube)" "youtube"
+#Luke Smith
+https://www.youtube.com/feeds/videos.xml?channel_id=UC2eYFnH61tmytImy1mTYvhA "~Luke Smith (YouTube)" "youtube"
+#Mental Outlaw
+https://www.youtube.com/feeds/videos.xml?channel_id=UC7YOGHUfC1Tb6E4pudI9STA "~Mental Outlaw (YouTube)" "youtube"
+#Saint Louis Chess Club
+https://www.youtube.com/feeds/videos.xml?channel_id=UCM-ONC2bCHytG2mYtKDmIeA "~Saint Louis Chess Club (YouTube)" "youtube"
+#Soviet Womble
+https://www.youtube.com/feeds/videos.xml?channel_id=UCQD3awTLw9i8Xzh85FKsuJA "~Soviet Womble (YouTube)" "youtube"
+#Styropyro
+https://www.youtube.com/feeds/videos.xml?channel_id=UCJYJgj7rzsn0vdR7fkgjuIA "~Styropyro (YouTube)" "youtube"
+#The ... Theorist
+https://www.youtube.com/feeds/videos.xml?channel_id=UC3sznuotAs2ohg_U__Jzj_Q "~The Film Theorist (YouTube)" "youtube"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCo_IB5145EVNcf8hw1Kku7w "~The Game Theorist (YouTube)" "youtube"
+#The Modern Rogue
+https://www.youtube.com/feeds/videos.xml?channel_id=UC42VsoDtra5hMiXZSsD6eGg "~The Modern Rogue (YouTube)" "youtube"
+#The Primeagen
+https://www.youtube.com/feeds/videos.xml?channel_id=UC8ENHE5xdFSwx71u3fDH5Xw "~The Primeagen (YouTube)" "youtube"
+#Tom Scott
+https://www.youtube.com/feeds/videos.xml?channel_id=UCBa659QWEk1AI4Tg--mrJ2A "~Tom Scott (YouTube)" "youtube"
+#Vsauce
+https://www.youtube.com/feeds/videos.xml?channel_id=UC6nSFpj9HTCZ5t-N3Rm3-HA "~Vsauce (YouTube)" "youtube"
+#Wavywebsurf
+https://www.youtube.com/feeds/videos.xml?channel_id=UCg4vDcovXPJTcTcYxQ9iCrw "~Wavywebsurf (YouTube)" "youtube"
+#Wolfgangs Channel
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "~Wolfgangs Channel (YouTube)" "youtube"
