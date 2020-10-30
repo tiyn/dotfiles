@@ -6,11 +6,15 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	autocmd VimEnter * PlugInstall
 endif
 
+" Read files correctly
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.h set filetype=c
+
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'lervag/vimtex' , {'for' : 'tex'} " Tex library for autocompletion
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " Filetree
-Plug 'majutsushi/tagbar' " Show tags
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " Show tags
 Plug 'airblade/vim-gitgutter' " Git Upgrades
 Plug 'qpkorr/vim-renamer' " Bulk renamer
 Plug 'sirver/ultisnips' " Snippets
@@ -20,31 +24,77 @@ Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
 Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " Color Preview
 Plug 'tomasiser/vim-code-dark' " adding colorscheme
-"Plug 'blueshirts/darcula'
-Plug 'godlygeek/tabular' " Tabularizing things
-Plug 'plasticboy/vim-markdown' , {'for': 'md'} " Helps for markdown
 Plug 'tpope/vim-surround' " Help for quotes/parantheses
 Plug 'alvan/vim-closetag' " Auto close HTML tags
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 call plug#end()
+
+" Coc
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+let g:coc_global_extensions = [
+    \ 'coc-java',
+    \ 'coc-python',
+    \ 'coc-vimtex',
+    \ ]
+
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+nmap <leader>rn <Plug>(coc-rename)
+
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Colorscheme
 colorscheme codedark
 
 " Rainbow
-au FileType java,c,cpp,py,h call rainbow#load()
+au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()
 
-" You complete me
-let g:ycm_global_ycm_extra_conf = '/home/tiynger/.config/nvim/ycm_extra_conf.py'
-let g:ycm_autoclose_preview_window_after_completion = 1
-let g:ycm_autoclose_preview_window_after_insertion = 1
-let g:ycm_semantic_triggers = {
-	\ 'tex' : ['{']
-	\}
-if !exists('g:ycm_semantic_triggers')
-	let g:ycm_semantic_triggers = {}
-endif
-let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
-let g:ycm_filepath_blacklist = {'*': 1}
+" Ultisnippets
+let g:UltiSnipsExpandTrigger="<alt-j>"
 
 " Tagbar
 map <F3> :TagbarToggle<CR>
@@ -75,10 +125,6 @@ let g:Hexokinase_optInPatterns = [
 
 let g:Hexokinase_highlighters = ['backgroundfull']
 autocmd VimEnter * HexokinaseTurnOn
-
-" Vim-Mardown
-let g:vim_markdown_folding_disabled=1
-let g:vim_markdown_no_default_key_mappings=1
 
 " Vim-Closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.phtml'
@@ -126,6 +172,22 @@ set number relativenumber
 " Speedup vim with long lines
 set ttyfast
 set lazyredraw
+" TextEdit might fail without hidden
+set hidden
+" Disable Backupfiles for Lsp
+set nobackup
+set nowritebackup
+" Dont pass messages to ins-completion-menu
+set shortmess+=c
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
 
 " enable persistent undo
 if has('persistent_undo')
@@ -144,9 +206,6 @@ autocmd BufWritePre * :call TrimWhitespace()
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 " Clean LaTex build files
 autocmd VimLeave *.tex !texclear %
-" Read files correctly
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-autocmd BufRead,BufNewFile *.h set filetype=c
 
 " Mapping Dictionaries
 map <F5> :setlocal spell! spelllang=de_de<CR>
@@ -170,16 +229,19 @@ nnoremap S :%s//gI<Left><Left><Left>
 
 " Start Formatting section
 
-autocmd FileType java,python,c,tex,latex noremap <F8> gggqG
-
 au FileType python setlocal formatprg=autopep8\ -
 
 au FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
+
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2
 
 au FileType c setlocal formatprg=astyle\ --mode=c
 
 au FileType tex,latex setlocal formatprg=latexindent\ -
+
+autocmd FileType java,python,c,tex,latex noremap <F8> gggqG
+
+au FileType markdown noremap <F8> :silent %!prettier --stdin-filepath % <CR>
 
 " End Formatting section
 

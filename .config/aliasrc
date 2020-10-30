@@ -39,7 +39,7 @@ haste() {
 }
 
 #khal
-alias calendar="khal"
+alias calendar="khal interactive"
 
 # khard
 alias contacts="khard"
@@ -53,8 +53,9 @@ alias tree="lsd --tree"
 # mkdir
 alias mkdir="mkdir -p"
 
-# mount
-alias mount="mount |column -t"
+# mutt
+alias mutt="neomutt"
+alias upmutt="mbsync -a && neomutt"
 
 # mv
 alias mv="mv -i"

@@ -23,13 +23,13 @@ super + F7
 super + F8
         dmenuumount
 super + F9
-        sudo -A systemmctl restart NetworkManager
+        sudo -A systemctl restart NetworkManager
 super + F10
-        prompt "Lock computer?" slock
+        prompt "Lock computer?" "slock"
 super + F11
-        prompt "Shutdown computer?" sudo -A shutdown -h now
+        prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + F12
-        prompt "Reboot computer?" sudo -A reboot now
+        prompt "Reboot computer?" "sudo -A reboot now"
 XF86Launch1
         xset dpms force off
 XF86AudioMute
