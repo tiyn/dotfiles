@@ -131,23 +131,23 @@ if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.local/share/nvim/plugged')
-Plug 'airblade/vim-gitgutter' " Git Upgrades
-Plug 'alvan/vim-closetag' " Auto close HTML tags
-Plug 'donRaphaco/neotex' , {'for': 'tex'} " Asynchronous pdf rendering
-Plug 'frazrepo/vim-rainbow' " Colorized matching brackets
-Plug 'junegunn/fzf.vim' " Quickly jump files using fzf
-Plug 'lervag/vimtex' , {'for' : 'tex'} " Tex library for autocompletion
-Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " Show tags
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'qpkorr/vim-renamer' " Bulk renamer
-Plug 'raimondi/delimitmate' " Automatic closing of brackets
-Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " Color Preview
-Plug 'ryanoasis/vim-devicons' " Enable Icons for vim
-Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " Filetree
-Plug 'sirver/ultisnips' " Snippets
+Plug 'airblade/vim-gitgutter' " git upgrades
+Plug 'alvan/vim-closetag' " auto close HTML tags
+Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering
+Plug 'frazrepo/vim-rainbow' " colorized matching brackets
+Plug 'junegunn/fzf.vim' " quickly jump files using fzf
+Plug 'lervag/vimtex' , {'for' : 'tex'} " tex library for autocompletion
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " autocompletion
+Plug 'qpkorr/vim-renamer' " bulk renamer
+Plug 'raimondi/delimitmate' " automatic closing of brackets
+Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
+Plug 'ryanoasis/vim-devicons' " enable icons for vim
+Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
+Plug 'sirver/ultisnips' " snippets
 Plug 'tomasiser/vim-code-dark' " adding colorscheme
-Plug 'tpope/vim-surround' " Help for quotes/parantheses
-Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " Better syntax highlight for java than default
+Plug 'tpope/vim-surround' " help for quotes/parantheses
+Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " better syntax highlight for java than default
 call plug#end()
 
 " alvan/vim-closetag
