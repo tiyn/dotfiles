@@ -113,13 +113,14 @@ autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead,BufNewFile *.h set filetype=c
 
 " formatting
-au FileType python setlocal formatprg=autopep8\ -
-au FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
-autocmd FileType java setlocal shiftwidth=2 softtabstop=2
 au FileType c setlocal formatprg=astyle\ --mode=c
-au FileType tex,latex setlocal formatprg=latexindent\ -
-autocmd FileType java,python,c,tex,latex noremap <F8> gggqG
+au FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
+au FileType java setlocal shiftwidth=2 softtabstop=2
 au FileType markdown noremap <F8> :silent %!prettier --stdin-filepath % <CR>
+au FileType python setlocal formatprg=autopep8\ -
+au FileType tex,latex setlocal formatprg=latexindent\ -
+au FileType c,java,python,tex,latex noremap <F8> gggqG
+
 
 
 """ Begin Plugin section
