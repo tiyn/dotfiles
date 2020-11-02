@@ -28,7 +28,7 @@ case "$file" in
 	*\.[0-9]) refer -PS -e "$file" | groff -mandoc -T pdf > "$base".pdf ;;
 	*\.rmd) echo "require(rmarkdown); render('$file')" | R -q --vanilla ;;
 	*\.tex) textype "$file" ;;
-        *\.m) octave --no-window-system "$file" ;;
+        *\.m) octave -qW "$file" ;;
 	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
 	*config.h) sudo make install ;;
         *\.c) if [ -f Makefile ]; then make run; else cc "$file" -o "$base" && "$base"; fi ;;

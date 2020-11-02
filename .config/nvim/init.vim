@@ -106,7 +106,7 @@ vnoremap <C-c> "+y
 cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
 
 " alias for replacing
-nnoremap S :%s//gI<Left><Left><Left>
+nnoremap <leader>ss :%s//gI<Left><Left><Left>
 
 " read files correctly
 autocmd BufRead,BufNewFile *.tex set filetype=tex
