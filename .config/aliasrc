@@ -62,7 +62,6 @@ alias mv="mv -i"
 
 # octave
 alias octave="octave --persist"
-alias matlab="octave --persist"
 
 # pacman
 alias pac="sudo pacman"
