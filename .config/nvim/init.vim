@@ -1,5 +1,24 @@
 let mapleader =","
 
+" unmap unwanted commands
+nnoremap <F1> <NOP>
+nnoremap <F9> <NOP>
+nnoremap <F10> <NOP>
+nnoremap <F11> <NOP>
+nnoremap <F12> <NOP>
+
+inoremap <F2> <NOP>
+inoremap <F3> <NOP>
+inoremap <F4> <NOP>
+inoremap <F5> <NOP>
+inoremap <F6> <NOP>
+inoremap <F7> <NOP>
+inoremap <F8> <NOP>
+inoremap <F9> <NOP>
+inoremap <F10> <NOP>
+inoremap <F11> <NOP>
+inoremap <F12> <NOP>
+
 set go=a
 
 " enable mouse for all modes
