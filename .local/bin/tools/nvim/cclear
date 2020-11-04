@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ -d .ccls-cache ]
+then
+    rm -r '.ccls-cache'
+fi

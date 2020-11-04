@@ -79,9 +79,6 @@ autocmd BufWritePre * :call TrimWhitespace()
 " disables automatic commenting on newline:
 autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
 
-" clean LaTex build files
-autocmd VimLeave *.tex !texclear %
-
 " mapping Dictionaries
 nmap <F6> :setlocal spell! spelllang=de_de<CR>
 nmap <F7> :set spelllang=en_us<CR>
@@ -122,6 +119,10 @@ au FileType tex,latex setlocal formatprg=latexindent\ -
 au FileType c,java,python,tex,latex noremap <F8> gggqG
 
 
+" cleanup certain files after leaving the editor
+autocmd VimLeave *.tex !texclear %
+autocmd VimLeave *.c !cclear
+
 
 """ Begin Plugin section
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
@@ -150,6 +151,7 @@ Plug 'tomasiser/vim-code-dark' " adding colorscheme
 Plug 'tpope/vim-fugitive' " git wrapper
 Plug 'tpope/vim-surround' " help for quotes/parantheses
 Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " better syntax highlight for java than default
+Plug 'whonore/coqtail' , {'for': 'v'} " coq interactive proof
 call plug#end()
 
 " alvan/vim-closetag
@@ -271,5 +273,11 @@ nnoremap <leader>gs :G<CR>
 
 " tomasiser/vim-code-dark
 colorscheme codedark
+
+" whonore/coqtail
+function g:CoqtailHighlight()
+	hi def CoqtailChecked ctermfg=2
+	hi def CoqtailSent ctermfg=2
+endfunction
 
 """ end plugin section
