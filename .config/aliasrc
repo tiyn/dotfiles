@@ -9,6 +9,7 @@ alias ".."="cd .."
 alias "..."="cd ../.."
 alias "...."="cd ../../.."
 alias "....."="cd ../../../.."
+alias "dockervol"="cd /var/lib/docker/volumes"
 
 # cp
 alias cp="cp -i"
@@ -94,5 +95,9 @@ command -v nvim >/dev/null && alias vi="nvim" vidiff="nvim -d"
 # weather
 alias weather="curl wttr.in"
 
-#wget
+# wget
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+
+# youtube-dl
+alias yta="youtube-dl -f 'bestaudio[ext=m4a]'"
+alias yta="youtube-dl -f 'bestvide[ext=mp4]+bestaudio[ext=m4a]'"
