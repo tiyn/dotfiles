@@ -155,10 +155,6 @@ endfunction
 
 """ end plugin section
 
-" colorscheme
-colorscheme codedark
-highlight colorcolumn guibg=#FF4444
-
 set go=a
 
 " enable mouse for all modes
@@ -294,4 +290,10 @@ autocmd VimLeave *.tex !texclear %
 autocmd VimLeave *.c !cclear
 
 " highlighting break line
+autocmd BufEnter,FileType c set colorcolumn=80
+autocmd BufEnter,FileType java set colorcolumn=100
 autocmd BufEnter,FileType markdown set colorcolumn=80
+
+" colorscheme
+colorscheme codedark
+highlight colorcolumn guibg=#772222
