@@ -1,4 +1,6 @@
-" Begin Plugin section
+let mapleader = ";"
+
+" begin plugin section
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))
 	echo "Downloading junegunn/vim-plug to manage plugins..."
 	silent !mkdir -p ~/.config/nvim/autoload/
@@ -9,72 +11,152 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'qpkorr/vim-renamer'
 Plug 'tomasiser/vim-code-dark'
 call plug#end()
-
-" End Plugin section
-
-let mapleader =","
+" end plugin section
 
 set go=a
+
+" enable mouse for all modes
 set mouse=a
-set ignorecase
-" Some basics:
-nnoremap c "_c
-set nocompatible
-filetype plugin on
-syntax on
-set encoding=utf-8
-set number relativenumber
-" Enable autocompletion:
+set clipboard+=unnamedplus
+
+" enable command completion
 set wildmode=longest,list,full
-" Disables automatic commenting on newline:
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
-" Setting Tab-length
-set tabstop=4
+
+" setting Tab-length
+set expandtab
 set softtabstop=4
 set shiftwidth=4
 
-colorscheme codedark
-
-" Splits open at the bottom and right, which is non-retarded, unlike vim defaults.
+" splits open at the bottom and right, which is non-retarded, unlike vim defaults.
 set splitbelow splitright
 
-" Mapping Dictionaries
-map <F5> :setlocal spell! spelllang=de<CR>
-map <F6> :set spelllang=en_us<CR>
+" disable case sensitive matching
+set ignorecase
 
-""" Shortcuts
-" Navigating with guides
-inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-map <leader><leader> <Esc>/<++><Enter>"_c4l
+" enable nocompatible mode
+set nocompatible
 
-" Navigating with guides
-	inoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-	vnoremap <leader><leader> <Esc>/<++><Enter>"_c4l
-	map <leader><leader> <Esc>/<++><Enter>"_c4l
+" enable Plugins
+filetype plugin on
 
-"""HTML
-autocmd BufRead,BufNewFile *.html set filetype=html
+" enable syntax highlighting
+syntax on
 
-autocmd FileType html inoremap ,b <b></b><Space><++><Esc>FbT>i
-autocmd FileType html inoremap ,it <em></em><Space><++><Esc>FeT>i
-autocmd FileType html inoremap ,1 <h1></h1><Enter><Enter><++><Esc>2kf<i
-autocmd FileType html inoremap ,2 <h2></h2><Enter><Enter><++><Esc>2kf<i
-autocmd FileType html inoremap ,3 <h3></h3><Enter><Enter><++><Esc>2kf<i
-autocmd FileType html inoremap ,p <p></p><Enter><Enter><++><Esc>02kf>a
-autocmd FileType html inoremap ,a <a<Space>href=""><++></a><Space><++><Esc>14hi
-autocmd FileType html inoremap ,e <a<Space>target="_blank"<Space>href=""><++></a><Space><++><Esc>14hi
-autocmd FileType html inoremap ,ul <ul><Enter><li></li><Enter></ul><Enter><Enter><++><Esc>03kf<i
-autocmd FileType html inoremap ,li <Esc>o<li></li><Esc>F>a
-autocmd FileType html inoremap ,ol <ol><Enter><li></li><Enter></ol><Enter><Enter><++><Esc>03kf<i
-autocmd FileType html inoremap ,im <img src="" alt="<++>"><++><esc>Fcf"a
-autocmd FileType html inoremap &<space> &amp;<space>
-autocmd FileType html inoremap ä &auml;
-autocmd FileType html inoremap ö &ouml;
-autocmd FileType html inoremap ü &uuml;
-autocmd FileType html inoremap Ä &Auml;
-autocmd FileType html inoremap Ö &Ouml;
-autocmd FileType html inoremap Ü &Uuml;
+" enable true colors
+set termguicolors
 
-" Delete trailing whitespaces on save
-autocmd BufWritePre * %s/\s\+$//e
+" set utf-8 encoding
+set encoding=utf-8
+
+" show relative numbers on left side
+set number relativenumber
+
+" speedup vim with long lines
+set ttyfast
+set lazyredraw
+
+" textEdit might fail without hidden
+set hidden
+
+" disable Backupfiles for Lsp
+set nobackup
+set nowritebackup
+
+" dont pass messages to ins-completion-menu
+set shortmess+=c
+
+" always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("patch-8.1.1564")
+    " Recently vim can merge signcolumn and number column into one
+    set signcolumn=number
+else
+    set signcolumn=yes
+endif
+
+" enable persistent undo
+if has('persistent_undo')
+    set undofile
+    set undodir=$XDG_CACHE_HOME/vim/undo
+endif
+
+" unmap unwanted commands
+nnoremap <F1> <NOP>
+nnoremap <F2> <NOP>
+nnoremap <F3> <NOP>
+nnoremap <F4> <NOP>
+nnoremap <F5> <NOP>
+nnoremap <F8> <NOP>
+nnoremap <F9> <NOP>
+nnoremap <F10> <NOP>
+nnoremap <F11> <NOP>
+nnoremap <F12> <NOP>
+
+inoremap <F1> <NOP>
+inoremap <F2> <NOP>
+inoremap <F3> <NOP>
+inoremap <F4> <NOP>
+inoremap <F5> <NOP>
+inoremap <F6> <NOP>
+inoremap <F7> <NOP>
+inoremap <F8> <NOP>
+inoremap <F9> <NOP>
+inoremap <F10> <NOP>
+inoremap <F11> <NOP>
+inoremap <F12> <NOP>
+
+" mapping Dictionaries
+nnoremap <F6> :setlocal spell! spelllang=de_de<CR>
+nnoremap <F7> :setlocal spell! spelllang=en_us<CR>
+
+" compiler for languages
+nnoremap <leader>c :w! \| !compiler <c-r>%<CR>
+
+" open corresponding file (pdf/html/...)
+nnoremap <leader>p :!opout <c-r>%<CR><CR>
+
+" shortcut for split navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" save file as sudo on files that require root permission
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
+" alias for replacing
+nnoremap <leader>ss :%s//gI<Left><Left><Left>
+
+" delete trailing whitespaces on save
+fun! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfun
+autocmd BufWritePre * :call TrimWhitespace()
+
+" read files correctly
+autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.h set filetype=c
+
+" formatting
+autocmd FileType c setlocal formatprg=astyle\ --mode=c
+autocmd FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
+autocmd FileType java setlocal shiftwidth=2 softtabstop=2
+autocmd FileType markdown noremap <F8> :silent %!prettier --stdin-filepath % <CR>
+autocmd FileType python setlocal formatprg=autopep8\ -
+autocmd FileType tex,latex setlocal formatprg=latexindent\ -
+autocmd FileType c,java,python,tex,latex noremap <F8> gggqG
+
+" cleanup certain files after leaving the editor
+autocmd VimLeave *.tex !texclear %
+autocmd VimLeave *.c !cclear
+
+" highlighting break line
+autocmd BufEnter,FileType c set colorcolumn=80
+autocmd BufEnter,FileType java set colorcolumn=100
+autocmd BufEnter,FileType markdown set colorcolumn=80
+
+" colorscheme
+colorscheme codedark
+highlight colorcolumn guibg=#772222

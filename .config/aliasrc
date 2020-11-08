@@ -12,11 +12,20 @@ alias "....."="cd ../../../.."
 alias "......"="cd ../../../../.."
 alias "dockervol"="cd /var/lib/docker/volumes"
 
+# cp
+alias cp="cp -i"
+
 # clear
 alias c="clear"
 
 # config
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
+# git
+alias ga="git add"
+alias grm="git rm"
+alias gc="git commit"
+alias gp="git push"
 
 # grep
 alias grep="grep --color=auto"
@@ -33,14 +42,23 @@ alias la="lsd -la"
 alias ll="lsd -l"
 alias tree="lsd --tree"
 
+# mid3v2
+alias tag="mid3v2"
+
 # mkdir
 alias mkdir="mkdir -p"
+
+# mv
+alias mv="mv -i"
 
 # mount
 alias mount="mount |column -t"
 
 # ping
 alias ping="ping -c 5"
+
+# rm
+alias rm="rm -i"
 
 # sc-im
 alias sc="sc-im"
@@ -49,4 +67,17 @@ alias sc="sc-im"
 alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
 
 # nvim
+alias svim="sudo nvim"
+alias svi="sudo nvim"
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
+command -v nvim >/dev/null && alias vi="nvim" vidiff="nvim -d"
+
+# weather
+alias weather="curl wttr.in"
+
+# wget
+alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+
+# youtube-dl
+alias yta="youtube-dl -f 'bestaudio[ext=m4a]'"
+alias ytv="youtube-dl -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
