@@ -1,4 +1,3 @@
-
 # .dotfiles
 My Server and root account dotfiles.
 
@@ -23,17 +22,17 @@ My Server and root account dotfiles.
 ### set alias in .bashrc
 ```alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'```
 ### clone this repository
-```git clone --bare https://github.com/TiynGER/.dotfilesserver $HOME/.dotfiles```
+```git clone --bare https://github.com/TiynGER/.dotfiles $HOME/.dotfiles```
 ### checkout changes
-```config checkout```
+```config checkout server```
 ### backup old files
-```mkdir -p .config-backup && \ 
+```mkdir -p .config-backup && \
 config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
 xargs -I{} mv {} .config-backup/{}
 ```
 ### checkout changes
-```config checkout```
+```config checkout server -f```
 ### set showUntrackedFiles to no
 ```config config --local status.showUntrackedFiles no```
 ### pull current setup
-```config pull```
+```config pull --set-upstream origin server```
