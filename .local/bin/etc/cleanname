@@ -1,0 +1,26 @@
+#!/bin/sh
+[ -z "$1" ] && (echo "Error: missing argument (what to remain)" && exit)
+for oldname in "$@"
+do
+	newname=`echo "$oldname" | tr '[:upper:]' '[:lower:]' | sed 's/\ /_/g; s/Ö/oe/g; s/Ä/ae/g; s/Ü/ue/g; s/ö/oe/g; s/ä/ae/g; s/ü/ue/g; s/ß/ss/g'`;
+	if [ "$oldname" != "$newname" ]; then
+		if [ -f "$newname" ]; then
+			echo "skipping $newname, because it already exists"
+			rm "$oldname";
+		else
+			echo "renaming file $oldname to $newname"
+			if [ -f "$oldname" ]; then
+				echo "using mv"
+				mv "$oldname" "$newname";
+			elif [ -d "$oldname" ]; then
+				if [ -e "$newname" ]; then
+					echo "using cp"
+					cp -r "$oldname/." "$newname" && rm -r "$oldname";
+				else
+					echo "using mv"
+					mv "$oldname" "$newname";
+				fi
+			fi
+		fi
+	fi
+done

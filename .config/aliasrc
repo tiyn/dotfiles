@@ -1,0 +1,52 @@
+#!/bin/bash
+
+# bash
+alias ":wq"="exit"
+alias ":q"="exit"
+
+# cd
+alias ".."="cd .."
+alias "..."="cd ../.."
+alias "...."="cd ../../.."
+alias "....."="cd ../../../.."
+alias "......"="cd ../../../../.."
+alias "dockervol"="cd /var/lib/docker/volumes"
+
+# clear
+alias c="clear"
+
+# config
+alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
+
+# grep
+alias grep="grep --color=auto"
+
+# haste
+haste() {
+    a=$(cat);
+    curl -X POST -s -d "$a" https://paste.tiyn.eu/documents | awk -F '"' '{print "https://paste.tiyn.eu/"$4}';
+}
+
+# ls(d)
+alias l="lsd"
+alias la="lsd -la"
+alias ll="lsd -l"
+alias tree="lsd --tree"
+
+# mkdir
+alias mkdir="mkdir -p"
+
+# mount
+alias mount="mount |column -t"
+
+# ping
+alias ping="ping -c 5"
+
+# sc-im
+alias sc="sc-im"
+
+# script
+alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
+
+# nvim
+command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
