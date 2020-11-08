@@ -22,7 +22,7 @@ My debian-based/arch compatible server/root account dotfiles.
 ### set alias in .bashrc
 ```alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'```
 ### clone this repository
-```git clone --bare https://github.com/TiynGER/.dotfiles $HOME/.dotfiles```
+```git clone --bare https://github.com/tiyn/dotfiles $HOME/.dotfiles```
 ### checkout changes
 ```config checkout server```
 ### backup old files
