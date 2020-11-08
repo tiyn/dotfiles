@@ -1,6 +1,6 @@
 # .dotfiles
 
-My Arch Linux dotfiles.
+My arch compatible user dotfiles.
 They were originally based on the dotfiles of [lukesmithxyz](https://github.com/lukesmithxyz/voidrice).
 This being some time, hundreds of commits and my personalized version of [larbs](https://github.com/TiynGER/larbs) ago, they are now quite different.
 
