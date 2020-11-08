@@ -1,5 +1,5 @@
 # .dotfiles
-My Server and root account dotfiles.
+My debian-based/arch compatible server/root account dotfiles.
 
 ## Required/Recommended Software
 ### Required
