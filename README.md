@@ -17,7 +17,7 @@ To take a look at all the software it installs look at the [progs.csv](https://g
 
 ### clone this repository
 
-`git clone --bare https://github.com/TiynGER/.dotfiles $HOME/.dotfiles`
+`git clone --bare https://github.com/Tiyn/dotfiles $HOME/.dotfiles`
 
 ### checkout changes
 
