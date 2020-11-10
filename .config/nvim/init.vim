@@ -273,17 +273,23 @@ autocmd BufWritePre * :call TrimWhitespace()
 
 " read files correctly
 autocmd BufRead,BufNewFile *.tex set filetype=tex
+autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufRead,BufNewFile *.h set filetype=c
 
-" formatting
-autocmd FileType c setlocal formatprg=astyle\ --mode=c
-autocmd FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
+" formatting options
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2
+
+" formatting programs
+autocmd FileType c setlocal formatprg=astyle\ --mode=c\ --style=ansi
+autocmd FileType c noremap <F8> gggqG
+autocmd FileType html noremap <F8> :silent %!tidy -q -i --show-errors 0 <CR>
+autocmd FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
+autocmd FileType java noremap <F8> gggqG
 autocmd FileType markdown noremap <F8> :silent %!prettier --stdin-filepath % <CR>
 autocmd FileType python setlocal formatprg=autopep8\ -
+autocmd FileType python noremap <F8> gggqG
 autocmd FileType tex,latex setlocal formatprg=latexindent\ -
-autocmd FileType c,java,python,tex,latex noremap <F8> gggqG
-
+autocmd FileType tex,latex noremap <F8> gggqG
 
 " cleanup certain files after leaving the editor
 autocmd VimLeave *.tex !texclear %
