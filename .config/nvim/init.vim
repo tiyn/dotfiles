@@ -19,6 +19,7 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " autocompletion
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
+"Plug 'rakr/vim-one' " adding colorscheme
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
 Plug 'ryanoasis/vim-devicons' " enable icons for vim
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
@@ -299,7 +300,9 @@ autocmd VimLeave *.c !cclear
 autocmd BufEnter,FileType c set colorcolumn=80
 autocmd BufEnter,FileType java set colorcolumn=100
 autocmd BufEnter,FileType markdown set colorcolumn=80
+autocmd BufEnter,FileType python set colorcolumn=80
 
 " colorscheme
+set background=dark
 colorscheme codedark
 highlight colorcolumn guibg=#772222
