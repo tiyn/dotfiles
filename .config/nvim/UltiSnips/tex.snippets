@@ -29,10 +29,11 @@ snippet ,fr "Frame" A
 	\frametitle{$1}
 	$2
 \end{frame}
+$3
 endsnippet
 
 snippet ,em "Emphasis" A
-\emph{$1}
+\emph{$1} $2
 endsnippet
 
 snippet ,bf "Bold" A
@@ -55,12 +56,14 @@ snippet ,ol "Enumeration" A
 \begin{enumerate}
 	\item $1
 \end{enumerate}
+$2
 endsnippet
 
 snippet ,ul "Itemization" A
 \begin{itemize}
 	\item $1
 \end{itemize}
+$2
 endsnippet
 
 snippet ,li "List element" A
@@ -76,6 +79,7 @@ snippet ,tab "Tabular" A
 \begin{tabular}
 $1
 \end{tabular}
+$2
 endsnippet
 
 snippet ,a "Hyperlink" A
@@ -87,34 +91,49 @@ snippet ,sc "Small caps" A
 endsnippet
 
 snippet ,chap "Chapter" A
-\chapter{$1}
+\chapter {$1}
 $2
 endsnippet
 
 snippet ,sec "Section" A
-\section*{$1}
+\section* {$1}
+$2
+endsnippet
+
+snippet ,lsec "Section" A
+\section {$1}
 $2
 endsnippet
 
 snippet ,ssec "Subsection" A
-\subsection*{$1}
+\subsection* {$1}
 $2
 endsnippet
 
 snippet ,sssec "Subsubsection" A
-\subsubsection*{$1}
+\subsubsection* {$1}
+$2
+endsnippet
+
+snippet ,par "Paragraph" A
+\paragraph* {$1}
+$2
+endsnippet
+
+snippet ,spar "Subparagraph" A
+\subparagraph* {$1}
 $2
 endsnippet
 
 snippet ,up "Use Packagage" A
 \usepackage{$1}
+$2
 endsnippet
 
-snippet ,tt "Typewriter" A
+snippet ,ttt "Typewriter" A
 \texttt{$1} $2
 endsnippet
 
-snippet ,par "Paragraph" A
-\paragraph*{$1}
-$2
+snippet $ "Mathmode" A
+$$1$ $2
 endsnippet

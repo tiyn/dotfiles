@@ -1,7 +1,7 @@
 #!/bin/bash
 # copying tex templates
 
-latexdir=~/gitrepos/main/latextemplates/
+latexdir=~/code/main/latextemplates/
 
 [ -z "$2" ] && echo "missing argument: filename (no ending)" && return 1
 
