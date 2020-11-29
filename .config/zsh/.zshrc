@@ -142,4 +142,8 @@ source /usr/share/doc/pkgfile/command-not-found.zsh
 # Load zsh-syntax-highlighting; should be last.
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
 
+if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
+    tmux attack-session -t $USER || tmux new-session -s $USER
+fi
+
 pfetch
