@@ -10,6 +10,7 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " git upgrades
+Plug 'alaviss/nim.nvim' , {'for': 'nim'} " Highlighting for nim
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering
 Plug 'frazrepo/vim-rainbow' " colorized matching brackets
@@ -276,6 +277,7 @@ autocmd BufWritePre * :call TrimWhitespace()
 autocmd BufRead,BufNewFile *.tex set filetype=tex
 autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufRead,BufNewFile *.h set filetype=c
+autocmd BufRead,BufNewFile *.nim set filetype=nim
 
 " formatting options
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2
@@ -287,6 +289,7 @@ autocmd FileType html noremap <F8> :silent %!tidy -q -i --show-errors 0 <CR>
 autocmd FileType java setlocal formatprg=astyle\ --indent=spaces=2\ --style=google
 autocmd FileType java noremap <F8> gggqG
 autocmd FileType markdown noremap <F8> :silent %!prettier --stdin-filepath % <CR>
+autocmd FileType nim noremap <F8> :silent !nimpretty %<CR>
 autocmd FileType python setlocal formatprg=autopep8\ -
 autocmd FileType python noremap <F8> gggqG
 autocmd FileType tex,latex setlocal formatprg=latexindent\ -

@@ -3,6 +3,7 @@
 
 # Adds `~/.local/bin` and all subdirectories to $PATH
 export PATH="$PATH:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH=/home/user/.nimble/bin:$PATH
 
 export BROWSER="icecat"
 export RTV_BROWSER="qutebrowser"
