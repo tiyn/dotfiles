@@ -3,7 +3,10 @@
 
 # Adds `~/.local/bin` and all subdirectories to $PATH
 export PATH="$PATH:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export PATH=/home/user/.nimble/bin:$PATH
+export PATH=${HOME}/.nimble/bin:$PATH
+export PATH=${HOME}/.pyenv/bin:$PATH
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 export BROWSER="icecat"
 export RTV_BROWSER="qutebrowser"

@@ -309,3 +309,7 @@ autocmd BufEnter,FileType python set colorcolumn=80
 set background=dark
 colorscheme codedark
 highlight colorcolumn guibg=#772222
+
+" python
+let g:python_host_prog = "/usr/bin/python2"
+let g:python3_host_prog = "/usr/bin/python3"
