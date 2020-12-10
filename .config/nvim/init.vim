@@ -10,7 +10,6 @@ endif
 
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " git upgrades
-Plug 'alaviss/nim.nvim' , {'for': 'nim'} " Highlighting for nim
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering
 Plug 'frazrepo/vim-rainbow' " colorized matching brackets
@@ -30,6 +29,7 @@ Plug 'tpope/vim-fugitive' " git wrapper
 Plug 'tpope/vim-surround' " help for quotes/parantheses
 Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " better syntax highlight for java than default
 Plug 'whonore/coqtail' , {'for': 'v'} " coq interactive proof
+Plug 'zah/nim.vim' , {'for': 'nim'} " Highlighting for nim
 call plug#end()
 
 " alvan/vim-closetag
