@@ -32,7 +32,7 @@ case "$file" in
 	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
 	*config.h) sudo make install ;;
         *\.c) if [ -f Makefile ]; then make run; else cc "$file" -o "$base" && "$base"; fi ;;
-        *\.nim) nim c "$file" && "$base" ;;
+        *\.nim) nim c -r -d:noColors "$file" ;;
 	*\.py) python "$file" ;;
 	*\.go) go run "$file" ;;
 	*\.sent) setsid sent "$file" 2>/dev/null & ;;

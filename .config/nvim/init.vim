@@ -303,6 +303,7 @@ autocmd VimLeave *.c !cclear
 autocmd BufEnter,FileType c set colorcolumn=80
 autocmd BufEnter,FileType java set colorcolumn=100
 autocmd BufEnter,FileType markdown set colorcolumn=80
+autocmd BufEnter,FileType nim set colorcolumn=80
 autocmd BufEnter,FileType python set colorcolumn=80
 
 " colorscheme
