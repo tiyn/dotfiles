@@ -105,7 +105,7 @@ bind index,pager B sidebar-toggle-visible
 #mono indicator invert
 #mono error bold
 #color normal default default
-#color indicator brightblack white
+color indicator black white
 #color sidebar_highlight red default
 #color sidebar_divider brightblack black
 #color sidebar_flagged red black
