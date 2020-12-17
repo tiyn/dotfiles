@@ -13,6 +13,7 @@ Plug 'airblade/vim-gitgutter' " git upgrades
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering
 Plug 'frazrepo/vim-rainbow' " colorized matching brackets
+Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
 Plug 'lervag/vimtex' , {'for' : 'tex'} " tex library for autocompletion
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
@@ -50,6 +51,9 @@ let g:neotex_enabled = 2
 
 " frazrepo/vim-rainbow
 au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()
+
+" itchyny/lightline.vim
+let g:lightline = { 'colorscheme': 'codedark'}
 
 " junegunn/fzf.vim
 let $FZF_DEFAULT_COMMAND = 'find . ~ -type f'
@@ -158,6 +162,9 @@ endfunction
 """ end plugin section
 
 set go=a
+
+" dont show status in commandline due to lightline
+set noshowmode
 
 " enable mouse for all modes
 set mouse=a
