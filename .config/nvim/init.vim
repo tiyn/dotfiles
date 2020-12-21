@@ -54,6 +54,7 @@ au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()
 
 " itchyny/lightline.vim
 let g:lightline = { 'colorscheme': 'codedark'}
+set noshowmode
 
 " junegunn/fzf.vim
 let $FZF_DEFAULT_COMMAND = 'find . ~ -type f'
@@ -162,9 +163,6 @@ endfunction
 """ end plugin section
 
 set go=a
-
-" dont show status in commandline due to lightline
-set noshowmode
 
 " enable mouse for all modes
 set mouse=a
