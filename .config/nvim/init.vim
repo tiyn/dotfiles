@@ -78,7 +78,7 @@ endfunction
 let g:coc_global_extensions = [
     \ 'coc-java',
     \ 'coc-markdownlint',
-    \ 'coc-python',
+    \ 'coc-pyright',
     \ 'coc-sh',
     \ 'coc-vimtex',
     \ ]
