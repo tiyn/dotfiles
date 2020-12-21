@@ -8,7 +8,7 @@ export PATH=${HOME}/.pyenv/bin:$PATH
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
-export BROWSER="icecat"
+export BROWSER="firefox"
 export RTV_BROWSER="qutebrowser"
 export EDITOR="nvim"
 export FILE="vifmrun"
