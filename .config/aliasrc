@@ -83,6 +83,10 @@ alias sc="sc-im"
 # script
 alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
 
+# tail
+
+alias mon="tail -f -n 500"
+
 # tmux
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"
 
@@ -99,7 +103,7 @@ alias weather="curl wttr.in"
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 # yay
-alias yay="yay --save --sudoloop"
+alias yay="yay --sudoloop --noredownload --norebuild"
 
 # youtube-dl
 alias yta="youtube-dl -f 'bestaudio[ext=m4a]'"
