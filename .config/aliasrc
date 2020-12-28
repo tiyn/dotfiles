@@ -54,6 +54,9 @@ alias tree="lsd --tree"
 # mkdir
 alias mkdir="mkdir -p"
 
+# multitail
+alias mon="multitail -CS irc -f"
+
 # mutt
 alias mutt="neomutt"
 alias upmutt="mbsync -a && neomutt"
@@ -82,10 +85,6 @@ alias sc="sc-im"
 
 # script
 alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
-
-# tail
-
-alias mon="tail -f -n 500"
 
 # tmux
 alias tmux="tmux -f $XDG_CONFIG_HOME/tmux/tmux.conf"

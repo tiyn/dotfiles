@@ -1,0 +1,12 @@
+colorscheme:irc
+cs_re:green:.*tiyn.*
+cs_re:yellow:.*http:\/\/.*
+cs_re:cyan:.*has joined #.*
+cs_re:cyan:.*has left #.*
+cs_re:blue:.*changed mode.*
+cs_re:yellow:Did.not
+
+titlebar:%m %u@%h %f (%t) [%l]
+tail:/usr/bin/tail
+
+check_mail:0
