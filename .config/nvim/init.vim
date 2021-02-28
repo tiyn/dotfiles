@@ -1,4 +1,4 @@
-let mapleader = ";"
+let mapleader = ","
 
 " begin plugin section
 if ! filereadable(expand('~/.config/nvim/autoload/plug.vim'))

@@ -42,8 +42,8 @@ alias la="lsd -la"
 alias ll="lsd -l"
 alias tree="lsd --tree"
 
-# mid3v2
-alias tag="mid3v2"
+# metaflac
+alias tag="metaflac"
 
 # mkdir
 alias mkdir="mkdir -p"
