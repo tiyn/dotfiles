@@ -19,7 +19,7 @@ My debian-based/arch compatible server/root-account dotfiles.
 - get the rest manually
   - https://github.com/Peltoche/lsd
   - https://github.com/andmarti1424/sc-im/wiki/Ubuntu-with-XLSX-import-&-export
-  
+
 #### Arch-based Systems
 
 - Get the yay-AUR-pckagemanager or something similar (`pacman -S yay`).
@@ -43,3 +43,6 @@ xargs -I{} mv {} .config-backup/{}
   - `:PlugInstall`
   - `:CocInstall`
 - change shell to zsh: `chsh -s /bin/zsh`
+  - it is possible that you're asked for a password. If so you need to change
+  the line in `/etc/pam.d/chsh` from `auth required pam_shells.so` to
+  `auth sufficient pam_sehlls.so`
