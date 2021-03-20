@@ -3,7 +3,6 @@ set ignorecase
 set xlsx_readformulas
 set autobackup=60
 set numeric
-set craction=1
 color "type=HEADINGS bold=1 fg=WHITE bg=YELLOW"
 color "type=MODE fg=WHITE bg=DEFAULT_COLOR"
 color "type=NUMB fg=GREEN bg=DEFAULT_COLOR"
