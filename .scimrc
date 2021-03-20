@@ -1,6 +1,0 @@
-set newline_action=l
-set ignorecase
-set xlsx_readformulas
-set autobackup=60
-set numeric
-set craction=1

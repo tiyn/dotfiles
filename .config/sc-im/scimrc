@@ -1,0 +1,21 @@
+set newline_action=l
+set ignorecase
+set xlsx_readformulas
+set autobackup=60
+set numeric
+set craction=1
+color "type=HEADINGS bold=1 fg=WHITE bg=YELLOW"
+color "type=MODE fg=WHITE bg=DEFAULT_COLOR"
+color "type=NUMB fg=GREEN bg=DEFAULT_COLOR"
+color "type=STRG fg=BLUE bg=DEFAULT_COLOR"
+color "type=CELL_ERROR fg=BLACK bg=RED"
+color "type=CELL_NEGATIVE fg=RED bg=DEFAULT_COLOR"
+color "type=CELL_SELECTION fg=WHITE bg=BLUE"
+color "type=CELL_SELECTION_SC fg=WHITE bg=BLUE"
+color "type=INFO_MSG fg=BLACK bg=RED"
+color "type=ERROR_MSG fg=BLACK bg=RED"
+color "type=CELL_ID fg=YELLOW bg=DEFAULT_COLOR"
+color "type=CELL_FORMAT fg=WHITE bg=DEFAULT_COLOR"
+color "type=CELL_CONTENT fg=WHITE bg=DEFAULT_COLOR"
+color "type=WELCOME fg=BLACK bg=GREEN"
+color "type=INPUT fg=WHITE bg=DEFAULT_COLOR"
