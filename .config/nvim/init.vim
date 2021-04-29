@@ -11,7 +11,8 @@ endif
 call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " git upgrades
 Plug 'alvan/vim-closetag' " auto close HTML tags
-Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering
+Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering for pdf
+Plug 'fatih/vim-go' " better support for golang
 Plug 'frazrepo/vim-rainbow' " colorized matching brackets
 Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
@@ -20,7 +21,6 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " autocompletion
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
-"Plug 'rakr/vim-one' " adding colorscheme
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
 Plug 'ryanoasis/vim-devicons' " enable icons for vim
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
@@ -48,6 +48,9 @@ let g:closetag_close_shortcut = '<leader>>'
 
 " donRaphaco/neotex
 let g:neotex_enabled = 2
+
+" fatih/vim-go
+let g:go_def_mapping_enabled = 0
 
 " frazrepo/vim-rainbow
 au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()

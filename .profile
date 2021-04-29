@@ -2,9 +2,10 @@
 # Profile file. Runs on login.
 
 # Adds `~/.local/bin` and all subdirectories to $PATH
-export PATH="$PATH:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
-export PATH=${HOME}/.nimble/bin:$PATH
-export PATH=${HOME}/.pyenv/bin:$PATH
+export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="${HOME}/.nimble/bin:${PATH}"
+export PATH="${HOME}/.pyenv/bin:${PATH}"
+export PATH="${GOBIN}:${PATH}"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
@@ -26,6 +27,8 @@ export XDG_DATA_HOME="${HOME}/.local/share"
 
 export ANDROID_SDK_HOME="${XDG_CONFIG_HOME}/android"
 export GNUPGHOME="${XDG_CONFIG_HOME}/gnupg"
+export GOPATH="${HOME}/code/go"
+export GOBIN="${GOPATH}/bin"
 export GRADLE_USER_HOME="${XDG_CONFIG_HOME}/gradle"
 export GTK2_RC_FILES="${XDG_CONFIG_HOME}/gtk-2.0/gtkrc-2.0"
 export HISTFILE="${XDG_CACHE_HOME}/shhistory"
