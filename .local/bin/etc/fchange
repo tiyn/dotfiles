@@ -1,3 +1,14 @@
 #!/bin/sh
 
-vim /sys/module/hid_apple/parameters/fnmode
+## Toggle the state of the fnmode.
+## Useful for using keyboards with different fn functionality.
+
+curr=$(cat /sys/module/hid_apple/parameters/fnmode)
+
+if [ "$curr" = "1" ]
+then
+    echo "0" | sudo tee -a /sys/module/hid_apple/parameters/fnmode > /dev/null
+elif [ "$curr" = "0" ]
+then
+    echo "1" | sudo tee -a /sys/module/hid_apple/parameters/fnmode > /dev/null
+fi
