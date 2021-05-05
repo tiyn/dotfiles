@@ -20,6 +20,9 @@ alias c="clear"
 # config
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
+# diff
+alias diff="diff --color=auto"
+
 # fzf
 src() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 srd() { find ~/ownCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
