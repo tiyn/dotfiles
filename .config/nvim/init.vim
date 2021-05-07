@@ -18,6 +18,7 @@ Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
 Plug 'lervag/vimtex' , {'for' : 'tex'} " tex library for autocompletion
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
+Plug 'mattesgroeger/vim-bookmarks' " Set Bookmarks
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " autocompletion
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
@@ -65,6 +66,19 @@ nmap <F4> :FZF<CR>
 
 " majutsushi/tagbar
 map <F3> :TagbarToggle<CR>
+
+" mattesgroeger/vim-bookmarks
+let g:bookmark_no_default_key_mappings = 1
+nmap mm <Plug>BookmarkToggle
+nmap ma <Plug>BookmarkAnnotate
+nmap ms <Plug>BookmarkShowAll
+nmap mn <Plug>BookmarkNext
+nmap mb <Plug>BookmarkPrev
+nmap mc <Plug>BookmarkClear
+highlight BookmarkSign ctermbg=NONE ctermfg=160
+highlight BookmarkLine ctermbg=194 ctermfg=NONE
+let g:bookmark_sign = 'B'
+let g:bookmark_highlight_lines = 1
 
 " neoclide/coc.nvim
 inoremap <silent><expr> <TAB>
