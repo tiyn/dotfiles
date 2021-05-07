@@ -12,7 +12,7 @@ call plug#begin('~/.local/share/nvim/plugged')
 Plug 'airblade/vim-gitgutter' " git upgrades
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering for pdf
-Plug 'fatih/vim-go' " better support for golang
+Plug 'fatih/vim-go' , {'for': 'go'} " better support for golang
 Plug 'frazrepo/vim-rainbow' " colorized matching brackets
 Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
