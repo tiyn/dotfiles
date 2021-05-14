@@ -13,10 +13,10 @@ Plug 'airblade/vim-gitgutter' " git upgrades
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering for pdf
 Plug 'fatih/vim-go' , {'for': 'go'} " better support for golang
-Plug 'frazrepo/vim-rainbow' " colorized matching brackets
 Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
 Plug 'lervag/vimtex' , {'for' : 'tex'} " tex library for autocompletion
+Plug 'luochen1990/rainbow' " colorized matching brackets
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'mattesgroeger/vim-bookmarks' " Set Bookmarks
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " autocompletion
@@ -53,9 +53,6 @@ let g:neotex_enabled = 2
 " fatih/vim-go
 let g:go_def_mapping_enabled = 0
 
-" frazrepo/vim-rainbow
-au FileType,BufNewFile,BufRead java,c,cpp,py,h call rainbow#load()
-
 " itchyny/lightline.vim
 let g:lightline = { 'colorscheme': 'codedark'}
 set noshowmode
@@ -63,6 +60,38 @@ set noshowmode
 " junegunn/fzf.vim
 let $FZF_DEFAULT_COMMAND = 'find . ~ -type f'
 nmap <F4> :FZF<CR>
+
+" luochen1990/rainbow
+let g:rainbow_conf = {
+\	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
+\	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
+\	'guis': [''],
+\	'cterms': [''],
+\	'operators': '_,_',
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+\	'separately': {
+\		'*': {},
+\		'markdown': {
+\			'parentheses_options': 'containedin=markdownCode contained',
+\		},
+\		'lisp': {
+\			'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick', 'darkorchid3'],
+\		},
+\		'haskell': {
+\			'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/\v\{\ze[^-]/ end=/}/ fold'],
+\		},
+\		'vim': {
+\			'parentheses_options': 'containedin=vimFuncBody',
+\		},
+\		'perl': {
+\			'syn_name_prefix': 'perlBlockFoldRainbow',
+\		},
+\		'stylus': {
+\			'parentheses': ['start=/{/ end=/}/ fold contains=@colorableGroup'],
+\		},
+\		'css': 0,
+\	}
+\}
 
 " majutsushi/tagbar
 map <F3> :TagbarToggle<CR>
