@@ -49,10 +49,6 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 PS1='%B%{$fg[blue]%}[%{$fg[blue]%}%n%{$fg[blue]%}@%{$fg[blue]%}%M %{$fg[blue]%}%~%{$fg[blue]%}]%{$reset_color%}\$%b '
 RPROMPT='%B%{$fg[blue]%}$vcs_info_msg_0_%{$reset_color%}%b'
 
-# History in cache directory
-HISTSIZE=10000
-SAVEHIST=10000
-
 # Basic auto/tab complete
 autoload -U compinit
 zstyle ':completion:*' menu select
