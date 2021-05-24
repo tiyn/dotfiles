@@ -62,6 +62,7 @@ let $FZF_DEFAULT_COMMAND = 'find . ~ -type f'
 nmap <F4> :FZF<CR>
 
 " luochen1990/rainbow
+let g:rainbow_active = 1
 let g:rainbow_conf = {
 \	'guifgs': ['royalblue3', 'darkorange3', 'seagreen3', 'firebrick'],
 \	'ctermfgs': ['lightblue', 'lightyellow', 'lightcyan', 'lightmagenta'],
