@@ -6,6 +6,8 @@ dunst &			# dunst for notifications
 redshift &		# redshift for saving your eyes
 mpd &		# starts the mpd server for music
 toggletouchpad & # deactivates the touchpad
+togglemonitor & # detect added monitors
+fchange & # set the behaviour of the fn keys
 $STATUSBAR & # for refreshing the statusbar
-owncloud & # for my cloud
+nextcloud & # for my cloud
 sxhkd & # for shortcuts
