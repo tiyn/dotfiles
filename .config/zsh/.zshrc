@@ -129,7 +129,6 @@ background() {
 	done
 }
 
-source $HOME/.config/zsh/suffixaliasrc 2>/dev/null # Load suffix aliases
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Load aliases
 
 # Load command-not-found-handler

@@ -1,5 +1,0 @@
-#/bin/zsh
-
-alias -s pdf="background $READER"
-alias -s tex="$EDITOR"
-alias -s {png,jpg,jpeg}="background $IMAGE"
