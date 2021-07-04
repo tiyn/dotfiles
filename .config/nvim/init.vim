@@ -15,22 +15,21 @@ Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering for pdf
 Plug 'fatih/vim-go' , {'for': 'go'} " better support for golang
 Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
-Plug 'lervag/vimtex' , {'for' : 'tex'} " tex library for autocompletion
 Plug 'luochen1990/rainbow' " colorized matching brackets
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'mattesgroeger/vim-bookmarks' " Set Bookmarks
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'} " autocompletion
+Plug 'neovim/nvim-lspconfig' " Language server client
+Plug 'nvim-lua/completion-nvim' " Automatically open the omni completion window while typing
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
 Plug 'ryanoasis/vim-devicons' " enable icons for vim
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
 Plug 'sirver/ultisnips' " snippets
-Plug 'tomasiser/vim-code-dark' " adding colorscheme
+Plug 'tiyn/vim-tccs' " custom colorscheme
 Plug 'tpope/vim-fugitive' " git wrapper
 Plug 'tpope/vim-surround' " help for quotes/parantheses
 Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " better syntax highlight for java than default
-Plug 'whonore/coqtail' , {'for': 'v'} " coq interactive proof
 Plug 'zah/nim.vim' , {'for': 'nim'} " Highlighting for nim
 call plug#end()
 
@@ -54,8 +53,7 @@ let g:neotex_enabled = 2
 let g:go_def_mapping_enabled = 0
 
 " itchyny/lightline.vim
-let g:lightline = { 'colorscheme': 'codedark'}
-set noshowmode
+let g:lightline = { 'colorscheme': 'tccs'}
 
 " junegunn/fzf.vim
 let $FZF_DEFAULT_COMMAND = 'find . ~ -type f'
@@ -103,71 +101,55 @@ nmap mm <Plug>BookmarkToggle
 nmap ma <Plug>BookmarkAnnotate
 nmap ms <Plug>BookmarkShowAll
 nmap mn <Plug>BookmarkNext
-nmap mb <Plug>BookmarkPrev
+nmap mp <Plug>BookmarkPrev
 nmap mc <Plug>BookmarkClear
 highlight BookmarkSign ctermbg=NONE ctermfg=160
 highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = 'B'
 let g:bookmark_highlight_lines = 1
 
-" neoclide/coc.nvim
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+" neovim/nvim-lspconfig
+lua << EOF
+local nvim_lsp = require('lspconfig')
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
+  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-let g:coc_global_extensions = [
-    \ 'coc-java',
-    \ 'coc-markdownlint',
-    \ 'coc-pyright',
-    \ 'coc-sh',
-    \ 'coc-tsserver',
-    \ 'coc-vimtex',
-    \ ]
+  -- Mappings.
+  local opts = { noremap=true, silent=true }
 
-if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
-else
-  inoremap <silent><expr> <c-@> coc#refresh()
-endif
+  -- See `:help vim.lsp.*` for documentation on any of the below functions
+  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
+  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
+  buf_set_keymap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
+  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
+  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
+  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
+  buf_set_keymap('n', '<F5>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
 
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+end
 
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nnoremap <silent> K :call <SID>show_documentation()<CR>
+-- Use a loop to conveniently call 'setup' on multiple servers and
+-- map buffer local keybindings when the language server attaches
+local servers = { "pyright", "java_language_server", "bashls", "tsserver", "texlab", "ccls", "gopls", "hls", "nimls" }
+for _, lsp in ipairs(servers) do
+    nvim_lsp[lsp].setup {
+        on_attach=on_attach,
+        flags = {
+            debounce_text_changes = 150
+            }
+        }
+end
+EOF
+autocmd BufEnter * lua require'completion'.on_attach()
 
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
-endfunction
-
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-nmap <F5> <Plug>(coc-rename)
-
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-augroup mygroup
-  autocmd!
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
+" nvim-lua/completion-nvim
+let g:completion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy', 'all' ]
+let g:completion_matching_smart_case = 1
+let g:completion_enable_snippet = 'UltiSnips'
 
 " rrethy/vim-hexokinase
 let g:Hexokinase_refreshEvents = ['InsertLeave']
@@ -202,22 +184,14 @@ nnoremap <leader>gr :Gread<CR>
 nnoremap <leader>gu :diffget //2<CR>
 nnoremap <leader>gs :G<CR>
 
-" whonore/coqtail
-function g:CoqtailHighlight()
-	hi def CoqtailChecked guifg=#44FF44
-	hi def CoqtailSent guifg=#777777
-endfunction
-
 """ end plugin section
 
 set go=a
+set noshowmode
 
 " enable mouse for all modes
 set mouse=a
 set clipboard+=unnamedplus
-
-" enable command completion
-set wildmode=longest,list,full
 
 " setting Tab-length
 set expandtab
@@ -239,6 +213,14 @@ filetype plugin on
 " enable syntax highlighting
 syntax on
 
+" enable specify completion options
+set shortmess+=c
+set completeopt=menuone,noinsert,noselect
+inoremap <expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
+inoremap <expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
+inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
+inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
+
 " enable true colors
 set termguicolors
 
@@ -258,9 +240,6 @@ set hidden
 " disable Backupfiles for Lsp
 set nobackup
 set nowritebackup
-
-" dont pass messages to ins-completion-menu
-set shortmess+=c
 
 " always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
@@ -362,9 +341,9 @@ autocmd BufEnter,FileType tex set colorcolumn=80
 autocmd BufEnter,FileType nim set colorcolumn=80
 autocmd BufEnter,FileType python set colorcolumn=80
 
-" colorscheme
+"" colorscheme
 set background=dark
-colorscheme codedark
+colorscheme tccs
 highlight colorcolumn guibg=#772222
 
 " python
