@@ -109,4 +109,4 @@ alias yay="yay --sudoloop --noredownload --norebuild"
 
 # youtube-dl
 alias yta="youtube-dl -f 'bestaudio[ext=m4a]'"
-alias yta="youtube-dl -f 'bestvide[ext=mp4]+bestaudio[ext=m4a]'"
+alias ytv="youtube-dl -f 'bestvide[ext=mp4]+bestaudio[ext=m4a]'"

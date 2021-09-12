@@ -141,4 +141,7 @@ if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
     tmux attack-session -t $USER || tmux new-session -s $USER
 fi
 
+# python
+#eval "$(pyenv init -)"
+
 pfetch
