@@ -31,6 +31,7 @@ case "$file" in
         *\.m) octave -qW "$file" ;;
 	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
 	*config.h) sudo make install ;;
+        *\.java) java "$file" ;;
         *\.js) node "$file" ;;
         *\.c) if [ -f Makefile ]; then make run; else cc "$file" -o "$base" && "$base"; fi ;;
         *\.nim) nim c -r -d:noColors "$file" ;;

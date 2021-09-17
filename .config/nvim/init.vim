@@ -134,7 +134,7 @@ end
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "java_language_server", "bashls", "tsserver", "texlab", "ccls", "gopls", "hls", "nimls" }
+local servers = { "pyright", "bashls", "tsserver", "texlab", "ccls", "gopls", "hls", "nimls" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach=on_attach,
@@ -143,6 +143,17 @@ for _, lsp in ipairs(servers) do
             }
         }
 end
+
+require'lspconfig'.jdtls.setup{
+    on_attach=on_attach,
+    flags = {
+        debounce_text_changes = 150
+        },
+    cmd = { 'jdtls' }
+    }
+
+
+
 EOF
 autocmd BufEnter * lua require'completion'.on_attach()
 

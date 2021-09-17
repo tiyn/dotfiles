@@ -41,6 +41,7 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 # java
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export _JAVA_AWT_WM_NONREPARENTING=1
+export JDTLS_HOME="/usr/share/java/jdtls"
 
 # golang
 export GOPATH="${HOME}/code/go"
