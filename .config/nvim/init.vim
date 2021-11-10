@@ -13,13 +13,14 @@ Plug 'airblade/vim-gitgutter' " git upgrades
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering for pdf
 Plug 'fatih/vim-go' , {'for': 'go'} " better support for golang
+Plug 'hrsh7th/nvim-cmp' " autocompletion
+Plug 'hrsh7th/cmp-nvim-lsp' " autocompletion bridge to lsp
 Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
 Plug 'luochen1990/rainbow' " colorized matching brackets
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'mattesgroeger/vim-bookmarks' " Set Bookmarks
 Plug 'neovim/nvim-lspconfig' " Language server client
-Plug 'nvim-lua/completion-nvim' " Automatically open the omni completion window while typing
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
@@ -108,6 +109,33 @@ highlight BookmarkLine ctermbg=194 ctermfg=NONE
 let g:bookmark_sign = 'B'
 let g:bookmark_highlight_lines = 1
 
+" hrsh7th/nvim-cmp
+lua << EOF
+-- Add additional capabilities supported by nvim-cmp
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+-- nvim-cmp setup
+local cmp = require 'cmp'
+cmp.setup {
+  mapping = {
+    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
+    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ['<C-e>'] = cmp.mapping.close(),
+    ['<CR>'] = cmp.mapping.confirm {
+      behavior = cmp.ConfirmBehavior.Replace,
+      select = true,
+  }},
+  sources = {
+    { name = 'nvim_lsp' },
+  },
+}
+
+EOF
+
 " neovim/nvim-lspconfig
 lua << EOF
 local nvim_lsp = require('lspconfig')
@@ -138,6 +166,7 @@ local servers = { "pyright", "bashls", "tsserver", "texlab", "ccls", "gopls", "h
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach=on_attach,
+        capabilities=capabilities,
         flags = {
             debounce_text_changes = 150
             }
@@ -152,15 +181,7 @@ require'lspconfig'.jdtls.setup{
     cmd = { 'jdtls' }
     }
 
-
-
 EOF
-autocmd BufEnter * lua require'completion'.on_attach()
-
-" nvim-lua/completion-nvim
-let g:completion_matching_strategy_list = [ 'exact', 'substring', 'fuzzy' ]
-let g:completion_matching_smart_case = 1
-let g:completion_enable_snippet = 'UltiSnips'
 
 " rrethy/vim-hexokinase
 let g:Hexokinase_refreshEvents = ['InsertLeave']
@@ -223,14 +244,6 @@ filetype plugin on
 
 " enable syntax highlighting
 syntax on
-
-" enable specify completion options
-set shortmess+=c
-set completeopt=menuone,noinsert,noselect
-inoremap <expr> <Tab> pumvisible() ? '<C-n>' : '<Tab>'
-inoremap <expr> <S-Tab> pumvisible() ? '<C-p>' : '<S-Tab>'
-inoremap <expr> <Down> pumvisible() ? '<C-n>' : '<Down>'
-inoremap <expr> <Up> pumvisible() ? '<C-p>' : '<Up>'
 
 " enable true colors
 set termguicolors

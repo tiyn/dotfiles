@@ -177,7 +177,7 @@ fileviewer *.pdf
 		"\ pdftotext -nopgbrk %c -
 
 " CSV
-filetype *.csv,*.xlsx sc-im %f
+filetype *.csv,*.xlsx,*.sc sc-im %f
 
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
