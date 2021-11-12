@@ -13,6 +13,8 @@ Plug 'airblade/vim-gitgutter' " git upgrades
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering for pdf
 Plug 'fatih/vim-go' , {'for': 'go'} " better support for golang
+Plug 'hrsh7th/cmp-buffer' " autocompletion bridge for buffer
+Plug 'hrsh7th/cmp-path' " autocompletion bridge for filesystem
 Plug 'hrsh7th/nvim-cmp' " autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp' " autocompletion bridge to lsp
 Plug 'itchyny/lightline.vim' " fancy statusline
@@ -131,6 +133,8 @@ cmp.setup {
   }},
   sources = {
     { name = 'nvim_lsp' },
+    { name = 'path'},
+    { name = 'buffer' },
   },
 }
 
@@ -202,9 +206,6 @@ autocmd VimEnter * HexokinaseTurnOn
 map <F2> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let g:NERDTreeWinPos = "left"
-
-" sirver/ultisnips
-let g:UltiSnipsExpandTrigger="<alt-j>"
 
 " tpope/vim-fugitive
 nnoremap <leader>ga :Git add %:p<CR><CR>
