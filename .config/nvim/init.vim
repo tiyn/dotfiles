@@ -28,7 +28,6 @@ Plug 'raimondi/delimitmate' " automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
 Plug 'ryanoasis/vim-devicons' " enable icons for vim
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
-Plug 'sirver/ultisnips' " snippets
 Plug 'tiyn/vim-tccs' " custom colorscheme
 Plug 'tpope/vim-fugitive' " git wrapper
 Plug 'tpope/vim-surround' " help for quotes/parantheses
