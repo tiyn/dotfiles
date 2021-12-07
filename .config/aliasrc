@@ -27,6 +27,10 @@ alias diff="diff --color=auto"
 src() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 srd() { find ~/nextCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
 
+yaya() { yay -Slq | fzf --reverse --prompt="yay install > " -q "$1" -m --preview 'yay -Si {1}'| xargs -ro yay -S }
+yayr() { yay -Qq | fzf --reverse --prompt="yay remove > " -q "$1" -m --preview 'yay -Qi {1}' | xargs -ro yay -Rns }
+
+
 # git
 alias ga="git add"
 alias grm="git rm"
