@@ -235,17 +235,17 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp
         \ {View in sxiv}
         \ sxiv -ia %c %d &,
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm
-         \ vifmimg draw %px %py %pw %ph %c
-		 \ %pc
-		 \ vifmimg clear
+fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp
+        \ vifmimg draw %px %py %pw %ph %c
+	\ %pc
+	\ vifmimg clear
 fileviewer *.gif
-		\ vifmimg gifpreview %px %py %pw %ph %c
-		\ %pc
-		\vifmimg clear
+	\ vifmimg gifpreview %px %py %pw %ph %c
+	\ %pc
+	\vifmimg clear
 
 " OpenRaster
 filextype *.ora
