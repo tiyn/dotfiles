@@ -52,6 +52,9 @@ alias calendar="khal interactive"
 # khard
 alias contacts="khard"
 
+# kolourpaint
+alias  paint="kolourpaint"
+
 # ls(d)
 alias l="lsd"
 alias la="lsd -la"
@@ -114,3 +117,5 @@ alias yay="yay --sudoloop --noredownload --norebuild"
 # youtube-dl
 alias yta="youtube-dl -f 'bestaudio[ext=m4a]'"
 alias ytv="youtube-dl -f 'bestvide[ext=mp4]+bestaudio[ext=m4a]'"
+alias yta2c="youtube-dl --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestaudio/best'"
+alias ytv2c="youtube-dl --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestvideo[height>=720]+bestaudio/best'"

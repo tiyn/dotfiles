@@ -38,6 +38,9 @@ export TMUX_TMPDIR="${XDG_CACHE_HOME}/tmux"
 export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
+# external programs
+export OPENAUDIBLE_HOME="${HOME}/documents/openaudible"
+
 # java
 export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
 export _JAVA_AWT_WM_NONREPARENTING=1
