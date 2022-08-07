@@ -86,6 +86,9 @@ alias ping="ping -c 5"
 # rm
 alias rm="rm -i"
 
+# rsync
+alias rsync="rsync --progress"
+
 # root/sudo
 alias su="sudo -i"
 alias sudo="sudo "
