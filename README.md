@@ -1,5 +1,7 @@
 # .dotfiles
 
+![vim-example](vim-example.jpg)
+
 My debian-based/arch compatible server/root-account dotfiles.
 
 ## Required/Recommended Software
