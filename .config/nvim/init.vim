@@ -19,23 +19,23 @@ Plug 'hrsh7th/nvim-cmp' " autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp' " autocompletion bridge to lsp
 Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
-Plug 'L3MON4D3/LuaSnip' " Snippet support
+Plug 'l3mon4d3/luasnip' " snippet support
 Plug 'luochen1990/rainbow' " colorized matching brackets
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
-Plug 'mattesgroeger/vim-bookmarks' " Set Bookmarks
+Plug 'mattesgroeger/vim-bookmarks' " Set bookmarks
 Plug 'neovim/nvim-lspconfig' " Language server client
 Plug 'onsails/lspkind-nvim' " icons on completion
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
 Plug 'ryanoasis/vim-devicons' " enable icons for vim
-Plug 'saadparwaiz1/cmp_luasnip' " Add luasnips to cmp
+Plug 'saadparwaiz1/cmp_luasnip' " add snippets from luasnips to cmp
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
 Plug 'tiyn/vim-tccs' " custom colorscheme
 Plug 'tpope/vim-fugitive' " git wrapper
 Plug 'tpope/vim-surround' " help for quotes/parantheses
 Plug 'uiiaoo/java-syntax.vim' , {'for': 'java'} " better syntax highlight for java than default
-Plug 'zah/nim.vim' , {'for': 'nim'} " Highlighting for nim
+Plug 'zah/nim.vim' , {'for': 'nim'} " highlighting for nim
 call plug#end()
 
 " alvan/vim-closetag
