@@ -23,6 +23,7 @@ Plug 'luochen1990/rainbow' " colorized matching brackets
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'mattesgroeger/vim-bookmarks' " Set Bookmarks
 Plug 'neovim/nvim-lspconfig' " Language server client
+Plug 'onsails/lspkind-nvim' " icons on completion
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
@@ -121,10 +122,17 @@ vim.o.completeopt = 'menuone,noselect'
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
+local lspkind = require("lspkind")
 cmp.setup {
   mapping = {
     ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ['<Tab>'] = cmp.mapping.select_next_item(),
+    ["<Tab>"] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, { "i", "s" }),
     ['<C-e>'] = cmp.mapping.close(),
     ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
@@ -134,6 +142,45 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'path'},
     { name = 'buffer' },
+  },
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = "symbol_text",
+      preset = "codicons",
+      maxwidth = 50,
+      menu = {
+      	nvim_lsp = "[LSP]",
+      	path = "[PATH]",
+        buffer = "[BUF]",
+      },
+      symbol_map = {
+        Text = "",
+        Method = "",
+        Function = "",
+        Constructor = "",
+        Field = "ﰠ",
+        Variable = "",
+        Class = "ﴯ",
+        Interface = "",
+        Module = "",
+        Property = "ﰠ",
+        Unit = "塞",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "",
+        Struct = "פּ",
+        Event = "",
+        Operator = "",
+        TypeParameter = ""
+      },
+    }),
   },
 }
 
