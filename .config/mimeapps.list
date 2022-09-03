@@ -26,3 +26,4 @@ x-scheme-handler/mid=userapp-Thunderbird-ANNRB1.desktop
 x-scheme-handler/mailto=userapp-Thunderbird-ANNRB1.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-ANNRB1.desktop;
 application/rss+xml=firefox.desktop;
+application/pdf=firefox.desktop;
