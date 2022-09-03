@@ -20,6 +20,9 @@ alias c="clear"
 # config
 alias config="/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME"
 
+# cuebreakpoints
+flacsplit() { cuebreakpoints $2 | shnsplit $1 -o flac }
+
 # diff
 alias diff="diff --color=auto"
 
