@@ -19,6 +19,7 @@ Plug 'hrsh7th/nvim-cmp' " autocompletion
 Plug 'hrsh7th/cmp-nvim-lsp' " autocompletion bridge to lsp
 Plug 'itchyny/lightline.vim' " fancy statusline
 Plug 'junegunn/fzf.vim' " quickly jump files using fzf
+Plug 'L3MON4D3/LuaSnip' " Snippet support
 Plug 'luochen1990/rainbow' " colorized matching brackets
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'mattesgroeger/vim-bookmarks' " Set Bookmarks
@@ -28,6 +29,7 @@ Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
 Plug 'ryanoasis/vim-devicons' " enable icons for vim
+Plug 'saadparwaiz1/cmp_luasnip' " Add luasnips to cmp
 Plug 'scrooloose/nerdtree', {'on': 'NERDTreeToggle'} " filetree
 Plug 'tiyn/vim-tccs' " custom colorscheme
 Plug 'tpope/vim-fugitive' " git wrapper
@@ -115,22 +117,40 @@ let g:bookmark_highlight_lines = 1
 lua << EOF
 -- Add additional capabilities supported by nvim-cmp
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
 -- nvim-cmp setup
-local cmp = require 'cmp'
+local cmp = require("cmp")
+local luasnip = require("luasnip")
 local lspkind = require("lspkind")
 cmp.setup {
+  snippet = {
+    expand = function(args)
+      luasnip.lsp_expand(args.body)
+    end,
+  },
   mapping = {
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
       if cmp.visible() then
-        cmp.select_next_item()
+      	cmp.select_prev_item()
+      elseif luasnip.jumpable(-1) then
+      	luasnip.jump(-1)
       else
-        fallback()
+      	fallback()
+      end
+    end, { "i", "s" }),
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+      	cmp.select_next_item()
+      elseif luasnip.expand_or_jumpable() then
+      	luasnip.expand_or_jump()
+      elseif has_words_before() then
+      	cmp.complete()
+      else
+      	fallback()
       end
     end, { "i", "s" }),
     ['<C-e>'] = cmp.mapping.close(),
@@ -140,8 +160,9 @@ cmp.setup {
   }},
   sources = {
     { name = 'nvim_lsp' },
-    { name = 'path'},
+    { name = 'path' },
     { name = 'buffer' },
+    { name = 'luasnip' },
   },
   formatting = {
     format = lspkind.cmp_format({
@@ -152,6 +173,7 @@ cmp.setup {
       	nvim_lsp = "[LSP]",
       	path = "[PATH]",
         buffer = "[BUF]",
+      	luasnip = "[SNIP]",
       },
       symbol_map = {
         Text = "",
@@ -184,6 +206,7 @@ cmp.setup {
   },
 }
 
+require("luasnip.loaders.from_snipmate").lazy_load()
 EOF
 
 " neovim/nvim-lspconfig
