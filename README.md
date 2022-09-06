@@ -8,7 +8,7 @@ My debian-based/arch compatible server/root-account dotfiles.
 
 ### Required
 
-- lsd
+- exa
 - git
 - tmux
 - neovim
@@ -25,7 +25,7 @@ My debian-based/arch compatible server/root-account dotfiles.
 #### Arch-based Systems
 
 - Get the yay-AUR-pckagemanager or something similar (`pacman -S yay`).
-- `yay -S lsd git tmux neovim zsh sc-im`
+- `yay -S exa git tmux neovim zsh sc-im`
 
 ## Migration of my dotfiles to other system
 
