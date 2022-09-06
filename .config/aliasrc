@@ -61,10 +61,10 @@ alias contacts="khard"
 alias  paint="kolourpaint"
 
 # ls(d)
-alias l="lsd"
-alias la="lsd -la"
-alias ll="lsd -l"
-alias tree="lsd --tree"
+alias l="exa"
+alias la="exa -la"
+alias ll="exa -l"
+alias tree="exa --tree"
 
 # mkdir
 alias mkdir="mkdir -p"
