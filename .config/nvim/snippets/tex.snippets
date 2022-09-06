@@ -1,10 +1,257 @@
-# Section
+# documentclass without options
+snippet dcl \documentclass{}
+	\\documentclass{${1:class}} ${0}
+
+# documentclass with options
+snippet dclo \documentclass[]{}
+	\\documentclass[${1:options}]{${2:class}} ${0}
+
+# newcommand
+snippet nc \newcommand
+	\\newcommand{\\${1:cmd}}[${2:opt}]{${3:realcmd}} ${0}
+
+# usepackage
+snippet up \usepackage
+	\\usepackage[${1:options}]{${2:package}} ${0}
+
+# \begin{}...\end{}
+snippet begin \begin{} ... \end{} block
+	\\begin{${1:env}}
+		${0:${VISUAL}}
+	\\end{$1}
+
+# maketitle
+snippet mkt maketitle
+	\\maketitle
+
+# tabular
+snippet tab tabular (or arbitrary) environment
+	\\begin{${1:tabular}}{${2:c}}
+		${0:${VISUAL}}
+	\\end{$1}
+
+snippet center center environment
+	\\begin{center}
+		${0:${VISUAL}}
+	\\end{center}
+
+# align(ed)
+snippet ali align(ed) environment
+	\\begin{align${1:ed}}
+		\\label{eq:${2}}
+		${0:${VISUAL}}
+	\\end{align$1}
+
+# equation
+snippet eq equation environment
+	\\begin{equation}
+		${0:${VISUAL}}
+	\\end{equation}
+
+# equation
+snippet eql Labeled equation environment
+	\\begin{equation}
+		\\label{eq:${2}}
+		${0:${VISUAL}}
+	\\end{equation}
+
+# equation
+snippet eq* unnumbered equation environment
+	\\begin{equation*}
+		${0:${VISUAL}}
+	\\end{equation*}
+
+# label
+snippet lab \label
+	\\label{${1:eq:}${2:fig:}${3:tab:}${0}}
+
+# enumerate
+snippet enum enumerate environment
+	\\begin{enumerate}
+		\\item ${0}
+	\\end{enumerate}
+
+# itemize
+snippet item itemize environment
+	\\begin{itemize}
+		\\item ${0}
+	\\end{itemize}
+
+# item
+snippet it \item
+	\\item ${1:${VISUAL}}
+
+# endless new item
+snippet ]i \item (recursive)
+	\\item ${1}
+		${0:]i}
+
+# matrix
+snippet mat smart matrix environment
+	\\begin{${1:p/b/v/V/B/small}matrix}
+		${0:${VISUAL}}
+	\\end{$1matrix}
+
+# chapter
+snippet cha \chapter
+	\\chapter{${1:chapter name}}%
+	\\label{cha:${2:$1}}
+	${0}
+
+# section
 snippet sec \section
 	\\section{${1:section name}}%
 	\\label{sec:${2:$1}}
 	${0}
-# Section without number
+
+# section without number
 snippet sec* \section*
 	\\section*{${1:section name}}%
 	\\label{sec:${2:$1}}
 	${0}
+
+# sub section
+snippet sub \subsection
+	\\subsection{${1:subsection name}}%
+	\\label{sub:${2:$1}}
+	${0}
+
+# sub section without number
+snippet sub* \subsection*
+	\\subsection*{${1:subsection name}}%
+	\\label{sub:${2:$1}}
+	${0}
+
+# sub sub section
+snippet ssub \subsubsection
+	\\subsubsection{${1:subsubsection name}}%
+	\\label{ssub:${2:$1}}
+	${0}
+
+# sub sub section without number
+snippet ssub* \subsubsection*
+	\\subsubsection*{${1:subsubsection name}}%
+	\\label{ssub:${2:$1}}
+	${0}
+
+# paragraph
+snippet par \paragraph
+	\\paragraph{${1:paragraph name}}%
+	\\label{par:${2:$1}}
+	${0}
+
+# sub paragraph
+snippet subp \subparagraph
+	\\subparagraph{${1:subparagraph name}}%
+	\\label{subp:${2:$1}}
+	${0}
+
+# text italic
+snippet ita italic text
+	\\textit{${1:${VISUAL:text}}}${0}
+
+# text bold
+snippet bf bold face text
+	\\textbf{${1:${VISUAL:text}}}${0}
+
+# text underline
+snippet under underline text
+	\\underline{${1:${VISUAL:text}}}${0}
+
+# text overline
+snippet over overline text
+	\\overline{${1:${VISUAL:text}}}${0}
+
+# text emphasize
+snippet emp emphasize text
+	\\emph{${1:${VISUAL:text}}}${0}
+
+# text small caps
+snippet sc small caps text
+	\\textsc{${1:${VISUAL:text}}}${0}
+
+# text sans serife
+snippet sf sans serife text
+	\\textsf{${1:${VISUAL:text}}}${0}
+
+# text roman
+snippet rm roman font text
+	\\textrm{${1:${VISUAL:text}}}${0}
+
+# text typewriter
+snippet tt typewriter (monospace) text
+	\\texttt{${1:${VISUAL:text}}}${0}
+
+# text subscripted
+snippet tsub subscripted text
+	\\textsubscript{${1:${VISUAL:text}}}${0}
+
+# text superscripted
+snippet tsup superscripted text
+	\\textsuperscript{${1:${VISUAL:text}}}${0}
+
+# footnote
+snippet ft \footnote
+	\\footnote{${1:${VISUAL:text}}}${0}
+
+# figure includegraphics
+snippet fig figure environment (includegraphics)
+	\\begin{figure}[htpb]
+	\\begin{center}
+		\\includegraphics[scale=${1}]{Figures/${2}}
+	\\end{center}
+	\\caption{${3}}
+	\\label{fig:${4}}
+	\\end{figure}
+	${0}
+
+# figure tikz
+snippet tikz figure environment (tikzpicture)
+	\\begin{figure}[htpb]
+	\\begin{center}
+	\\begin{tikzpicture}[scale=${1:1}, transform shape]
+		${2}
+	\\end{tikzpicture}
+	\\end{center}
+	\\caption{${3}}%
+	\\label{fig:${4}}
+	\\end{figure}
+	${0}
+
+# math fraction
+snippet frac \frac{}{}
+	\\frac{${1:num}}{${2:denom}} ${0}
+
+# math sum
+snippet sum \sum^{}_{}
+	\\sum^{${1:n}}_{${2:i=1}} ${0}
+
+# math limes
+snippet lim \lim_{}
+	\\lim_{${1:n \\to \\infty}} ${0}
+
+# code listing
+snippet lst
+	\\begin{listing}[language=${1:language}]
+		${0:${VISUAL}}
+	\\end{listing}
+
+# code listing inline
+snippet lsi
+	\\lstinline|${1}| ${0}
+
+# hyperlink url
+snippet url
+	\\url{${1}} ${0}
+
+# hyperlink href
+snippet href
+	\\href{${1}}{${2}} ${0}
+
+# right arrow
+snippet ra rightarrow
+	\\rightarrow {$0}
+
+# long right arrow
+snippet lra longrightarrow
+	\\longrightarrow {$0}
