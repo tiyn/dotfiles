@@ -198,6 +198,11 @@ filextype *.epub
         \ {View in zathura}
         \ zathura %f,
 
+" svg
+filextype *.svg
+        \ {View in inkview}
+        \ inkview %f,
+
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
        \ {Play using ffplay}
