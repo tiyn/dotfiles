@@ -9,8 +9,14 @@
 # directory as a wallpaper. Be careful that the directory only has images.
 # by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-[ -f "$1" ] && cp "$1" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Wallpaper changed."
+bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
 
-[ -d "$1" ] && cp "$(find "$1" -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -type f | shuf -n 1)" ~/.config/wall.png && notify-send -i "$HOME/.config/wall.png" "Random Wallpaper chosen."
 
-xwallpaper --zoom ~/.config/wall.png
+trueloc="$(readlink -f "$1")" &&
+case "$(file --mime-type -b "$trueloc")" in
+	image/* ) ln -f "$(readlink -f "$1")" "$bgloc" && notify-send -i "$bgloc" "Changing wallpaper..." ;;
+	inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Random Wallpaper chosen." ;;
+	*) notify-send "🖼️ Error" "Not a valid image or directory." ; exit 1;;
+esac
+
+xwallpaper --zoom "$bgloc"
