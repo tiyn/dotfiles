@@ -27,7 +27,12 @@ xargs -I{} mv {} .config-backup/{}
 - finish setup for vim:
   - open vim
   - `:PlugInstall`
-  - `:CocInstall`
+
+## Ignore local changes to config files
+
+If you need to make local changes to config files that are not to be pushed
+run `config update-index --skip-worktree <file>` to stop git from showing them
+having changes.
 
 ## Hotkeys
 
