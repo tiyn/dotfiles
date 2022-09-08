@@ -399,10 +399,11 @@ endfun
 autocmd BufWritePre * :call TrimWhitespace()
 
 " read files correctly
-autocmd BufRead,BufNewFile *.tex set filetype=tex
-autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufRead,BufNewFile *.h set filetype=c
+autocmd BufRead,BufNewFile *.html set filetype=html
 autocmd BufRead,BufNewFile *.nim set filetype=nim
+autocmd BufRead,BufNewFile *.py set filetype=python
+autocmd BufRead,BufNewFile *.tex set filetype=tex
 
 " formatting options
 autocmd FileType java setlocal shiftwidth=2 softtabstop=2
@@ -423,16 +424,16 @@ autocmd FileType tex,latex setlocal formatprg=latexindent\ -
 autocmd FileType tex,latex noremap <F8> gggqG
 
 " cleanup certain files after leaving the editor
-autocmd VimLeave *.tex !texclear %
 autocmd VimLeave *.c !cclear
+autocmd VimLeave *.tex !texclear %
 
 " highlighting break line
 autocmd BufEnter,FileType c set colorcolumn=80
 autocmd BufEnter,FileType java set colorcolumn=100
 autocmd BufEnter,FileType markdown set colorcolumn=80
-autocmd BufEnter,FileType tex set colorcolumn=80
 autocmd BufEnter,FileType nim set colorcolumn=80
 autocmd BufEnter,FileType python set colorcolumn=80
+autocmd BufEnter,FileType tex set colorcolumn=80
 
 "" colorscheme
 set background=dark

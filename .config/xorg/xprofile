@@ -6,5 +6,7 @@ dunst &			# dunst for notifications
 redshift &		# redshift for saving your eyes
 mpd &		# starts the mpd server for music
 $STATUSBAR & # for refreshing the statusbar
+xcompmgr & # compositor for transparency
 nextcloud & # for my cloud
 sxhkd & # for shortcuts
+easyeffects --gapplication-service & # load noise suppression for microphone
