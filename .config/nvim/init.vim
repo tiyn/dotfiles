@@ -13,6 +13,7 @@ Plug 'airblade/vim-gitgutter' " git upgrades
 Plug 'alvan/vim-closetag' " auto close HTML tags
 Plug 'donRaphaco/neotex' , {'for': 'tex'} " asynchronous pdf rendering for pdf
 Plug 'fatih/vim-go' , {'for': 'go'} " better support for golang
+Plug 'godlygeek/tabular', {'for': 'md'} " needed for preservim/vim-markdown
 Plug 'hrsh7th/cmp-buffer' " autocompletion bridge for buffer
 Plug 'hrsh7th/cmp-path' " autocompletion bridge for filesystem
 Plug 'hrsh7th/nvim-cmp' " autocompletion
@@ -25,6 +26,7 @@ Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'} " show tags
 Plug 'mattesgroeger/vim-bookmarks' " Set bookmarks
 Plug 'neovim/nvim-lspconfig' " Language server client
 Plug 'onsails/lspkind-nvim' " icons on completion
+Plug 'preservim/vim-markdown', {'for': 'md'} " markdown enhancements
 Plug 'qpkorr/vim-renamer' " bulk renamer
 Plug 'raimondi/delimitmate' " automatic closing of brackets
 Plug 'rrethy/vim-hexokinase' , {'do': 'make hexokinase'} " color Preview
@@ -255,6 +257,11 @@ require'lspconfig'.jdtls.setup{
 
 EOF
 
+" preservim/vim-markdown
+
+let g:vim_markdown_folding_style_pythonic = 1
+let g:vim_markdown_folding_disabled = 1
+
 " rrethy/vim-hexokinase
 let g:Hexokinase_refreshEvents = ['InsertLeave']
 let g:Hexokinase_optInPatterns = [
@@ -434,6 +441,9 @@ autocmd BufEnter,FileType markdown set colorcolumn=80
 autocmd BufEnter,FileType nim set colorcolumn=80
 autocmd BufEnter,FileType python set colorcolumn=80
 autocmd BufEnter,FileType tex set colorcolumn=80
+
+" conceallevel
+autocmd BufEnter,FileType markdown set conceallevel=2
 
 "" colorscheme
 set background=dark
