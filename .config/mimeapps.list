@@ -3,6 +3,7 @@ text/plain=text.desktop;
 text/x-shellscript=text.desktop;
 application/pdf=pdf.desktop;
 application/epub+zip=pdf.desktop;
+application/rss+xml=text.desktop;
 image/png=img.desktop;
 image/jpeg=img.desktop;
 image/gif=img.desktop;
@@ -17,12 +18,3 @@ application/x-extension-shtml=browser.desktop
 application/xhtml+xml=browser.desktop
 application/x-extension-xhtml=browser.desktop
 application/x-extension-xht=browser.desktop
-x-scheme-handler/discord-610508934456934412=discord-610508934456934412.desktop
-x-scheme-handler/mailto=userapp-Thunderbird-ANNRB1.desktop
-message/rfc822=userapp-Thunderbird-ANNRB1.desktop
-x-scheme-handler/mid=userapp-Thunderbird-ANNRB1.desktop
-
-[Added Associations]
-x-scheme-handler/mailto=userapp-Thunderbird-ANNRB1.desktop;
-x-scheme-handler/mid=userapp-Thunderbird-ANNRB1.desktop;
-application/pdf=firefox.desktop;
