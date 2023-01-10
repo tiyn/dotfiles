@@ -43,23 +43,25 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 
 | ModKey | Shift | Key               | Function                                                  |
 | ------ | ----- | ----------------- | --------------------------------------------------------- |
-| Super  |       | Return            | Spawn terminal                                                  |
+| Super  |       | Return            | Spawn terminal                                            |
 | Super  |       | b                 | Spawn browser                                             |
 | Super  | Shift | b                 | Toggle dwmbar                                             |
-| Super  |       | f                 | Spawn filemanager                                        |
+| Super  |       | f                 | Spawn filemanager                                         |
 | Super  |       | i                 | Spawn intellij-idea-ultimate-edition                      |
 | Super  |       | m                 | Spawn thunderbird                                         |
 | Super  |       | p                 | Spawn ncmpcpp in st                                       |
-| Super  | Shift | r                 | (dmenu) dmenu\_run                                         |
-| Super  |       | s                 | (dmenu) startpagesearch                                   |
-| Super  |       | F5                | enable 2 Screen Monitor                                   |
-| Super  |       | F6                | toggle touchpad                                           |
-| Super  |       | F7                | (dmenu) mounting drives                                   |
-| Super  |       | F8                | (dmenu) unmounting drives                                 |
+| Super  | Shift | r                 | (dmenu) dmenu\_run                                        |
+| Super  | Shift | r                 | Restart sxkd                                             |
+| Super  |       | s                 | (dmenu) Startpagesearch                                   |
+| Super  |       | F5                | Enable 2 Screen Monitor                                   |
+| Super  |       | F6                | Toggle touchpad                                           |
+| Super  |       | F7                | (dmenu) Mounting drives                                   |
+| Super  |       | F8                | (dmenu) Unmounting drives                                 |
 | Super  |       | F9                | Restart NetworkManager                                    |
-| Super  |       | F10               | (dmenu) prompt, if yes: slock                             |
-| Super  |       | F11               | (dmenu) prompt, if yes: reboot                            |
-| Super  |       | F12               | (dmenu) prompt, if yes: shutdown                          |
+| Super  |       | F10               | (dmenu) Prompt, if yes: slock                             |
+| Super  |       | F11               | (dmenu) Prompt, if yes: reboot                            |
+| Super  |       | F12               | (dmenu) Prompt, if yes: shutdown                          |
+| Super  |       | Print             | (dmenu) Prompt to take a screenshot                       |
 |        |       | AudioMute         | Volume mute                                               |
 |        |       | AudioMicMute      | Mic Mute                                                  |
 |        |       | AudioLowerVolume  | Volume lower                                              |
