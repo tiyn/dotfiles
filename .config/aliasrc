@@ -26,6 +26,10 @@ flacsplit() { cuebreakpoints $2 | shnsplit $1 -o flac }
 # diff
 alias diff="diff --color=auto"
 
+# dragon-drop
+alias drag="dragon-drop"
+alias drop="dragon-drop"
+
 # fzf
 src() { find ~/.config/* ~/.local/bin/* -type f | fzf | xargs -r $EDITOR ;}
 srd() { find ~/nextCloud/* -type f | grep ".pdf" | fzf | xargs -r $READER ;}
