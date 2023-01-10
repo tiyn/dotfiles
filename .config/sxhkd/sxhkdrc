@@ -6,6 +6,8 @@ super + f
         $TERMINAL -e $FILE
 super + m
         thunderbird
+super + x
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 super + shift + r
         dmenu_run -c -l 20
 super + F5
@@ -24,6 +26,9 @@ super + F11
         prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + F12
         prompt "Reboot computer?" "sudo -A reboot now"
+super + Print
+        maimpick
+
 XF86Launch1
         xset dpms force off
 XF86AudioMute
@@ -38,3 +43,4 @@ XF86MonBrightnessDown
         light -U 15
 XF86MonBrightnessUp
         light -A 15
+
