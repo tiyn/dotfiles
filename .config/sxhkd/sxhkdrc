@@ -14,7 +14,7 @@ super + p
         record_replay_save
 super + u
         record_start
-super + x
+super + shift + x
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 super + shift + r
         dmenu_run -c -l 20
