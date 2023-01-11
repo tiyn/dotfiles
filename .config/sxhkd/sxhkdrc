@@ -37,8 +37,6 @@ super + F12
 super + Print
         maimpick
 
-XF86Launch1
-        xset dpms force off
 XF86AudioMute
         lmc m && pkill -RTMIN+4 $STATUSBAR
 XF86AudioMicMute
