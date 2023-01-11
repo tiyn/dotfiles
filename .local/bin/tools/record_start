@@ -6,5 +6,5 @@ audio="$(pactl get-default-sink).monitor"
 format="mp4"
 output="$HOME/downloads/recording-$(date '+%Y-%m-%d_%H-%M-%S').$format"
 
-gpu-screen-recorder -w $window -c "mp4" -f $fps -a $audio -o $output
+gpu-screen-recorder -w $window -c "mp4" -f $fps -a $audio -o $output &
 notify-send 'Screen record' 'Recording started'

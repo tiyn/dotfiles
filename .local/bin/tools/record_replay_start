@@ -7,5 +7,5 @@ format="mp4"
 lenght=20
 output="$HOME/downloads"
 
-gpu-screen-recorder -w $window -f $fps -a $audio -c $format -r $lenght -o $output
+gpu-screen-recorder -w $window -f $fps -a $audio -c $format -r $lenght -o $output &
 notify-send 'Screen record' 'Replay started'
