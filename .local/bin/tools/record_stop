@@ -1,0 +1,4 @@
+#!/bin/sh
+
+killall -SIGINT gpu-screen-recorder
+notify-send 'Screen record' 'Recording stopped'

@@ -3,7 +3,7 @@
 # Requires maim. It lets you choose the kind of screenshot to take,
 # including copying the image or even highlighting an area to copy.
 
-output="$HOME/downloads/screenshot-$(date '+%y%m%d-%H%M-%S').png"
+output="$HOME/downloads/screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png"
 xclip_cmd="xclip -sel clip -t image/png"
 
 case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (clipboard)\\ncurrent window (clipboard)\\nfull screen (clipboard)\\ncolor picker (clipboard)" | dmenu -l 6 -i -p "Screenshot which area?")" in

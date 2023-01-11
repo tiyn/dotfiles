@@ -1,0 +1,11 @@
+#!/bin/sh
+
+window=$(xdotool getwindowfocus)
+fps=30
+audio="$(pactl get-default-sink).monitor"
+format="mp4"
+lenght=20
+output="$HOME/downloads"
+
+gpu-screen-recorder -w $window -f $fps -a $audio -c $format -r $lenght -o $output
+notify-send 'Screen record' 'Replay started'
