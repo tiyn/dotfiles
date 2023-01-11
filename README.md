@@ -45,14 +45,14 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 | ------ | ----- | ----------------- | --------------------------------------------------------- |
 | Super  |       | Return            | Spawn terminal                                            |
 | Super  |       | b                 | Spawn browser                                             |
-| Super  | Shift | b                 | Toggle dwmbar                                             |
 | Super  |       | f                 | Spawn filemanager                                         |
-| Super  |       | i                 | Spawn intellij-idea-ultimate-edition                      |
+| Super  |       | i                 | (gpu-screen-record) stop recording                        |
 | Super  |       | m                 | Spawn thunderbird                                         |
-| Super  |       | p                 | Spawn ncmpcpp in st                                       |
+| Super  |       | o                 | (gpu-screen-record) start replay                          |
+| Super  |       | p                 | (gpu-screen-record) save replay                           |
+| Super  |       | u                 | (gpu-screen-record) start recording                       |
 | Super  | Shift | r                 | (dmenu) dmenu\_run                                        |
-| Super  | Shift | r                 | Restart sxkd                                             |
-| Super  |       | s                 | (dmenu) Startpagesearch                                   |
+| Super  | Shift | x                 | Restart sxkd                                              |
 | Super  |       | F5                | Enable 2 Screen Monitor                                   |
 | Super  |       | F6                | Toggle touchpad                                           |
 | Super  |       | F7                | (dmenu) Mounting drives                                   |
@@ -68,6 +68,7 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 |        |       | AudioRaiseVolume  | Volume raise                                              |
 |        |       | MonBrightnessDown | Brightness decrease                                       |
 |        |       | MonBrightnessUp   | Brightness increase                                       |
+
 
 ## Additional configs
 
