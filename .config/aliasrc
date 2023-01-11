@@ -102,8 +102,12 @@ alias rsync="rsync -vh --progress --partial"
 alias su="sudo -i"
 alias sudo="sudo "
 
-#sc-im
+# sc-im
 alias sc="sc-im"
+
+# screenkey
+
+alias keys="screenkey"
 
 # script
 alias scriptclear="cat typescript | perl -pe 's/\e([^\[\]]|\[.*?[a-zA-Z]|\].*?\a)//g' | col -b > typescript-processed"
