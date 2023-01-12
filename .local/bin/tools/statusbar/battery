@@ -1,7 +1,6 @@
 #!/usr/bin/env sh
 
 capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
-time=$(acpi | awk '{ print $5 }')
 status=$(cat /sys/class/power_supply/"$1"/status)
 
 [ -z $warn ] && warn=" "
