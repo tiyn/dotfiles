@@ -16,17 +16,22 @@ To take a look at all the software it installs look at the [progs.csv](https://g
 - set alias in .bashrc: `alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
 - clone this repository: `git clone --bare https://github.com/Tiyn/dotfiles $HOME/.dotfiles`
 - optional: backup old files:
-```
+
+```sh
 mkdir -p .config-backup && \
 config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | \
 xargs -I{} mv {} .config-backup/{}
 ```
+
 - checkout changes: `config checkout`
 - ignore untracked files: `config config --local status.showUntrackedFiles no`
 - pull current setup: `config pull`
 - finish setup for vim:
-  - open vim
-  - `:PlugInstall`
+  - open vim and run `:PackerCompile`, and `:PackerInstall`
+
+The step containing commenting out is needed because the colorscheme has
+problems being not available and disrupts the further process of the plugin
+installation.
 
 ## Ignore local changes to config files
 
