@@ -16,6 +16,12 @@ local packer_bootstrap = ensure_packer()
 
 -- load plugins with packer
 return require("packer").startup(function(use)
+    -- package manager
+    use 'wbthomason/packer.nvim'
+    if packer_bootstrap then
+        require('packer').sync()
+    end
+
     -- automatic closing of brackets
     use 'raimondi/delimitmate'
 
@@ -51,11 +57,6 @@ return require("packer").startup(function(use)
 
     -- showing color of hex values, etc
     use 'norcalli/nvim-colorizer.lua'
-
-    -- package manager
-    if packer_bootstrap then
-        require('packer').sync()
-    end
 
     -- colorful brackets
     use 'luochen1990/rainbow'
