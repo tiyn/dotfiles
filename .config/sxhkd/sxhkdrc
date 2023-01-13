@@ -5,15 +5,19 @@ super + b
 super + f
         $TERMINAL -e $FILE
 super + i
-        intellij-idea-ultimate-edition
+        record_stop
 super + m
         thunderbird
+super + o
+        record_replay_start
 super + p
-        $TERMINAL -e ncmpcpp
+        record_replay_save
+super + u
+        record_start
+super + shift + x
+    pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
 super + shift + r
         dmenu_run -c -l 20
-super + s
-        startpagesearch
 super + F5
         togglemonitor
 super + F6
@@ -30,8 +34,9 @@ super + F11
         prompt "Shutdown computer?" "sudo -A shutdown -h now"
 super + F12
         prompt "Reboot computer?" "sudo -A reboot now"
-XF86Launch1
-        xset dpms force off
+super + Print
+        maimpick
+
 XF86AudioMute
         lmc m && pkill -RTMIN+4 $STATUSBAR
 XF86AudioMicMute
@@ -44,3 +49,4 @@ XF86MonBrightnessDown
         light -U 15
 XF86MonBrightnessUp
         light -A 15
+
