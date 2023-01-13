@@ -61,6 +61,9 @@ command = [[%s/\s\+$//e]],
 vim.g.python_host_prog = '/usr/bin/python2'
 vim.g.python3_host_prog = '/usr/bin/python3'
 
+-- load plugins (autoload all files in plugin folder)
+require('loadplugins')
+
 -- load filetype specific mappings and commands
 require('filetype')
 
@@ -69,6 +72,3 @@ require('keymap')
 
 -- load general colorscheme
 require('colorscheme')
-
--- load plugins (autoload all files in plugin folder)
-require('loadplugins')
