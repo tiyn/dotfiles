@@ -1,4 +1,26 @@
 -- hrsh7th/nvim-cmp
+
+-- mason package manager
+require("mason").setup()
+require("mason-lspconfig").setup({
+    -- automatically install language servers setup below for lspconfig
+    automatic_setup = true,
+})
+
+-- jose-elias-alvarez/null-ls.nvim
+local null_ls = require("null-ls")
+
+null_ls.setup({
+    sources = {
+        null_ls.builtins.formatting.autopep8,
+        null_ls.builtins.formatting.nimpretty,
+    },
+})
+
+require("mason-null-ls").setup({
+    automatic_installation = true
+})
+
 -- Add additional capabilities supported by nvim-cmp
 capabilities = require("cmp_nvim_lsp").default_capabilities()
 
@@ -94,7 +116,7 @@ local nvim_lsp = require('lspconfig')
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "bashls", "tsserver", "texlab", "ccls", "gopls", "hls", "nimls", "marksman" }
+local servers = { "pyright", "bashls", "texlab", "ccls", "nimls", "marksman" }
 for _, lsp in ipairs(servers) do
     nvim_lsp[lsp].setup {
         on_attach=on_attach,

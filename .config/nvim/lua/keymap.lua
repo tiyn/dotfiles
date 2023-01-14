@@ -65,15 +65,11 @@ vim.api.nvim_set_keymap('n', '<leader>gu', ':diffget //2<CR>', { noremap = true 
 vim.api.nvim_set_keymap('n', '<leader>gs', ':G<CR>', { noremap = true })
 
 -- hrsh7th/nvim-cmp
-local on_attach = function(client, bufnr)
-  local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
-  local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-  local opts = { noremap=true, silent=true }
-  buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
-  buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
-  buf_set_keymap('n', 'gy', '<cmd>lua vim.lsp.buf.type_definition()<CR>', opts)
-  buf_set_keymap('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opts)
-  buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', 'K', '<Cmd>lua vim.lsp.buf.hover()<CR>', opts)
-  buf_set_keymap('n', '<F5>', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
-end
+vim.api.nvim_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gy', ':lua vim.lsp.buf.type_definition()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F5>', ':lua vim.lsp.buf.rename()<CR>', { noremap = true })
+vim.api.nvim_set_keymap('n', '<F8>', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
