@@ -60,6 +60,9 @@ alias ping="ping -c 5"
 # rm
 alias rm="rm -i"
 
+# rsync
+alias rsync="rsync -vh --progress --partial"
+
 # sc-im
 alias sc="sc-im"
 
