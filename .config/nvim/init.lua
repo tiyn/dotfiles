@@ -51,24 +51,31 @@ vim.o.signcolumn = "yes"
 vim.o.undofile = true
 vim.o.undodir = vim.env.XDG_CACHE_HOME .. "/vim/undo"
 
--- delete trailing whitespaces on save
-vim.api.nvim_create_autocmd({'BufWritePre'},
-{pattern = {'*'},
-command = [[%s/\s\+$//e]],
-})
-
 -- python programs to use
 vim.g.python_host_prog = '/usr/bin/python2'
 vim.g.python3_host_prog = '/usr/bin/python3'
+
+-- read files correctly
+vim.filetype.add({
+extension = {
+    h = 'c',
+    html = 'html',
+    java = 'java',
+    md = 'markdown',
+    nim = 'nim',
+    py = 'python',
+    tex = 'tex',
+}})
 
 -- load plugins (autoload all files in plugin folder)
 require('loadplugins')
 
 -- load filetype specific mappings and commands
-require('filetype')
+require('autocmd')
 
 -- load general mapped keys
 require('keymap')
 
 -- load general colorscheme
 require('colorscheme')
+

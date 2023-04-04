@@ -1,16 +1,10 @@
--- filetype
+-- autocmd
 
--- read files correctly
-vim.filetype.add({
-extension = {
-    h = 'c',
-    html = 'html',
-    java = 'java',
-    md = 'markdown',
-    nim = 'nim',
-    py = 'python',
-    tex = 'tex',
-}})
+-- delete trailing whitespaces on save
+vim.api.nvim_create_autocmd({'BufWritePre'},
+{pattern = {'*'},
+command = [[%s/\s\+$//e]],
+})
 
 -- formatting options
 vim.api.nvim_create_autocmd({'FileType'},
