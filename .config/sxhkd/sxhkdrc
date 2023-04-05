@@ -6,6 +6,8 @@ super + o
         record_replay_start
 super + p
         record_replay_save
+super + r
+        dmenu_run -c -l 20
 
 super + a
         playerctl previous
@@ -20,9 +22,6 @@ super + b
         $BROWSER
 super + m
         thunderbird
-
-super + shift + r
-        dmenu_run -c -l 20
 
 super + shift + x
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
