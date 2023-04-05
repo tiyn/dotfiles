@@ -1,7 +1,7 @@
 #!/bin/sh
 
 window=$(xdotool getwindowfocus)
-fps=30
+fps=60
 audio="$(pactl get-default-sink).monitor"
 format="mp4"
 lenght=20

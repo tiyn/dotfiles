@@ -16,14 +16,8 @@ local packer_bootstrap = ensure_packer()
 
 -- load plugins with packer
 return require("packer").startup(function(use)
-    -- package manager
-    use 'wbthomason/packer.nvim'
-    if packer_bootstrap then
-        require('packer').sync()
-    end
-
-    -- automatic closing of brackets
-    use 'raimondi/delimitmate'
+    -- package manager (first entry)
+    use {'wbthomason/packer.nvim'}
 
     -- improved java syntax highlighting
     use {'uiiaoo/java-syntax.vim',
@@ -43,7 +37,11 @@ return require("packer").startup(function(use)
         requires = 'ryanoasis/vim-devicons'}
 
     -- nim language support
-    use {'zah/nim.vim', ft = {'nim'}}
+    use {'zah/nim.vim',
+        ft = {'nim'}}
+
+    -- automatic closing of brackets
+    use {'windwp/nvim-autopairs'}
 
     -- autocompletion and its sources
     use {'hrsh7th/nvim-cmp',
@@ -53,23 +51,35 @@ return require("packer").startup(function(use)
             'l3mon4d3/luasnip',
             'saadparwaiz1/cmp_luasnip',
             'neovim/nvim-lspconfig',
-            'onsails/lspkind-nvim'}}
+            'onsails/lspkind-nvim',
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            'jose-elias-alvarez/null-ls.nvim',
+            'nvim-lua/plenary.nvim',
+            'jayp0521/mason-null-ls.nvim'}}
 
     -- showing color of hex values, etc
-    use 'norcalli/nvim-colorizer.lua'
+    use {'norcalli/nvim-colorizer.lua'}
+
+    -- better language highlighting by improved parsing
+    use {'nvim-treesitter/nvim-treesitter'}
+
+    -- automatically close html-tags
+    use {'windwp/nvim-ts-autotag',
+        requires = {'nvim-treesitter/nvim-treesitter'}}
 
     -- colorful brackets
-    use 'luochen1990/rainbow'
+    use {'luochen1990/rainbow'}
 
     -- show tags
     use {'majutsushi/tagbar',
         cmd = 'TagbarToggle'}
 
     -- git wrapper
-    use 'tpope/vim-fugitive'
+    use {'tpope/vim-fugitive'}
 
     -- indicate git diff status of line
-    use 'airblade/vim-gitgutter'
+    use {'airblade/vim-gitgutter'}
 
     -- golang language support
     use {'fatih/vim-go',
@@ -81,12 +91,17 @@ return require("packer").startup(function(use)
         requires = {'godlygeek/tabular'}}
 
     -- bulk renamer
-    use 'qpkorr/vim-renamer'
+    use {'qpkorr/vim-renamer'}
 
     -- additional quote/parantheses funtions
-    use 'tpope/vim-surround'
+    use {'tpope/vim-surround'}
 
     -- colorscheme
-    use 'tiyn/vim-tccs'
+    use {'tiyn/vim-tccs'}
+
+    -- package manager sync (last entry)
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 
 end)
