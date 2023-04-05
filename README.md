@@ -48,7 +48,6 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 
 | ModKey | Shift | Key               | Function                                                  |
 | ------ | ----- | ----------------- | --------------------------------------------------------- |
-| Super  |       | Return            | Spawn terminal                                            |
 | Super  |       | b                 | Spawn browser                                             |
 | Super  |       | f                 | Spawn filemanager                                         |
 | Super  |       | i                 | (gpu-screen-record) stop recording                        |
@@ -56,7 +55,7 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 | Super  |       | o                 | (gpu-screen-record) start replay                          |
 | Super  |       | p                 | (gpu-screen-record) save replay                           |
 | Super  |       | u                 | (gpu-screen-record) start recording                       |
-| Super  | Shift | r                 | (dmenu) dmenu\_run                                        |
+| Super  |       | r                 | (dmenu) dmenu\_run                                        |
 | Super  | Shift | x                 | Restart sxkd                                              |
 | Super  |       | F5                | Enable 2 Screen Monitor                                   |
 | Super  |       | F6                | Toggle touchpad                                           |
@@ -67,6 +66,7 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 | Super  |       | F11               | (dmenu) Prompt, if yes: reboot                            |
 | Super  |       | F12               | (dmenu) Prompt, if yes: shutdown                          |
 | Super  |       | Print             | (dmenu) Prompt to take a screenshot                       |
+| Super  |       | Return            | Spawn terminal                                            |
 |        |       | AudioMute         | Volume mute                                               |
 |        |       | AudioMicMute      | Mic Mute                                                  |
 |        |       | AudioLowerVolume  | Volume lower                                              |
