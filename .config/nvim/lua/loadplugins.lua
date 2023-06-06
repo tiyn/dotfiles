@@ -56,7 +56,7 @@ return require("packer").startup(function(use)
             'williamboman/mason-lspconfig.nvim',
             'jose-elias-alvarez/null-ls.nvim',
             'nvim-lua/plenary.nvim',
-            'jayp0521/mason-null-ls.nvim'}}
+            'jay-babu/mason-null-ls.nvim'}}
 
     -- showing color of hex values, etc
     use {'norcalli/nvim-colorizer.lua'}
