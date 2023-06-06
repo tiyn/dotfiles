@@ -48,6 +48,7 @@ return require("packer").startup(function(use)
         requires = {'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-nvim-lsp',
+            'antoinemadec/fixcursorhold.nvim',
             'l3mon4d3/luasnip',
             'saadparwaiz1/cmp_luasnip',
             'neovim/nvim-lspconfig',
