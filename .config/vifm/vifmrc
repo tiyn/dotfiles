@@ -171,10 +171,9 @@ command! reload :write | restart
 " PDF
 filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf
-		\ vifmimg pdfpreview %px %py %pw %ph %c
-		\ %pc
-		\ vifmimg clear
-		"\ pdftotext -nopgbrk %c -
+        \ vifmimg pdf %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " CSV
 filetype *.csv,*.xlsx,*.sc sc-im %f
@@ -192,11 +191,19 @@ filextype *.djvu
         \ zathura %f,
         \ {View in apvlv}
         \ apvlv %f,
+fileviewer *.djvu
+        \ vifmimg djvu %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " epub
 filextype *.epub
         \ {View in zathura}
         \ zathura %f,
+fileviewer *.epub
+        \ vifmimg epub %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " svg
 filextype *.svg
@@ -209,8 +216,10 @@ filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus
        \ ffplay -nodisp -autoexit %c,
        \ {Play using MPlayer}
        \ mplayer %f,
-fileviewer *.mp3 mp3info
-fileviewer *.flac soxi
+fileviewer <audio/*>
+        \ vifmimg audio %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " Video
 filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
@@ -218,19 +227,22 @@ filextype *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
          \*.as[fx]
         \ {View using mpv}
         \ mpv --fs %f,
-fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,*.vob,
-          \*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx,
-          \*.as[fx]
-		  \ vifmimg videopreview %px %py %pw %ph %c
-		  \ %pc
-		  \ vifmimg clear
-         "\ ffprobe -pretty %c 2>&1
+fileviewer <video/*>
+        \ vifmimg video %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " Web
 filextype *.html,*.htm
         \ {Open with firefox}
         \ firefox %f &,
 filetype *.html,*.htm links, lynx
+
+" Font
+fileviewer <font/*>
+        \ vifmimg font %px %py %pw %ph %c
+        \ %pc
+        \ vifmimg clear
 
 " Object
 filetype *.o nm %f | less
@@ -243,14 +255,10 @@ fileviewer *.[1-8] man ./%c | col -b
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp
         \ {View in sxiv}
         \ sxiv -ia %c %d &,
-fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp
+fileviewer <image/*>
         \ vifmimg draw %px %py %pw %ph %c
-	\ %pc
-	\ vifmimg clear
-fileviewer *.gif
-	\ vifmimg gifpreview %px %py %pw %ph %c
-	\ %pc
-	\vifmimg clear
+        \ %pc
+        \ vifmimg clear
 
 " OpenRaster
 filextype *.ora
