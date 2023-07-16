@@ -131,7 +131,7 @@ alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 alias yay="yay --sudoloop --noredownload --norebuild"
 
 # youtube-dl
-alias yta="youtube-dl -f 'bestaudio[ext=m4a]'"
-alias ytv="youtube-dl -f 'bestvide[ext=mp4]+bestaudio[ext=m4a]'"
-alias yta2c="youtube-dl --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestaudio/best'"
-alias ytv2c="youtube-dl --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestvideo[height>=720]+bestaudio/best'"
+alias yta="yt-dlp -f 'bestaudio[ext=m4a]'"
+alias ytv="yt-dlp -f 'bestvide[ext=mp4]+bestaudio[ext=m4a]'"
+alias yta2c="yt-dlp --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestaudio/best'"
+alias ytv2c="yt-dlp --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestvideo[height>=720]+bestaudio/best'"
