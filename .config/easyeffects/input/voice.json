@@ -110,7 +110,7 @@
             "clipping-range": 6.0,
             "fft": "4096",
             "input-gain": 0.0,
-            "output-gain": 15.0,
+            "output-gain": 17.0,
             "std": "ISO226-2003",
             "volume": -6.499999999999993
         },

@@ -55,17 +55,8 @@ vim.o.undodir = vim.env.XDG_CACHE_HOME .. "/vim/undo"
 vim.g.python_host_prog = '/usr/bin/python2'
 vim.g.python3_host_prog = '/usr/bin/python3'
 
--- read files correctly
-vim.filetype.add({
-extension = {
-    h = 'c',
-    html = 'html',
-    java = 'java',
-    md = 'markdown',
-    nim = 'nim',
-    py = 'python',
-    tex = 'tex',
-}})
+-- set filetypes correctly by extension
+require('filetype')
 
 -- load plugins (autoload all files in plugin folder)
 require('loadplugins')

@@ -24,12 +24,12 @@ command = 'setlocal shiftwidth=2 softtabstop=2',
 
 -- cleanup certain files after leaving the editor
 vim.api.nvim_create_autocmd({'VimLeave'},
-{pattern = {'*.c'},
+{pattern = {'c'},
 command = '!cclear'
 })
 
 vim.api.nvim_create_autocmd({'VimLeave'},
-{pattern = {'*.tex'},
+{pattern = {'tex'},
 command = '!texclear %'
 })
 

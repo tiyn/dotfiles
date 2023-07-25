@@ -1,9 +1,9 @@
 [Default Applications]
 text/plain=text.desktop;
 text/x-shellscript=text.desktop;
-application/pdf=pdf.desktop;
-application/epub+zip=pdf.desktop;
 application/rss+xml=text.desktop;
+application/epub+zip=pdf.desktop;
+application/pdf=pdf.desktop;
 image/png=img.desktop;
 image/jpeg=img.desktop;
 image/gif=img.desktop;
@@ -18,3 +18,6 @@ application/x-extension-shtml=browser.desktop
 application/xhtml+xml=browser.desktop
 application/x-extension-xhtml=browser.desktop
 application/x-extension-xht=browser.desktop
+x-scheme-handler/mailto=mail.desktop
+x-scheme-handler/mid=mail.desktop
+message/rfc822=mail.desktop
