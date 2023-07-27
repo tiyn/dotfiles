@@ -76,6 +76,10 @@ return require("packer").startup(function(use)
     use {'majutsushi/tagbar',
         cmd = 'TagbarToggle'}
 
+    -- todo symbols and highlighting
+    use {'folke/todo-comments.nvim',
+        requires = {'nvim-lua/plenary.nvim'}}
+
     -- git wrapper
     use {'tpope/vim-fugitive'}
 
