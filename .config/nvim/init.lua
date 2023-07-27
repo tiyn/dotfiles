@@ -56,13 +56,10 @@ vim.g.python_host_prog = '/usr/bin/python2'
 vim.g.python3_host_prog = '/usr/bin/python3'
 
 -- set filetypes correctly by extension
-require('filetype')
+require('autocmd')
 
 -- load plugins (autoload all files in plugin folder)
 require('loadplugins')
-
--- load filetype specific mappings and commands
-require('autocmd')
 
 -- load general mapped keys
 require('keymap')
