@@ -12,13 +12,24 @@ local null_ls = require("null-ls")
 
 null_ls.setup({
     sources = {
-        null_ls.builtins.formatting.autopep8,
-        null_ls.builtins.formatting.nimpretty,
+        require("null-ls-embedded").nls_source,
+        null_ls.builtins.formatting.black,
+        null_ls.builtins.formatting.mdformat,
     },
 })
 
+require("null-ls").setup({
+  sources = {
+    require("null-ls-embedded").nls_source.with({
+      -- default filetypes:
+      filetypes = { "markdown" },
+    }),
+  },
+})
+
 require("mason-null-ls").setup({
-    automatic_installation = true
+    automatic_installation = true,
+    ensure_installed = {}
 })
 
 -- Add additional capabilities supported by nvim-cmp
@@ -79,66 +90,36 @@ cmp.setup {
       	luasnip = "[SNIP]",
       },
       symbol_map = {
-        Text = "",
-        Method = "",
-        Function = "",
-        Constructor = "",
-        Field = "ﰠ",
-        Variable = "",
-        Class = "ﴯ",
-        Interface = "",
-        Module = "",
-        Property = "ﰠ",
-        Unit = "塞",
-        Value = "",
-        Enum = "",
-        Keyword = "",
-        Snippet = "",
-        Color = "",
-        File = "",
-        Reference = "",
-        Folder = "",
-        EnumMember = "",
-        Constant = "",
-        Struct = "פּ",
+        Text = "",
+        Method = "",
+        Function = "φ",
+        Constructor = "",
+        Field = "■",
+        Variable = "β",
+        Class = "",
+        Interface = "",
+        Module = "",
+        Property = "",
+        Unit = "",
+        Value = "",
+        Enum = "",
+        Keyword = "",
+        Snippet = "",
+        Color = "",
+        File = "",
+        Reference = "",
+        Folder = "",
+        EnumMember = "",
+        Constant = "π",
+        Struct = "",
         Event = "",
-        Operator = "",
-        TypeParameter = ""
+        Operator = "",
+        TypeParameter = ""
       },
     }),
   },
 }
 require("luasnip.loaders.from_snipmate").lazy_load()
-
-
--- local on_attach = function(client, bufnr)
---     if client.server_capabilities.documentHighlightProvider then
---         vim.cmd [[
---             hi! LspReferenceRead cterm=bold ctermbg=red guibg=LightYellow
---             hi! LspReferenceText cterm=bold ctermbg=red guibg=LightYellow
---             hi! LspReferenceWrite cterm=bold ctermbg=red guibg=LightYellow
---         ]]
---         vim.api.nvim_create_augroup('lsp_document_highlight', {
---             clear = false
---         })
---         vim.api.nvim_clear_autocmds({
---             buffer = bufnr,
---             group = 'lsp_document_highlight',
---         })
---         vim.api.nvim_create_autocmd({ 'CursorHold', 'CursorHoldI' }, {
---             group = 'lsp_document_highlight',
---             buffer = bufnr,
---             callback = vim.lsp.buf.document_highlight,
---         })
---         vim.api.nvim_create_autocmd('CursorMoved', {
---             group = 'lsp_document_highlight',
---             buffer = bufnr,
---             callback = vim.lsp.buf.clear_references,
---         })
---     end
--- end
---
--- vim.g.cursorhold_updatetime = 100
 
 -- neovim/nvim-lspconfig
 local nvim_lsp = require('lspconfig')
@@ -163,4 +144,15 @@ require'lspconfig'.jdtls.setup{
         debounce_text_changes = 150
         },
     cmd = { 'jdtls' }
-    }
+}
+
+require'lspconfig'.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = { version = 'LuaJIT' },
+      diagnostics = { globals = {'vim'} },
+      workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+      telemetry = { enable = false },
+    },
+  },
+}

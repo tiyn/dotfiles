@@ -1,3 +1,5 @@
+-- autocmd
+
 -- read files correctly
 vim.filetype.add({
 extension = {
@@ -19,7 +21,7 @@ vim.api.nvim_create_autocmd({'BufWritePre'},
 command = [[%s/\s\+$//e]],
 })
 
--- c
+-- settings for filetype: c
 
 vim.api.nvim_create_autocmd({'VimLeave'},
 {pattern = {'c'},
@@ -31,7 +33,7 @@ vim.api.nvim_create_autocmd({'BufEnter', 'FileType'},
 command = 'set colorcolumn=80'
 })
 
--- java
+-- settings for filetype: java
 
 vim.api.nvim_create_autocmd({'FileType'},
 {pattern = {'java'},
@@ -43,14 +45,14 @@ vim.api.nvim_create_autocmd({'BufEnter', 'FileType'},
 command = 'set colorcolumn=100'
 })
 
--- javascript
+-- settings for filetype: javascript
 
 vim.api.nvim_create_autocmd({'FileType'},
 {pattern = {'javascript'},
 command = 'setlocal shiftwidth=2 softtabstop=2',
 })
 
--- lua
+-- settings for filetype: lua
 
 vim.api.nvim_create_autocmd({'FileType'},
 {pattern = {'lua'},
@@ -62,7 +64,7 @@ vim.api.nvim_create_autocmd({'BufEnter', 'FileType'},
 command = 'set colorcolumn=100'
 })
 
--- markdown
+-- settings for filetype: markdown
 
 vim.api.nvim_create_autocmd({'FileType'},
 {pattern = {'markdown'},
@@ -79,21 +81,21 @@ vim.api.nvim_create_autocmd({'BufEnter', 'FileType'},
 command = 'set conceallevel=2'
 })
 
--- nim
+-- settings for filetype: nim
 
 vim.api.nvim_create_autocmd({'BufEnter', 'FileType'},
 {pattern = {'nim'},
 command = 'set colorcolumn=80'
 })
 
--- python
+-- settings for filetype: python
 
 vim.api.nvim_create_autocmd({'BufEnter', 'FileType'},
 {pattern = {'python'},
 command = 'set colorcolumn=80'
 })
 
--- tex
+-- settings for filetype: tex
 
 vim.api.nvim_create_autocmd({'VimLeave'},
 {pattern = {'tex'},

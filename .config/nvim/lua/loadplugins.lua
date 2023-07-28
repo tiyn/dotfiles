@@ -56,6 +56,7 @@ return require("packer").startup(function(use)
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             'jose-elias-alvarez/null-ls.nvim',
+            'LostNeophyte/null-ls-embedded',
             'nvim-lua/plenary.nvim',
             'jay-babu/mason-null-ls.nvim'}}
 
