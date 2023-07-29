@@ -3,12 +3,6 @@
 -- set mapleader for hotkeys
 vim.g.mapleader = ","
 
--- shortcut for split navigation
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
-
 -- unmap unwanted commands
 vim.api.nvim_set_keymap('n', '<F1>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F4>', '<NOP>', { noremap = true })
@@ -28,6 +22,12 @@ vim.api.nvim_set_keymap('i', '<F10>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<F11>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('i', '<F12>', '<NOP>', { noremap = true })
 
+-- shortcut for split navigation
+vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true })
+vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
+
 -- mapping Dictionaries
 vim.api.nvim_set_keymap('n', '<F6>', ':setlocal spell! spelllang=de_de<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F7>', ':setlocal spell! spelllang=en_us<CR>', { noremap = true })
@@ -35,13 +35,8 @@ vim.api.nvim_set_keymap('n', '<F7>', ':setlocal spell! spelllang=en_us<CR>', { n
 -- compiler for languages
 vim.api.nvim_set_keymap('n', '<leader>c', ':w! | !compiler <c-r>%<CR>', { noremap = true })
 
--- open corresponding file (pdf/html/...)
-vim.api.nvim_set_keymap('n', '<leader>p', ':!opout <c-r>%<CR><CR>', { noremap = true })
-
-
 -- save file as sudo on files that require root permission
 vim.api.nvim_set_keymap('c', 'w!!', '"silent! write !sudo tee % >/dev/null" <bar> edit!', { noremap = true })
-
 
 -- alias for replacing
 vim.api.nvim_set_keymap('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { noremap = true })
@@ -49,10 +44,22 @@ vim.api.nvim_set_keymap('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { norema
 -- irc compatibility for interactivity
 vim.api.nvim_set_keymap('n', '<leader>is', ':.w >> in<cr>dd', { noremap = true })
 
--- majutsushi/tagbar
+
+-- open corresponding file (pdf/html/...,md)
+vim.api.nvim_set_keymap('n', '<leader>p', ':!opout <c-r>%<CR><CR>', { noremap = true })
+
+-- iamcco/markdown-preview.nvim
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'markdown',
+  callback = function()
+    vim.api.nvim_set_keymap('n', '<leader>p', ':MarkdownPreviewToggle<CR>', { noremap = true })
+  end,
+})
+
+-- SmiteshP/nvim-navbuddy
 vim.api.nvim_set_keymap('n', '<F3>', ':Navbuddy<CR>', {})
 
--- scrooloose/nerdtree
+-- nvim-neo-tree/neo-tree.nvim
 vim.api.nvim_set_keymap('n', '<F2>', ':Neotree toggle<CR>', {})
 
 -- tpope/vim-fugitive

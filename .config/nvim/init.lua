@@ -5,6 +5,9 @@ vim.o.showmode = false
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
 
+-- basic color settings
+vim.o.background = 'dark'
+
 -- setting Tab-length
 vim.o.expandtab = true
 vim.o.softtabstop = 4
@@ -40,9 +43,12 @@ vim.o.lazyredraw = true
 -- textEdit might fail without hidden
 vim.o.hidden = true
 
--- disable Backupfiles for Lsp
+-- disable backupfiles
 vim.o.nobackup = true
 vim.o.nowritebackup = true
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
 
 -- always show the signcolumn
 vim.o.signcolumn = "yes"
@@ -63,6 +69,3 @@ require('loadplugins')
 
 -- load general mapped keys
 require('keymap')
-
--- load general colorscheme
-require('colorscheme')

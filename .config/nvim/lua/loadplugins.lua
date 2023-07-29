@@ -30,6 +30,11 @@ return require("packer").startup(function(use)
   -- show signature while typing
   use { 'ray-x/lsp_signature.nvim' }
 
+  -- preview for markdown filetypes
+  use { "iamcco/markdown-preview.nvim",
+    ft = { 'md' },
+    run = "cd app && npm install" }
+
   -- latex asynchronous pdf rendering
   use { 'donRaphaco/neotex',
     ft = { 'tex' } }

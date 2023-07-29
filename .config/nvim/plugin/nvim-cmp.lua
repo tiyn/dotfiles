@@ -1,48 +1,8 @@
 -- hrsh7th/nvim-cmp
-
--- jose-elias-alvarez/null-ls.nvim
-local null_ls = require("null-ls")
-
-null_ls.setup({
-  sources = {
-    require("null-ls-embedded").nls_source,
-    null_ls.builtins.formatting.black,
-    null_ls.builtins.formatting.mdformat,
-  },
-})
-
-require("null-ls").setup({
-  sources = {
-    require("null-ls-embedded").nls_source.with({
-      -- default filetypes:
-      filetypes = { "markdown" },
-    }),
-  },
-})
-
--- mason package manager
-require("mason").setup()
-
-require("mason-lspconfig").setup({
-  -- automatically install language servers setup below for lspconfig
-  automatic_setup = true,
-})
-
-require("mason-null-ls").setup({
-  automatic_installation = true,
-  ensure_installed = {}
-})
-
--- Add additional capabilities supported by nvim-cmp
-capabilities = require("cmp_nvim_lsp").default_capabilities()
-
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
-
--- nvim-cmp setup
 local cmp = require("cmp")
 local luasnip = require("luasnip")
-local lspkind = require("lspkind")
+require("luasnip.loaders.from_snipmate").lazy_load()
+
 cmp.setup {
   sorting = {
     comparators = {
@@ -93,7 +53,7 @@ cmp.setup {
     { name = 'luasnip' },
   },
   formatting = {
-    format = lspkind.cmp_format({
+    format = require("lspkind").cmp_format({
       mode = "symbol_text",
       preset = "codicons",
       maxwidth = 50,
@@ -133,11 +93,35 @@ cmp.setup {
     }),
   },
 }
-require("luasnip.loaders.from_snipmate").lazy_load()
 
--- neovim/nvim-lspconfig
-local nvim_lsp = require('lspconfig')
+-- jose-elias-alvarez/null-ls.nvim
+local null_ls = require("null-ls")
 
+null_ls.setup({
+  sources = {
+    require("null-ls-embedded").nls_source.with({
+      filetypes = { "markdown" },
+    }),
+    null_ls.builtins.formatting.black,
+    null_ls.builtins.formatting.mdformat,
+  },
+})
+
+-- williamboman/mason.nvim
+require("mason").setup()
+
+-- williamboman/mason-lspconfig.nvim
+require("mason-lspconfig").setup({
+  automatic_setup = true,
+})
+
+-- jay-babu/mason-null-ls.nvim
+require("mason-null-ls").setup({
+  automatic_installation = true,
+  ensure_installed = {}
+})
+
+-- ray-x/lsp_signature.nvim
 require "lsp_signature".setup({
   bind = true,
   handler_opts = {
@@ -145,25 +129,30 @@ require "lsp_signature".setup({
   }
 })
 
+-- smiteshp/nvim-navbuddy
 local navbuddy = require("nvim-navbuddy")
+
+-- hrsh7th/cmp-nvim-lsp
+local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+-- neovim/nvim-lspconfig
+local nvim_lsp = require('lspconfig')
+
+local servers = { "pyright", "bashls", "texlab", "ccls", "nimls", "marksman" }
 
 local attach_func = function(client, bufnr)
   navbuddy.attach(client, bufnr)
 end
 
--- Use a loop to conveniently call 'setup' on multiple servers and
--- map buffer local keybindings when the language server attaches
-local servers = { "pyright", "bashls", "texlab", "ccls", "nimls", "marksman" }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = attach_func,
-    capabilities = capabilities,
+    capabilities = cmp_nvim_lsp.default_capabilities(),
     flags = {
       debounce_text_changes = 150
     }
   }
 end
-
 
 require 'lspconfig'.jdtls.setup {
   on_attach = attach_func,
