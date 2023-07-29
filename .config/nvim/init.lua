@@ -66,4 +66,3 @@ require('keymap')
 
 -- load general colorscheme
 require('colorscheme')
-

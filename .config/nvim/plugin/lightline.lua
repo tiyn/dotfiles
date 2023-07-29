@@ -1,2 +1,2 @@
 -- itchyny/lightline.vim
-vim.g.lightline = { colorscheme = 'tccs'}
+vim.g.lightline = { colorscheme = 'tccs' }
