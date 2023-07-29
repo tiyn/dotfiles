@@ -19,13 +19,19 @@ return require("packer").startup(function(use)
   -- package manager (first entry)
   use { 'wbthomason/packer.nvim' }
 
+  -- indicate git diff status of line
+  use { 'lewis6991/gitsigns.nvim' }
+
   -- improved java syntax highlighting
   use { 'uiiaoo/java-syntax.vim',
     ft = { 'java' } }
 
   -- custom statusline
-  use { 'itchyny/lightline.vim',
-    require = { "tiyn/vim-tccs" } }
+  use {
+    'nvim-lualine/lualine.nvim',
+    requires = { 'nvim-tree/nvim-web-devicons',
+    opt = true }
+  }
 
   -- show signature while typing
   use { 'ray-x/lsp_signature.nvim' }
@@ -104,9 +110,6 @@ return require("packer").startup(function(use)
 
   -- git wrapper
   use { 'tpope/vim-fugitive' }
-
-  -- indicate git diff status of line
-  use { 'airblade/vim-gitgutter' }
 
   -- golang language support
   use { 'fatih/vim-go',
