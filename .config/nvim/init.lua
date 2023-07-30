@@ -1,6 +1,10 @@
 vim.o.go = 'a'
 vim.o.showmode = false
 
+-- disable netrw
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
 -- enable mouse for all modes
 vim.o.mouse = 'a'
 vim.o.clipboard = 'unnamedplus'
@@ -60,6 +64,11 @@ vim.o.undodir = vim.env.XDG_CACHE_HOME .. "/vim/undo"
 -- python programs to use
 vim.g.python_host_prog = '/usr/bin/python2'
 vim.g.python3_host_prog = '/usr/bin/python3'
+
+-- append
+vim.opt.list = true
+vim.opt.listchars:append "space:·"
+vim.opt.listchars:append "eol:"
 
 -- set filetypes correctly by extension
 require('autocmd')

@@ -16,13 +16,6 @@ vim.filetype.add({
   }
 })
 
--- delete trailing whitespaces on save
-vim.api.nvim_create_autocmd({ 'BufWritePre' },
-  {
-    pattern = { '*' },
-    command = [[%s/\s\+$//e]],
-  })
-
 -- settings for filetype: c
 
 vim.api.nvim_create_autocmd({ 'VimLeave' },

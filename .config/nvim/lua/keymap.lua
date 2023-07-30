@@ -5,7 +5,6 @@ vim.g.mapleader = ","
 
 -- unmap unwanted commands
 vim.api.nvim_set_keymap('n', '<F1>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F4>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F9>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F10>', '<NOP>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F11>', '<NOP>', { noremap = true })
@@ -59,8 +58,8 @@ vim.api.nvim_create_autocmd('FileType', {
 -- SmiteshP/nvim-navbuddy
 vim.api.nvim_set_keymap('n', '<F3>', ':Navbuddy<CR>', {})
 
--- nvim-neo-tree/neo-tree.nvim
-vim.api.nvim_set_keymap('n', '<F2>', ':Neotree toggle<CR>', {})
+-- nvim-tree/nvim-tree.lua
+vim.api.nvim_set_keymap('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
 
 -- tpope/vim-fugitive
 vim.api.nvim_set_keymap('n', '<leader>ga', ':Git add %:p<CR><CR>', { noremap = true })
@@ -80,3 +79,6 @@ vim.api.nvim_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', { norema
 vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F5>', ':lua vim.lsp.buf.rename()<CR>', { noremap = true })
 vim.api.nvim_set_keymap('n', '<F8>', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
+
+-- nvim-telescope/telescope.nvim
+vim.api.nvim_set_keymap('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })
