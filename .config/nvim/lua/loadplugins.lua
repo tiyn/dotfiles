@@ -41,7 +41,7 @@ return require("packer").startup(function(use)
   -- preview for markdown filetypes
   use { "iamcco/markdown-preview.nvim",
     ft = { 'md' },
-    run = "cd app && npm install"
+    run = "cd app && yarn install"
   }
 
   -- latex asynchronous pdf rendering
