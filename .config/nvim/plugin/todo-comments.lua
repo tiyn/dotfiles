@@ -5,12 +5,13 @@ require 'todo-comments'.setup {
   sign_priority = 8, -- sign priority
   -- keywords recognized as todo comments
   keywords = {
-    ERRO = { icon = " ", color = "error" },
-    TODO = { icon = " ", color = "info" },
-    HACK = { icon = " ", color = "warning" },
+    ERRO = { icon = " ", color = "error" },
+    TODO = { icon = " ", color = "info" },
     WARN = { icon = " ", color = "warning" },
-    PERF = { icon = " ", color = "default" },
-    NOTE = { icon = " ", color = "hint" },
+    HACK = { icon = " ", color = "warning" },
+    PERF = { icon = " ", color = "perfect" },
+    HINT = { icon = " ", color = "hint" },
+    INFO = { icon = " ", color = "hint", alt = { "NOTE" } },
     TEST = { icon = " ", color = "test" },
   },
   gui_style = {
@@ -37,11 +38,11 @@ require 'todo-comments'.setup {
   -- list of named colors where we try to extract the guifg from the
   -- list of highlight groups or use the hex color if hl not found as a fallback
   colors = {
-    error = { "DiagnosticError", "ErrorMsg", "#DC2626" },
-    warning = { "WarningMsg", "DiagnosticWarn", "#FBBF24" },
-    info = { "Constant", "#2563EB" },
-    hint = { "Comment", "#10B981" },
-    default = { "Operator", "#7C3AED" },
+    error = { "DiagnosticSignError", "ErrorMsg", "#DC2626" },
+    warning = { "DiagnosticSignWarn", "WarningMsg", "#FBBF24" },
+    info = { "Comment", "#2563EB" },
+    hint = { "Constant", "#10B981" },
+    perfect = { "Operator", "#7C3AED" },
     test = { "Function", "#FF00FF" }
   },
   search = {

@@ -104,6 +104,10 @@ return require("packer").startup(function(use)
     requires = { 'nvim-treesitter/nvim-treesitter' }
   }
 
+  -- folding improvements
+  use { 'kevinhwang91/nvim-ufo',
+    requires = 'kevinhwang91/promise-async' }
+
   -- colorful brackets
   use { 'luochen1990/rainbow' }
 

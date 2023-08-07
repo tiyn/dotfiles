@@ -144,10 +144,16 @@ local attach_func = function(client, bufnr)
   navbuddy.attach(client, bufnr)
 end
 
+local capabilities = cmp_nvim_lsp.default_capabilities()
+capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+}
+
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = attach_func,
-    capabilities = cmp_nvim_lsp.default_capabilities(),
+    capabilities = capabilities,
     flags = {
       debounce_text_changes = 150
     }
@@ -156,6 +162,7 @@ end
 
 require 'lspconfig'.jdtls.setup {
   on_attach = attach_func,
+  capabilities = capabilities,
   flags = {
     debounce_text_changes = 150
   },
@@ -164,6 +171,7 @@ require 'lspconfig'.jdtls.setup {
 
 require 'lspconfig'.lua_ls.setup {
   on_attach = attach_func,
+  capabilities = capabilities,
   settings = {
     Lua = {
       runtime = { version = 'LuaJIT' },
@@ -173,3 +181,22 @@ require 'lspconfig'.lua_ls.setup {
     },
   },
 }
+
+require('ufo').setup()
+
+vim.fn.sign_define(
+  "DiagnosticSignError",
+  { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" }
+)
+vim.fn.sign_define(
+  "DiagnosticSignWarn",
+  { texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn" }
+)
+vim.fn.sign_define(
+  "DiagnosticSignInfo",
+  { texthl = "DiagnosticSignInfo", text = "", numhl = "DiagnosticSignInfo" }
+)
+vim.fn.sign_define(
+  "DiagnosticSignHint",
+  { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" }
+)
