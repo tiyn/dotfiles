@@ -113,6 +113,7 @@ require("mason").setup()
 -- williamboman/mason-lspconfig.nvim
 require("mason-lspconfig").setup({
   automatic_setup = true,
+  ensure_installed = { "pyright", "bashls", "texlab", "nimls", "marksman", "jdtls", "lua_ls" }
 })
 
 -- jay-babu/mason-null-ls.nvim
@@ -138,7 +139,7 @@ local cmp_nvim_lsp = require("cmp_nvim_lsp")
 -- neovim/nvim-lspconfig
 local nvim_lsp = require('lspconfig')
 
-local servers = { "pyright", "bashls", "texlab", "ccls", "nimls", "marksman" }
+local servers = { "pyright", "bashls", "texlab", "nimls", "marksman" }
 
 local attach_func = function(client, bufnr)
   navbuddy.attach(client, bufnr)
@@ -146,8 +147,8 @@ end
 
 local capabilities = cmp_nvim_lsp.default_capabilities()
 capabilities.textDocument.foldingRange = {
-    dynamicRegistration = false,
-    lineFoldingOnly = true
+  dynamicRegistration = false,
+  lineFoldingOnly = true
 }
 
 for _, lsp in ipairs(servers) do
