@@ -2,10 +2,9 @@
 
 -- bootstrap packer
 local ensure_packer = function()
-  local fn = vim.fn
-  local install_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-  if fn.empty(fn.glob(install_path)) > 0 then
-    fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
+  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+    vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
     vim.cmd [[packadd packer.nvim]]
     return true
   end
@@ -40,7 +39,7 @@ return require("packer").startup(function(use)
 
   -- preview for markdown filetypes
   use { "iamcco/markdown-preview.nvim",
-    ft = { 'md' },
+    ft = { 'markdown' },
     run = "cd app && yarn install"
   }
 
@@ -60,22 +59,29 @@ return require("packer").startup(function(use)
   -- autocompletion and its sources
   use { 'hrsh7th/nvim-cmp',
     requires = { 'hrsh7th/cmp-buffer',
+      -- standalone cmp sources
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lsp',
       'lukas-reineke/cmp-under-comparator',
-      'antoinemadec/fixcursorhold.nvim',
+      -- lsp cmp source
+      'neovim/nvim-lspconfig',
+      'hrsh7th/cmp-nvim-lsp',
+      'onsails/lspkind-nvim',
+      -- luasnip cmp source
       'l3mon4d3/luasnip',
       'saadparwaiz1/cmp_luasnip',
-      'neovim/nvim-lspconfig',
-      'onsails/lspkind-nvim',
+      -- lang server management
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
       'jose-elias-alvarez/null-ls.nvim',
       'LostNeophyte/null-ls-embedded',
+      'jay-babu/mason-null-ls.nvim',
+      -- dependencies
       'nvim-lua/plenary.nvim',
-      'jay-babu/mason-null-ls.nvim'
     }
   }
+
+  -- fix for cursorhold function
+  use { 'antoinemadec/fixcursorhold.nvim' }
 
   -- showing color of hex values, etc
   use { 'norcalli/nvim-colorizer.lua' }
