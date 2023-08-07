@@ -3,10 +3,10 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     symbols = {
-      error = '',
-      warn = '',
-      hint = '',
-      info = '',
+      error = ' ',
+      warn = ' ',
+      hint = ' ',
+      info = ' ',
   },
     theme = 'tccs',
     component_separators = { left = '', right = '' },

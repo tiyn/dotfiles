@@ -1,64 +1,68 @@
 -- loadplugins
 
--- bootstrap packer
-local ensure_packer = function()
-  local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-  if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-    vim.fn.system({ 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path })
-    vim.cmd [[packadd packer.nvim]]
-    return true
-  end
-  return false
+-- bootstrap lazy
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
-local packer_bootstrap = ensure_packer()
 
--- load plugins with packer
-return require("packer").startup(function(use)
-  -- package manager (first entry)
-  use { 'wbthomason/packer.nvim' }
-
+return require("lazy").setup({
   -- indicate git diff status of line
-  use { 'lewis6991/gitsigns.nvim' }
+  'lewis6991/gitsigns.nvim',
 
   -- show indentation lines (in empty lines too)
-  use { 'lukas-reineke/indent-blankline.nvim' }
+  'lukas-reineke/indent-blankline.nvim',
 
   -- improved java syntax highlighting
-  use { 'uiiaoo/java-syntax.vim',
-    ft = { 'java' }
-  }
+  {
+    'uiiaoo/java-syntax.vim',
+    ft = { 'java' },
+  },
 
   -- custom statusline
-  use { 'nvim-lualine/lualine.nvim',
-    requires = { 'nvim-tree/nvim-web-devicons' }
-  }
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons', }
+  },
 
   -- show signature while typing
-  use { 'ray-x/lsp_signature.nvim' }
+  'ray-x/lsp_signature.nvim',
 
   -- preview for markdown filetypes
-  use { "iamcco/markdown-preview.nvim",
+  {
+    "iamcco/markdown-preview.nvim",
     ft = { 'markdown' },
-    run = "cd app && yarn install"
-  }
+    build = "cd app && yarn install",
+  },
 
   -- latex asynchronous pdf rendering
-  use { 'donRaphaco/neotex',
-    ft = { 'tex' }
-  }
+  {
+    'donRaphaco/neotex',
+    ft = { 'tex' },
+  },
 
   -- nim language support
-  use { 'zah/nim.vim',
-    ft = { 'nim' }
-  }
+  {
+    'zah/nim.vim',
+    ft = { 'nim' },
+  },
 
   -- automatic closing of brackets
-  use { 'windwp/nvim-autopairs' }
+  'windwp/nvim-autopairs',
 
   -- autocompletion and its sources
-  use { 'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-buffer',
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = { 'hrsh7th/cmp-buffer',
       -- standalone cmp sources
       'hrsh7th/cmp-path',
       'lukas-reineke/cmp-under-comparator',
@@ -77,86 +81,89 @@ return require("packer").startup(function(use)
       'jay-babu/mason-null-ls.nvim',
       -- dependencies
       'nvim-lua/plenary.nvim',
-    }
-  }
+    },
+  },
 
   -- fix for cursorhold function
-  use { 'antoinemadec/fixcursorhold.nvim' }
+  'antoinemadec/fixcursorhold.nvim',
 
   -- showing color of hex values, etc
-  use { 'norcalli/nvim-colorizer.lua' }
+  'norcalli/nvim-colorizer.lua',
 
   -- show tags
-  use { "SmiteshP/nvim-navbuddy",
-    requires = {
+  {
+    "SmiteshP/nvim-navbuddy",
+    dependencies = {
       "neovim/nvim-lspconfig",
       "SmiteshP/nvim-navic",
       "MunifTanjim/nui.nvim",
-    }
-  }
+    },
+  },
 
   -- fileexplorer on the side
-  use { "nvim-tree/nvim-tree.lua",
-    requires = {
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = {
       "nvim-tree/nvim-web-devicons",
-    }
-  }
+    },
+  },
 
   -- better language highlighting by improved parsing
-  use { 'nvim-treesitter/nvim-treesitter' }
+  'nvim-treesitter/nvim-treesitter',
 
   -- automatically close html-tags
-  use { 'windwp/nvim-ts-autotag',
-    requires = { 'nvim-treesitter/nvim-treesitter' }
-  }
+  {
+    'windwp/nvim-ts-autotag',
+    dependencies = { 'nvim-treesitter/nvim-treesitter' },
+  },
 
   -- folding improvements
-  use { 'kevinhwang91/nvim-ufo',
-    requires = 'kevinhwang91/promise-async' }
+  {
+    'kevinhwang91/nvim-ufo',
+    dependencies = { 'kevinhwang91/promise-async' },
+  },
 
   -- colorful brackets
-  use { 'luochen1990/rainbow' }
+  'luochen1990/rainbow',
 
   -- fuzzy finder
-  use {
+  {
     'nvim-telescope/telescope.nvim',
-    tag = '0.1.2',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
+    version = '0.1.2',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
   -- clean up white spaces and empty lines before writing
-  use { "mcauley-penney/tidy.nvim" }
+  "mcauley-penney/tidy.nvim",
 
   -- todo symbols and highlighting
-  use { 'folke/todo-comments.nvim',
-    requires = { 'nvim-lua/plenary.nvim' }
-  }
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
   -- git wrapper
-  use { 'tpope/vim-fugitive' }
+  'tpope/vim-fugitive',
 
   -- golang language support
-  use { 'fatih/vim-go',
-    ft = { 'go' }
-  }
+  {
+    'fatih/vim-go',
+    ft = { 'go' },
+  },
 
   -- markdown language support
-  use { 'preservim/vim-markdown',
-    ft = { 'md' },
-    requires = { 'godlygeek/tabular' }
-  }
+  {
+    'preservim/vim-markdown',
+    ft = { 'markdown' },
+    dependencies = { 'godlygeek/tabular' },
+  },
 
   -- bulk renamer
-  use { 'qpkorr/vim-renamer' }
+  'qpkorr/vim-renamer',
 
   -- additional quote/parantheses funtions
-  use { 'tpope/vim-surround' }
+  'tpope/vim-surround',
 
   -- colorscheme
-  use { 'tiyn/vim-tccs' }
-
-  -- package manager sync (last entry)
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+  'tiyn/vim-tccs',
+})

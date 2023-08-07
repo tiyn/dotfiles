@@ -6,12 +6,12 @@ require 'todo-comments'.setup {
   -- keywords recognized as todo comments
   keywords = {
     ERRO = { icon = " ", color = "error" },
-    TODO = { icon = " ", color = "info" },
     WARN = { icon = " ", color = "warning" },
     HACK = { icon = " ", color = "warning" },
-    PERF = { icon = " ", color = "perfect" },
     HINT = { icon = " ", color = "hint" },
-    INFO = { icon = " ", color = "hint", alt = { "NOTE" } },
+    TODO = { icon = " ", color = "hint" },
+    INFO = { icon = " ", color = "info", alt = { "NOTE" } },
+    PERF = { icon = " ", color = "perfect" },
     TEST = { icon = " ", color = "test" },
   },
   gui_style = {
@@ -40,10 +40,10 @@ require 'todo-comments'.setup {
   colors = {
     error = { "DiagnosticSignError", "ErrorMsg", "#DC2626" },
     warning = { "DiagnosticSignWarn", "WarningMsg", "#FBBF24" },
-    info = { "Comment", "#2563EB" },
-    hint = { "Constant", "#10B981" },
-    perfect = { "Operator", "#7C3AED" },
-    test = { "Function", "#FF00FF" }
+    hint = { "DiagnosticSignHint", "#10B981" },
+    info = { "DiagnosticSignInfo", "#999999" },
+    perfect = { "Special", "#FF00FF" },
+    test = { "Identifier", "#00dddd" }
   },
   search = {
     command = "rg",

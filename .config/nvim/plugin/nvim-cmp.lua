@@ -126,8 +126,10 @@ require("mason-null-ls").setup({
 require "lsp_signature".setup({
   bind = true,
   handler_opts = {
-    border = "rounded"
-  }
+    border = "none"
+  },
+  hint_prefix = " ",
+  hint_scheme = "DiagnosticSignHint",
 })
 
 -- smiteshp/nvim-navbuddy
@@ -187,17 +189,17 @@ require('ufo').setup()
 
 vim.fn.sign_define(
   "DiagnosticSignError",
-  { texthl = "DiagnosticSignError", text = "", numhl = "DiagnosticSignError" }
+  { texthl = "DiagnosticSignError", text = " ", numhl = "DiagnosticSignError" }
 )
 vim.fn.sign_define(
   "DiagnosticSignWarn",
-  { texthl = "DiagnosticSignWarn", text = "", numhl = "DiagnosticSignWarn" }
+  { texthl = "DiagnosticSignWarn", text = " ", numhl = "DiagnosticSignWarn" }
 )
 vim.fn.sign_define(
   "DiagnosticSignInfo",
-  { texthl = "DiagnosticSignInfo", text = "", numhl = "DiagnosticSignInfo" }
+  { texthl = "DiagnosticSignInfo", text = " ", numhl = "DiagnosticSignInfo" }
 )
 vim.fn.sign_define(
   "DiagnosticSignHint",
-  { texthl = "DiagnosticSignHint", text = "", numhl = "DiagnosticSignHint" }
+  { texthl = "DiagnosticSignHint", text = " ", numhl = "DiagnosticSignHint" }
 )
