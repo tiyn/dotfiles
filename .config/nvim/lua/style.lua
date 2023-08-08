@@ -1,4 +1,4 @@
--- set diagnostic signs
+-- set signs for various uses
 Error_sign = " "
 Warn_sign = " "
 Info_sign = " "
@@ -15,7 +15,7 @@ Menu_signs = {
   luasnip = "",
 }
 
-Symbol_map = {
+Lsp_signs = {
   Text = "",
   Method = "",
   Function = "φ",
@@ -43,10 +43,44 @@ Symbol_map = {
   TypeParameter = ""
 }
 
-Install_icons = {
-  package_installed = "✓",
-  package_pending = "➜",
+Install_signs = {
+  package_installed = "",
+  package_pending = "",
   package_uninstalled = "✗"
+}
+
+Git_signs = {
+  unstaged = "",
+  staged = "",
+  unmerged = "",
+  renamed = "",
+  deleted = "",
+  untracked = "",
+  ignored = "",
+}
+
+Lazy_signs = {
+  cmd = " ",
+  config = "",
+  event = "",
+  ft = " ",
+  init = " ",
+  import = " ",
+  keys = " ",
+  lazy = "󰒲 ",
+  loaded = " ",
+  not_loaded = "",
+  plugin = " ",
+  runtime = " ",
+  source = " ",
+  start = "",
+  task = " ",
+  list = {
+    "●",
+    "➜",
+    "",
+    "",
+  }
 }
 
 vim.fn.sign_define(
