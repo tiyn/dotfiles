@@ -422,8 +422,6 @@ return require("lazy").setup({
     ft = { 'markdown' },
     config = function()
       vim.g.vim_markdown_folding_style_pythonic = 1
-      vim.g.vim_markdown_folding_disabled = 0
-      vim.g.vim_markdown_conceal = 2
     end
   },
 
