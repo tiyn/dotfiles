@@ -8,6 +8,47 @@ Todo_sign = " "
 Perfect_sign = " "
 Test_sign = " "
 
+Menu_signs = {
+  nvim_lsp = "",
+  path = "",
+  buffer = "",
+  luasnip = "",
+}
+
+Symbol_map = {
+  Text = "",
+  Method = "",
+  Function = "φ",
+  Constructor = "",
+  Field = "■",
+  Variable = "β",
+  Class = "",
+  Interface = "",
+  Module = "",
+  Property = "",
+  Unit = "",
+  Value = "",
+  Enum = "",
+  Keyword = "",
+  Snippet = "",
+  Color = "",
+  File = "",
+  Reference = "",
+  Folder = "",
+  EnumMember = "",
+  Constant = "π",
+  Struct = "",
+  Event = "",
+  Operator = "",
+  TypeParameter = ""
+}
+
+Install_icons = {
+  package_installed = "✓",
+  package_pending = "➜",
+  package_uninstalled = "✗"
+}
+
 vim.fn.sign_define(
   "DiagnosticSignError",
   { texthl = "DiagnosticSignError", text = Error_sign, numhl = "DiagnosticSignError" }
