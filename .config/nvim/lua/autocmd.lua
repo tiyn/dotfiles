@@ -1,5 +1,3 @@
--- autocmd
-
 -- read files correctly
 vim.filetype.add({
   extension = {

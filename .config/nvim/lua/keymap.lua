@@ -1,5 +1,3 @@
--- keymap
-
 -- set mapleader for hotkeys
 vim.g.mapleader = ","
 

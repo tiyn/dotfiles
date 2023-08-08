@@ -1,3 +1,4 @@
+-- set diagnostic signs
 Error_sign = " "
 Warn_sign = " "
 Info_sign = " "
