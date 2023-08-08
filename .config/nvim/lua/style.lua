@@ -1,3 +1,8 @@
+-- display certain invisible chars
+vim.opt.list = true
+vim.opt.listchars:append "space:·"
+vim.opt.listchars:append "eol:"
+
 -- set signs for various uses
 Error_sign = " "
 Warn_sign = " "

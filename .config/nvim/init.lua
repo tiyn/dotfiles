@@ -65,11 +65,6 @@ vim.o.undodir = vim.env.XDG_CACHE_HOME .. "/vim/undo"
 vim.g.python_host_prog = '/usr/bin/python2'
 vim.g.python3_host_prog = '/usr/bin/python3'
 
--- display certain invisible chars
-vim.opt.list = true
-vim.opt.listchars:append "space:·"
-vim.opt.listchars:append "eol:"
-
 -- folding
 vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
