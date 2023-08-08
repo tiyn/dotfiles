@@ -125,26 +125,117 @@ return require("lazy").setup({
     end
   },
 
-  -- autocompletion and its sources
+  -- language server protocol
   {
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-buffer',
-      -- standalone cmp sources
-      'hrsh7th/cmp-path',
-      'lukas-reineke/cmp-under-comparator',
-      -- lsp cmp source
-      'neovim/nvim-lspconfig',
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'SmiteshP/nvim-navbuddy',
       'hrsh7th/cmp-nvim-lsp',
       'onsails/lspkind-nvim',
-      -- luasnip cmp source
-      'l3mon4d3/luasnip',
-      'saadparwaiz1/cmp_luasnip',
-      -- lang server management
-      'williamboman/mason.nvim',
+      'SmiteshP/nvim-navic',
+      'MunifTanjim/nui.nvim',
+    },
+    config = function()
+      -- hrsh7th/cmp-nvim-lsp
+      local cmp_nvim_lsp = require("cmp_nvim_lsp")
+
+      -- neovim/nvim-lspconfig
+      local nvim_lsp = require('lspconfig')
+
+      local servers = { "pyright", "bashls", "texlab", "nimls", "marksman" }
+
+      -- smiteshp/nvim-navbuddy
+      local navbuddy = require("nvim-navbuddy")
+
+      local attach_func = function(client, bufnr)
+        navbuddy.attach(client, bufnr)
+      end
+
+      local capabilities = cmp_nvim_lsp.default_capabilities()
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true
+      }
+
+      for _, lsp in ipairs(servers) do
+        nvim_lsp[lsp].setup {
+          on_attach = attach_func,
+          capabilities = capabilities,
+          flags = {
+            debounce_text_changes = 150
+          }
+        }
+      end
+      require 'lspconfig'.jdtls.setup {
+        on_attach = attach_func,
+        capabilities = capabilities,
+        flags = {
+          debounce_text_changes = 150
+        },
+        cmd = { 'jdtls' }
+      }
+      require 'lspconfig'.lua_ls.setup {
+        on_attach = attach_func,
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            diagnostics = { globals = { 'vim' } },
+            telemetry = { enable = false },
+          },
+        },
+      }
+    end,
+  },
+
+  -- lang server management
+  {
+    'williamboman/mason.nvim',
+    dependencies = {
       'williamboman/mason-lspconfig.nvim',
       'jose-elias-alvarez/null-ls.nvim',
       'LostNeophyte/null-ls-embedded',
       'jay-babu/mason-null-ls.nvim',
+    },
+    config = function()
+      -- jose-elias-alvarez/null-ls.nvim
+      require("null-ls").setup({
+        sources = {
+          require("null-ls-embedded").nls_source.with({
+            filetypes = { "markdown" },
+          }),
+          require("null-ls").builtins.formatting.black,
+          require("null-ls").builtins.formatting.mdformat,
+        },
+      })
+
+      -- williamboman/mason.nvim
+      require("mason").setup()
+
+      -- williamboman/mason-lspconfig.nvim
+      require("mason-lspconfig").setup({
+        automatic_setup = true,
+        ensure_installed = { "pyright", "bashls", "texlab", "nimls", "marksman", "jdtls", "lua_ls" }
+      })
+
+      -- jay-babu/mason-null-ls.nvim
+      require("mason-null-ls").setup({
+        automatic_installation = true,
+        ensure_installed = {}
+      })
+    end,
+  },
+
+  -- autocompletion and its sources
+  {
+    'hrsh7th/nvim-cmp',
+    dependencies = {
+      -- standalone cmp sources
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      'lukas-reineke/cmp-under-comparator',
+      -- luasnip and cmp source
+      'l3mon4d3/luasnip',
+      'saadparwaiz1/cmp_luasnip',
       -- dependencies
       'nvim-lua/plenary.nvim',
     },
@@ -244,33 +335,6 @@ return require("lazy").setup({
           }),
         },
       }
-
-      -- jose-elias-alvarez/null-ls.nvim
-      require("null-ls").setup({
-        sources = {
-          require("null-ls-embedded").nls_source.with({
-            filetypes = { "markdown" },
-          }),
-          require("null-ls").builtins.formatting.black,
-          require("null-ls").builtins.formatting.mdformat,
-        },
-      })
-
-      -- williamboman/mason.nvim
-      require("mason").setup()
-
-      -- williamboman/mason-lspconfig.nvim
-      require("mason-lspconfig").setup({
-        automatic_setup = true,
-        ensure_installed = { "pyright", "bashls", "texlab", "nimls", "marksman", "jdtls", "lua_ls" }
-      })
-
-      -- jay-babu/mason-null-ls.nvim
-      require("mason-null-ls").setup({
-        automatic_installation = true,
-        ensure_installed = {}
-      })
-
       -- ray-x/lsp_signature.nvim
       require "lsp_signature".setup({
         bind = true,
@@ -280,57 +344,6 @@ return require("lazy").setup({
         hint_prefix = Hint_sign,
         hint_scheme = "DiagnosticSignHint",
       })
-
-      -- smiteshp/nvim-navbuddy
-      local navbuddy = require("nvim-navbuddy")
-
-      -- hrsh7th/cmp-nvim-lsp
-      local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
-      -- neovim/nvim-lspconfig
-      local nvim_lsp = require('lspconfig')
-
-      local servers = { "pyright", "bashls", "texlab", "nimls", "marksman" }
-
-      local attach_func = function(client, bufnr)
-        navbuddy.attach(client, bufnr)
-      end
-
-      local capabilities = cmp_nvim_lsp.default_capabilities()
-      capabilities.textDocument.foldingRange = {
-        dynamicRegistration = false,
-        lineFoldingOnly = true
-      }
-
-      for _, lsp in ipairs(servers) do
-        nvim_lsp[lsp].setup {
-          on_attach = attach_func,
-          capabilities = capabilities,
-          flags = {
-            debounce_text_changes = 150
-          }
-        }
-      end
-
-      require 'lspconfig'.jdtls.setup {
-        on_attach = attach_func,
-        capabilities = capabilities,
-        flags = {
-          debounce_text_changes = 150
-        },
-        cmd = { 'jdtls' }
-      }
-
-      require 'lspconfig'.lua_ls.setup {
-        on_attach = attach_func,
-        capabilities = capabilities,
-        settings = {
-          Lua = {
-            diagnostics = { globals = { 'vim' } },
-            telemetry = { enable = false },
-          },
-        },
-      }
     end,
   },
 
@@ -346,16 +359,6 @@ return require("lazy").setup({
         '!markdown',
       })
     end,
-  },
-
-  -- show tags
-  {
-    "SmiteshP/nvim-navbuddy",
-    dependencies = {
-      "neovim/nvim-lspconfig",
-      "SmiteshP/nvim-navic",
-      "MunifTanjim/nui.nvim",
-    },
   },
 
   -- fileexplorer on the side
