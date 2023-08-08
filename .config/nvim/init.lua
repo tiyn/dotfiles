@@ -75,7 +75,10 @@ vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
+vim.o.conceallevel = 2
 
+-- load general mapped keys
+require('style')
 
 -- set filetypes correctly by extension
 require('autocmd')

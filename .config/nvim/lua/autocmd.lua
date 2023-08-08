@@ -16,6 +16,7 @@ vim.filetype.add({
   }
 })
 
+
 -- settings for filetype: c
 
 vim.api.nvim_create_autocmd({ 'VimLeave' },
@@ -83,7 +84,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' },
 vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' },
   {
     pattern = { 'markdown' },
-    command = 'set conceallevel=2'
+    command = 'set nofoldenable'
   })
 
 -- settings for filetype: nim
