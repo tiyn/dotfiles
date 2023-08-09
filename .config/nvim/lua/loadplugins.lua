@@ -16,56 +16,48 @@ return require("lazy").setup({
     -- display git status per line
     {
       'lewis6991/gitsigns.nvim',
-      config = function()
-        require('gitsigns').setup()
-      end
+      config = {}
     },
 
     -- show indentation lines
     {
       'lukas-reineke/indent-blankline.nvim',
-      config = function()
-        require("indent_blankline").setup({
-          show_current_context = true,
-          show_current_context_start = true
-        })
-      end,
+      opts = {
+        show_current_context = true,
+        show_current_context_start = true
+      }
     },
 
     -- statusline
     {
       'nvim-lualine/lualine.nvim',
       dependencies = { 'nvim-tree/nvim-web-devicons', },
-      config = function()
-        require('lualine').setup({
-          options = {
-            symbols = {
-              error = Error_sign,
-              warn = Warn_sign,
-              hint = Hint_sign,
-              info = Info_sign
-            },
-            theme = 'tccs',
-            component_separators = { left = '', right = '' },
-            section_separators = { left = '', right = '' }
+      opts = {
+        options = {
+          symbols = {
+            error = Error_sign,
+            warn = Warn_sign,
+            hint = Hint_sign,
+            info = Info_sign
           },
-        })
-      end
+          theme = 'tccs',
+          component_separators = { left = '', right = '' },
+          section_separators = { left = '', right = '' }
+        }
+      }
     },
 
     -- show function signature while typing
     {
       'ray-x/lsp_signature.nvim',
-      config = function()
-        require "lsp_signature".setup({
-          bind = true,
-          handler_opts = {
-            border = "none"
-          },
-          hint_prefix = Hint_sign,
-          hint_scheme = "DiagnosticSignHint"
-        })
-      end
+      opts = {
+        bind = true,
+        handler_opts = {
+          border = "none"
+        },
+        hint_prefix = Hint_sign,
+        hint_scheme = "DiagnosticSignHint"
+      }
     },
 
     -- preview for markdown filetypes
@@ -93,9 +85,7 @@ return require("lazy").setup({
     -- automatic closing of brackets
     {
       'windwp/nvim-autopairs',
-      config = function()
-        require("nvim-autopairs").setup()
-      end
+      config = {}
     },
 
     -- lang server installations
@@ -118,23 +108,19 @@ return require("lazy").setup({
         },
         {
           'jay-babu/mason-null-ls.nvim',
-          config = function()
-            -- jay-babu/mason-null-ls.nvim
-            require("mason-null-ls").setup({
-              automatic_installation = true,
-              ensure_installed = { "black", "mdformat" }
-            })
-          end
+          opts = {
+            automatic_installation = true,
+            ensure_installed = { "black", "mdformat" }
+
+          }
         },
         'LostNeophyte/null-ls-embedded'
       },
-      config = function()
-        require("mason").setup({
-          ui = {
-            icons = Install_signs
-          }
-        })
-      end
+      opts = {
+        ui = {
+          icons = Install_signs
+        }
+      }
     },
 
     -- lang server management
@@ -180,6 +166,18 @@ return require("lazy").setup({
             "texlab"
           }
         })
+        local servers = {
+          lua_ls = {
+            Lua = {
+              diagnostics = {
+                globals = { 'vim' }
+              },
+              telemetry = { enable = false },
+            },
+          }
+        }
+        local default = { __index = function() return {} end }
+        setmetatable(servers, default)
         require("mason-lspconfig").setup_handlers({
           function(server_name)
             require('lspconfig')[server_name].setup({
@@ -187,18 +185,8 @@ return require("lazy").setup({
               capabilities = Capabilities,
               flags = {
                 debounce_text_changes = 150
-              }
-            })
-          end,
-          ["lua_ls"] = function()
-            require 'lspconfig'.lua_ls.setup({
-              settings = {
-                Lua = {
-                  diagnostics = {
-                    globals = { 'vim' }
-                  }
-                }
-              }
+              },
+              settings = servers[server_name]
             })
           end
         })
@@ -219,7 +207,7 @@ return require("lazy").setup({
         {
           'l3mon4d3/luasnip',
           config = function()
-            require("luasnip.loaders.from_snipmate").lazy_load()
+            require("luasnip.loaders.from_snipmate")
           end,
           dependencies = { 'saadparwaiz1/cmp_luasnip' }
         },
@@ -294,12 +282,10 @@ return require("lazy").setup({
     -- showing color of hex values, etc
     {
       'norcalli/nvim-colorizer.lua',
-      config = function()
-        require('colorizer').setup({
-          '*',
-          '!markdown'
-        })
-      end
+      opts = {
+        '*',
+        '!markdown'
+      }
     },
 
     -- fileexplorer on the side
@@ -308,25 +294,23 @@ return require("lazy").setup({
       dependencies = {
         "nvim-tree/nvim-web-devicons",
       },
-      config = function()
-        require("nvim-tree").setup({
-          sort_by = "case_sensitive",
-          view = {
-            width = 30,
-          },
-          filters = {
-            dotfiles = true,
-          },
-          renderer = {
-            group_empty = true,
-            icons = {
-              glyphs = {
-                git = Git_signs
-              },
+      opts = {
+        sort_by = "case_sensitive",
+        view = {
+          width = 30,
+        },
+        filters = {
+          dotfiles = true,
+        },
+        renderer = {
+          group_empty = true,
+          icons = {
+            glyphs = {
+              git = Git_signs
             },
-          }
-        })
-      end
+          },
+        }
+      }
     },
 
     -- better language highlighting by improved parsing
@@ -336,22 +320,20 @@ return require("lazy").setup({
         -- automatically close html-tags
         'windwp/nvim-ts-autotag',
       },
-      config = function()
-        require("nvim-treesitter.configs").setup({
-          ensure_installed = {
-            "bash",
-            "c",
-            "cpp",
-            "css",
-            "html",
-            "java",
-            "markdown",
-            "latex",
-            "python",
-          },
-          autotag = { enable = true }
-        })
-      end
+      opts = {
+        ensure_installed = {
+          "bash",
+          "c",
+          "cpp",
+          "css",
+          "html",
+          "java",
+          "markdown",
+          "latex",
+          "python",
+        },
+        autotag = { enable = true }
+      }
     },
 
     -- folding improvements
@@ -378,46 +360,38 @@ return require("lazy").setup({
       'nvim-telescope/telescope.nvim',
       version = '0.1.2',
       dependencies = { 'nvim-lua/plenary.nvim' },
-      config = function()
-        require("telescope").setup()
-      end
+      config = {}
     },
 
     -- clean up white spaces and empty lines before writing
     {
       "mcauley-penney/tidy.nvim",
-      event = "VeryLazy",
-      config = function()
-        require("tidy").setup({
-          filetype_exclude = {}
-        })
-      end
+      opts = {
+        filetype_exclude = {}
+      }
     },
 
     -- todo symbols and highlighting
     {
       'folke/todo-comments.nvim',
       dependencies = { 'nvim-lua/plenary.nvim' },
-      config = function()
-        require 'todo-comments'.setup {
-          keywords = {
-            ERRO = { icon = Error_sign, color = "error" },
-            WARN = { icon = Warn_sign, color = "warning" },
-            HACK = { icon = Hack_sign, color = "warning" },
-            HINT = { icon = Hint_sign, color = "hint" },
-            TODO = { icon = Todo_sign, color = "info" },
-            INFO = { icon = Info_sign, color = "hint", alt = { "NOTE" } },
-            PERF = { icon = Perfect_sign, color = "default" },
-            TEST = { icon = Test_sign, color = "test" }
-          }
+      opts = {
+        keywords = {
+          ERRO = { icon = Error_sign, color = "error" },
+          WARN = { icon = Warn_sign, color = "warning" },
+          HACK = { icon = Hack_sign, color = "warning" },
+          HINT = { icon = Hint_sign, color = "hint" },
+          TODO = { icon = Todo_sign, color = "info" },
+          INFO = { icon = Info_sign, color = "hint", alt = { "NOTE" } },
+          PERF = { icon = Perfect_sign, color = "default" },
+          TEST = { icon = Test_sign, color = "test" }
         }
-      end
+      }
     },
 
     -- git wrapper
     {
       'tpope/vim-fugitive',
-      event = "VeryLazy"
     },
 
     -- markdown language support
@@ -432,16 +406,18 @@ return require("lazy").setup({
     -- bulk renamer
     {
       'qpkorr/vim-renamer',
-      event = "VeryLazy"
     },
 
     -- additional quote/parantheses funtions
     {
       "kylechui/nvim-surround",
-      event = "VeryLazy",
-      config = function()
-        require("nvim-surround").setup()
-      end
+      config = {}
+    },
+
+    -- commenting improvements
+    {
+      'numToStr/Comment.nvim',
+      config = {}
     },
 
     -- colorscheme
@@ -452,6 +428,8 @@ return require("lazy").setup({
       end
     },
   },
+
+  -- lazy.nvim configuration
   {
     ui = {
       icons = Lazy_signs
