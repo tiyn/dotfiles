@@ -2,51 +2,47 @@
 vim.g.mapleader = ","
 
 -- unmap unwanted commands
-vim.api.nvim_set_keymap('n', '<F1>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F9>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F10>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F11>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F12>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F2>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F3>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F4>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F5>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F6>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F7>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F8>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F9>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F10>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F11>', '<NOP>', { noremap = true })
-vim.api.nvim_set_keymap('i', '<F12>', '<NOP>', { noremap = true })
+vim.keymap.set({ 'n', 'i' }, '<F1>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F2>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F3>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F4>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F5>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F6>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F7>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F8>', '<NOP>', { noremap = true })
+vim.keymap.set({ 'n', 'i' }, '<F9>', '<NOP>', { noremap = true })
+vim.keymap.set({ 'n', 'i' }, '<F10>', '<NOP>', { noremap = true })
+vim.keymap.set({ 'n', 'i' }, '<F11>', '<NOP>', { noremap = true })
+vim.keymap.set({ 'n', 'i' }, '<F12>', '<NOP>', { noremap = true })
 
 -- shortcut for split navigation
-vim.api.nvim_set_keymap('n', '<C-h>', '<C-w>h', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-j>', '<C-w>j', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-k>', '<C-w>k', { noremap = true })
-vim.api.nvim_set_keymap('n', '<C-l>', '<C-w>l', { noremap = true })
+vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
+vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true })
+vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true })
+vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
 
 -- mapping Dictionaries
-vim.api.nvim_set_keymap('n', '<F6>', ':setlocal spell! spelllang=de_de<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F7>', ':setlocal spell! spelllang=en_us<CR>', { noremap = true })
+vim.keymap.set('n', '<F6>', ':setlocal spell! spelllang=de_de<CR>', { noremap = true })
+vim.keymap.set('n', '<F7>', ':setlocal spell! spelllang=en_us<CR>', { noremap = true })
 
 -- compiler for languages
-vim.api.nvim_set_keymap('n', '<leader>c', ':w! | !compiler <c-r>%<CR>', { noremap = true })
+vim.keymap.set('n', '<leader>c', ':w! | !compiler <c-r>%<CR>', { noremap = true })
 
 -- save file as sudo on files that require root permission
-vim.api.nvim_set_keymap('c', 'w!!', '"silent! write !sudo tee % >/dev/null" <bar> edit!', { noremap = true })
+vim.keymap.set('c', 'w!!', '"silent! write !sudo tee % >/dev/null" <bar> edit!', { noremap = true })
 
 -- alias for replacing
-vim.api.nvim_set_keymap('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { noremap = true })
+vim.keymap.set('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { noremap = true })
 
 -- irc compatibility for interactivity
-vim.api.nvim_set_keymap('n', '<leader>is', ':.w >> in<cr>dd', { noremap = true })
+vim.keymap.set('n', '<leader>is', ':.w >> in<cr>dd', { noremap = true })
 
 
 -- frabjous/knap
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'tex',
   callback = function()
-    vim.api.nvim_set_keymap('n', '<leader>p', ':lua require("knap").toggle_autopreviewing()<CR>', { noremap = true })
+    vim.keymap.set('n', '<leader>p', ':lua require("knap").toggle_autopreviewing()<CR>', { noremap = true })
   end,
 })
 
@@ -54,34 +50,33 @@ vim.api.nvim_create_autocmd('FileType', {
 vim.api.nvim_create_autocmd('FileType', {
   pattern = 'markdown',
   callback = function()
-    vim.api.nvim_set_keymap('n', '<leader>p', ':MarkdownPreviewToggle<CR>', { noremap = true })
+    vim.keymap.set('n', '<leader>p', ':MarkdownPreviewToggle<CR>', { noremap = true })
   end,
 })
 
 -- SmiteshP/nvim-navbuddy
-vim.api.nvim_set_keymap('n', '<F3>', ':Navbuddy<CR>', {})
+vim.keymap.set('n', '<F3>', ':Navbuddy<CR>', {})
 
 -- nvim-tree/nvim-tree.lua
-vim.api.nvim_set_keymap('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
+vim.keymap.set('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
 
--- tpope/vim-fugitive
-vim.api.nvim_set_keymap('n', '<leader>ga', ':Git add %:p<CR><CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gd', ':Git diff<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gc', ':Git commit<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gh', ':diffget //3<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gr', ':Gread<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gu', ':diffget //2<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<leader>gs', ':G<CR>', { noremap = true })
+-- numToStr/FTerm.nvim
+vim.keymap.set('n', '<leader>t', ':lua require("FTerm").toggle()<CR>', { noremap = true })
+vim.keymap.set('t', '<leader>t', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { noremap = true })
+local lazygit = require("FTerm"):new({
+    cmd = 'lazygit',
+})
+vim.keymap.set({ 'n', 't' }, '<leader>gt', function() lazygit:toggle() end)
 
 -- hrsh7th/nvim-cmp
-vim.api.nvim_set_keymap('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gy', ':lua vim.lsp.buf.type_definition()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'gr', ':lua vim.lsp.buf.references()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F5>', ':lua vim.lsp.buf.rename()<CR>', { noremap = true })
-vim.api.nvim_set_keymap('n', '<F8>', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
+vim.keymap.set('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', { noremap = true })
+vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
+vim.keymap.set('n', 'gy', ':lua vim.lsp.buf.type_definition()<CR>', { noremap = true })
+vim.keymap.set('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', { noremap = true })
+vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', { noremap = true })
+vim.keymap.set('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })
+vim.keymap.set('n', '<F5>', ':lua vim.lsp.buf.rename()<CR>', { noremap = true })
+vim.keymap.set('n', '<F8>', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
 
 -- nvim-telescope/telescope.nvim
-vim.api.nvim_set_keymap('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })
+vim.keymap.set('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })
