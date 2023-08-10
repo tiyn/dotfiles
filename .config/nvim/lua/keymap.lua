@@ -42,8 +42,13 @@ vim.api.nvim_set_keymap('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { norema
 vim.api.nvim_set_keymap('n', '<leader>is', ':.w >> in<cr>dd', { noremap = true })
 
 
--- open corresponding file (pdf/html/...,md)
-vim.api.nvim_set_keymap('n', '<leader>p', ':!opout <c-r>%<CR><CR>', { noremap = true })
+-- frabjous/knap
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'tex',
+  callback = function()
+    vim.api.nvim_set_keymap('n', '<leader>p', ':lua require("knap").toggle_autopreviewing()<CR>', { noremap = true })
+  end,
+})
 
 -- iamcco/markdown-preview.nvim
 vim.api.nvim_create_autocmd('FileType', {

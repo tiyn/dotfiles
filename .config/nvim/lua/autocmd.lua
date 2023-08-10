@@ -19,7 +19,7 @@ vim.filetype.add({
 
 vim.api.nvim_create_autocmd({ 'VimLeave' },
   {
-    pattern = { 'c' },
+    pattern = { '*.c' },
     command = '!cclear'
   })
 
@@ -105,7 +105,7 @@ vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' },
 
 vim.api.nvim_create_autocmd({ 'VimLeave' },
   {
-    pattern = { 'tex' },
+    pattern = { '*.tex' },
     command = '!texclear %'
   })
 

@@ -67,15 +67,6 @@ return require("lazy").setup({
       build = "cd app && yarn install"
     },
 
-    -- latex asynchronous pdf rendering
-    {
-      'donRaphaco/neotex',
-      ft = { 'tex' },
-      config = function()
-        vim.g.neotex_enabled = 2
-      end
-    },
-
     -- nim language support
     {
       'zah/nim.vim',
@@ -420,6 +411,21 @@ return require("lazy").setup({
       config = {}
     },
 
+    -- latex asynchronous pdf rendering
+    {
+      'frabjous/knap',
+      ft = { 'tex' },
+      config = function()
+        vim.g.knap_settings = {
+          texoutputext = "pdf",
+          textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+          textopdfviewerlaunch = "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' %outputfile%",
+          textopdfviewerrefresh = "none",
+          textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%"
+        }
+      end
+    },
+
     -- colorscheme
     {
       'tiyn/vim-tccs',
@@ -427,6 +433,7 @@ return require("lazy").setup({
         vim.cmd('colorscheme tccs')
       end
     },
+
   },
 
   -- lazy.nvim configuration
