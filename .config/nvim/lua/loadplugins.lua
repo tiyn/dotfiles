@@ -31,20 +31,35 @@ return require("lazy").setup({
     -- statusline
     {
       'nvim-lualine/lualine.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons', },
-      opts = {
-        options = {
-          symbols = {
-            error = Error_sign,
-            warn = Warn_sign,
-            hint = Hint_sign,
-            info = Info_sign
-          },
-          theme = 'tccs',
-          component_separators = { left = '', right = '' },
-          section_separators = { left = '', right = '' }
+      dependencies = {
+        'nvim-tree/nvim-web-devicons',
+        {
+          'f-person/git-blame.nvim',
+          config = function()
+            vim.g.gitblame_display_virtual_text = 0
+          end
         }
-      }
+      },
+      config = function()
+        require('lualine').setup({
+          options = {
+            symbols = {
+              error = Error_sign,
+              warn = Warn_sign,
+              hint = Hint_sign,
+              info = Info_sign
+            },
+            theme = 'tccs',
+            component_separators = { left = '', right = '' },
+            section_separators = { left = '', right = '' }
+          },
+          sections = {
+            lualine_c = {
+              { require('gitblame').get_current_blame_text, cond = require('gitblame').is_blame_text_available }
+            }
+          }
+        })
+      end
     },
 
     -- show function signature while typing
@@ -394,7 +409,8 @@ return require("lazy").setup({
         vim.g.knap_settings = {
           texoutputext = "pdf",
           textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
-          textopdfviewerlaunch = "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' %outputfile%",
+          textopdfviewerlaunch =
+          "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' %outputfile%",
           textopdfviewerrefresh = "none",
           textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%"
         }
