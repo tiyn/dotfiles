@@ -16,7 +16,7 @@ return require("lazy").setup({
     -- display git status per line
     {
       'lewis6991/gitsigns.nvim',
-      config = {}
+      opts = {}
     },
 
     -- show indentation lines
@@ -85,7 +85,7 @@ return require("lazy").setup({
     -- automatic closing of brackets
     {
       'windwp/nvim-autopairs',
-      config = {}
+      opts = {}
     },
 
     -- lang server installations
@@ -360,7 +360,7 @@ return require("lazy").setup({
       'nvim-telescope/telescope.nvim',
       version = '0.1.2',
       dependencies = { 'nvim-lua/plenary.nvim' },
-      config = {}
+      opts = {}
     },
 
     -- clean up white spaces and empty lines before writing
@@ -392,13 +392,13 @@ return require("lazy").setup({
     -- additional quote/parantheses funtions
     {
       "kylechui/nvim-surround",
-      config = {}
+      opts = {}
     },
 
     -- commenting improvements
     {
       'numToStr/Comment.nvim',
-      config = {}
+      opts = {}
     },
 
     -- latex asynchronous pdf rendering
@@ -424,6 +424,47 @@ return require("lazy").setup({
         vim.cmd('colorscheme tccs')
       end
     },
+
+    -- improved wild menu
+    {
+      'gelguy/wilder.nvim',
+      dependencies = {
+        'roxma/nvim-yarp',
+        'roxma/vim-hug-neovim-rpc',
+        'romgrk/fzy-lua-native'
+      },
+      config = function()
+        local wilder = require('wilder')
+        wilder.setup({
+          modes = { ':', '/', '?' },
+          accept_key = '<CR>',
+          reject_key = '<C-e>'
+        })
+        wilder.set_option('renderer', wilder.popupmenu_renderer({
+          highlighter = wilder.basic_highlighter(),
+          left = { ' ', wilder.popupmenu_devicons() },
+          right = { ' ', wilder.popupmenu_scrollbar() },
+        }))
+        wilder.set_option('pipeline', {
+          wilder.branch(
+            wilder.python_file_finder_pipeline({
+              file_command = { 'find', '.', '-type', 'f', '-printf', '%P\n' },
+              dir_command = { 'find', '.', '-type', 'd', '-printf', '%P\n' },
+              filters = { 'fuzzy_filter', 'difflib_sorter' },
+            }),
+            wilder.cmdline_pipeline({
+              language = 'python',
+              fuzzy = 2,
+            }),
+            wilder.python_search_pipeline({
+              pattern = wilder.python_fuzzy_pattern(),
+              sorter = wilder.python_difflib_sorter(),
+              engine = 're',
+            })
+          ),
+        })
+      end,
+    }
 
   },
 
