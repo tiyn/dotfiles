@@ -67,12 +67,6 @@ return require("lazy").setup({
       build = "cd app && yarn install"
     },
 
-    -- nim language support
-    {
-      'zah/nim.vim',
-      ft = { 'nim' }
-    },
-
     -- automatic closing of brackets
     {
       'windwp/nvim-autopairs',
@@ -378,25 +372,6 @@ return require("lazy").setup({
           TEST = { icon = Test_sign, color = "test" }
         }
       }
-    },
-
-    -- git wrapper
-    {
-      'tpope/vim-fugitive',
-    },
-
-    -- markdown language support
-    {
-      'preservim/vim-markdown',
-      ft = { 'markdown' },
-      config = function()
-        vim.g.vim_markdown_folding_style_pythonic = 1
-      end
-    },
-
-    -- bulk renamer
-    {
-      'qpkorr/vim-renamer',
     },
 
     -- additional quote/parantheses funtions
