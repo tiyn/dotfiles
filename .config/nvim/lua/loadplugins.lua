@@ -529,6 +529,23 @@ return require("lazy").setup({
       "folke/trouble.nvim",
       dependencies = { "nvim-tree/nvim-web-devicons" },
       opts = {}
+    },
+
+    -- simple start screen
+    {
+      "startup-nvim/startup.nvim",
+      dependencies = {
+        {
+          "nvim-telescope/telescope-file-browser.nvim",
+          config = function()
+            require("telescope").load_extension "file_browser"
+          end
+        },
+        "nvim-telescope/telescope.nvim",
+        "nvim-lua/plenary.nvim" },
+      config = function()
+        require("startup").setup()
+      end
     }
 
   },
