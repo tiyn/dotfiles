@@ -546,6 +546,13 @@ return require("lazy").setup({
       config = function()
         require("startup").setup()
       end
+    },
+
+    -- file renamer in vim
+    {
+      'stevearc/oil.nvim',
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = {},
     }
 
   },
