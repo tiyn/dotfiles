@@ -516,6 +516,19 @@ return require("lazy").setup({
     {
       'numToStr/FTerm.nvim',
       opts = {}
+    },
+
+    -- side by side git diffs for merge conflicts
+    {
+      'sindrets/diffview.nvim',
+      opts = {}
+    },
+
+    -- list of errors
+    {
+      "folke/trouble.nvim",
+      dependencies = { "nvim-tree/nvim-web-devicons" },
+      opts = {}
     }
 
   },

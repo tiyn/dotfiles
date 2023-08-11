@@ -37,6 +37,7 @@ vim.keymap.set('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { noremap = true 
 -- irc compatibility for interactivity
 vim.keymap.set('n', '<leader>is', ':.w >> in<cr>dd', { noremap = true })
 
+-- the following keymap settings are plugin dependent
 
 -- frabjous/knap
 vim.api.nvim_create_autocmd('FileType', {
@@ -60,13 +61,20 @@ vim.keymap.set('n', '<F3>', ':Navbuddy<CR>', {})
 -- nvim-tree/nvim-tree.lua
 vim.keymap.set('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
 
--- numToStr/FTerm.nvim
+-- numtostr/fterm.nvim
 vim.keymap.set('n', '<leader>t', ':lua require("FTerm").toggle()<CR>', { noremap = true })
 vim.keymap.set('t', '<leader>t', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { noremap = true })
 local lazygit = require("FTerm"):new({
     cmd = 'lazygit',
 })
 vim.keymap.set({ 'n', 't' }, '<leader>gt', function() lazygit:toggle() end)
+
+-- sindrets/diffview.nvim
+vim.keymap.set( 'n', '<leader>gdo', ":DiffviewOpen<CR>")
+vim.keymap.set( 'n', '<leader>gdc', ":DiffviewClose<CR>")
+
+-- folke/trouble.nvim
+vim.keymap.set( 'n', '<leader>x', ":TroubleToggle<CR>")
 
 -- hrsh7th/nvim-cmp
 vim.keymap.set('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', { noremap = true })
