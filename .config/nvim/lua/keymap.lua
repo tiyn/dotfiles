@@ -29,7 +29,7 @@ vim.keymap.set('n', '<F7>', ':setlocal spell! spelllang=en_us<CR>', { noremap = 
 vim.keymap.set('n', '<leader>c', ':w! | !compiler <c-r>%<CR>', { noremap = true })
 
 -- save file as sudo on files that require root permission
-vim.keymap.set('c', 'w!!', '"silent! write !sudo tee % >/dev/null" <bar> edit!', { noremap = true })
+vim.keymap.set('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', { noremap = true })
 
 -- alias for replacing
 vim.keymap.set('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { noremap = true })
