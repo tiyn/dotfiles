@@ -66,19 +66,19 @@ Git_signs = {
 
 Lazy_signs = {
   cmd = " ",
-  config = "",
-  event = "",
+  config = " ",
+  event = " ",
   ft = " ",
   init = " ",
   import = " ",
   keys = " ",
   lazy = "󰒲 ",
   loaded = " ",
-  not_loaded = "",
+  not_loaded = " ",
   plugin = " ",
   runtime = " ",
   source = " ",
-  start = "",
+  start = " ",
   task = " ",
   list = {
     "●",
