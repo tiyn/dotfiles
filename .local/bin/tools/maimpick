@@ -13,6 +13,4 @@ case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area
 	"a selected area (clipboard)") maim -s | ${xclip_cmd} ;;
 	"current window (clipboard)") maim -i "$(xdotool getactivewindow)" | ${xclip_cmd} ;;
 	"full screen (clipboard)") maim | ${xclip_cmd} ;;
-	"color picker (clipboard)") maim -st 0 | convert - -resize 1x1\! -format '%[pixel:p{0,0}]' info:- | ${xclip_cmd} ;;
 esac
-
