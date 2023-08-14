@@ -85,6 +85,3 @@ require('loadplugins')
 
 -- load general mapped keys
 require('keymap')
-
-local vscode = require('vscode')
-vscode.load()

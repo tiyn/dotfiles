@@ -38,7 +38,8 @@ return require("lazy").setup({
           config = function()
             vim.g.gitblame_display_virtual_text = 0
           end
-        }
+        },
+        { 'tiyn/tccs.nvim' },
       },
       config = function()
         require('lualine').setup({
@@ -419,9 +420,10 @@ return require("lazy").setup({
 
     -- colorscheme
     {
-      'tiyn/vim-tccs',
+      'tiyn/tccs.nvim',
       config = function()
-        vim.cmd('colorscheme tccs')
+        require('tccs').setup()
+        require('tccs').load()
       end
     },
 
@@ -559,7 +561,7 @@ return require("lazy").setup({
     {
       'kamykn/spelunker.vim',
       dependencies = { 'kamykn/popup-menu.nvim' },
-      config = function ()
+      config = function()
         vim.o.nospell = true
       end
     }
