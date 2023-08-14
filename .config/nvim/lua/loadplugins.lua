@@ -553,6 +553,15 @@ return require("lazy").setup({
       'stevearc/oil.nvim',
       dependencies = { "nvim-tree/nvim-web-devicons" },
       opts = {},
+    },
+
+    -- improve spelling check for coding to feature camelcase, etc
+    {
+      'kamykn/spelunker.vim',
+      dependencies = { 'kamykn/popup-menu.nvim' },
+      config = function ()
+        vim.o.nospell = true
+      end
     }
 
   },

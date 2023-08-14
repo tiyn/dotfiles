@@ -7,8 +7,8 @@ vim.keymap.set('i', '<F2>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F3>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F4>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F5>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F6>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F7>', '<NOP>', { noremap = true })
+vim.keymap.set({ 'n', 'i' }, '<F6>', '<NOP>', { noremap = true })
+vim.keymap.set({ 'n', 'i' }, '<F7>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F8>', '<NOP>', { noremap = true })
 vim.keymap.set({ 'n', 'i' }, '<F9>', '<NOP>', { noremap = true })
 vim.keymap.set({ 'n', 'i' }, '<F10>', '<NOP>', { noremap = true })
@@ -20,10 +20,6 @@ vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true })
 vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
-
--- mapping Dictionaries
-vim.keymap.set('n', '<F6>', ':setlocal spell! spelllang=de_de<CR>', { noremap = true })
-vim.keymap.set('n', '<F7>', ':setlocal spell! spelllang=en_us<CR>', { noremap = true })
 
 -- compiler for languages
 vim.keymap.set('n', '<leader>c', ':w! | !compiler <c-r>%<CR>', { noremap = true })
