@@ -74,6 +74,9 @@ vim.o.conceallevel = 0
 
 vim.g.markdown_folding = 1
 
+-- load general mapped keys
+require('style')
+
 -- set filetypes correctly by extension
 require('autocmd')
 
@@ -83,5 +86,5 @@ require('loadplugins')
 -- load general mapped keys
 require('keymap')
 
--- load general mapped keys
-require('style')
+local vscode = require('vscode')
+vscode.load()
