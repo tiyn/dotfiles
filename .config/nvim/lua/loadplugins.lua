@@ -13,6 +13,15 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 return require("lazy").setup({
+    -- colorscheme
+    {
+      'tiyn/tccs.nvim',
+      config = function()
+        require('tccs').setup()
+        vim.cmd('colorscheme tccs')
+      end
+    },
+
     -- display git status per line
     {
       'lewis6991/gitsigns.nvim',
@@ -320,21 +329,34 @@ return require("lazy").setup({
       dependencies = {
         -- automatically close html-tags
         'windwp/nvim-ts-autotag',
+        -- color brackets
+        'p00f/nvim-ts-rainbow',
       },
-      opts = {
-        ensure_installed = {
-          "bash",
-          "c",
-          "cpp",
-          "css",
-          "html",
-          "java",
-          "markdown",
-          "latex",
-          "python",
-        },
-        autotag = { enable = true }
-      }
+      config = function()
+        require("nvim-treesitter").setup({
+          ensure_installed = {
+            "bash",
+            "c",
+            "cpp",
+            "css",
+            "html",
+            "java",
+            "markdown",
+            "latex",
+            "python",
+          },
+          autotag = { enable = true },
+        })
+        require("nvim-treesitter.configs").setup({
+          rainbow = {
+            enable = true,
+            extended_mode = true,
+            max_file_lines = nil,
+            -- colors = {},
+            -- termcolors = {}
+          }
+        })
+      end
     },
 
     -- folding improvements
@@ -415,15 +437,6 @@ return require("lazy").setup({
           textopdfviewerrefresh = "none",
           textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%"
         }
-      end
-    },
-
-    -- colorscheme
-    {
-      'tiyn/tccs.nvim',
-      config = function()
-        require('tccs').setup()
-        require('tccs').load()
       end
     },
 
