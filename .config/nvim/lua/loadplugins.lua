@@ -53,6 +53,7 @@ return require("lazy").setup({
       config = function()
         require('lualine').setup({
           options = {
+            globalstatus = true,
             symbols = {
               error = Error_sign,
               warn = Warn_sign,
@@ -64,9 +65,34 @@ return require("lazy").setup({
             section_separators = { left = '', right = '' }
           },
           sections = {
-            lualine_c = {
+            lualine_b = {
               { require('gitblame').get_current_blame_text, cond = require('gitblame').is_blame_text_available }
-            }
+            },
+            lualine_c = {},
+            lualine_x = {
+              'encoding',
+              'fileformat',
+              {
+                'filetype',
+                icon_only = true
+              }
+            },
+            lualine_y = {
+              {
+                'filename',
+                file_status = true,
+                newfile_status = true,
+                path = 1,
+                shorting_target = 50,
+                symbols = {
+                  modified = Lualine_signs["modified"],
+                  readonly = Lualine_signs["readonly"],
+                  unnamed = Lualine_signs["unnamed"],
+                  newfile = Lualine_signs["newfile"],
+                }
+              }
+            },
+            lualine_z = { 'progress', 'location' },
           }
         })
       end
@@ -480,6 +506,7 @@ return require("lazy").setup({
         })
       end,
     },
+
     -- scrollbar with git and diagnostics support for easier navigation
     {
       'petertriho/nvim-scrollbar',

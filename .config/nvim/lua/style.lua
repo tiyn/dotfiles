@@ -88,6 +88,13 @@ Lazy_signs = {
   }
 }
 
+Lualine_signs = {
+  modified = '',
+  readonly = '',
+  unnamed = '',
+  newfile = ''
+}
+
 vim.fn.sign_define(
   "DiagnosticSignError",
   { texthl = "DiagnosticSignError", text = Error_sign, numhl = "DiagnosticSignError" }
