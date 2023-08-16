@@ -448,7 +448,7 @@ return require("lazy").setup({
 
     -- additional quote/parantheses funtions
     {
-      "kylechui/nvim-surround",
+      'kylechui/nvim-surround',
       opts = {}
     },
 
@@ -576,23 +576,26 @@ return require("lazy").setup({
 
     -- list of errors
     {
-      "folke/trouble.nvim",
-      dependencies = { "nvim-tree/nvim-web-devicons" },
+      'folke/trouble.nvim',
+      dependencies = { 'nvim-tree/nvim-web-devicons' },
       opts = {}
     },
 
+    -- rename files in buffer
+    { 'qpkorr/vim-renamer' },
+
     -- simple start screen
     {
-      "startup-nvim/startup.nvim",
+      'startup-nvim/startup.nvim',
       dependencies = {
         {
-          "nvim-telescope/telescope-file-browser.nvim",
+          'nvim-telescope/telescope-file-browser.nvim',
           config = function()
             require("telescope").load_extension "file_browser"
           end
         },
-        "nvim-telescope/telescope.nvim",
-        "nvim-lua/plenary.nvim" },
+        'nvim-telescope/telescope.nvim',
+        'nvim-lua/plenary.nvim' },
       config = function()
         require("startup").setup()
       end
