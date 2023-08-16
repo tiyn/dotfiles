@@ -584,23 +584,6 @@ return require("lazy").setup({
     -- rename files in buffer
     { 'qpkorr/vim-renamer' },
 
-    -- simple start screen
-    {
-      'startup-nvim/startup.nvim',
-      dependencies = {
-        {
-          'nvim-telescope/telescope-file-browser.nvim',
-          config = function()
-            require("telescope").load_extension "file_browser"
-          end
-        },
-        'nvim-telescope/telescope.nvim',
-        'nvim-lua/plenary.nvim' },
-      config = function()
-        require("startup").setup()
-      end
-    },
-
     -- improve spelling check for coding to feature camelcase, etc
     {
       'kamykn/spelunker.vim',
