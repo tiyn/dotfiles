@@ -116,12 +116,12 @@ return require("lazy").setup({
       "iamcco/markdown-preview.nvim",
       ft = { 'markdown' },
       build = "cd app && yarn install",
-      config = function ()
-        vim.cmd[[
+      config = function()
+        vim.cmd([[
           function OpenMarkdownPreview (url)
             execute "silent ! firefox --kiosk --new-window " . a:url
           endfunction
-        ]]
+        ]])
         vim.g.mkdp_browserfunc = "OpenMarkdownPreview"
       end
     },
@@ -596,13 +596,6 @@ return require("lazy").setup({
       config = function()
         require("startup").setup()
       end
-    },
-
-    -- file renamer in vim
-    {
-      'stevearc/oil.nvim',
-      dependencies = { "nvim-tree/nvim-web-devicons" },
-      opts = {},
     },
 
     -- improve spelling check for coding to feature camelcase, etc
