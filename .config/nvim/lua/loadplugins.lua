@@ -581,9 +581,6 @@ return require("lazy").setup({
       opts = {}
     },
 
-    -- rename files in buffer
-    { 'qpkorr/vim-renamer' },
-
     -- improve spelling check for coding to feature camelcase, etc
     {
       'kamykn/spelunker.vim',
