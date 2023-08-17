@@ -7,7 +7,7 @@ vim.keymap.set('i', '<F2>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F3>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F4>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F5>', '<NOP>', { noremap = true })
-vim.keymap.set({ 'n', 'i' }, '<F6>', '<NOP>', { noremap = true })
+vim.keymap.set('i', '<F6>', '<NOP>', { noremap = true })
 vim.keymap.set({ 'n', 'i' }, '<F7>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F8>', '<NOP>', { noremap = true })
 vim.keymap.set({ 'n', 'i' }, '<F9>', '<NOP>', { noremap = true })
@@ -84,3 +84,8 @@ vim.keymap.set('n', '<F8>', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
 
 -- nvim-telescope/telescope.nvim
 vim.keymap.set('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })
+
+-- kamykn/spelunker.vim
+vim.keymap.set('n', '<F6>', ':call spelunker#toggle()<CR>', { noremap = true })
+vim.keymap.set('n', 'ZT', '<NOP>', { noremap = true })
+vim.keymap.set('n', 'Zt', '<NOP>', { noremap = true })
