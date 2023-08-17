@@ -18,8 +18,9 @@ return require("lazy").setup({
       'tiyn/tccs.nvim',
       priority = 1000,
       config = function()
-        require('tccs').setup()
-        vim.cmd('colorscheme tccs')
+        require('tccs').setup({
+          require('tccs').load()
+        })
       end
     },
 
