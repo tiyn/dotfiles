@@ -79,8 +79,10 @@ vim.keymap.set('n', 'gy', ':lua vim.lsp.buf.type_definition()<CR>', { noremap = 
 vim.keymap.set('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', { noremap = true })
 vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', { noremap = true })
 vim.keymap.set('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })
-vim.keymap.set('n', '<F5>', ':lua vim.lsp.buf.rename()<CR>', { noremap = true })
 vim.keymap.set('n', '<F8>', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
+
+-- filipdutescu/renamer.nvim
+vim.keymap.set('n', '<F5>', ':lua require("renamer").rename()<CR>', { noremap = true })
 
 -- nvim-telescope/telescope.nvim
 vim.keymap.set('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })

@@ -319,7 +319,7 @@ return require("lazy").setup({
     },
 
     -- fix for cursorhold function
-    'antoinemadec/fixcursorhold.nvim',
+    -- 'antoinemadec/fixcursorhold.nvim',
 
     -- showing color of hex values, etc
     {
@@ -333,6 +333,7 @@ return require("lazy").setup({
     -- fileexplorer on the side
     {
       "nvim-tree/nvim-tree.lua",
+      cmd = "NvimTreeToggle",
       dependencies = {
         "nvim-tree/nvim-web-devicons",
       },
@@ -560,6 +561,7 @@ return require("lazy").setup({
             "NvimTree",
             "Navbuddy",
             "FTerm",
+            "",
           },
         })
         require("scrollbar.handlers.search").setup()
@@ -595,6 +597,13 @@ return require("lazy").setup({
         vim.g.enable_spelunker_vim = 0
         vim.g.spelunker_disable_acronym_checking = 1
       end
+    },
+
+    -- improved gui for renaming
+    {
+      'filipdutescu/renamer.nvim',
+      dependencies = { 'nvim-lua/plenary.nvim' },
+      opts = {}
     },
 
   },
