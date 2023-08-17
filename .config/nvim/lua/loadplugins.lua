@@ -16,6 +16,7 @@ return require("lazy").setup({
     -- colorscheme
     {
       'tiyn/tccs.nvim',
+      priority = 1000,
       config = function()
         require('tccs').setup()
         vim.cmd('colorscheme tccs')
@@ -141,9 +142,6 @@ return require("lazy").setup({
           config = function()
             require("null-ls").setup({
               sources = {
-                require("null-ls-embedded").nls_source.with({
-                  filetypes = { "markdown" }
-                }),
                 require("null-ls").builtins.formatting.black,
                 require("null-ls").builtins.formatting.mdformat
               }
@@ -155,10 +153,9 @@ return require("lazy").setup({
           opts = {
             automatic_installation = true,
             ensure_installed = { "black", "mdformat" }
-
           }
         },
-        'LostNeophyte/null-ls-embedded'
+
       },
       opts = {
         ui = {
@@ -202,11 +199,10 @@ return require("lazy").setup({
           automatic_setup = true,
           ensure_installed = {
             "bashls",
-            "jdtls",
             "lua_ls",
             "marksman",
             "nimls",
-            "pyright",
+            "pylsp",
             "texlab"
           }
         })
@@ -367,21 +363,17 @@ return require("lazy").setup({
         'p00f/nvim-ts-rainbow',
       },
       config = function()
-        require("nvim-treesitter").setup({
+        require("nvim-treesitter.configs").setup({
           ensure_installed = {
             "bash",
-            "c",
-            "cpp",
             "css",
             "html",
-            "java",
             "markdown",
             "latex",
             "python",
           },
+          highlight = { enable = true },
           autotag = { enable = true },
-        })
-        require("nvim-treesitter.configs").setup({
           rainbow = {
             enable = true,
             extended_mode = true,
@@ -588,7 +580,7 @@ return require("lazy").setup({
       config = function()
         vim.o.nospell = true
       end
-    }
+    },
 
   },
   -- lazy.nvim configuration
