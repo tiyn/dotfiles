@@ -551,6 +551,16 @@ return require("lazy").setup({
               highlight = "GitGutterDelete"
             }
           },
+          excluded_filetypes = {
+            "cmp_docs",
+            "cmp_menu",
+            "noice",
+            "prompt",
+            "TelescopePrompt",
+            "NvimTree",
+            "Navbuddy",
+            "FTerm",
+          },
         })
         require("scrollbar.handlers.search").setup()
         require("scrollbar.handlers.gitsigns").setup()
@@ -582,6 +592,8 @@ return require("lazy").setup({
       dependencies = { 'kamykn/popup-menu.nvim' },
       config = function()
         vim.o.nospell = true
+        vim.g.enable_spelunker_vim = 0
+        vim.g.spelunker_disable_acronym_checking = 1
       end
     },
 
