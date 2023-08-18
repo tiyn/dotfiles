@@ -91,3 +91,13 @@ vim.keymap.set('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })
 vim.keymap.set('n', '<F6>', ':call spelunker#toggle()<CR>', { noremap = true })
 vim.keymap.set('n', 'ZT', '<NOP>', { noremap = true })
 vim.keymap.set('n', 'Zt', '<NOP>', { noremap = true })
+
+-- kevinhwang91/nvim-ufo
+vim.keymap.set('n', 'K', function()
+  local winid = require('ufo').peekFoldedLinesUnderCursor()
+  if not winid then
+    -- choose one of coc.nvim and nvim lsp
+    vim.fn.CocActionAsync('definitionHover')             -- coc.nvim
+    vim.lsp.buf.hover()
+  end
+end)

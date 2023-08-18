@@ -359,6 +359,7 @@ return require("lazy").setup({
     -- better language highlighting by improved parsing
     {
       'nvim-treesitter/nvim-treesitter',
+      build = ':TSUpdate',
       dependencies = {
         -- automatically close html-tags
         'windwp/nvim-ts-autotag',
