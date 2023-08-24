@@ -1,11 +1,12 @@
 super + u
-        record_start
-super + i
         record_stop
+super + i
+        record_start
 super + o
         record_replay_start
 super + p
         record_replay_save
+
 super + r
         dmenu_run -c -l 20
 
@@ -60,4 +61,3 @@ XF86MonBrightnessDown
         light -U 15
 XF86MonBrightnessUp
         light -A 15
-
