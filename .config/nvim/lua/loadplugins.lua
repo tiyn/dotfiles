@@ -440,6 +440,9 @@ return require("lazy").setup({
           INFO = { icon = Info_sign, color = "hint", alt = { "NOTE" } },
           PERF = { icon = Perfect_sign, color = "default" },
           TEST = { icon = Test_sign, color = "test" }
+        },
+        colors = {
+          default = { "Operator" }
         }
       }
     },
