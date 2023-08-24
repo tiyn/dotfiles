@@ -76,11 +76,11 @@ vim.g.markdown_folding = 1
 -- load general mapped keys
 require('style')
 
--- set filetypes correctly by extension
-require('autocmd')
-
 -- load plugins (autoload all files in plugin folder)
 require('loadplugins')
+
+-- set filetypes correctly by extension
+require('autocmd')
 
 -- load general mapped keys
 require('keymap')

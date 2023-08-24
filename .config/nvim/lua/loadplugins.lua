@@ -373,6 +373,7 @@ return require("lazy").setup({
             "css",
             "html",
             "markdown",
+            "markdown_inline",
             "latex",
             "python",
             "lua",
