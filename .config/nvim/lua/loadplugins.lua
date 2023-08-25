@@ -44,7 +44,10 @@ return require("lazy").setup({
     {
       'nvim-lualine/lualine.nvim',
       dependencies = {
-        'nvim-tree/nvim-web-devicons',
+        {
+          'nvim-tree/nvim-web-devicons',
+          lazy = true
+        },
         {
           'f-person/git-blame.nvim',
           config = function()
@@ -354,7 +357,10 @@ return require("lazy").setup({
       "nvim-tree/nvim-tree.lua",
       cmd = "NvimTreeToggle",
       dependencies = {
-        "nvim-tree/nvim-web-devicons",
+        {
+          "nvim-tree/nvim-web-devicons",
+          lazy = true
+        },
       },
       opts = {
         sort_by = "case_sensitive",
@@ -500,6 +506,10 @@ return require("lazy").setup({
     {
       'gelguy/wilder.nvim',
       dependencies = {
+        {
+          "nvim-tree/nvim-web-devicons",
+          lazy = true
+        },
         'roxma/nvim-yarp',
         'roxma/vim-hug-neovim-rpc',
         'romgrk/fzy-lua-native'
@@ -610,7 +620,12 @@ return require("lazy").setup({
     -- list of errors
     {
       'folke/trouble.nvim',
-      dependencies = { 'nvim-tree/nvim-web-devicons' },
+      dependencies = {
+        {
+          'nvim-tree/nvim-web-devicons',
+          lazy = true
+        }
+      },
       opts = {}
     },
 
