@@ -648,6 +648,15 @@ return require("lazy").setup({
       opts = {}
     },
 
+    -- rename files in buffer
+    {
+      'qpkorr/vim-renamer',
+      priority = 100,
+      config = function()
+        require('renamer')
+      end
+    },
+
   },
   -- lazy.nvim configuration
   {
