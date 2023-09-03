@@ -134,7 +134,7 @@
             "model-path": "",
             "output-gain": 0.0,
             "release": 20.0,
-            "vad-thres": 5.0,
+            "vad-thres": 0.0,
             "wet": 0.0
         },
         "stereo_tools#0": {
