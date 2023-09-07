@@ -25,7 +25,7 @@ super + m
         thunderbird
 
 super + shift + l
-        setxkbmap -query | grep -q ' de' && setxkbmap ru || setxkbmap de,ru
+        setxkbmap -query | grep -q ' de' && setxkbmap ru || setxkbmap de nodeadkeys
 
 super + shift + r
     pkill -usr1 -x sxhkd; notify-send 'sxhkd' 'Reloaded config'
