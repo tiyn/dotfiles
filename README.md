@@ -1,6 +1,6 @@
 # dotfiles
 
-![vim-example](vim-example.jpg)
+![vim-example](vim-example.png)
 
 My arch compatible user dotfiles.
 They were originally based on the dotfiles of [lukesmithxyz](https://github.com/lukesmithxyz/voidrice).
