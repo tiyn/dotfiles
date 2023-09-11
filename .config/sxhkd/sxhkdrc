@@ -8,7 +8,7 @@ super + p
         record_replay_save
 
 super + r
-        dmenu_run -c -l 20
+        dmenu_run -i -c -l 20
 
 super + a
         playerctl previous
