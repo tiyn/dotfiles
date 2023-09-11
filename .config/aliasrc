@@ -66,10 +66,10 @@ alias contacts="khard"
 alias  paint="kolourpaint"
 
 # ls(d)
-alias l="exa"
-alias la="exa -la"
-alias ll="exa -l"
-alias tree="exa --tree"
+alias l="eza"
+alias la="eza -la"
+alias ll="eza -l"
+alias tree="eza --tree"
 
 # mkdir
 alias mkdir="mkdir -p"
