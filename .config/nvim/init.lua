@@ -73,14 +73,27 @@ vim.o.foldenable = true
 vim.o.conceallevel = 0
 vim.g.markdown_folding = 1
 
+-- read files correctly
+vim.filetype.add({
+  extension = {
+    c = 'c',
+    h = 'c',
+    html = 'html',
+    java = 'java',
+    js = 'javascript',
+    lua = 'lua',
+    md = 'markdown',
+    nim = 'nim',
+    py = 'python',
+    tex = 'tex',
+  }
+})
+
 -- load general mapped keys
 require('style')
 
 -- load plugins (autoload all files in plugin folder)
 require('loadplugins')
-
--- set filetypes correctly by extension
-require('autocmd')
 
 -- load general mapped keys
 require('keymap')
