@@ -2,9 +2,12 @@
 
 window=$(xdotool getwindowfocus)
 fps=30
-audio="$(pactl get-default-sink).monitor"
+audio_1="easyeffects_sink.monitor"
+audio_2="easyeffects_source"
 format="mp4"
+v_codec="h264"
+a_codec="opus"
 output="$HOME/downloads/recording-$(date '+%Y-%m-%d_%H-%M-%S').$format"
 
-gpu-screen-recorder -w $window -c "mp4" -f $fps -a $audio -o $output &
+gpu-screen-recorder -w $window -c $format -k $v_codec -ac $a_codec -f $fps -a $audio_1 -a $audio_2 -o $output &
 notify-send 'Screen record' 'Recording started'
