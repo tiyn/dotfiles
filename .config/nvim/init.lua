@@ -73,6 +73,12 @@ vim.o.foldenable = true
 vim.o.conceallevel = 0
 vim.g.markdown_folding = 1
 
+-- standard settings for colorcolumn and tabbing
+vim.o.shiftwidth = 4
+vim.o.softtabstop = 4
+vim.o.textwidth = 80
+vim.o.colorcolumn = "-0"
+
 -- read files correctly
 vim.filetype.add({
   extension = {
