@@ -33,24 +33,6 @@ vim.keymap.set('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { noremap = true 
 -- irc compatibility for interactivity
 vim.keymap.set('n', '<leader>is', ':.w >> in<cr>dd', { noremap = true })
 
--- the following keymap settings are plugin dependent
-
--- frabjous/knap
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'tex',
-  callback = function()
-    vim.keymap.set('n', '<leader>p', ':lua require("knap").toggle_autopreviewing()<CR>', { noremap = true })
-  end,
-})
-
--- iamcco/markdown-preview.nvim
-vim.api.nvim_create_autocmd('FileType', {
-  pattern = 'markdown',
-  callback = function()
-    vim.keymap.set('n', '<leader>p', ':MarkdownPreviewToggle<CR>', { noremap = true })
-  end,
-})
-
 -- SmiteshP/nvim-navbuddy
 vim.keymap.set('n', '<F3>', ':Navbuddy<CR>', {})
 
@@ -58,8 +40,8 @@ vim.keymap.set('n', '<F3>', ':Navbuddy<CR>', {})
 vim.keymap.set('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
 
 -- numtostr/fterm.nvim
-vim.keymap.set('n', '<leader>t', ':lua require("FTerm").toggle()<CR>', { noremap = true })
-vim.keymap.set('t', '<leader>t', '<C-\\><C-n>:lua require("FTerm").toggle()<CR>', { noremap = true })
+vim.keymap.set({ 'n', 't' }, '<leader>t', require("FTerm").toggle, { noremap = true })
+
 local lazygit = require("FTerm"):new({
     cmd = 'lazygit',
 })
@@ -73,16 +55,16 @@ vim.keymap.set( 'n', '<leader>gdc', ":DiffviewClose<CR>")
 vim.keymap.set( 'n', '<leader>x', ":TroubleToggle<CR>")
 
 -- hrsh7th/nvim-cmp
-vim.keymap.set('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', { noremap = true })
-vim.keymap.set('n', 'gd', ':lua vim.lsp.buf.definition()<CR>', { noremap = true })
-vim.keymap.set('n', 'gy', ':lua vim.lsp.buf.type_definition()<CR>', { noremap = true })
-vim.keymap.set('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', { noremap = true })
-vim.keymap.set('n', 'gr', ':lua vim.lsp.buf.references()<CR>', { noremap = true })
-vim.keymap.set('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true })
-vim.keymap.set('n', '<F8>', ':lua vim.lsp.buf.format()<CR>', { noremap = true })
+vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true })
+vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true })
+vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { noremap = true })
+vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true })
+vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true })
+vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true })
+vim.keymap.set('n', '<F8>', vim.lsp.buf.format, { noremap = true })
 
 -- filipdutescu/renamer.nvim
-vim.keymap.set('n', '<F5>', ':lua require("renamer").rename()<CR>', { noremap = true })
+vim.keymap.set('n', '<F5>', require("renamer").rename, { noremap = true })
 
 -- nvim-telescope/telescope.nvim
 vim.keymap.set('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })
