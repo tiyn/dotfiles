@@ -77,7 +77,6 @@ vim.g.markdown_folding = 1
 vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.textwidth = 80
-vim.o.colorcolumn = "-0"
 
 -- read files correctly
 vim.filetype.add({

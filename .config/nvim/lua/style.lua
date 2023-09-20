@@ -1,9 +1,7 @@
--- display certain invisible chars
-vim.opt.list = true
-vim.opt.listchars:append "space:·"
-vim.opt.listchars:append "eol:"
-
 -- set signs for various uses
+Space_sign = "·"
+Return_sign = ""
+
 Error_sign = " "
 Warn_sign = " "
 Info_sign = " "
@@ -111,3 +109,12 @@ vim.fn.sign_define(
   "DiagnosticSignHint",
   { texthl = "DiagnosticSignHint", text = Hint_sign, numhl = "DiagnosticSignHint" }
 )
+
+-- enable colorcolumn when textwidth is set
+vim.o.colorcolumn = "-0"
+vim.o.cursorline = true
+
+-- display certain invisible chars
+vim.o.list = true
+vim.opt.listchars:append("space:" .. Space_sign)
+vim.opt.listchars:append("eol:" .. Return_sign)
