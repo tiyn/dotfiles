@@ -73,7 +73,10 @@ return require("lazy").setup({
           },
           sections = {
             lualine_b = {
-              { require('gitblame').get_current_blame_text, cond = require('gitblame').is_blame_text_available }
+              {
+                require('gitblame').get_current_blame_text,
+                cond = require('gitblame').is_blame_text_available
+              }
             },
             lualine_c = {},
             lualine_x = {
@@ -322,9 +325,6 @@ return require("lazy").setup({
       end
     },
 
-    -- fix for cursorhold function
-    -- 'antoinemadec/fixcursorhold.nvim',
-
     -- showing color of hex values, etc
     {
       'nvchad/nvim-colorizer.lua',
@@ -426,12 +426,12 @@ return require("lazy").setup({
         vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' },
           {
             pattern = { '*' },
-            command = 'lua require("ufo").closeAllFolds()'
+            callback = function() require("ufo").closeAllFolds() end
           })
         vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' },
           {
             pattern = { '*' },
-            command = 'lua require("ufo").openAllFolds()'
+            callback = function() require("ufo").openAllFolds() end
           })
       end
     },
