@@ -1,7 +1,5 @@
--- set mapleader for hotkeys
-vim.g.mapleader = ","
-
 -- unmap unwanted commands
+vim.keymap.set({ 'n', 'v' }, '<Space>', '<NOP>', { silent = true })
 vim.keymap.set({ 'n', 'i' }, '<F1>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F2>', '<NOP>', { noremap = true })
 vim.keymap.set('i', '<F3>', '<NOP>', { noremap = true })
@@ -27,11 +25,19 @@ vim.keymap.set('n', '<leader>c', ':w! | !compiler <c-r>%<CR>', { noremap = true 
 -- save file as sudo on files that require root permission
 vim.keymap.set('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', { noremap = true })
 
--- alias for replacing
-vim.keymap.set('n', '<leader>ss', ':%s//gI<Left><Left><Left>', { noremap = true })
+-- easy substitution for whole file and line, visual mode
+vim.keymap.set('n', '<leader>ss', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, '<leader>sl', ':s//g<Left><Left>', { noremap = true })
+vim.keymap.set('n', '<leader>sa', ':%s//g<Left><Left>', { noremap = true })
 
--- irc compatibility for interactivity
-vim.keymap.set('n', '<leader>is', ':.w >> in<cr>dd', { noremap = true })
+-- highlighting yanked regions
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+})
 
 -- SmiteshP/nvim-navbuddy
 vim.keymap.set('n', '<F3>', ':Navbuddy<CR>', {})
@@ -41,7 +47,6 @@ vim.keymap.set('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
 
 -- numtostr/fterm.nvim
 vim.keymap.set({ 'n', 't' }, '<leader>t', require("FTerm").toggle, { noremap = true })
-
 local lazygit = require("FTerm"):new({
     cmd = 'lazygit',
 })

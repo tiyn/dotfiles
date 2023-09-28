@@ -23,6 +23,7 @@ vim.o.splitright = true
 
 -- disable case sensitive matching
 vim.o.ignorecase = true
+vim.o.smartcase = true
 
 -- enable nocompatible mode
 vim.o.nocompatible = true
@@ -44,15 +45,30 @@ vim.o.relativenumber = true
 vim.o.ttyfast = true
 vim.o.lazyredraw = true
 
--- textEdit might fail without hidden
+-- decrease update time
+vim.o.updatetime = 250
+vim.o.timeout = true
+vim.o.timeoutlen = 300
+
+-- enable break indent
+vim.o.breakindent = true
+
+-- textedit might fail without hidden
 vim.o.hidden = true
 
 -- disable backupfiles
 vim.o.nobackup = true
 vim.o.nowritebackup = true
 
--- Set completeopt to have a better completion experience
+-- set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
+
+-- set completion option for command mode
+vim.o.wildmode = 'longest:full,full'
+
+-- minimum number of lines around the cursor
+vim.o.scrolloff = 10
+vim.o.sidescrolloff = 8
 
 -- always show the signcolumn
 vim.o.signcolumn = "yes"
@@ -69,6 +85,7 @@ vim.g.python3_host_prog = '/usr/bin/python3'
 vim.o.foldcolumn = '0'
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
+vim.o.foldexpr = 'expr'
 vim.o.foldenable = true
 vim.o.conceallevel = 0
 vim.g.markdown_folding = 1
@@ -90,9 +107,13 @@ vim.filetype.add({
     md = 'markdown',
     nim = 'nim',
     py = 'python',
+    sage = 'python',
     tex = 'tex',
   }
 })
+
+-- set mapleader for hotkeys
+vim.g.mapleader = ","
 
 -- load general mapped keys
 require('style')
