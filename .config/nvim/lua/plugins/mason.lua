@@ -8,7 +8,10 @@ return {
         config = function()
           require("null-ls").setup({
             sources = {
+              -- python
+              require("null-ls").builtins.formatting.isort,
               require("null-ls").builtins.formatting.black,
+              -- markdown
               require("null-ls").builtins.formatting.mdformat
             }
           })
@@ -18,7 +21,7 @@ return {
         'jay-babu/mason-null-ls.nvim',
         opts = {
           automatic_installation = true,
-          ensure_installed = { "black", "mdformat" }
+          ensure_installed = { "isort", "black", "mdformat" }
         }
       },
 

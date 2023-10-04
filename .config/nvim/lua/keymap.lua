@@ -61,16 +61,16 @@ vim.keymap.set('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
 -- numtostr/fterm.nvim
 vim.keymap.set({ 'n', 't' }, '<leader>t', require("FTerm").toggle, { noremap = true })
 local lazygit = require("FTerm"):new({
-    cmd = 'lazygit',
+  cmd = 'lazygit',
 })
 vim.keymap.set({ 'n', 't' }, '<leader>gt', function() lazygit:toggle() end)
 
 -- sindrets/diffview.nvim
-vim.keymap.set( 'n', '<leader>gdo', ":DiffviewOpen<CR>")
-vim.keymap.set( 'n', '<leader>gdc', ":DiffviewClose<CR>")
+vim.keymap.set('n', '<leader>gdo', ":DiffviewOpen<CR>")
+vim.keymap.set('n', '<leader>gdc', ":DiffviewClose<CR>")
 
 -- folke/trouble.nvim
-vim.keymap.set( 'n', '<leader>x', ":TroubleToggle<CR>")
+vim.keymap.set('n', '<leader>x', ":TroubleToggle<CR>")
 
 -- hrsh7th/nvim-cmp
 vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true })
@@ -79,7 +79,9 @@ vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { noremap = true })
 vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true })
 vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true })
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true })
-vim.keymap.set('n', '<F8>', vim.lsp.buf.format, { noremap = true })
+vim.keymap.set('n', '<F8>', function()
+  require("conform").format({ async = true, lsp_fallback = true })
+end, { noremap = true })
 
 -- filipdutescu/renamer.nvim
 vim.keymap.set('n', '<F5>', require("renamer").rename, { noremap = true })
