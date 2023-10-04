@@ -1,4 +1,5 @@
 return {
+  -- improved refactoring
   {
     'stevearc/conform.nvim',
     opts = {
