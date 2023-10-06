@@ -12,7 +12,7 @@ return {
               require("null-ls").builtins.formatting.isort,
               require("null-ls").builtins.formatting.black,
               -- markdown
-              require("null-ls").builtins.formatting.mdformat
+              require("null-ls").builtins.formatting.mdformat,
             }
           })
         end
@@ -21,15 +21,12 @@ return {
         'jay-babu/mason-null-ls.nvim',
         opts = {
           automatic_installation = true,
-          ensure_installed = { "isort", "black", "mdformat" }
+          ensure_installed = {
+            "isort", "black", "mdformat"
+          }
         }
-      },
-
-    },
-    opts = {
-      ui = {
-        icons = Install_signs
       }
-    }
+    },
+    opts = { ui = { icons = Install_signs } }
   }
 }

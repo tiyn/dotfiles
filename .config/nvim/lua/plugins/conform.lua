@@ -6,7 +6,7 @@ return {
       formatters_by_ft = {
         python = { "isort", "black" },
         markdown = { "mdformat" },
-      },
+      }
     }
   }
 }
