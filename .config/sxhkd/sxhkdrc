@@ -41,6 +41,9 @@ super + Return
 Print
         maimpick
 
+super + shift + space
+        dunstctl close-all
+
 super + F5
         togglemonitor
 super + F6
