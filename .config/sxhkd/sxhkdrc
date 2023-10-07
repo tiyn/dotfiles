@@ -25,15 +25,15 @@ super + m
         thunderbird
 
 super + bracketright
-        amixer get Capture | tail -2 | grep -q '\[on\]' && $(amixer set Master unmute &> /dev/null ; amixer set Capture nocap &> /dev/null ; notify-send -u low 'sxhkd' 'Sound active\nMicrophone muted') || $(amixer set Master unmute &> /dev/null ; amixer set Capture cap &> /dev/null ; notify-send -u low 'sxhkd' 'Sound active\nMicrophone active')
+        mic_toggle
 super + backslash
-        amixer get Master | tail -2 | grep -q '\[on\]' && $(amixer set Master mute &> /dev/null ; amixer set Capture nocap &> /dev/null ; notify-send -u low 'sxhkd' 'Sound muted\nMicrophone muted') || $(amixer set Capture nocap &> /dev/null ; amixer set Master unmute &> /dev/null ; notify-send -u low 'sxhkd' 'Sound active\nMicrophone muted')
+        sound_toggle
 
 super + shift + l
-        setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send -u low 'sxhkd' 'Set keymap to russian') || $(setxkbmap de nodeadkeys ; notify-send -u low 'sxhkd' 'Set keymap to german')
+        setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send -u low 'SXHKD' 'Set keymap to russian') || $(setxkbmap de nodeadkeys ; notify-send -u low 'SXHKD' 'Set keymap to german')
 
 super + shift + r
-    pkill -usr1 -x sxhkd; notify-send -u low 'sxhkd' 'Reloaded config'
+    pkill -usr1 -x sxhkd ; notify-send -u low 'SXHKD' 'Reloaded config'
 
 super + Return
         $TERMINAL
@@ -45,9 +45,9 @@ super + shift + space
         dunstctl close-all
 
 super + F5
-        togglemonitor
+        monitor_toggle
 super + F6
-        toggletouchpad
+        touchpad_toggle
 super + F7
         dmenumount
 super + F8
