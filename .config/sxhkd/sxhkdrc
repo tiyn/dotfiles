@@ -24,6 +24,11 @@ super + b
 super + m
         thunderbird
 
+super + bracketright
+        amixer get Capture | tail -2 | grep -q '\[on\]' && $(amixer set Master unmute &> /dev/null ; amixer set Capture nocap &> /dev/null ; notify-send 'sxhkd' 'Sound active\nMicrophone muted') || $(amixer set Master unmute &> /dev/null ; amixer set Capture cap &> /dev/null ; notify-send 'sxhkd' 'Sound active\nMicrophone active')
+super + backslash
+        amixer get Master | tail -2 | grep -q '\[on\]' && $(amixer set Master mute &> /dev/null ; amixer set Capture nocap &> /dev/null ; notify-send 'sxhkd' 'Sound muted\nMicrophone muted') || $(amixer set Capture nocap &> /dev/null ; amixer set Master unmute &> /dev/null ; notify-send 'sxhkd' 'Sound active\nMicrophone muted')
+
 super + shift + l
         setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send 'sxhkd' 'Set keymap to russian') || $(setxkbmap de nodeadkeys ; notify-send 'sxhkd' 'Set keymap to german')
 
@@ -32,7 +37,8 @@ super + shift + r
 
 super + Return
         $TERMINAL
-super + Print
+
+Print
         maimpick
 
 super + F5
