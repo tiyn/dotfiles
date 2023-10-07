@@ -63,7 +63,7 @@
 [urgency_critical]
     background = "#282828"
     foreground = "#eeeeee"
-    frame_color = "#8C3D45"
+    frame_color = "#8c3d45"
     timeout = 0
 
 [normal_urgency_sound]
