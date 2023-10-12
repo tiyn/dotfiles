@@ -35,11 +35,20 @@ return {
         automatic_setup = true,
         ensure_installed = {
           "bashls",
+          "clangd",
+          "dockerls",
+          "gopls",
+          "html",
+          "jsonls",
           "lua_ls",
           "marksman",
           "nimls",
           "pylsp",
-          "texlab"
+          "sqlls",
+          "texlab",
+          "tsserver",
+          "lemminx",
+          "yamlls",
         }
       })
       local servers = {
