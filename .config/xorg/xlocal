@@ -1,0 +1,5 @@
+#!/bin/sh
+
+syncthing &                             # sync data between devices
+nextcloud &                             # for my cloud
+easyeffects --gapplication-service &    # load noise suppression for microphone
