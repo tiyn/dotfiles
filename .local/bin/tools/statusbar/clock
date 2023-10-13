@@ -1,7 +1,3 @@
 #!/bin/sh
 
-date +" %d %b %H:%M"
-
-case $BLOCK_BUTTON in
-        1) notify-send -u low "This Month" "$(cal --color=always | sed "s/..7m/<b><span color=\"red\">/;s/..0m/<\/span><\/b>/")" ;;
-esac
+date +" %d %b %H:%M"
