@@ -25,9 +25,9 @@ super + m
         thunderbird
 
 super + bracketright
-        mic_toggle
+        mic_toggle && pkill -RTMIN+4 $STATUSBAR
 super + backslash
-        sound_toggle
+        sound_toggle && pkill -RTMIN+4 $STATUSBAR
 
 super + shift + l
         setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send -u low 'SXHKD' 'Set keymap to russian') || $(setxkbmap de nodeadkeys ; notify-send -u low 'SXHKD' 'Set keymap to german')
