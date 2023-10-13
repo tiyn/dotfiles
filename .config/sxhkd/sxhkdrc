@@ -62,9 +62,9 @@ super + F12
         prompt "Reboot computer?" "sudo -A reboot now"
 
 XF86AudioMute
-        lmc m && pkill -RTMIN+4 $STATUSBAR
+        sound_toggle && pkill -RTMIN+4 $STATUSBAR
 XF86AudioMicMute
-        pactl set-source-mute 1 toggle && pkill -RTMIN+4 $STATUSBAR
+        mic_toggle && pkill -RTMIN+4 $STATUSBAR
 XF86AudioLowerVolume
         lmc down 5 && pkill -RTMIN+4 $STATUSBAR
 XF86AudioRaiseVolume

@@ -1,15 +1,21 @@
 #!/bin/sh
 
-[ "$(pulsemixer --get-mute)" = "1" ] && printf "\\n" && exit
-
 vol=$(pulsemixer --get-volume | awk '{print $1}')
 
-if [ "$vol" -gt "70" ]; then
-	icon=""
-elif [ "$vol" -lt "30" ]; then
-	icon=""
+if [ "$vol" -eq "0" ]; then
+	icon=""
+elif [ "$vol" -gt "70" ]; then
+	icon=""
 else
 	icon=""
 fi
 
-printf "%s %s\\n" "$vol" "$icon"
+[ "$(pulsemixer --get-mute)" = "1" ] && icon="" && vol="M"
+
+if amixer get Capture | tail -2 | grep -q '\[on\]'; then
+	mic=""
+else
+	mic=""
+fi
+
+printf "%s %s %s\\n" "$vol" "$icon" "$mic"
