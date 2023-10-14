@@ -1,6 +1,6 @@
 #!/bin/sh
 
-vol=$(pulsemixer --get-volume | awk '{print $1}')
+vol="$(pulsemixer --get-volume | awk '{print $1}')"
 
 if [ "$vol" -eq "0" ]; then
 	icon=""
@@ -10,7 +10,7 @@ else
 	icon=""
 fi
 
-[ "$(pulsemixer --get-mute)" = "1" ] && icon="" && vol="M"
+[ "$(pulsemixer --get-mute)" = "1" ] && icon="" && vol="-"
 
 if amixer get Capture | tail -2 | grep -q '\[on\]'; then
 	mic=""
