@@ -18,4 +18,4 @@ else
 	mic=""
 fi
 
-printf "%s %s %s\\n" "$vol" "$icon" "$mic"
+printf "%s %s %s\\n" "$mic" "$icon" "$vol%"
