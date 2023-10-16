@@ -8,4 +8,7 @@ xrandr --auto
 [ -f "$HOME/.config/xorg/xpcspec" ] && xrdb -merge "$HOME/.config/xorg/xpcspec" # local resources
 
 setbg
-exec dwm
+
+while true; do
+    dwm || exit
+done
