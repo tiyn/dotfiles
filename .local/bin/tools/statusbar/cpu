@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if [ "$1" = "amd" ]; then
-    sensors | awk '/Tctl/ {print " " $2}'
+    sensors | awk '/Tctl/ {print "^b#282828^^c#dfdfdf^  ^d^ " $2}'
 elif [ "$1" = "intel" ]; then
-    sensors | awk '/Core 0/ {print " " $3}'
+    sensors | awk '/Core 0/ {print "^b#282828^^c#dfdfdf^  ^d^ " $3}'
 fi

@@ -3,19 +3,19 @@
 vol="$(pulsemixer --get-volume | awk '{print $1}')"
 
 if [ "$vol" -eq "0" ]; then
-	icon=""
+	vol_info=" ^d^ $vol%"
 elif [ "$vol" -gt "70" ]; then
-	icon=""
+	vol_info=" ^d^ $vol%"
 else
-	icon=""
+	vol_info=" ^d^ $vol%"
 fi
 
-[ "$(pulsemixer --get-mute)" = "1" ] && icon="" && vol="-"
+[ "$(pulsemixer --get-mute)" = "1" ] && vol_info=" ^d^ -%"
 
 if amixer get Capture | tail -2 | grep -q '\[on\]'; then
-	mic=""
+	mic="^b#282828^^c#dfdfdf^  "
 else
-	mic=""
+	mic="^b#282828^^c#dfdfdf^  "
 fi
 
-printf "%s %s %s\\n" "$mic" "$icon" "$vol%"
+printf "%s %s %s\\n" "$mic" "$vol_info"

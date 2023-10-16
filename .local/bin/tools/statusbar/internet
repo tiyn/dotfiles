@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 #
 
-[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon=" -%"
+[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon=" ^d^ -%"
 
-[ ! -n "${wifiicon+var}" ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print "", int($3 * 100 / 70) "%" }')
+[ ! -n "${wifiicon+var}" ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print " ^d^", int($3 * 100 / 70) "%" }')
 
-printf "%s %s\n" "$(cat /sys/class/net/e*/operstate | sed "s/down//;s/up/󰈀/")" "$wifiicon"
+printf "%s %s\n" "$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#dfdfdf^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /")" "$wifiicon"
