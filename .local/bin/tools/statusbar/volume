@@ -3,7 +3,7 @@
 vol="$(pulsemixer --get-volume | awk '{print $1}')"
 
 if [ "$vol" -eq "0" ]; then
-	vol_info="^d^ "
+	vol_info="^c#dfdfdf^ ^d^"
 elif [ "$vol" -gt "70" ]; then
 	vol_info="^c#dfdfdf^ ^d^"
 else
