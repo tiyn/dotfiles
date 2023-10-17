@@ -5,7 +5,7 @@ icon="^b#282828^^c#dfdfdf^  ^d^ "
 if [ "$1" = "amd" ]; then
     temp=$(sensors | awk '/Tctl/ {print  $2}')
 elif [ "$1" = "intel" ]; then
-    temp=$(sensors | awk '/Tctl/ {print  $3}')
+    temp=$(sensors | awk '/Package id 0/ {print  $4}')
 fi
 
 temp=$(printf %3s $(echo ${temp##*+} | sed "s/\..*//") | tr ' ' ' ')
