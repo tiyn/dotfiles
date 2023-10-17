@@ -3,7 +3,9 @@
 wifipercent="    "
 
 [ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^" && wifipercent=0
-[[ "/sys/class/net/w*/operstate" ]] || wifiicon="^c#ff0000^ ^d^" && wifipercent=0
+if not test -f "/sys/class/net/w*/operstate"; then
+    wifiicon="^c#ff0000^ ^d^" && wifipercent=0
+fi
 
 [ ! -n "${wifiicon+var}" ] && wifiicon="^c#dfdfdf^ ^d^" && wifipercent=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
