@@ -8,4 +8,4 @@ disk="/"
 
 icon="$disk"
 
-printf "^b#282828^^c#dfdfdf^ 󰗮 ^d^ %s %s\n" "$icon" "$(df -h "$disk" | awk ' /[0-9]/ {print $3 "/" $2}')"
+printf "^b#282828^^c#dfdfdf^ 󰗮 ^d^ %s\n" "$(df -h "$disk" | awk ' /[0-9]/ {print $3 "/" $2}')"
