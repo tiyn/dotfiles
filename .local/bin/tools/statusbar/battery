@@ -1,12 +1,7 @@
 #!/usr/bin/env sh
 
-# capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
-# status=$(cat /sys/class/power_supply/"$1"/status)
-
-capacity=50
-status="Discharging"
-
-[ "$status" = "Charging" ]
+capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+status=$(cat /sys/class/power_supply/"$1"/status)
 
 icon=$(echo "$status" | sed -e "s/,//;s/Discharging/^b#282828^^c#dfdfdf^  ^d^/;s/Not charging/^b#282828^^c#dfdfdf^  ^d^/;s/Charging/^b#282828^^c#dfdfdf^  ^d^/;s/Unknown/^b#282828^^c#dfdfdf^  ^d^/;s/Full/^b#282828^^c#dfdfdf^ ⚡ ^d^/;s/ 0*/ /g;s/ :/ /g")
 capacity=$(echo "$capacity"  | sed -e 's/$//' )
