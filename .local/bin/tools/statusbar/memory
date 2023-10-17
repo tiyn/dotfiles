@@ -2,8 +2,5 @@
 
 icon="^b#282828^^c#dfdfdf^  ^d^ "
 total=$(free -h | awk '/^Mem:/ {print  $3/$2}')
-percent=$(printf %-4s $total | tr ' ' '0')
-percent=$(echo $percent | sed -e 's/^0//g')
-percent=$(echo $percent | sed -e 's/\.//g')
-percent=$(printf %3s $(echo $percent | cut -c1-2) | tr ' ' ' ')%
-echo "$icon $percent"
+percent=$(printf %3s $(printf %-4s $total | tr ' ' '0' | cut -c1-4 | sed -e 's/\.//g' | sed -e 's/^0//g') | tr ' ' ' ')%
+echo "$icon$percent"
