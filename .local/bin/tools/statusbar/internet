@@ -1,13 +1,12 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
 wifipercent="    "
 
-for f in /sys/class/net/*/operstate; do
-    [ -e "$f" ] && wifiicon="^c#ff0000^ ^d^" && wifipercent=0
-    break
-done
-
 [ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^" && wifipercent=0
+
+if ls /sys/class/net/*/operstate > /dev/null 2>&1; then
+    wifiicon="^c#ff0000^ ^d^" && wifipercent=0
+fi
 
 [ ! -n "${wifiicon+var}" ] && wifiicon="^c#dfdfdf^ ^d^" && wifipercent=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
