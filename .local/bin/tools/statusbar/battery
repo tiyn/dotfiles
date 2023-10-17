@@ -1,10 +1,14 @@
 #!/usr/bin/env sh
 
-capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
-status=$(cat /sys/class/power_supply/"$1"/status)
+# capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
+# status=$(cat /sys/class/power_supply/"$1"/status)
 
-[ -z $warn ] && warn=" "
+capacity=50
+status="Discharging"
 
 [ "$status" = "Charging" ]
 
-printf "%s%s" "$(echo "$status" | sed -e "s/,//;s/Discharging/^b#282828^^c#dfdfdf^  ^d^/;s/Not charging/^b#282828^^c#dfdfdf^  ^d^/;s/Charging/^b#282828^^c#dfdfdf^  ^d^/;s/Unknown/^b#282828^^c#dfdfdf^  ^d^/;s/Full/^b#282828^^c#dfdfdf^ ⚡ ^d^/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity"  | sed -e 's/$/%/' ) "
+icon=$(echo "$status" | sed -e "s/,//;s/Discharging/^b#282828^^c#dfdfdf^  ^d^/;s/Not charging/^b#282828^^c#dfdfdf^  ^d^/;s/Charging/^b#282828^^c#dfdfdf^  ^d^/;s/Unknown/^b#282828^^c#dfdfdf^  ^d^/;s/Full/^b#282828^^c#dfdfdf^ ⚡ ^d^/;s/ 0*/ /g;s/ :/ /g")
+capacity=$(echo "$capacity"  | sed -e 's/$//' )
+capacity=$(printf %3s $capacity | tr ' ' ' ')
+echo "$icon $capacity%"
