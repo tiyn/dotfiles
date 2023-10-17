@@ -1,9 +1,6 @@
 #!/bin/sh
 
-wifipercent="    "
-
-
-if ! ls /sys/class/net/*/operstate > /dev/null 2>&1; then
+if ! [[ -f /sys/class/net/w* ]]; then
     wifiicon="^c#ff0000^ ^d^" && wifipercent=0
 else
     [ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^" && wifipercent=0
