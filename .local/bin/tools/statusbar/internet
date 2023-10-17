@@ -1,8 +1,10 @@
 #!/usr/bin/env sh
-#
 
-[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^ -%"
+wifipercent=" ___"
 
-[ ! -n "${wifiicon+var}" ] && wifiicon=$(grep "^\s*w" /proc/net/wireless | awk '{ print "^c#dfdfdf^ ^d^", int($3 * 100 / 70) "%" }')
+[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^"
 
-printf "%s %s\n" "$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /")" "$wifiicon"
+[ ! -n "${wifiicon+var}" ] && wifiicon="^c#dfdfdf^ ^d^" && wifipercent=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
+
+wifipercent=$(printf %3s $wifipercent | tr ' ' ' ')
+echo "$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /")" "$wifiicon" "$wifipercent%"

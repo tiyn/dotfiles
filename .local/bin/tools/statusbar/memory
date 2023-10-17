@@ -1,3 +1,5 @@
 #!/bin/sh
 
-free -h | awk '/^Mem:/ {print "^b#282828^^c#dfdfdf^  ^d^ " $3 "/" $2}'
+icon="^b#282828^^c#dfdfdf^  ^d^ "
+total=$(free -h | awk '/^Mem:/ {print  $3/$2}')
+echo "$icon$(printf %3s $(echo ${total##*0.} | cut -c1-2) | tr ' ' ' ')%"

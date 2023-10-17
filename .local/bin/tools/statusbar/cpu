@@ -1,7 +1,12 @@
 #!/bin/sh
 
+icon="^b#282828^^c#dfdfdf^  ^d^ "
+
 if [ "$1" = "amd" ]; then
-    sensors | awk '/Tctl/ {print "^b#282828^^c#dfdfdf^  ^d^ " $2}'
+    temp=$(sensors | awk '/Tctl/ {print  $2}')
 elif [ "$1" = "intel" ]; then
-    sensors | awk '/Core 0/ {print "^b#282828^^c#dfdfdf^  ^d^ " $3}'
+    temp=$(sensors | awk '/Tctl/ {print  $3}')
 fi
+
+temp=$(printf %3s $(echo ${temp##*+} | sed "s/\..*//") | tr ' ' ' ')
+echo "$icon$temp°C"
