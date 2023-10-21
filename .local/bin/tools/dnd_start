@@ -1,0 +1,7 @@
+#!/bin/sh
+
+notify-send -u low "dunst" "Do not disturb started"
+dunstctl history-clear
+dunstctl rule dnd_low enable
+dunstctl rule dnd_normal enable
+dunstctl rule sound_normal disable

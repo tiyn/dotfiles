@@ -1,0 +1,10 @@
+#!/bin/sh
+
+dunstctl rule dnd_low disable
+dunstctl rule dnd_normal disable
+dunstctl rule sound_normal enable
+hist_size=$(dunstctl history | jq '.data[0] | length')
+for i in `seq $hist_size`; do
+    dunstctl history-pop
+done
+notify-send -u low "dunst" "Do not disturb stopped"

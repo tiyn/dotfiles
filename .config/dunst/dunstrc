@@ -10,6 +10,7 @@
     padding = 10
     horizontal_padding = 10
     frame_width = 2
+    corner_radius = 5
 
     frame_color = "#555555"
     separator_color = "#555555"
@@ -66,10 +67,18 @@
     frame_color = "#8c3d45"
     timeout = 0
 
-[normal_urgency_sound]
+[sound_normal]
     msg_urgency = "normal"
     script = ~/.config/dunst/alert_normal.sh
 
-[critical_urgency_sound]
+[sound_critical]
     msg_urgency = "critical"
     script = ~/.config/dunst/alert_high.sh
+
+[dnd_normal]
+    msg_urgency = "normal"
+    skip_display = true
+
+[dnd_low]
+    msg_urgency = "low"
+    skip_display = true
