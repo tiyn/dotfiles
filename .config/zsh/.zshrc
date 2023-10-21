@@ -49,13 +49,18 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 PS1='%B%{$fg[blue]%}[%{$fg[blue]%}%n%{$fg[blue]%}@%{$fg[blue]%}%M %{$fg[blue]%}%~%{$fg[blue]%}]%{$reset_color%}\$%b '
 RPROMPT='%B%{$fg[blue]%}$vcs_info_msg_0_%{$reset_color%}%b'
 
-# Basic auto/tab complete
-autoload -U compinit
-zstyle ':completion:*' menu select
-zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # Case insensitive completion
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots)	# Include hidden files
+
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
+bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+zstyle ':autocomplete:*' list-lines 7
+zstyle ':autocomplete:*' widget-style menu-select
+zle -A {.,}history-incremental-search-forward
+zle -A {.,}history-incremental-search-backward
+zstyle ':autocomplete:*' fzf-completion yes
+zstyle ':autocomplete:*' recent-dirs zsh-z
+zstyle ':autocomplete:*' menu select
+zstyle ':autocomplete:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # Case insensitive completion
 
 # Enable vi mode
 bindkey -v
@@ -134,8 +139,8 @@ background() {
 # Load command-not-found-handler
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# Load zsh-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh 2>/dev/null
+# Load fast-syntax-highlighting; should be last.
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
     tmux attack-session -t $USER || tmux new-session -s $USER
