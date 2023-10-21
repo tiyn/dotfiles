@@ -1,11 +1,9 @@
 #!/bin/sh
 if amixer get Capture | tail -2 | grep -q '\[on\]'; then
-    notify-send -u low 'Audio' 'Sound active\nMicrophone muted'
     paplay ~/.local/bin/tools/audio/mic_muted.wav
     amixer set Master unmute >/dev/null 2>&1
     amixer set Capture nocap >/dev/null 2>&1
 else
-    notify-send -u low 'Audio' 'Sound active\nMicrophone active'
     amixer set Master unmute >/dev/null 2>&1
     amixer set Capture cap >/dev/null 2>&1
     paplay ~/.local/bin/tools/audio/mic_activated.wav
