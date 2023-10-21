@@ -2,7 +2,7 @@
 
 acpi=$(acpi -b)
 
-if ! printf '%s\n' "$acpi" | grep -Fqe "No support"; then
+if [ "$acpi" = "" ]; then
     echo ""
     return
 fi
