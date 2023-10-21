@@ -1,9 +1,30 @@
-#!/usr/bin/env sh
+#!/bin/sh
 
-capacity=$(cat /sys/class/power_supply/"$1"/capacity) || exit
-status=$(cat /sys/class/power_supply/"$1"/status)
+acpi=$(acpi -b)
 
-icon=$(echo "$status" | sed -e "s/,//;s/Discharging/^b#282828^^c#dfdfdf^  ^d^/;s/Not charging/^b#282828^^c#dfdfdf^  ^d^/;s/Charging/^b#282828^^c#dfdfdf^  ^d^/;s/Unknown/^b#282828^^c#dfdfdf^  ^d^/;s/Full/^b#282828^^c#dfdfdf^ ⚡ ^d^/;s/ 0*/ /g;s/ :/ /g")
-capacity=$(echo "$capacity"  | sed -e 's/$//' )
+if ! printf '%s\n' "$acpi" | grep -Fqe "No support"; then
+    echo ""
+    return
+fi
+
+total=$(echo $acpi | sed 's/.*:\ //')
+
+status="$(echo $total | cut -d',' -f1)"
+capacity="$(echo $total | cut -d',' -f2 | sed 's/%//')"
+capacity=$(echo "$capacity" | sed -e 's/$//')
 capacity=$(printf %3s $capacity | tr ' ' ' ')
+
+case "$status" in
+    "Discharging")
+        icon="^b#282828^^c#dfdfdf^  ^d^";;
+    "Not charging")
+        icon="^b#282828^^c#dfdfdf^  ^d^";;
+    "Charging")
+        icon="^b#282828^^c#dfdfdf^  ^d^";;
+    "Unknown")
+        icon="^b#282828^^c#dfdfdf^  ^d^";;
+    "Full")
+        icon="^b#282828^^c#dfdfdf^ ⚡ ^d^";;
+esac
+
 echo "$icon $capacity%"
