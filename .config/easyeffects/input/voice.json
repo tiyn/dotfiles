@@ -167,7 +167,7 @@
             "bypass": false,
             "clipping": false,
             "clipping-range": 0.0,
-            "fft": "16384",
+            "fft": "2048",
             "input-gain": 0.0,
             "output-gain": 17.0,
             "std": "Flat",
