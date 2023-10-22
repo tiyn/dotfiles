@@ -7,6 +7,9 @@ temp=""
 if command -v nvidia-smi > /dev/null; then
     temp=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)
     temp=$(printf %3s $(echo ${temp##*+} | sed "s/\..*//") | tr ' ' ' ')
+else
+    echo ""
+    return
 fi
 
 echo "$icon $temp°C"
