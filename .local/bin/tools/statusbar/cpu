@@ -1,16 +1,8 @@
 #!/bin/sh
 
-gpu_temp=""
-
-if command -v nvidia-smi > /dev/null; then
-    gpu_temp=$(nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader)
-    gpu_temp=$(printf %3s $(echo ${gpu_temp##*+} | sed "s/\..*//") | tr ' ' ' ')
-    gpu_temp=" | $gpu_temp°C"
-fi
-
 model=$(cat /proc/cpuinfo | grep "model name" | head -n1)
 
-icon="^b#282828^^c#dfdfdf^  ^d^"
+icon="^b#282828^^c#dfdfdf^  ^d^"
 
 if printf "$model " | grep -Fqe "AMD"; then
     temp=$(sensors | awk '/Tctl/ {print  $2}')
@@ -20,4 +12,4 @@ fi
 
 temp=$(printf %3s $(echo ${temp##*+} | sed "s/\..*//") | tr ' ' ' ')
 
-echo "$icon $temp°C$gpu_temp "
+echo "$icon $temp°C"
