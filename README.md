@@ -8,24 +8,24 @@ My debian-based/arch compatible server/root-account dotfiles.
 
 ### Required
 
-- exa
 - git
 - tmux
 - neovim
 - zsh
+- eza
 - sc-im (recommended)
 
 #### Debian-based Systems
 
 - `apt install git tmux neovim zsh`
 - get the rest manually
-  - https://github.com/Peltoche/lsd
-  - https://github.com/andmarti1424/sc-im/wiki/Ubuntu-with-XLSX-import-&-export
+  - [eza](https://github.com/eza-community/eza)
+  - [sc-im (recommended)](https://github.com/andmarti1424/sc-im/wiki/Ubuntu-with-XLSX-import-&-export)
 
 #### Arch-based Systems
 
 - Get the yay-AUR-pckagemanager or something similar (`pacman -S yay`).
-- `yay -S exa git tmux neovim zsh sc-im`
+- `yay -S eza git tmux neovim zsh sc-im`
 
 ## Migration of my dotfiles to other system
 
