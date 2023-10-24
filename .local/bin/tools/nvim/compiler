@@ -41,5 +41,6 @@ case "$file" in
 	*\.go) go run "$file" ;;
 	*\.lua) lua "$file" ;;
 	*\.sent) setsid sent "$file" 2>/dev/null & ;;
+        *\.r|*\.R) Rscript "$file" ;;
 	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac
