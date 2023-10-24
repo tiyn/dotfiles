@@ -53,6 +53,7 @@ RPROMPT='%B%{$fg[blue]%}$vcs_info_msg_0_%{$reset_color%}%b'
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
+bindkey -M menuselect '[C' autosuggest-accept
 zstyle ':autocomplete:*' list-lines 7
 zstyle ':autocomplete:*' widget-style menu-select
 zle -A {.,}history-incremental-search-forward
