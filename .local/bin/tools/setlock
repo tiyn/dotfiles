@@ -1,0 +1,13 @@
+#!/bin/sh
+
+# Based on a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
+bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/lock"
+
+
+trueloc="$(readlink -f "$1")" &&
+case "$(file --mime-type -b "$trueloc")" in
+	image/* ) ln -f "$(readlink -f "$1")" "$bgloc" && notify-send -i "$bgloc" "Changing lock background..." ;;
+	inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Random lock background chosen." ;;
+	*) notify-send "🖼️ Error" "Not a valid image or directory." ; exit 1;;
+esac

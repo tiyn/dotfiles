@@ -1,13 +1,6 @@
 #!/bin/sh
 
-# In LARBS, ~/.config/wall.png is the location of the system wallpaper.  This
-# script, if given an argument, moves it there.  This script without an
-# argument sets ~/.config/wall.png as the wallpaper, which is required on login
-# if you don't want a black screen.
-#
-# You may also give a directory name to select a random image from that
-# directory as a wallpaper. Be careful that the directory only has images.
-# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+# Based on a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
 
