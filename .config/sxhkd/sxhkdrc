@@ -39,7 +39,7 @@ super + Return
         $TERMINAL
 
 Print
-        maimpick
+        screenshotmenu
 
 super + shift + space
         dunstctl close-all
