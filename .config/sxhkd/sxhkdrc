@@ -33,7 +33,7 @@ super + shift + l
         setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send -u low 'SXHKD' 'Set keymap to russian') || $(setxkbmap de nodeadkeys ; notify-send -u low 'SXHKD' 'Set keymap to german')
 
 super + shift + r
-    pkill -usr1 -x sxhkd ; notify-send -u low 'SXHKD' 'Reloaded config'
+        pkill -usr1 -x sxhkd ; notify-send -u low 'SXHKD' 'Reloaded config'
 
 super + Return
         $TERMINAL
@@ -52,8 +52,6 @@ super + F7
         dmenumount
 super + F8
         dmenuumount
-super + F9
-        sudo -A systemctl restart NetworkManager
 super + F10
         prompt "Lock computer?" "slock"
 super + F11
