@@ -44,6 +44,7 @@ return {
           "marksman",
           "nimls",
           "pylsp",
+          "r_language_server",
           "sqlls",
           "texlab",
           "tsserver",
