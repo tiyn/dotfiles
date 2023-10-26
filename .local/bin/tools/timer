@@ -36,10 +36,17 @@ stopwatch() {
     done
 }
 
+no_args="true"
 while getopts "c:sh" arg; do
   case $arg in
     c) countdown $OPTARG;;
     s) stopwatch;;
     h) echo "$help";;
+    *) echo "$help";;
   esac
+  no_args="false"
 done
+
+if [ "$no_args" = "true" ]; then
+    echo "$help"
+fi
