@@ -1,0 +1,36 @@
+#!/bin/dash
+
+help="""
+usage: timer [option] [args]
+  options:
+    -c SECONDS      Count down from given amount of seconds
+    -s              Start stopwatch
+    -h              Display this message
+"""
+
+
+countdown() {
+    start="$(( $(date '+%s') + $1))"
+    while [ $start -ge $(date +%s) ]; do
+        time="$(( $start - $(date +%s) ))"
+        printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
+
+stopwatch() {
+    start=$(date +%s)
+    while true; do
+        time="$(( $(date +%s) - $start))"
+        printf '%s\r' "$(date -u -d "@$time" +%H:%M:%S)"
+        sleep 0.1
+    done
+}
+
+while getopts "c:sh" arg; do
+  case $arg in
+    c) countdown $OPTARG;;
+    s) stopwatch;;
+    h) echo "$help";;
+  esac
+done
