@@ -1,6 +1,6 @@
 #!/bin/sh
 
-wifipercent=" ___"
+wifipercent="   0"
 
 [ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^"
 
