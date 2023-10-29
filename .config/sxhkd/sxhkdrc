@@ -52,6 +52,8 @@ super + F7
         dmenumount
 super + F8
         dmenuumount
+super + F9
+        sudo -A systemctl restart NetworkManager
 super + F10
         prompt "Lock computer?" "slock"
 super + F11
