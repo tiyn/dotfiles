@@ -49,12 +49,11 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 PS1='%B%{$fg[blue]%}[%{$fg[blue]%}%n%{$fg[blue]%}@%{$fg[blue]%}%M %{$fg[blue]%}%~%{$fg[blue]%}]%{$reset_color%}\$%b '
 RPROMPT='%B%{$fg[blue]%}$vcs_info_msg_0_%{$reset_color%}%b'
 
-
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 bindkey '\t' menu-select "$terminfo[kcbt]" menu-select
 bindkey -M menuselect '\t' menu-complete "$terminfo[kcbt]" reverse-menu-complete
-bindkey -M menuselect '[C' autosuggest-accept
-zstyle ':autocomplete:*' list-lines 7
+bindkey -M menuselect '^ ' autosuggest-accept
+zstyle ':autocomplete:*' list-lines 100
 zstyle ':autocomplete:*' widget-style menu-select
 zle -A {.,}history-incremental-search-forward
 zle -A {.,}history-incremental-search-backward
@@ -62,6 +61,7 @@ zstyle ':autocomplete:*' fzf-completion yes
 zstyle ':autocomplete:*' recent-dirs zsh-z
 zstyle ':autocomplete:*' menu select
 zstyle ':autocomplete:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # Case insensitive completion
+zstyle ':autocomplete:*' insert-unambiguous yes
 
 # Enable vi mode
 bindkey -v
