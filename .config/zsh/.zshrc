@@ -150,4 +150,7 @@ fi
 # python
 #eval "$(pyenv init -)"
 
+# set up thefuck
+eval $(thefuck --alias)
+
 pfetch

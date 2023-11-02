@@ -60,7 +60,6 @@ export PATH="${HOME}/.nimble/bin:${PATH}"
 # python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-#eval "$(pyenv init --path)"
 
 # less/man colors
 export LESS=-R
