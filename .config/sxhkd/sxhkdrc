@@ -53,7 +53,7 @@ super + F7
 super + F8
         dmenuumount
 super + F9
-        sudo -A systemctl restart NetworkManager
+        sudo -A systemctl restart NetworkManager ; notify-send -u low 'Network' 'Restartet NM'
 super + F10
         prompt "Lock computer?" "slock"
 super + F11
