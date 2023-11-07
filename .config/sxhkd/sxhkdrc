@@ -25,9 +25,9 @@ super + m
         thunderbird
 
 super + bracketright
-        mic_toggle && pkill -RTMIN+4 $STATUSBAR
+        mic_toggle
 super + backslash
-        sound_toggle && pkill -RTMIN+4 $STATUSBAR
+        sound_toggle
 
 super + shift + l
         setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send -u low 'SXHKD' 'Set keymap to russian') || $(setxkbmap de nodeadkeys ; notify-send -u low 'SXHKD' 'Set keymap to german')
@@ -62,13 +62,13 @@ super + F12
         prompt "Reboot computer?" "sudo -A reboot now"
 
 XF86AudioMute
-        sound_toggle && pkill -RTMIN+4 $STATUSBAR
+        sound_toggle
 XF86AudioMicMute
-        mic_toggle && pkill -RTMIN+4 $STATUSBAR
+        mic_toggle
 XF86AudioLowerVolume
-        lmc down 5 && pkill -RTMIN+4 $STATUSBAR
+        lmc down
 XF86AudioRaiseVolume
-        lmc up 5 && pkill -RTMIN+4 $STATUSBAR
+        lmc up
 XF86MonBrightnessDown
         light -U 15
 XF86MonBrightnessUp

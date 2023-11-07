@@ -1,6 +1,6 @@
 #!/bin/sh
 
-vol="$(pulsemixer --get-volume | awk '{print $1}')"
+vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}' | sed -e 's/\.//g' | sed 's/^0*//')"
 
 if [ "$vol" -eq "0" ]; then
 	vol_info="^c#dfdfdf^ ^d^"
@@ -10,12 +10,12 @@ else
 	vol_info="^c#dfdfdf^ ^d^"
 fi
 
-[ "$(pulsemixer --get-mute)" = "1" ] && vol_info="^c#ff0000^ ^d^"
+$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\[MUTED\]') && vol_info="^c#ff0000^ ^d^"
 
-if amixer get Capture | tail -2 | grep -q '\[on\]'; then
-	mic="^b#282828^^c#dfdfdf^  "
-else
+if wpctl get-volume @DEFAULT_SOURCE@ | grep -q '\[MUTED\]'; then
 	mic="^b#282828^^c#ff0000^  "
+else
+	mic="^b#282828^^c#dfdfdf^  "
 fi
 
 vol=$(printf %3s $vol | tr ' ' ' ')

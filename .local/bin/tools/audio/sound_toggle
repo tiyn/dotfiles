@@ -1,10 +1,11 @@
 #!/bin/sh
 if amixer get Master | tail -2 | grep -q '\[on\]'; then
     notify-send -u low 'sxhkd' 'Sound muted\nMicrophone muted'
-    amixer set Master mute >/dev/null 2>&1
-    amixer set Capture nocap >/dev/null 2>&1
+    lmc mute
+    lmc deaf
 else
-    amixer set Capture nocap >/dev/null 2>&1
-    amixer set Master unmute >/dev/null 2>&1
+    lmc mute
+    lmc undeaf
     paplay ~/.local/bin/tools/audio/sound_resumed.wav
 fi
+pkill -RTMIN+4 $STATUSBAR

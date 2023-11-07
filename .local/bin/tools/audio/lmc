@@ -1,23 +1,30 @@
 #!/bin/sh
 
 # A general audio interface for LARBS.
-# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+# Based on a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-[ -z "$2" ] && num="2" || num="$2"
+[ -z "$2" ] && num="5" || num="$2"
 
 case "$1" in
-	u*) pulsemixer --change-volume +"$num" ;;
-	d*) pulsemixer --change-volume -"$num" ;;
-	m*) pulsemixer --toggle-mute ;;
+	up) wpctl set-volume @DEFAULT_AUDIO_SINK@ "$num"%+ ;;
+        down) wpctl set-volume @DEFAULT_AUDIO_SINK@ "$num"%- ;;
+        deaf) wpctl set-mute @DEFAULT_SINK@ 1;;
+        undeaf) wpctl set-mute @DEFAULT_SINK@ 0;;
+        mute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1;;
+        unmute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0;;
 	*) cat << EOF
 lmc: cli music interface for pulse for those with divine intellect too
 grand to remember the pamixer commands.
 
 Allowed options:
-  up NUM	Increase volume (2 secs default)
-  down NUM	Decrease volume (2 secs default)
-  mute		Toggle mute
+  up NUM	Increase volume (5% default)
+  down NUM	Decrease volume (5% default)
+  mute          mute microphone
+  unmute        unmute microphone
+  deaf          deaf sound
+  undeaf        undeaf sound
   all else	Print this message
 
 EOF
 esac
+pkill -RTMIN+4 $STATUSBAR

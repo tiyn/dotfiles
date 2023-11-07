@@ -1,10 +1,11 @@
 #!/bin/sh
 if amixer get Capture | tail -2 | grep -q '\[on\]'; then
     paplay ~/.local/bin/tools/audio/mic_muted.wav
-    amixer set Master unmute >/dev/null 2>&1
-    amixer set Capture nocap >/dev/null 2>&1
+    lmc mute
+    lmc undeaf
 else
-    amixer set Master unmute >/dev/null 2>&1
-    amixer set Capture cap >/dev/null 2>&1
+    lmc unmute
+    lmc undeaf
     paplay ~/.local/bin/tools/audio/mic_activated.wav
 fi
+pkill -RTMIN+4 $STATUSBAR
