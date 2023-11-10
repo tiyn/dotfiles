@@ -45,7 +45,7 @@ export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 export OPENAUDIBLE_HOME="${HOME}/documents/openaudible"
 
 # java
-export JAVA_HOME="/usr/lib/jvm/java-11-openjdk"
+export JAVA_HOME="/usr/lib/jvm/java-21-openjdk"
 export _JAVA_AWT_WM_NONREPARENTING=1
 export JDTLS_HOME="/usr/share/java/jdtls"
 
