@@ -478,7 +478,7 @@ nnoremap cc cw<c-u>
 nnoremap A cw
 
 " Mapping for extraction
-nnoremap x :!extract %f<cr>
+nnoremap x :!vifm_extract %f<cr>
 
 " Open console in current directory
 nnoremap ,t :!xterm &<cr>
