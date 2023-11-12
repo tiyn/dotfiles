@@ -1,7 +1,7 @@
 # Disable ctrl-s and ctrl-q.
 stty -ixon
 
-setopt autocd autopushd \
+setopt autocd autopushd
 
 # Enable autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
