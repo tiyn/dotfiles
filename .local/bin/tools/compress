@@ -1,0 +1,10 @@
+#!/bin/sh
+
+if [ -e $1 ] ; then
+    case $2 in
+        7z)     7z a -t7z -m0=lzma -mx=9 -mfb=64 -md=32m -ms=on $1.7z ;;
+        *)      echo "don't know how to compress '$1' in '$2'..." ;;
+    esac
+else
+    echo "'$1' is not a valid file or directory!"
+fi
