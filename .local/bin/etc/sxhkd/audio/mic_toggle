@@ -1,10 +1,10 @@
 #!/bin/sh
 if amixer get Capture | tail -2 | grep -q '\[on\]'; then
-    paplay ~/.local/bin/tools/audio/mic_muted.wav
+    paplay ~/.local/bin/etc/sxhkd/audio/mic_muted.wav
     lmc mute
     lmc undeaf
 else
     lmc unmute
     lmc undeaf
-    paplay ~/.local/bin/tools/audio/mic_activated.wav
+    paplay ~/.local/bin/etc/sxhkd/audio/mic_activated.wav
 fi

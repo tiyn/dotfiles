@@ -6,5 +6,5 @@ if amixer get Master | tail -2 | grep -q '\[on\]'; then
 else
     lmc mute
     lmc undeaf
-    paplay ~/.local/bin/tools/audio/sound_resumed.wav
+    paplay ~/.local/bin/etc/sxhkd/audio/sound_resumed.wav
 fi
