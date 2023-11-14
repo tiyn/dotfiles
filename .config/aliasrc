@@ -131,7 +131,7 @@ alias weather="curl wttr.in"
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 
 # yay
-alias yay="yay --sudoloop --noredownload --norebuild"
+alias yay="yay --sudoloop --noredownload --norebuild --combinedupgrade"
 
 # youtube-dl
 alias yta="yt-dlp -f 'bestaudio[ext=m4a]'"
