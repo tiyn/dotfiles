@@ -13,9 +13,12 @@ return {
         textopdfviewerrefresh = "none",
         textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
         -- markdown
-        mdoutputext = "pdf",
+        mdoutputext = "html",
         mdtopdf = "pandoc %docroot% -o %outputfile%",
         mdtopdfviewerlaunch = "zathura %outputfile%",
+        mdtohtml = "pandoc --standalone %docroot% -o %outputfile%",
+        mdtohtmlviewerlaunch = "firefox --kiosk --new-window %outputfile%",
+        mdtohtmlviewerrefresh = "none",
         mdtopdfviewerrefresh = "none",
       }
     end
