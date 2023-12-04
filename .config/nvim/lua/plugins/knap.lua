@@ -5,12 +5,18 @@ return {
     ft = { 'tex' },
     config = function()
       vim.g.knap_settings = {
+        -- tex
         texoutputext = "pdf",
         textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
         textopdfviewerlaunch =
         "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' %outputfile%",
         textopdfviewerrefresh = "none",
-        textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%"
+        textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
+        -- markdown
+        mdoutputext = "pdf",
+        mdtopdf = "pandoc %docroot% -o %outputfile%",
+        mdtopdfviewerlaunch = "zathura %outputfile%",
+        mdtopdfviewerrefresh = "none",
       }
     end
   }
