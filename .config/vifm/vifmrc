@@ -461,6 +461,10 @@ nnoremap cc cw<c-u>
 nnoremap xx :!vifm_extract %f<cr>
 nnoremap aa :!vifm_compress %f 7z
 
+" Mapping cups printing
+nnoremap rr :!lp %f<cr>
+vnoremap rr :!lp %f<cr>
+
 " ------------------------------------------------------------------------------
 
 " Various customization examples
