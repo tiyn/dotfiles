@@ -1,6 +1,11 @@
-vim.api.nvim_create_autocmd({ 'BufEnter', 'FileType' },
+vim.api.nvim_create_autocmd({ 'BufEnter' },
   {
     callback = function() vim.o.foldenable = false end
+  })
+
+vim.api.nvim_create_autocmd({ 'VimLeave' },
+  {
+    callback = function() os.execute('mdclear ' .. vim.fn.expand('%')) end
   })
 
 vim.o.shiftwidth = 2
