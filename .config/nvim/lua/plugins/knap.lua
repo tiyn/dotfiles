@@ -14,7 +14,7 @@ return {
         textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
         -- markdown
         mdoutputext = "pdf",
-        mdtopdf = "pandoc %docroot% -o %outputfile%",
+        mdtopdf = "pandoc %docroot% -V colorlinks=true -V linkcolor=blue -V urlcolor=red -V toccolor=gray -o %outputfile%",
         mdtopdfviewerlaunch = "zathura ./%outputfile%",
         mdtohtml = "pandoc --standalone %docroot% -o %outputfile%",
         mdtohtmlviewerlaunch = "firefox --kiosk --new-window %outputfile%",
