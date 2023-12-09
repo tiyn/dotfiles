@@ -29,6 +29,5 @@ Allowed options
 	handout     get handout-template to current dir
 	letter 	    get letter-template to current dir
 
-All of these commands can be truncated,
-i.e. \`textemp a\` for \`textemp article`\.
+All of these commands can be truncated to one character.
 EOF
