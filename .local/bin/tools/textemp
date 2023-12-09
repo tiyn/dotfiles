@@ -1,29 +1,34 @@
-#!/bin/bash
-# copying tex templates
+#!/bin/sh
+# copying latex templates from my template repository
+# (not included in the dotfiles)
 
-latexdir=~/code/main/latextemplates/
+latexdir=~/code/main/latextemplates
 
-[ -z "$2" ] && echo "missing argument: filename (no ending)" && return 1
-
-articletemp=${latexdir}latex_article/article.tex
-beamertemp=${latexdir}latex_beamer/beamer.tex
-exercisetemp=${latexdir}latex_exercise_header/header.tex
-handouttemp=${latexdir}latex_handout/handout.tex
+articletemp=${latexdir}/article/*
+beamertemp=${latexdir}/beamer/*
+exercisetemp=${latexdir}/exercise/*
+handouttemp=${latexdir}/handout/*
+cvtemp=${latexdir}/cv/*
+lettertemp=${latexdir}/letter/*
 
 case "$1" in
-	a*) cp "$articletemp" $2.tex ;;
-	b*) cp "$beamertemp" $2.tex ;;
-	e*) cp "$exercisetemp" $2.tex ;;
-	h*) cp "$handouttemp" $2.tex ;;
-	*) cat << EOF
+	a*) cp $articletemp . -r && exit;;
+	b*) cp $beamertemp . -r && exit ;;
+	c*) cp $cvtemp . -r && exit ;;
+	e*) cp $exercisetemp . -r && exit ;;
+	h*) cp $handouttemp . -r && exit ;;
+	l*) cp $lettertemp . -r && exit ;;
+esac
 
+cat << EOF
 Allowed options
-	article NAME 		get article-template with given NAME
-	beamer NAME 		get beamer-template with given NAME
-	exercise NAME 		get exercise-template with given NAME
-	handout NAME 		get handout-template with given NAME
+	article     get article-template to current dir
+	beamer 	    get beamer-template to current dir
+	cv 	    get curriculum vitae-template to current dir
+	exercise    get exercise-template to current dir
+	handout     get handout-template to current dir
+	letter 	    get letter-template to current dir
 
 All of these commands can be truncated,
 i.e. \`textemp a\` for \`textemp article`\.
 EOF
-esac
