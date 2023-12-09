@@ -171,7 +171,7 @@ command! reload :write | restart
 " program.
 
 " PDF
-filextype *.pdf zathura %c %i &, apvlv %c, xpdf %c
+filextype *.pdf zathura ./%c %i &, apvlv %c, xpdf %c
 fileviewer *.pdf
         \ vifmimg pdf %px %py %pw %ph %c
         \ %pc
@@ -183,14 +183,14 @@ filetype *.csv,*.xlsx,*.sc sc-im %f
 " PostScript
 filextype *.ps,*.eps,*.ps.gz
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura ./%f,
         \ {View in gv}
         \ gv %c %i &,
 
 " Djvu
 filextype *.djvu
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura ./%f,
         \ {View in apvlv}
         \ apvlv %f,
 fileviewer *.djvu
@@ -201,7 +201,7 @@ fileviewer *.djvu
 " epub
 filextype *.epub
         \ {View in zathura}
-        \ zathura %f,
+        \ zathura ./%f,
 fileviewer *.epub
         \ vifmimg epub %px %py %pw %ph %c
         \ %pc
