@@ -5,6 +5,7 @@ return {
     ft = { 'tex' },
     config = function()
       vim.g.knap_settings = {
+        delay = 1000,
         -- tex
         texoutputext = "pdf",
         textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
