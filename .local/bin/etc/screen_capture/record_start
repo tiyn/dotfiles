@@ -2,8 +2,8 @@
 
 window=$(xdotool getwindowfocus)
 fps=30
-audio_1="easyeffects_sink.monitor"
-audio_2="easyeffects_source"
+audio_1="$(pactl get-default-sink).monitor"
+audio_2="$(pactl get-default-source)"
 format="mp4"
 v_codec="h264"
 a_codec="opus"
