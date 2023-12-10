@@ -137,6 +137,8 @@ background() {
 
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Load aliases
 
+autoload -Uz compinit && compinit
+
 # Load command-not-found-handler
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
