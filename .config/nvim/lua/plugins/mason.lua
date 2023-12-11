@@ -4,7 +4,7 @@ return {
     'williamboman/mason.nvim',
     dependencies = {
       {
-        'jose-elias-alvarez/null-ls.nvim',
+        'nvimtools/none-ls.nvim',
         config = function()
           require("null-ls").setup({
             sources = {
