@@ -111,8 +111,10 @@ vim.fn.sign_define(
 )
 
 -- enable colorcolumn when textwidth is set
-vim.o.colorcolumn = "-0"
 vim.o.cursorline = true
+vim.opt_local.colorcolumn = '+' .. vim.fn.join(vim.fn.range(0,254), ',+')
+-- alternatively highlight only one line for colorcolumn
+-- vim.o.colorcolumn = "-0"
 
 -- display certain invisible chars
 vim.o.list = true
