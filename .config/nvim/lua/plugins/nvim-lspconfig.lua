@@ -14,21 +14,6 @@ return {
           }
         end
       },
-      -- navigation menu
-      {
-        'SmiteshP/nvim-navbuddy',
-        config = function()
-          local navbuddy = require("nvim-navbuddy")
-          Attach_func = function(client, bufnr)
-            navbuddy.attach(client, bufnr)
-          end
-        end,
-        dependencies = {
-          'neovim/nvim-lspconfig',
-          'SmiteshP/nvim-navic',
-          'MunifTanjim/nui.nvim'
-        }
-      },
     },
     config = function()
       require("mason-lspconfig").setup({

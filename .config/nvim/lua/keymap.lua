@@ -51,8 +51,8 @@ vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'",
     silent = true
   })
 
--- SmiteshP/nvim-navbuddy
-vim.keymap.set('n', '<F3>', ':Navbuddy<CR>', {})
+-- stevearc/aerial.nvim
+vim.keymap.set('n', '<F3>', ':AerialToggle!<CR>', {})
 
 -- nvim-tree/nvim-tree.lua
 vim.keymap.set('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
