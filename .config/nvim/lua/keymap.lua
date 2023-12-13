@@ -1,34 +1,3 @@
--- unmap unwanted commands
-vim.keymap.set({ 'n', 'v' }, '<Space>', '<NOP>', { silent = true })
-vim.keymap.set({ 'n', 'i' }, '<F1>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F2>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F3>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F4>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F5>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F6>', '<NOP>', { noremap = true })
-vim.keymap.set('i', '<F8>', '<NOP>', { noremap = true })
-vim.keymap.set({ 'n', 'i' }, '<F9>', '<NOP>', { noremap = true })
-vim.keymap.set({ 'n', 'i' }, '<F10>', '<NOP>', { noremap = true })
-vim.keymap.set({ 'n', 'i' }, '<F11>', '<NOP>', { noremap = true })
-vim.keymap.set({ 'n', 'i' }, '<F12>', '<NOP>', { noremap = true })
-
--- shortcut for split navigation
-vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true })
-vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true })
-vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true })
-vim.keymap.set('n', '<C-l>', '<C-w>l', { noremap = true })
-
--- compiler for languages
-vim.keymap.set('n', '<leader>c', ':w! | !compiler <c-r>%<CR>', { noremap = true })
-
--- save file as sudo on files that require root permission
-vim.keymap.set('c', 'w!!', 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', { noremap = true })
-
--- easy substitution for whole file and line, visual mode
-vim.keymap.set('n', '<leader>ss', ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', { noremap = true })
-vim.keymap.set({ 'n', 'v' }, '<leader>sl', ':s//g<Left><Left>', { noremap = true })
-vim.keymap.set('n', '<leader>sa', ':%s//g<Left><Left>', { noremap = true })
-
 -- highlighting yanked regions
 local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -38,75 +7,109 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
 })
 
--- remap for dealing with word wrap
-vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'",
-  {
-    expr = true,
-    silent = true
-  })
+local m = require 'mapx'.setup { global = true, whichkey = true }
 
-vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'",
-  {
-    expr = true,
-    silent = true
-  })
+-- unmap unwanted commands
+m.nnoremap("<Space>",  '<NOP>')
+m.inoremap("<F1>",  '<NOP>')
+m.nnoremap("<F1>",  '<NOP>')
+m.inoremap("<F2>",  '<NOP>')
+m.inoremap("<F3>",  '<NOP>')
+m.inoremap("<F4>",  '<NOP>')
+m.inoremap("<F5>",  '<NOP>')
+m.inoremap("<F6>",  '<NOP>')
+m.inoremap("<F8>",  '<NOP>')
+m.inoremap("<F9>",  '<NOP>')
+m.nnoremap("<F9>",  '<NOP>')
+m.inoremap("<F10>",  '<NOP>')
+m.nnoremap("<F10>",  '<NOP>')
+m.inoremap("<F11>",  '<NOP>')
+m.nnoremap("<F11>",  '<NOP>')
+m.inoremap("<F12>",  '<NOP>')
+m.nnoremap("<F12>",  '<NOP>')
+m.nnoremap("ZT",  '<NOP>')
+m.nnoremap("Zt",  '<NOP>')
+
+-- shortcut for split navigation
+m.nnoremap("<C-h>",  '<C-w>h', 'splits: go to left split')
+m.nnoremap("<C-j>",  '<C-w>j', 'splits: go to lower split')
+m.nnoremap("<C-k>",  '<C-w>k', 'splits: go to upper split')
+m.nnoremap("<C-l>",  '<C-w>l', 'splits: go to right split')
+
+-- compiler for languages
+m.nnoremap("<leader>c",   ':w! | !compiler <c-r>%<CR>', 'Compile current file')
+
+-- save file as sudo on files that require root permission
+m.cname("w", "Write")
+m.cname("w!", "Write with sudo")
+m.cnoremap("w!!",    'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', 'Write file over with sudo')
+
+-- easy substitution for whole file and line, visual mode
+m.nname("<leader>s", "Substitute")
+m.nnoremap("<leader>ss",    ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Substitute: word under cursor')
+m.nnoremap("<leader>sa",     ':%s//g<Left><Left>', 'Substitute: free form')
+
+-- remap for dealing with word wrap
+m.nmap('k', "v:count == 0 ? 'gk' : 'k'", { "expr", "silent" }, 'go up in wrapped lines')
+
+m.nmap('j', "v:count == 0 ? 'gj' : 'j'", { "expr", "silent" }, 'go down in wrapped lines')
 
 -- stevearc/aerial.nvim
-vim.keymap.set('n', '<F3>', ':AerialToggle!<CR>', {})
+m.nmap('<F3>', ':AerialToggle!<CR>', 'Aerial: Open side window')
 
 -- nvim-tree/nvim-tree.lua
-vim.keymap.set('n', '<F2>', ':NvimTreeToggle toggle<CR>', {})
+m.nmap("<F2>", ':NvimTreeToggle toggle<CR>', 'NvimTree: toggle')
 
 -- numtostr/fterm.nvim
-vim.keymap.set({ 'n', 't' }, '<leader>t', require("FTerm").toggle, { noremap = true })
+m.nname("<leader>t", "FTerm")
+m.nnoremap("<leader>tt", require("FTerm").toggle, 'Terminal: toggle')
+m.tnoremap("<leader>tt", require("FTerm").toggle, 'Terminal: toggle')
+
+
+-- sindrets/diffview.nvim
+m.nname("<leader>g", "Git")
 local lazygit = require("FTerm"):new({
   cmd = 'lazygit',
 })
-vim.keymap.set({ 'n', 't' }, '<leader>gt', function() lazygit:toggle() end)
+m.nnoremap("<leader>tg", function() lazygit:toggle() end, 'Lazygit: toggle')
+m.tnoremap("<leader>tg", function() lazygit:toggle() end, 'Lazygit: toggle')
 
--- sindrets/diffview.nvim
-vim.keymap.set('n', '<leader>gdo', ":DiffviewOpen<CR>")
-vim.keymap.set('n', '<leader>gdc', ":DiffviewClose<CR>")
+m.nname("<leader>gd", "Git Diff")
+m.nmap("<leader>gdo", ":DiffviewOpen<CR>", "Git Diff: open")
+m.nmap("<leader>gdc", ":DiffviewClose<CR>", "Git Diff: close")
 
 -- folke/trouble.nvim
-vim.keymap.set('n', '<leader>x', ":TroubleToggle<CR>")
+m.nmap("<leader>x", ":TroubleToggle<CR>", "Trouble: toggle")
 
 -- hrsh7th/nvim-cmp
-vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, { noremap = true })
-vim.keymap.set('n', 'gd', vim.lsp.buf.definition, { noremap = true })
-vim.keymap.set('n', 'gy', vim.lsp.buf.type_definition, { noremap = true })
-vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { noremap = true })
-vim.keymap.set('n', 'gr', vim.lsp.buf.references, { noremap = true })
-vim.keymap.set('n', 'K', vim.lsp.buf.hover, { noremap = true })
-vim.keymap.set('n', '<F8>', function()
-  require("conform").format({ async = true, lsp_fallback = true })
-end, { noremap = true })
+m.nname("g", "LSP: goto")
+m.nnoremap("gD", vim.lsp.buf.declaration, "LSP: goto declaration")
+m.nnoremap("gd", vim.lsp.buf.definition, "LSP: goto definition")
+m.nnoremap("gy", vim.lsp.buf.type_definition, "LSP: goto type definition")
+m.nnoremap("gi", vim.lsp.buf.implementation, "LSP: list implementation")
+m.nnoremap("gr", vim.lsp.buf.references, "LSP: list references")
+m.nnoremap("K", vim.lsp.buf.hover, "LSP: show documentation")
+m.nnoremap("<F8>", function() require("conform").format({ async = true, lsp_fallback = true }) end, "LSP: format")
 
 -- filipdutescu/renamer.nvim
-vim.keymap.set('n', '<F5>', require("renamer").rename, { noremap = true })
+m.nnoremap("<F5>", require("renamer").rename, "LSP: rename")
 
 -- nvim-telescope/telescope.nvim
-vim.keymap.set('n', '<F4>', ':Telescope find_files<CR>', { noremap = true })
+m.nnoremap("<F4>",  ':Telescope find_files<CR>', "Telescope: find files")
 
 -- kamykn/spelunker.vim
-vim.keymap.set('n', '<F6>', ':call spelunker#toggle()<CR>', { noremap = true })
-vim.keymap.set('n', 'ZT', '<NOP>', { noremap = true })
-vim.keymap.set('n', 'Zt', '<NOP>', { noremap = true })
+m.nnoremap("<F6>",  ':call spelunker#toggle()<CR>', "Spelunker: toggle")
 
 -- kevinhwang91/nvim-ufo
-vim.keymap.set('n', 'K', function()
+m.nnoremap("K", function()
   local winid = require('ufo').peekFoldedLinesUnderCursor()
   if not winid then
     vim.lsp.buf.hover()
   end
-end)
+end, "UFO: peek folded section")
 
 -- kevinhwang91/nvim-hlslens
-local kopts = {noremap = true, silent = true}
-
-vim.api.nvim_set_keymap('n', 'n',
-    [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
-vim.api.nvim_set_keymap('n', 'N',
-    [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-    kopts)
+m.nnoremap("n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
+  'silent', "HLSens: search forward")
+m.nnoremap("N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
+  'silent', "HLSens: search backwards")
