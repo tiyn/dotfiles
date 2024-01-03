@@ -2,7 +2,6 @@ vim.api.nvim_create_autocmd({ 'BufEnter' },
   {
     callback = function()
       vim.o.foldenable = false
-      require("knap").toggle_autopreviewing()
     end
   })
 
