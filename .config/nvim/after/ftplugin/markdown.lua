@@ -1,6 +1,7 @@
 vim.api.nvim_create_autocmd({ 'VimEnter' },
   {
     callback = function()
+      require("tidy").opts.enabled_on_save = false
       require("knap").toggle_autopreviewing()
     end
   })
@@ -11,6 +12,17 @@ vim.api.nvim_create_autocmd({ 'BufEnter' },
       vim.o.foldenable = false
     end
   })
+
+vim.api.nvim_create_autocmd({ 'BufLeave' },
+  {
+    callback = function()
+      if vim.o.ma then
+        require("tidy").run()
+      end
+    end
+  }
+)
+
 
 vim.api.nvim_create_autocmd({ 'VimLeave' },
   {

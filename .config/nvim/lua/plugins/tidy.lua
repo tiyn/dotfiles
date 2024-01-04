@@ -1,9 +1,10 @@
 return {
   -- clean up white spaces and empty lines before writing
   {
-    "tiyn/tidy.nvim",
+    "mcauley-penney/tidy.nvim",
+    branch = "triggerable-tidy",
     opts = {
-      filetype_exclude = {}
+      filetype_exclude = { "diff" }
     }
   }
 }
