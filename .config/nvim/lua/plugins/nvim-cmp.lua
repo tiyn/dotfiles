@@ -13,7 +13,7 @@ return {
       {
         'l3mon4d3/luasnip',
         config = function()
-          require("luasnip.loaders.from_snipmate")
+          require("luasnip.loaders.from_snipmate").lazy_load()
         end,
         dependencies = { 'saadparwaiz1/cmp_luasnip' }
       },
@@ -65,9 +65,9 @@ return {
         },
         sources = {
           { name = 'nvim_lsp' },
+          { name = 'luasnip' },
           { name = 'path' },
-          { name = 'buffer' },
-          { name = 'luasnip' }
+          { name = 'buffer' }
         },
         formatting = {
           format = require("lspkind").cmp_format({
