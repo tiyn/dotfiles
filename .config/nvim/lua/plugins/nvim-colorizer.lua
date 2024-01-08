@@ -1,7 +1,7 @@
 return {
   -- showing color of hex values, etc
   {
-    'nvchad/nvim-colorizer.lua',
+    'ChristianChiarulli/nvim-colorizer.lua',
     opts = {
       filetypes = {
         '*',
