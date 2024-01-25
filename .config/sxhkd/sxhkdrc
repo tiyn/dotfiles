@@ -30,7 +30,7 @@ super + backslash
         sound_toggle
 
 super + shift + l
-        setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send -u low 'SXHKD' 'Set keymap to russian') || $(setxkbmap de nodeadkeys ; notify-send -u low 'SXHKD' 'Set keymap to german')
+        setxkbmap -query | grep -q 'nodeadkeys' && $(setxkbmap de ru ; notify-send -u low 'SXHKD' 'Set keymap to russian') || $(setxkbmap de ; notify-send -u low 'SXHKD' 'Set keymap to german')
 
 super + shift + r
         pkill -usr1 -x sxhkd ; notify-send -u low 'SXHKD' 'Reloaded config'
