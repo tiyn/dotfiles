@@ -23,8 +23,6 @@ m.nname("<leader>t", "Terminal")
 m.nnoremap("Zt",  '<NOP>')
 m.nnoremap("ZT",  '<NOP>')
 m.nnoremap("<Space>",  '<NOP>')
-m.inoremap("<F1>",  '<NOP>')
-m.nnoremap("<F1>",  '<NOP>')
 m.inoremap("<F2>",  '<NOP>')
 m.inoremap("<F3>",  '<NOP>')
 m.inoremap("<F4>",  '<NOP>')
@@ -65,6 +63,9 @@ m.nmap('<F3>', ':AerialToggle!<CR>', 'CTags: toggle')
 
 -- nvim-tree/nvim-tree.lua
 m.nmap("<F2>", ':NvimTreeToggle toggle<CR>', 'File tree: toggle')
+
+-- mbbill/undotree
+m.nmap("<F1>", ':UndotreeToggle<CR>', 'Undo tree: toggle')
 
 -- numtostr/fterm.nvim
 m.nnoremap("<leader>tt", require("FTerm").toggle, 'Terminal: open')
