@@ -54,9 +54,9 @@ m.nnoremap("<leader>c",   ':w! | !compiler <c-r>%<CR>', 'Compile: current file')
 -- save file as sudo on files that require root permission
 m.cnoremap("w!!",    'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', 'Write: overwrite file over with sudo')
 
--- easy substitution for whole file and line, visual mode
-m.nnoremap("<leader>sa",     ':%s//g<Left><Left>', 'Substitute: free form')
-m.nnoremap("<leader>ss",    ':%s/\\<<C-r><C-w>\\>//g<Left><Left>', 'Substitute: word under cursor')
+-- tpope/vim-abolish
+m.nnoremap("<leader>sa",     ':%S//g<Left><Left>', 'Substitute: free form')
+m.nnoremap("<leader>ss",    ':%S/\\<<C-r><C-w>\\>//g<Left><Left>', 'Substitute: word under cursor')
 
 -- stevearc/aerial.nvim
 m.nmap('<F3>', ':AerialToggle!<CR>', 'CTags: toggle')
