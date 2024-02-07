@@ -46,7 +46,7 @@
   "renamer.nvim": { "branch": "develop", "commit": "1614d466df53899f11dd5395eaac3c09a275c384" },
   "spelunker.vim": { "branch": "master", "commit": "a0bc530f62798bbe053905555a4aa9ed713485eb" },
   "tabular": { "branch": "master", "commit": "339091ac4dd1f17e225fe7d57b48aff55f99b23a" },
-  "tccs.nvim": { "branch": "master", "commit": "fa75ae924ac0131c6f4c68b9ad4d18e0a8f5e14d" },
+  "tccs.nvim": { "branch": "master", "commit": "3b3a1859ccaec19b0b5b91dab1144184dd3896b7" },
   "telescope.nvim": { "branch": "master", "commit": "776b509f80dd49d8205b9b0d94485568236d1192" },
   "tidy.nvim": { "branch": "triggerable-tidy", "commit": "1cbed7676273057c8af22438deaae73cd5cb96b5" },
   "todo-comments.nvim": { "branch": "main", "commit": "833d8dd8b07eeda37a09e99460f72a02616935cb" },

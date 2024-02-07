@@ -86,12 +86,12 @@ m.nmap("<leader>gdc", ":DiffviewClose<CR>", "Git: close diff")
 m.nmap("<leader>x", ":TroubleToggle<CR>", "LSP: toggle error list")
 
 -- hrsh7th/nvim-cmp
-m.nnoremap("gd", vim.lsp.buf.definition, "LSP: goto definition")
-m.nnoremap("gD", vim.lsp.buf.declaration, "LSP: goto declaration")
-m.nnoremap("gi", vim.lsp.buf.implementation, "LSP: list implementation")
-m.nnoremap("gr", vim.lsp.buf.references, "LSP: list references")
-m.nnoremap("gy", vim.lsp.buf.type_definition, "LSP: goto type definition")
-m.nnoremap("K", vim.lsp.buf.hover, "LSP: show documentation")
+m.nnoremap("gd", vim.lsp.buf.definition(), "LSP: goto definition")
+m.nnoremap("gD", vim.lsp.buf.declaration(), "LSP: goto declaration")
+m.nnoremap("gi", vim.lsp.buf.implementation(), "LSP: list implementation")
+m.nnoremap("gr", vim.lsp.buf.references(), "LSP: list references")
+m.nnoremap("gy", vim.lsp.buf.type_definition(), "LSP: goto type definition")
+m.nnoremap("K", vim.lsp.buf.hover(), "LSP: show documentation")
 m.nnoremap("<F8>", function() require("conform").format({ async = true, lsp_fallback = true }) end, "LSP: format")
 
 -- filipdutescu/renamer.nvim
