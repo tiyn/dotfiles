@@ -1,7 +1,7 @@
 return {
   -- better substitutions
   {
-    'vim-abolish',
+    'tpope/vim-abolish',
     config = function ()
     end
   }
