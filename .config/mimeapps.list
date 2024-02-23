@@ -21,3 +21,4 @@ application/x-extension-xht=browser.desktop
 x-scheme-handler/mailto=mail.desktop
 x-scheme-handler/mid=mail.desktop
 message/rfc822=mail.desktop
+x-scheme-handler/msteams=teams.desktop
