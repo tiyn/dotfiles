@@ -127,13 +127,6 @@ local paste_widgets=(
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
 
-# starts one or multiple args in background
-background() {
-	for ((i=2;i<=$#;i++)); do
-		${@[1]} ${@[$i]} &> /dev/null &|
-	done
-}
-
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Load aliases
 
 autoload -Uz compinit && compinit

@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# starting commands in background
+background() { for ((i=2;i<=$#;i++)); do; ${@[1]} ${@[$i]} &> /dev/null &| ; done }
+
 # bash
 alias ":wq"="exit"
 alias ":q"="exit"
