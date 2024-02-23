@@ -3,10 +3,6 @@ stty -ixon
 
 setopt autocd autopushd
 
-# Enable autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
-
 # Enable colors and change prompt
 autoload -U colors && colors
 autoload -Uz vcs_info
@@ -18,11 +14,11 @@ zstyle ':vcs_info:git*:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "(%s) %c%u %b%m"
 zstyle ':vcs_info:git*' actionformats "(%s|%a) %12.12i %c%u %b%m"
 setopt prompt_subst
+
 # Show remote ref name and number of commits ahead-of or behind
 function +vi-git-st() {
     local ahead behind remote
     local -a gitstatus
-    # Are we on a remote-tracking branch?
     remote=${$(git rev-parse --verify ${hook_com[branch]}@{upstream} \
         --symbolic-full-name 2>/dev/null)/refs\/remotes\/}
     if [[ -n ${remote} ]] ; then
@@ -52,7 +48,19 @@ RPROMPT='%B%{$fg[blue]%}$vcs_info_msg_0_%{$reset_color%}%b'
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # Case insensitive completion
 zmodload zsh/complist
-_comp_options+=(globdots)	# Include hidden files
+_comp_options+=(globdots)
+
+# disable sort when completing `git checkout`
+zstyle ':completion:*:git-checkout:*' sort false
+# set descriptions format to enable group support
+# don't use escape sequences here, fzf-tab will ignore them
+zstyle ':completion:*:descriptions' format '[%d]'
+# set list-colors to enable filename colorizing
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+# preview directory's content with eza when completing cd
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
+# switch group using `,` and `.`
+zstyle ':fzf-tab:*' switch-group ',' '.'
 
 # Enable vi mode
 bindkey -v
@@ -130,14 +138,18 @@ background() {
 
 autoload -Uz compinit && compinit
 
-# Load command-not-found-handler
+# Plugin: command not found notice
 source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# Load fast-syntax-highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
-
-# fuzzy completion
+# Plugin: fuzzy completion
 source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+
+# Plugin: autosuggestions
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+bindkey '^ ' autosuggest-accept
+
+# Plugin: syntax highlighting
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
     tmux attack-session -t $USER || tmux new-session -s $USER
