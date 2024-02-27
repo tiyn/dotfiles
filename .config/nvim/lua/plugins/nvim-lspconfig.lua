@@ -28,7 +28,7 @@ return {
           "lua_ls",
           "marksman",
           "nimls",
-          "pylsp",
+          "pyright",
           "r_language_server",
           "sqlls",
           "texlab",
