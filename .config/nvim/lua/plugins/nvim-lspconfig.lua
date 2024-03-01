@@ -25,6 +25,8 @@ return {
           "gopls",
           "html",
           "jsonls",
+          "lemminx",
+          "ltex",
           "lua_ls",
           "marksman",
           "nimls",
@@ -33,7 +35,6 @@ return {
           "sqlls",
           "texlab",
           "tsserver",
-          "lemminx",
           "yamlls",
         }
       })
