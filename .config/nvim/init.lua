@@ -118,6 +118,9 @@ vim.g.mapleader = ","
 -- load general mapped keys
 require('style')
 
+-- load dictionaries and helper functions
+require('dictionaries')
+
 -- load plugins (autoload all files in plugin folder)
 require('loadplugins')
 

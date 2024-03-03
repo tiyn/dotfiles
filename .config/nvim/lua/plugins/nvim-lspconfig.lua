@@ -38,6 +38,7 @@ return {
           "yamlls",
         }
       })
+
       local servers = {
         lua_ls = {
           Lua = {
@@ -46,6 +47,13 @@ return {
             },
             telemetry = { enable = false },
           },
+        },
+        ltex = {
+          ltex = {
+            -- language = "de-DE",
+            enabled = { "latex" },
+            dictionary = Dictionaries,
+          }
         }
       }
       local default = { __index = function() return {} end }
