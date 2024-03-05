@@ -8,13 +8,15 @@ return {
         config = function()
           require("null-ls").setup({
             sources = {
-              -- python
-              require("null-ls").builtins.formatting.isort,
-              require("null-ls").builtins.formatting.black,
-              -- markdown
-              require("null-ls").builtins.formatting.mdformat,
               -- latex
               require("null-ls").builtins.formatting.latexindent,
+              -- lua
+              require("null-ls").builtins.formatting.stylua,
+              -- markdown
+              require("null-ls").builtins.formatting.mdformat,
+              -- python
+              require("null-ls").builtins.formatting.black,
+              require("null-ls").builtins.formatting.isort,
             }
           })
         end
@@ -28,6 +30,7 @@ return {
             "isort",
             "latexindent",
             "mdformat",
+            "stylua",
           }
         }
       }
