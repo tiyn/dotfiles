@@ -20,43 +20,43 @@ m.nname("<leader>s", "Substitute")
 m.nname("<leader>t", "Terminal")
 
 -- unmap unwanted commands
-m.nnoremap("Zt",  '<NOP>')
-m.nnoremap("ZT",  '<NOP>')
-m.nnoremap("<Space>",  '<NOP>')
-m.inoremap("<F2>",  '<NOP>')
-m.inoremap("<F3>",  '<NOP>')
-m.inoremap("<F4>",  '<NOP>')
-m.inoremap("<F5>",  '<NOP>')
-m.inoremap("<F6>",  '<NOP>')
-m.inoremap("<F8>",  '<NOP>')
-m.inoremap("<F9>",  '<NOP>')
-m.nnoremap("<F9>",  '<NOP>')
-m.inoremap("<F10>",  '<NOP>')
-m.nnoremap("<F10>",  '<NOP>')
-m.inoremap("<F11>",  '<NOP>')
-m.nnoremap("<F11>",  '<NOP>')
-m.inoremap("<F12>",  '<NOP>')
-m.nnoremap("<F12>",  '<NOP>')
+m.nnoremap("Zt", '<NOP>')
+m.nnoremap("ZT", '<NOP>')
+m.nnoremap("<Space>", '<NOP>')
+m.inoremap("<F2>", '<NOP>')
+m.inoremap("<F3>", '<NOP>')
+m.inoremap("<F4>", '<NOP>')
+m.inoremap("<F5>", '<NOP>')
+m.inoremap("<F6>", '<NOP>')
+m.inoremap("<F8>", '<NOP>')
+m.inoremap("<F9>", '<NOP>')
+m.nnoremap("<F9>", '<NOP>')
+m.inoremap("<F10>", '<NOP>')
+m.nnoremap("<F10>", '<NOP>')
+m.inoremap("<F11>", '<NOP>')
+m.nnoremap("<F11>", '<NOP>')
+m.inoremap("<F12>", '<NOP>')
+m.nnoremap("<F12>", '<NOP>')
 
 -- shortcut for split navigation
-m.nnoremap("<C-h>",  '<C-w>h', 'Navigation: go to left split')
-m.nnoremap("<C-j>",  '<C-w>j', 'Navigation: go to lower split')
-m.nnoremap("<C-k>",  '<C-w>k', 'Navigation: go to upper split')
-m.nnoremap("<C-l>",  '<C-w>l', 'Navigation: go to right split')
+m.nnoremap("<C-h>", '<C-w>h', 'Navigation: go to left split')
+m.nnoremap("<C-j>", '<C-w>j', 'Navigation: go to lower split')
+m.nnoremap("<C-k>", '<C-w>k', 'Navigation: go to upper split')
+m.nnoremap("<C-l>", '<C-w>l', 'Navigation: go to right split')
 
 -- remap for dealing with word wrap
 m.nmap('j', "v:count == 0 ? 'gj' : 'j'", { "expr", "silent" }, 'Navigation: go down in wrapped lines')
 m.nmap('k', "v:count == 0 ? 'gk' : 'k'", { "expr", "silent" }, 'Navigation: go up in wrapped lines')
 
 -- compiler for languages
-m.nnoremap("<leader>c",   ':w! | !compiler <c-r>%<CR>', 'Compile: current file')
+m.nnoremap("<leader>c", ':w! | !compiler <c-r>%<CR>', 'Compile: current file')
 
 -- save file as sudo on files that require root permission
-m.cnoremap("w!!",    'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', 'Write: overwrite file over with sudo')
+m.cnoremap("w!!", 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', 'Write: overwrite file over with sudo')
 
 -- tpope/vim-abolish
-m.nnoremap("<leader>sa",     ':%S//g<Left><Left>', 'Substitute: free form')
-m.nnoremap("<leader>ss",    ':%S/\\<<C-r><C-w>\\>//g<Left><Left>', 'Substitute: word under cursor')
+m.nnoremap("<leader>sa", ':%S//g<Left><Left>', 'Substitute: free form')
+m.nnoremap("<leader>ss", ':%S/\\<<C-r><C-w>\\>//g<Left><Left>', 'Substitute: word under cursor')
 
 -- stevearc/aerial.nvim
 m.nmap('<F3>', ':AerialToggle!<CR>', 'CTags: toggle')
@@ -98,10 +98,10 @@ m.nnoremap("<F8>", function() require("conform").format({ async = true, lsp_fall
 m.nnoremap("<F5>", require("renamer").rename, "LSP: rename")
 
 -- nvim-telescope/telescope.nvim
-m.nnoremap("<F4>",  ':Telescope find_files<CR>', "Telescope: find files")
+m.nnoremap("<F4>", ':Telescope find_files<CR>', "Telescope: find files")
 
 -- kamykn/spelunker.vim
-m.nnoremap("<F6>",  ':call spelunker#toggle()<CR>', "Spelling: toggle spell check")
+m.nnoremap("<F6>", ':call spelunker#toggle()<CR>', "Spelling: toggle spell check")
 
 -- kevinhwang91/nvim-ufo
 m.nnoremap("K", function()

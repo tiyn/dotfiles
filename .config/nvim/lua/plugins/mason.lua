@@ -13,6 +13,8 @@ return {
               require("null-ls").builtins.formatting.black,
               -- markdown
               require("null-ls").builtins.formatting.mdformat,
+              -- latex
+              require("null-ls").builtins.formatting.latexindent,
             }
           })
         end
@@ -22,7 +24,10 @@ return {
         opts = {
           automatic_installation = true,
           ensure_installed = {
-            "isort", "black", "mdformat"
+            "black",
+            "isort",
+            "latexindent",
+            "mdformat",
           }
         }
       }
