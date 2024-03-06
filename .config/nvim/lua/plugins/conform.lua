@@ -5,14 +5,17 @@ return {
     config = function()
       require("conform").setup({
         formatters_by_ft = {
-          python = { "isort", "black" },
+          python = { "isort", "yapf" },
           markdown = { "mdformat" },
           tex = { "latexindent" },
           lua = { "stylua" },
         },
       })
       require("conform").formatters.latexindent = {
-        prepend_args = { "-y=defaultIndent: '  '" },
+        args = require("conform.util").extend_args(
+          require("conform.formatters.latexindent").args,
+          { "-y=defaultIndent: '  '" }
+        ),
       }
     end,
   },

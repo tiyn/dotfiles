@@ -15,8 +15,8 @@ return {
               -- markdown
               require("null-ls").builtins.formatting.mdformat,
               -- python
-              require("null-ls").builtins.formatting.black,
               require("null-ls").builtins.formatting.isort,
+              require("null-ls").builtins.formatting.yapf,
             }
           })
         end
@@ -26,11 +26,15 @@ return {
         opts = {
           automatic_installation = true,
           ensure_installed = {
-            "black",
-            "isort",
+            -- latex
             "latexindent",
-            "mdformat",
+            -- lua
             "stylua",
+            -- markdown
+            "mdformat",
+            -- python
+            "isort",
+            "yapf",
           }
         }
       }
