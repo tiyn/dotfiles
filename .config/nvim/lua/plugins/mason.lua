@@ -17,6 +17,8 @@ return {
               -- python
               require("null-ls").builtins.formatting.isort,
               require("null-ls").builtins.formatting.yapf,
+              -- yaml
+              require("null-ls").builtins.formatting.yamlfmt,
             }
           })
         end
@@ -35,6 +37,8 @@ return {
             -- python
             "isort",
             "yapf",
+            -- yaml
+            "yamlfmt",
           }
         }
       }

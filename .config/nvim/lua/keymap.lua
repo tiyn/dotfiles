@@ -95,7 +95,7 @@ m.nnoremap("K", vim.lsp.buf.hover(), "LSP: show documentation")
 m.nnoremap("<F8>", function() require("conform").format({ async = true, lsp_fallback = true }) end, "LSP: format")
 
 -- filipdutescu/renamer.nvim
-m.nnoremap("<F5>", require("renamer").rename, "LSP: rename")
+m.nnoremap("<F5>", function() require("renamer").rename() end, "LSP: rename")
 
 -- nvim-telescope/telescope.nvim
 m.nnoremap("<F4>", ':Telescope find_files<CR>', "Telescope: find files")

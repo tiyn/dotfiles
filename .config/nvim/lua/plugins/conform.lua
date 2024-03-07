@@ -9,6 +9,7 @@ return {
           markdown = { "mdformat" },
           tex = { "latexindent" },
           lua = { "stylua" },
+          yaml = { "yamlfmt" },
         },
       })
       require("conform").formatters.latexindent = {
