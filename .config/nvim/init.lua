@@ -43,7 +43,7 @@ vim.o.relativenumber = true
 
 -- speedup vim with long lines
 vim.o.ttyfast = true
-vim.o.lazyredraw = true
+-- vim.o.lazyredraw = true
 
 -- decrease update time
 vim.o.updatetime = 250
