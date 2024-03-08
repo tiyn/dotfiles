@@ -2,6 +2,9 @@
 Return_sign = ""
 Space_sign = "·"
 
+Reference_sign = "%s"
+Definition_sign = ""
+
 Error_sign = " "
 Hack_sign = " "
 Hint_sign = " "

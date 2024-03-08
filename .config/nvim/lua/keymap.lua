@@ -68,6 +68,9 @@ m.nmap("<F2>", ':NvimTreeToggle toggle<CR>', 'File tree: toggle')
 -- mbbill/undotree
 m.nmap("<F1>", ':UndotreeToggle<CR>', 'Undo tree: toggle')
 
+-- amrbashir/nvim-docs-view
+m.nnoremap("go", ':DocsViewToggle<CR>', 'LSP: toggle documentation window')
+
 -- numtostr/fterm.nvim
 m.nnoremap("<leader>tt", require("FTerm").toggle, 'Terminal: open')
 m.tnoremap("<leader>tt", require("FTerm").toggle, 'Terminal: open')
