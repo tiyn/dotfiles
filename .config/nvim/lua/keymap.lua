@@ -12,6 +12,7 @@ local m = require 'mapx'.setup { global = true, whichkey = true }
 
 -- setup keymap groups
 m.nname("g", "LSP: goto")
+m.nname("gp", "LSP: preview")
 m.cname("w", "Write")
 m.cname("w!", "Write: overwrite")
 m.nname("<leader>g", "Git")
@@ -89,10 +90,18 @@ m.nmap("<leader>x", ":TroubleToggle<CR>", "LSP: toggle error list")
 m.nnoremap("gd", vim.lsp.buf.definition(), "LSP: goto definition")
 m.nnoremap("gD", vim.lsp.buf.declaration(), "LSP: goto declaration")
 m.nnoremap("gi", vim.lsp.buf.implementation(), "LSP: list implementation")
-m.nnoremap("gr", vim.lsp.buf.references(), "LSP: list references")
+m.nnoremap("gr", function() vim.lsp.buf.references() end, "LSP: list references")
 m.nnoremap("gy", vim.lsp.buf.type_definition(), "LSP: goto type definition")
 m.nnoremap("K", vim.lsp.buf.hover(), "LSP: show documentation")
 m.nnoremap("<F8>", function() require("conform").format({ async = true, lsp_fallback = true }) end, "LSP: format")
+
+-- rmagatti/goto-preview
+m.nnoremap("gpd", function() require('goto-preview').goto_preview_definition() end, "LSP: preview definition")
+m.nnoremap("gpy", function() require('goto-preview').goto_preview_type_definition() end, "LSP: preview type definition")
+m.nnoremap("gpi", function() require('goto-preview').goto_preview_implementation() end, "LSP: list preview implementation")
+m.nnoremap("gpD", function() require('goto-preview').goto_preview_declaration() end, "LSP: preview declaration")
+m.nnoremap("gpr", function() require('goto-preview').goto_preview_references() end, "LSP: list preview references")
+m.nnoremap("gpc", function() require('goto-preview').close_all_win() end, "LSP: close all preview windows")
 
 -- filipdutescu/renamer.nvim
 m.nnoremap("<F5>", function() require("renamer").rename() end, "LSP: rename")
