@@ -59,8 +59,8 @@ m.cnoremap("w!!", 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', 
 m.nnoremap("<leader>sa", ':%S//g<Left><Left>', 'Substitute: free form')
 m.nnoremap("<leader>ss", ':%S/\\<<C-r><C-w>\\>//g<Left><Left>', 'Substitute: word under cursor')
 
--- stevearc/aerial.nvim
-m.nmap('<F3>', ':AerialToggle!<CR>', 'CTags: toggle')
+-- simrat39/symbols-outline.nvim
+m.nmap('<F3>', ':SymbolsOutline<CR>', 'CTags: toggle')
 
 -- nvim-tree/nvim-tree.lua
 m.nmap("<F2>", ':NvimTreeToggle toggle<CR>', 'File tree: toggle')

@@ -1,65 +1,75 @@
 -- set signs for various uses
-Space_sign = "·"
 Return_sign = ""
+Space_sign = "·"
 
 Error_sign = " "
-Warn_sign = " "
-Info_sign = " "
-Hint_sign = " "
 Hack_sign = " "
-Todo_sign = " "
+Hint_sign = " "
+Info_sign = " "
 Perfect_sign = " "
 Test_sign = " "
+Todo_sign = " "
+Warn_sign = " "
 
 Menu_signs = {
-  nvim_lsp = "",
-  path = "",
   buffer = "",
   luasnip = "",
+  nvim_lsp = "",
+  path = "",
 }
 
 Lsp_signs = {
-  Text = "",
-  Method = "",
-  Function = "φ",
-  Constructor = "",
-  Field = "■",
-  Variable = "β",
+  Array = "",
+  Boolean = "⊥",
   Class = "",
+  Color = "",
+  Component = "",
+  Constant = "π",
+  Constructor = "",
+  Enum = "",
+  EnumMember = "",
+  Event = "",
+  Field = "■",
+  File = "",
+  Folder = "",
+  Fragment = "",
+  Function = "φ",
   Interface = "",
-  Module = "",
+  Keyword = "",
+  Method = "",
+  Module = "",
+  Namespace = "",
+  Null = "∅",
+  Number = "#",
+  Object = "",
+  Operator = "",
+  Package = "",
   Property = "",
+  Reference = "",
+  Snippet = "",
+  String = "",
+  Struct = "",
+  Text = "",
+  TypeParameter = "",
   Unit = "",
   Value = "",
-  Enum = "",
-  Keyword = "",
-  Snippet = "",
-  Color = "",
-  File = "",
-  Reference = "",
-  Folder = "",
-  EnumMember = "",
-  Constant = "π",
-  Struct = "",
-  Event = "",
-  Operator = "",
-  TypeParameter = ""
+  Variable = "β",
 }
 
 Install_signs = {
   package_installed = "",
   package_pending = "",
-  package_uninstalled = "✗"
+  package_uninstalled = "✗",
 }
 
 Git_signs = {
-  unstaged = "",
+  deleted = "",
+  ignored = "",
+  renamed = "",
   staged = "",
   unmerged = "",
-  renamed = "",
-  deleted = "",
+  unstaged = "",
   untracked = "",
-  ignored = "",
 }
 
 Lazy_signs = {
@@ -67,10 +77,16 @@ Lazy_signs = {
   config = " ",
   event = " ",
   ft = " ",
-  init = " ",
   import = " ",
+  init = " ",
   keys = " ",
   lazy = "󰒲 ",
+  list = {
+    "●",
+    "➜",
+    "",
+    "",
+  },
   loaded = " ",
   not_loaded = " ",
   plugin = " ",
@@ -78,19 +94,13 @@ Lazy_signs = {
   source = " ",
   start = " ",
   task = " ",
-  list = {
-    "●",
-    "➜",
-    "",
-    "",
-  }
 }
 
 Lualine_signs = {
-  modified = '',
-  readonly = '',
-  unnamed = '',
-  newfile = ''
+  modified = "",
+  newfile = "",
+  readonly = "",
+  unnamed = "",
 }
 
 vim.fn.sign_define(
@@ -112,7 +122,7 @@ vim.fn.sign_define(
 
 -- enable colorcolumn when textwidth is set
 vim.o.cursorline = true
-vim.opt_local.colorcolumn = '+' .. vim.fn.join(vim.fn.range(0,254), ',+')
+vim.opt_local.colorcolumn = "+" .. vim.fn.join(vim.fn.range(0, 254), ",+")
 -- alternatively highlight only one line for colorcolumn
 -- vim.o.colorcolumn = "-0"
 
