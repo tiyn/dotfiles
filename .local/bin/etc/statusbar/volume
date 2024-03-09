@@ -10,7 +10,7 @@ else
 	vol_info="^c#dfdfdf^  "
 fi
 
-$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\[MUTED\]') && vol_info="^c#ff0000^ "
+$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\[MUTED\]') && vol_info="^c#ff0000^  "
 
 if wpctl get-volume @DEFAULT_SOURCE@ | grep -q '\[MUTED\]'; then
 	mic="^c#ff0000^  "
