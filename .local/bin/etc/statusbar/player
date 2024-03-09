@@ -1,0 +1,38 @@
+#!/bin/sh
+
+playerctlstatus=$(playerctl status 2> /dev/null)
+track="$(playerctl metadata "xesam:artist") - $(playerctl metadata "xesam:title")"
+track=$(echo "$track" | cut -c1-40)
+loop=$(playerctl loop)
+shuffle=$(playerctl shuffle)
+
+if [ "$loop" = "Playlist" ]
+then
+    loop_icon="^b#282828^^c#dfdfdf^  ^d^"
+elif [ "$loop" = "Track" ]
+then
+    loop_icon="^b#282828^^c#dfdfdf^  ^d^"
+elif [ "$loop" = "None" ]
+then
+    loop_icon="^b#282828^^c#dfdfdf^  ^d^"
+fi
+
+if [ "$shuffle" = "Off" ]
+then
+    shuffle_icon="^b#282828^^c#dfdfdf^  ^d^"
+elif [ "$shuffle" = "On" ]
+then
+    shuffle_icon="^b#282828^^c#dfdfdf^  ^d^"
+fi
+
+
+if [ "$playerctlstatus" = "" ]
+then
+    echo ""
+elif [ "$playerctlstatus" = "Playing" ]
+then
+    echo "$track ^b#282828^^c#dfdfdf^ ▶️ ^d^ $loop_icon $shuffle_icon"
+elif [ "$playerctlstatus" = "Paused" ]
+then
+    echo "^b#282828^^c#dfdfdf^  ^d^ $loop_icon $shuffle_icon"
+fi

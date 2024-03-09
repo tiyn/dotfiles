@@ -3,19 +3,19 @@
 vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}' | sed -e 's/\.//g' | sed 's/^0*//')"
 
 if [ "$vol" -eq "0" ]; then
-	vol_info="^c#dfdfdf^ ^d^"
+	vol_info="^b#282828^^c#dfdfdf^  ^d^"
 elif [ "$vol" -gt "70" ]; then
-	vol_info="^c#dfdfdf^ ^d^"
+	vol_info="^b#282828^^c#dfdfdf^  ^d^"
 else
-	vol_info="^c#dfdfdf^ ^d^"
+	vol_info="^b#282828^^c#dfdfdf^  ^d^"
 fi
 
 $(wpctl get-volume @DEFAULT_AUDIO_SINK@ | grep -q '\[MUTED\]') && vol_info="^c#ff0000^ ^d^"
 
 if wpctl get-volume @DEFAULT_SOURCE@ | grep -q '\[MUTED\]'; then
-	mic="^b#282828^^c#ff0000^  "
+	mic="^b#282828^^c#ff0000^  ^d^"
 else
-	mic="^b#282828^^c#dfdfdf^  "
+	mic="^b#282828^^c#dfdfdf^  ^d^"
 fi
 
 vol=$(printf %3s $vol | tr ' ' ' ')

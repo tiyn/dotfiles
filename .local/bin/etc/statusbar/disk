@@ -3,9 +3,21 @@
 # Status bar module for disk space
 # $1 should be drive mountpoint
 
-disk="/"
+disk="/home"
 [ ! -z "$1" ] && disk="$1"
 
 icon="$disk"
 
-printf "^b#282828^^c#dfdfdf^ 󰗮 ^d^ %s\n" "$(df -h "$disk" | awk ' /[0-9]/ {print $3 "/" $2}')"
+free=$(df "$disk" | awk ' /[0-9][0-9]/ {print $4}')
+
+if [ $free -gt 104857600 ]
+then
+    icon="^b#282828^^c#dfdfdf^ 󰗮 ^d^"
+elif [ $free -gt 52428800 ]
+then
+    icon="^b#282828^^c#ffff00^ 󰗮 ^d^"
+else
+    icon="^b#282828^^c#ff0000^ 󰗮 ^d^"
+fi
+
+printf "$icon %s"

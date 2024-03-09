@@ -12,6 +12,11 @@ case "$1" in
         undeaf) wpctl set-mute @DEFAULT_SINK@ 0;;
         mute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1;;
         unmute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0;;
+        previous) playerctl previous;;
+        playpause) playerctl play-pause;;
+        next) playerctl next;;
+        shuffle) playerctl shuffle toggle;;
+        loop) playerctl loop none;;
 	*) cat << EOF
 lmc: cli music interface for pulse for those with divine intellect too
 grand to remember the pamixer commands.
@@ -23,8 +28,12 @@ Allowed options:
   unmute        unmute microphone
   deaf          deaf sound
   undeaf        undeaf sound
+  previous      play previous song in player
+  playpause     toggle play or pause in player
+  next          play next song in player
   all else	Print this message
 
 EOF
 esac
 pkill -RTMIN+4 $STATUSBAR
+sleep 1 && pkill -RTMIN+9 $STATUSBAR

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-icon="^b#282828^^c#dfdfdf^  ^d^"
+icon="^b#282828^^c#dfdfdf^  ^d^"
 
 temp=""
 
@@ -12,4 +12,14 @@ else
     return
 fi
 
-echo "$icon $temp°C"
+if [ $temp -gt 100 ]
+then
+    icon="^b#282828^^c#ff0000^  ^d^"
+elif [ $temp -gt 80 ]
+then
+    icon="^b#282828^^c#ffff00^  ^d^"
+else
+    icon="^b#282828^^c#dfdfdf^  ^d^"
+fi
+
+echo "$icon"

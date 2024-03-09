@@ -11,11 +11,15 @@ super + r
         dmenu_run -F -i -c -l 20
 
 super + a
-        playerctl previous
+        lmc previous
 super + s
-        playerctl play-pause
+        lmc playpause
 super + d
-        playerctl next
+        lmc next
+super + c
+        lmc loop
+super + x
+        lmc shuffle
 super + f
         $TERMINAL -e $FILE
 

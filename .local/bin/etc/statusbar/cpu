@@ -2,8 +2,6 @@
 
 model=$(cat /proc/cpuinfo | grep "model name" | head -n1)
 
-icon="^b#282828^^c#dfdfdf^  ^d^"
-
 if printf "$model " | grep -Fqe "AMD"; then
     temp=$(sensors | awk '/Tctl/ {print  $2}')
 else
@@ -12,4 +10,14 @@ fi
 
 temp=$(printf %3s $(echo ${temp##*+} | sed "s/\..*//") | tr ' ' ' ')
 
-echo "$icon $temp°C"
+if [ $temp -gt 100 ]
+then
+    icon="^b#282828^^c#ff0000^  ^d^"
+elif [ $temp -gt 80 ]
+then
+    icon="^b#282828^^c#ffff00^  ^d^"
+else
+    icon="^b#282828^^c#dfdfdf^  ^d^"
+fi
+
+echo "$icon"
