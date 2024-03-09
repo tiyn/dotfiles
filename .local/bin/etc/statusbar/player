@@ -8,21 +8,21 @@ shuffle=$(playerctl shuffle)
 
 if [ "$loop" = "Playlist" ]
 then
-    loop_icon="^b#282828^^c#dfdfdf^  ^d^"
+    loop_icon=""
 elif [ "$loop" = "Track" ]
 then
-    loop_icon="^b#282828^^c#dfdfdf^  ^d^"
+    loop_icon=""
 elif [ "$loop" = "None" ]
 then
-    loop_icon="^b#282828^^c#dfdfdf^  ^d^"
+    loop_icon=""
 fi
 
 if [ "$shuffle" = "Off" ]
 then
-    shuffle_icon="^b#282828^^c#dfdfdf^  ^d^"
+    shuffle_icon=""
 elif [ "$shuffle" = "On" ]
 then
-    shuffle_icon="^b#282828^^c#dfdfdf^  ^d^"
+    shuffle_icon=""
 fi
 
 
@@ -31,8 +31,8 @@ then
     echo ""
 elif [ "$playerctlstatus" = "Playing" ]
 then
-    echo "$track ^b#282828^^c#dfdfdf^ ▶️ ^d^ $loop_icon $shuffle_icon"
+    echo "$track ^b#282828^^c#dfdfdf^ ▶️  $loop_icon  $shuffle_icon ^d^"
 elif [ "$playerctlstatus" = "Paused" ]
 then
-    echo "^b#282828^^c#dfdfdf^  ^d^ $loop_icon $shuffle_icon"
+    echo "^b#282828^^c#dfdfdf^   $loop_icon  $shuffle_icon ^d^"
 fi

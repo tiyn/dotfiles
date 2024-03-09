@@ -2,7 +2,7 @@
 
 wifipercent="   0"
 
-[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^" && wifistatus="down"
+[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ " && wifistatus="down"
 
 [ ! -n "${wifiicon+var}" ] && wifistatus="up" && wifipercent=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
@@ -12,14 +12,14 @@ if [ $wifistatus = "up" ]
 then
     if [ $wifipercent -gt 75 ]
     then
-        wifiicon="^b#282828^^c#dfdfdf^  ^d^"
+        wifiicon=" ^d^"
     elif [ $wifipercent -gt 40 ]
     then
-        wifiicon="^b#282828^^c#ffff00^  ^d^"
+        wifiicon=" ^d^"
     else
-        wifiicon="^b#282828^^c#ff0000^  ^d^"
+        wifiicon=" ^d^"
     fi
 fi
 
 
-echo "$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  ^d^/;s/up/^b#282828^^c#dfdfdf^ 󰈀 ^d^/")" "$wifiicon"
+echo "$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /")" "$wifiicon"
