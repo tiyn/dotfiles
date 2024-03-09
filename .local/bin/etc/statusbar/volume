@@ -19,4 +19,4 @@ else
 fi
 
 vol=$(printf %3s $vol | tr ' ' ' ')
-printf "^b#282828^%s%s^d^ %s %s" "$mic" "$vol_info" "$vol%"
+printf "^b#282828^%s%s^d^ %s" "$mic" "$vol_info" "$vol%"
