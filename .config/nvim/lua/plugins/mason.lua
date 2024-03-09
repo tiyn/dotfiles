@@ -9,7 +9,7 @@ return {
           require("null-ls").setup({
             sources = {
               -- latex
-              require("null-ls").builtins.formatting.latexindent,
+              -- require("null-ls").builtins.formatting.latexindent,
               -- lua
               require("null-ls").builtins.formatting.stylua,
               -- markdown
@@ -17,6 +17,8 @@ return {
               -- python
               require("null-ls").builtins.formatting.isort,
               require("null-ls").builtins.formatting.yapf,
+              -- shell
+              -- require("null-ls").builtins.formatting.beautysh,
               -- yaml
               require("null-ls").builtins.formatting.yamlfmt,
             }
@@ -37,6 +39,8 @@ return {
             -- python
             "isort",
             "yapf",
+            -- shell
+            "beautysh",
             -- yaml
             "yamlfmt",
           }

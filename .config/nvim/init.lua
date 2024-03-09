@@ -1,4 +1,4 @@
-vim.o.go = 'a'
+vim.o.go = "a"
 vim.o.showmode = false
 
 -- disable netrw
@@ -6,11 +6,11 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 -- enable mouse for all modes
-vim.o.mouse = 'a'
-vim.o.clipboard = 'unnamedplus'
+vim.o.mouse = "a"
+vim.o.clipboard = "unnamedplus"
 
 -- basic color settings
-vim.o.background = 'dark'
+vim.o.background = "dark"
 
 -- setting Tab-length
 vim.o.expandtab = true
@@ -61,10 +61,10 @@ vim.o.nobackup = true
 vim.o.nowritebackup = true
 
 -- set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.o.completeopt = "menuone,noselect"
 
 -- set completion option for command mode
-vim.o.wildmode = 'longest:full,full'
+vim.o.wildmode = "longest:full,full"
 
 -- minimum number of lines around the cursor
 vim.o.scrolloff = 10
@@ -78,14 +78,14 @@ vim.o.undofile = true
 vim.o.undodir = vim.env.XDG_CACHE_HOME .. "/vim/undo"
 
 -- python programs to use
-vim.g.python_host_prog = '/usr/bin/python2'
-vim.g.python3_host_prog = '/usr/bin/python3'
+vim.g.python_host_prog = "/usr/bin/python2"
+vim.g.python3_host_prog = "/usr/bin/python3"
 
 -- folding
-vim.o.foldcolumn = '0'
+vim.o.foldcolumn = "0"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
-vim.o.foldexpr = 'expr'
+vim.o.foldexpr = "expr"
 vim.o.foldenable = true
 vim.o.conceallevel = 0
 vim.g.markdown_folding = 1
@@ -98,34 +98,35 @@ vim.o.textwidth = 80
 -- read files correctly
 vim.filetype.add({
   extension = {
-    c = 'c',
-    h = 'c',
-    html = 'html',
-    java = 'java',
-    js = 'javascript',
-    lua = 'lua',
-    md = 'markdown',
-    nim = 'nim',
-    py = 'python',
-    sage = 'python',
-    tex = 'tex',
-  }
+    c = "c",
+    h = "c",
+    html = "html",
+    java = "java",
+    js = "javascript",
+    lua = "lua",
+    md = "markdown",
+    nim = "nim",
+    py = "python",
+    sage = "python",
+    sh = "shell",
+    tex = "tex",
+  },
 })
 
 -- set mapleader for hotkeys
 vim.g.mapleader = ","
 
 -- load general mapped keys
-require('style')
+require("style")
 
 -- load dictionaries and helper functions
-require('dictionaries')
+require("dictionaries")
 
 -- load plugins (autoload all files in plugin folder)
-require('loadplugins')
+require("loadplugins")
 
 -- load general mapped keys
-require('keymap')
+require("keymap")
 
 vim.cmd([[
 set foldopen-=hor
