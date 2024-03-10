@@ -14,12 +14,12 @@ fi
 
 if [ $temp -gt 100 ]
 then
-    icon="^b#282828^^c#ff0000^  ^d^"
+    icon="^b#282828^^c#ff0000^ "
 elif [ $temp -gt 80 ]
 then
-    icon="^b#282828^^c#ffff00^  ^d^"
+    icon="^b#282828^^c#ffff00^ "
 else
-    icon="^b#282828^^c#dfdfdf^  ^d^"
+    icon="^b#282828^^c#dfdfdf^ "
 fi
 
 echo "$icon"
