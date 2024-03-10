@@ -2,10 +2,12 @@
 
 vol="$(wpctl get-volume @DEFAULT_AUDIO_SINK@ | awk '{print $2}' | sed -e 's/\.//g' | sed 's/^0*//')"
 
-if [ "$vol" -eq "0" ]; then
-	vol_info="^c#dfdfdf^  "
+if [ "$vol" -gt "100" ]; then
+	vol_info="^c#ffff00^  "
 elif [ "$vol" -gt "70" ]; then
 	vol_info="^c#dfdfdf^  "
+elif [ "$vol" -eq "0" ]; then
+	vol_info="^c#dfdfdf^  "
 else
 	vol_info="^c#dfdfdf^  "
 fi
@@ -19,4 +21,4 @@ else
 fi
 
 vol=$(printf %3s $vol | tr ' ' ' ')
-printf "^b#282828^%s%s^d^ %s" "$mic" "$vol_info" "$vol%"
+printf "^b#282828^%s%s^d^" "$mic" "$vol_info"
