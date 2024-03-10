@@ -12,12 +12,12 @@ if [ $wifistatus = "up" ]
 then
     if [ $wifipercent -gt 75 ]
     then
-        wifiicon=" ^d^"
+        wifiicon="^c#dfdfdf^ ^d^"
     elif [ $wifipercent -gt 40 ]
     then
-        wifiicon=" ^d^"
+        wifiicon="^c#ffff00^ ^d^"
     else
-        wifiicon=" ^d^"
+        wifiicon="^c#ff0000^ ^d^"
     fi
 fi
 
