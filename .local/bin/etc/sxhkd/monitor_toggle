@@ -8,4 +8,4 @@ extern=HDMI2
 (xrandr | grep "$extern disconnected")
 (xrandr --listactivemonitors | grep $extern) || ((xrandr --output $extern --right-of $intern --auto && setbg) & exit)
 (xrandr --listactivemonitors | grep $extern) && xrandr --output $extern --off
-setbg
+background_set

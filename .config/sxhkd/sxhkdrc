@@ -29,12 +29,12 @@ super + m
         thunderbird
 
 super + bracketright
-        mic_toggle
+        lmc mute_toggle
 super + backslash
-        sound_toggle
+        lmc deaf_toggle
 
 super + shift + l
-        change_keymap
+        keymap_toggle
 
 super + shift + r
         pkill -usr1 -x sxhkd ; notify-send -u low 'SXHKD' 'Reloaded config'
@@ -43,7 +43,7 @@ super + Return
         $TERMINAL
 
 Print
-        screenshotmenu
+        screenshot_menu
 
 super + shift + space
         dunstctl close-all
@@ -53,9 +53,9 @@ super + F5
 super + F6
         touchpad_toggle
 super + F7
-        dmenumount
+        mount_menu
 super + F8
-        dmenuumount
+        umount_menu
 super + F9
         sudo -A systemctl restart NetworkManager ; notify-send -u low 'Network' 'Restartet NM'
 super + F10
@@ -66,9 +66,9 @@ super + F12
         prompt "Reboot computer?" "sudo -A reboot now"
 
 XF86AudioMute
-        sound_toggle
+        lmc deaf_toggle
 XF86AudioMicMute
-        mic_toggle
+        lmc mute_toggle
 XF86AudioLowerVolume
         lmc down
 XF86AudioRaiseVolume

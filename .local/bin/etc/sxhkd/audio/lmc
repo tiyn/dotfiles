@@ -2,38 +2,75 @@
 
 # A general audio interface for LARBS.
 # Based on a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+# Heavily extended and updated to a pipewire system
 
 [ -z "$2" ] && num="5" || num="$2"
 
 case "$1" in
-	up) wpctl set-volume @DEFAULT_AUDIO_SINK@ "$num"%+ ;;
-        down) wpctl set-volume @DEFAULT_AUDIO_SINK@ "$num"%- ;;
-        deaf) wpctl set-mute @DEFAULT_SINK@ 1;;
-        undeaf) wpctl set-mute @DEFAULT_SINK@ 0;;
-        mute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1;;
-        unmute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0;;
-        previous) playerctl previous;;
-        playpause) playerctl play-pause;;
-        next) playerctl next;;
-        shuffle) playerctl shuffle toggle;;
-        loop) playerctl loop none;;
-	*) cat << EOF
+  up) wpctl set-volume @DEFAULT_AUDIO_SINK@ "$num"%+
+    pkill -RTMIN+4 $STATUSBAR ;;
+  down) wpctl set-volume @DEFAULT_AUDIO_SINK@ "$num"%-
+    pkill -RTMIN+4 $STATUSBAR ;;
+  deaf) wpctl set-mute @DEFAULT_SINK@ 1
+    pkill -RTMIN+4 $STATUSBAR ;;
+  undeaf) wpctl set-mute @DEFAULT_SINK@ 0
+    pkill -RTMIN+4 $STATUSBAR ;;
+  mute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1
+    pkill -RTMIN+4 $STATUSBAR ;;
+  unmute) wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 0
+    pkill -RTMIN+4 $STATUSBAR ;;
+  deaf_toggle)
+    if amixer get Master | tail -2 | grep -q '\[on\]'; then
+      notify-send -u low 'sxhkd' 'Sound muted\nMicrophone muted'
+      lmc mute
+      lmc deaf
+    else
+      lmc mute
+      lmc undeaf
+      paplay ~/.local/bin/etc/sxhkd/audio/sound_resumed.wav
+    fi ;;
+  mute_toggle)
+    if amixer get Capture | tail -2 | grep -q '\[on\]'; then
+      lmc mute
+      lmc undeaf
+      paplay ~/.local/bin/etc/sxhkd/audio/mic_muted.wav
+    else
+      lmc unmute
+      lmc undeaf
+      paplay ~/.local/bin/etc/sxhkd/audio/mic_activated.wav
+    fi ;;
+  previous) playerctl previous
+    sleep 1
+    pkill -RTMIN+9 $STATUSBAR ;;
+  playpause) playerctl play-pause
+    sleep 1
+    pkill -RTMIN+9 $STATUSBAR ;;
+  next) playerctl next
+    sleep 1
+    pkill -RTMIN+9 $STATUSBAR ;;
+  shuffle) playerctl shuffle toggle
+    sleep 1
+    pkill -RTMIN+9 $STATUSBAR ;;
+  loop) playerctl loop none
+    sleep 1
+    pkill -RTMIN+9 $STATUSBAR ;;
+  *) cat << EOF
 lmc: cli music interface for pulse for those with divine intellect too
 grand to remember the pamixer commands.
 
 Allowed options:
   up NUM	Increase volume (5% default)
   down NUM	Decrease volume (5% default)
-  mute          mute microphone
-  unmute        unmute microphone
-  deaf          deaf sound
-  undeaf        undeaf sound
-  previous      play previous song in player
-  playpause     toggle play or pause in player
-  next          play next song in player
+  mute          Mute microphone
+  unmute        Unmute microphone
+  deaf          Deaf sound
+  undeaf        Undeaf sound
+  deaf_toggle    Toggle between deaf and undeaf
+  mute_toggle    Toggle between mute and unmute
+  previous      Play previous song in player
+  playpause     Toggle play or pause in player
+  next          Play next song in player
   all else	Print this message
 
 EOF
 esac
-pkill -RTMIN+4 $STATUSBAR
-sleep 1 && pkill -RTMIN+9 $STATUSBAR
