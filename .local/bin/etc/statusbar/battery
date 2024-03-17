@@ -16,20 +16,45 @@ if [ "$status" = "Discharging" ] && [ $capacity -le 15 ] ; then
         notify-send -u critical "Battery" "Below 15%"
 fi
 
+if [ $capacity -gt 40 ]
+then
+    color="^b#282828^^c#dfdfdf^"
+elif [ $capacity -gt 20 ]
+then
+    color="^b#282828^^c#ffff00^"
+else
+    color="^b#282828^^c#ff0000^"
+fi
+
 case "$status" in
     "Discharging")
-        icon="^b#282828^^c#dfdfdf^  ^d^";;
+        if [ $capacity -gt 75 ]
+        then
+            icon=""
+        elif [ $capacity -gt 60 ]
+        then
+            icon=""
+        elif [ $capacity -gt 40 ]
+        then
+            icon=""
+        elif [ $capacity -gt 20 ]
+        then
+            icon=""
+        else
+            icon=""
+        fi
+        ;;
     "Not charging")
-        icon="^b#282828^^c#dfdfdf^  ^d^";;
+        icon="";;
     "Charging")
-        icon="^b#282828^^c#dfdfdf^  ^d^";;
+        icon="";;
     "Unknown")
-        icon="^b#282828^^c#dfdfdf^  ^d^";;
+        icon="";;
     "Full")
-        icon="^b#282828^^c#dfdfdf^ ⚡ ^d^";;
+        icon="⚡";;
 esac
 
 capacity=$(echo "$capacity" | sed -e 's/$//')
 capacity=$(printf %3s $capacity | tr ' ' ' ')
 
-echo "$icon $capacity%"
+echo "$color $icon ^d^"
