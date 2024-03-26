@@ -19,6 +19,7 @@ m.nname("<leader>g", "Git")
 m.nname("<leader>gd", "Git: diff")
 m.nname("<leader>s", "Substitute")
 m.nname("<leader>t", "Terminal")
+m.nname("<C-W>", "Navigation")
 
 -- unmap unwanted commands
 m.nnoremap("Zt", '<NOP>')
@@ -40,10 +41,10 @@ m.inoremap("<F12>", '<NOP>')
 m.nnoremap("<F12>", '<NOP>')
 
 -- shortcut for split navigation
-m.nnoremap("<C-h>", '<C-w>h', 'Navigation: go to left split')
-m.nnoremap("<C-j>", '<C-w>j', 'Navigation: go to lower split')
-m.nnoremap("<C-k>", '<C-w>k', 'Navigation: go to upper split')
-m.nnoremap("<C-l>", '<C-w>l', 'Navigation: go to right split')
+m.nnoremap("<C-h>", '<C-w>h', 'Navigation: go to left window')
+m.nnoremap("<C-j>", '<C-w>j', 'Navigation: go to lower window')
+m.nnoremap("<C-k>", '<C-w>k', 'Navigation: go to upper window')
+m.nnoremap("<C-l>", '<C-w>l', 'Navigation: go to right window')
 
 -- remap for dealing with word wrap
 m.nmap('j', "v:count == 0 ? 'gj' : 'j'", { "expr", "silent" }, 'Navigation: go down in wrapped lines')
@@ -128,3 +129,6 @@ m.nnoremap("n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require(
   'silent', "Search: search forward")
 m.nnoremap("N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
   'silent', "Search: search backwards")
+
+-- sindrets/winshift.nvim
+m.nnoremap("<C-W>m", ":WinShift<CR>", "Navigation: enter window shift mode")
