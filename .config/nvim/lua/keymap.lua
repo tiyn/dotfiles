@@ -132,3 +132,8 @@ m.nnoremap("N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require(
 
 -- sindrets/winshift.nvim
 m.nnoremap("<C-W>m", ":WinShift<CR>", "Navigation: enter window shift mode")
+
+-- ggandor/leap.nvim
+m.nnoremap("s", "<Plug>(leap-forward)", "Navigation: enter leap mode for forward movement")
+m.nnoremap("S", "<Plug>(leap-backward)", "Navigation: enter leap mode for backwards movement")
+m.nnoremap("gs", "<Plug>(leap-from-window", "Navigation: enter leap mode for other windows")
