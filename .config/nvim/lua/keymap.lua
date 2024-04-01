@@ -16,7 +16,6 @@ m.nname("<C-W>", "Navigation")
 -- unmap unwanted commands
 m.nnoremap("Zt", '<NOP>')
 m.nnoremap("ZT", '<NOP>')
-m.nnoremap("ZQ", '<NOP>')
 m.nnoremap("<Space>", '<NOP>')
 m.inoremap("<F2>", '<NOP>')
 m.inoremap("<F3>", '<NOP>')
