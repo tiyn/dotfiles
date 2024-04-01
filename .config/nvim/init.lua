@@ -125,6 +125,9 @@ require("dictionaries")
 -- load plugins (autoload all files in plugin folder)
 require("loadplugins")
 
+-- load commands to be run automatically
+require("autocmd")
+
 -- load general mapped keys
 require("keymap")
 
@@ -132,3 +135,6 @@ vim.cmd([[
 set foldopen-=hor
 set foldclose-=hor
 ]])
+
+-- Save localoptions to session file
+vim.opt.sessionoptions:append("localoptions")

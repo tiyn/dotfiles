@@ -1,12 +1,3 @@
--- highlighting yanked regions
-local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
-vim.api.nvim_create_autocmd('TextYankPost', {
-  callback = function()
-    vim.highlight.on_yank()
-  end,
-  group = highlight_group,
-})
-
 -- setup keymap function
 local m = require 'mapx'.setup { global = true, whichkey = true }
 
@@ -16,6 +7,7 @@ m.nname("gp", "LSP: preview")
 m.cname("w", "Write")
 m.cname("w!", "Write: overwrite")
 m.nname("<leader>g", "Git")
+m.nname("<leader>f", "Telescope: find ...")
 m.nname("<leader>gd", "Git: diff")
 m.nname("<leader>s", "Substitute")
 m.nname("<leader>t", "Terminal")
@@ -112,6 +104,7 @@ m.nnoremap("<F5>", function() require("renamer").rename() end, "LSP: rename")
 
 -- nvim-telescope/telescope.nvim
 m.nnoremap("<F4>", ':Telescope find_files<CR>', "Telescope: find files")
+m.nnoremap("<leader>ff", ':Telescope find_files<CR>', "Telescope: find files")
 
 -- kamykn/spelunker.vim
 m.nnoremap("<F6>", ':call spelunker#toggle()<CR>', "Spelling: toggle spell check")
@@ -137,3 +130,6 @@ m.nnoremap("<C-W>m", ":WinShift<CR>", "Navigation: enter window shift mode")
 m.nnoremap("s", "<Plug>(leap-forward)", "Navigation: enter leap mode for forward movement")
 m.nnoremap("S", "<Plug>(leap-backward)", "Navigation: enter leap mode for backwards movement")
 m.nnoremap("gs", "<Plug>(leap-from-window", "Navigation: enter leap mode for other windows")
+
+-- gnikdroy/projections.nvim
+m.nnoremap("<leader>fp", function() vim.cmd("Telescope projections") end, "Telescope: find projects")
