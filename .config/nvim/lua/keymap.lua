@@ -34,9 +34,9 @@ m.inoremap("<F12>", '<NOP>')
 m.nnoremap("<F12>", '<NOP>')
 
 -- shortcuts for quitting
+m.nnoremap("ZA", ':xa<CR>', 'Exit: write and quit all buffers')
 m.nnoremap("ZQ", ':conf q<CR>', 'Exit: quit current buffer')
 m.nnoremap("ZZ", ':x<CR>', 'Exit: write and quit current buffer')
-m.nnoremap("ZA", ':conf xa<CR>', 'Exit: write and quit all buffers')
 
 -- shortcut for split navigation
 m.nnoremap("<C-h>", '<C-w>h', 'Navigation: go to left window')
