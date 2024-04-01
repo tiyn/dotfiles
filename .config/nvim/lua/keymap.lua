@@ -16,6 +16,7 @@ m.nname("<C-W>", "Navigation")
 -- unmap unwanted commands
 m.nnoremap("Zt", '<NOP>')
 m.nnoremap("ZT", '<NOP>')
+m.nnoremap("ZQ", '<NOP>')
 m.nnoremap("<Space>", '<NOP>')
 m.inoremap("<F2>", '<NOP>')
 m.inoremap("<F3>", '<NOP>')
@@ -31,6 +32,10 @@ m.inoremap("<F11>", '<NOP>')
 m.nnoremap("<F11>", '<NOP>')
 m.inoremap("<F12>", '<NOP>')
 m.nnoremap("<F12>", '<NOP>')
+
+-- shortcuts for quitting
+m.nnoremap("ZZ", ':x<CR>', 'Exit: write and quit current buffer')
+m.nnoremap("ZA", ':conf xa<CR>', 'Exit: write and quit all buffers')
 
 -- shortcut for split navigation
 m.nnoremap("<C-h>", '<C-w>h', 'Navigation: go to left window')
