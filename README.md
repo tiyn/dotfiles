@@ -27,7 +27,7 @@ xargs -I{} mv {} .config-backup/{}
 - ignore untracked files: `config config --local status.showUntrackedFiles no`
 - pull current setup: `config pull`
 - finish setup for vim:
-  - open vim and run `:PackerCompile`, and `:PackerInstall`
+  - open vim
 
 The step containing commenting out is needed because the colorscheme has
 problems being not available and disrupts the further process of the plugin
