@@ -32,6 +32,8 @@ super + bracketright
         lmc mute_toggle
 super + backslash
         lmc deaf_toggle
+super + bracketleft
+        dnd toggle
 
 super + shift + l
         keymap_toggle

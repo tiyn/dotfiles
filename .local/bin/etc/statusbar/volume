@@ -20,5 +20,11 @@ else
 	mic="^c#dfdfdf^  "
 fi
 
+if [ -f ~/.local/state/dnd_mode.lock ]; then
+    notifications="^c#ff0000^  "
+else
+    notifications="^c#dfdfdf^  "
+fi
+
 vol=$(printf %3s $vol | tr ' ' ' ')
-printf "^b#282828^%s%s^d^" "$mic" "$vol_info"
+printf "^b#282828^%s%s%s^d^" "$mic" "$vol_info" "$notifications"

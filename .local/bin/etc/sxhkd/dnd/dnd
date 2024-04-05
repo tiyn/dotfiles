@@ -1,0 +1,42 @@
+#!/bin/sh
+
+# Script to easily manage a do not disturb mode for dunst
+
+case "$1" in
+  start)
+    # notify-send -u low "dunst" "Do not disturb started"
+    dunstctl history-clear
+    dunstctl rule dnd_low enable
+    dunstctl rule dnd_normal enable
+    dunstctl rule sound_normal disable
+    touch ~/.local/state/dnd_mode.lock
+    pkill -RTMIN+4 $STATUSBAR
+    paplay ~/.local/bin/etc/sxhkd/dnd/notifications_disabled.mp3 ;;
+  stop)
+    # notify-send -u low "dunst" "Do not disturb stopped"
+    dunstctl rule dnd_low disable
+    dunstctl rule dnd_normal disable
+    dunstctl rule sound_normal enable
+    hist_size=$(dunstctl history | jq '.data[0] | length')
+    for i in `seq $hist_size`; do
+      dunstctl history-pop
+    done
+    rm ~/.local/state/dnd_mode.lock
+    pkill -RTMIN+4 $STATUSBAR
+    paplay ~/.local/bin/etc/sxhkd/dnd/notifications_enabled.mp3 ;;
+  toggle)
+    if [ -f ~/.local/state/dnd_mode.lock ]; then
+      dnd stop
+    else
+      dnd start
+    fi ;;
+  *) cat << EOF
+dnd: dunst interface to manage a do-not-disturb-mode.
+
+Allowed options:
+  start         Enable do-not-disturb-mode
+  stop          Disable do-not-disturb-mode
+  toggle        Toggle sound
+
+EOF
+esac
