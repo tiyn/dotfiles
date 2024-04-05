@@ -48,31 +48,41 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 
 | ModKey | Shift | Key               | Function                                                  |
 | ------ | ----- | ----------------- | --------------------------------------------------------- |
-| Super  |       | b                 | Spawn browser                                             |
-| Super  |       | f                 | Spawn filemanager                                         |
-| Super  |       | i                 | (gpu-screen-record) stop recording                        |
-| Super  |       | m                 | Spawn thunderbird                                         |
-| Super  |       | o                 | (gpu-screen-record) start replay                          |
-| Super  |       | p                 | (gpu-screen-record) save replay                           |
-| Super  |       | u                 | (gpu-screen-record) start recording                       |
-| Super  |       | r                 | (dmenu) dmenu\_run                                        |
-| Super  | Shift | x                 | Restart sxkd                                              |
-| Super  |       | F5                | Enable 2 Screen Monitor                                   |
-| Super  |       | F6                | Toggle touchpad                                           |
-| Super  |       | F7                | (dmenu) Mounting drives                                   |
-| Super  |       | F8                | (dmenu) Unmounting drives                                 |
-| Super  |       | F9                | Restart NetworkManager                                    |
-| Super  |       | F10               | (dmenu) Prompt, if yes: slock                             |
-| Super  |       | F11               | (dmenu) Prompt, if yes: reboot                            |
-| Super  |       | F12               | (dmenu) Prompt, if yes: shutdown                          |
-| Super  |       | Print             | (dmenu) Prompt to take a screenshot                       |
-| Super  |       | Return            | Spawn terminal                                            |
-|        |       | AudioMute         | Volume mute                                               |
-|        |       | AudioMicMute      | Mic Mute                                                  |
-|        |       | AudioLowerVolume  | Volume lower                                              |
-|        |       | AudioRaiseVolume  | Volume raise                                              |
-|        |       | MonBrightnessDown | Brightness decrease                                       |
-|        |       | MonBrightnessUp   | Brightness increase                                       |
+| Super  |       | a                 | (sounds) Previous song                                    |
+| Super  |       | b                 | (program) Spawn browser                                   |
+| Super  |       | c                 | (sounds) Toggle looping of songs                          |
+| Super  |       | d                 | (sounds) Next song                                        |
+| Super  |       | f                 | (program) Spawn filemanager                               |
+| Super  |       | i                 | (display) Stop recording                                  |
+| Super  |       | m                 | (program) Spawn thunderbird                               |
+| Super  |       | o                 | (display) Start replay window                             |
+| Super  |       | p                 | (display) Save replay window                              |
+| Super  |       | u                 | (display) Start recording window                          |
+| Super  |       | r                 | (program) Spawn dmenu\_run                                |
+| Super  |       | s                 | (sounds) Pause song                                       |
+| Super  |       | x                 | (sounds) Toggle shuffling of songs                        |
+| Super  | Shift | l                 | (keyboard) Toggle keymap                                  |
+| Super  | Shift | r                 | (sxhkd) Restart sxkd                                      |
+| Super  | Shift | Space             | (notifications) Close all notifications                   |
+| Super  |       | [                 | (notifications) Toggle dunst dnd                          |
+| Super  |       | ]                 | (sounds) Toggle mute                                      |
+| Super  |       | \                 | (sounds) Toggle deaf                                      |
+| Super  |       | F5                | (display) Enable 2 Screen Monitor                         |
+| Super  |       | F6                | (keyboard) Toggle touchpad                                |
+| Super  |       | F7                | (mounting) Mounting drives                                |
+| Super  |       | F8                | (mounting) Unmounting drives                              |
+| Super  |       | F9                | (network) Restart NetworkManager                          |
+| Super  |       | F10               | (display) slock                                           |
+| Super  |       | F11               | (shutdown) reboot                                         |
+| Super  |       | F12               | (shutdown) shutdown                                       |
+| Super  |       | Return            | (program) Spawn terminal                                  |
+|        |       | Print             | (program) Prompt to take a screenshot                     |
+|        |       | AudioMute         | (sound) Volume mute                                       |
+|        |       | AudioMicMute      | (sound) Mic Mute                                          |
+|        |       | AudioLowerVolume  | (sound) Volume lower                                      |
+|        |       | AudioRaiseVolume  | (sound) Volume raise                                      |
+|        |       | MonBrightnessDown | (display) Brightness decrease                             |
+|        |       | MonBrightnessUp   | (display) Brightness increase                             |
 
 
 ## Additional configs
