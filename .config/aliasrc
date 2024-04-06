@@ -127,6 +127,7 @@ alias svim="sudo nvim"
 alias svi="sudo nvim"
 command -v nvim >/dev/null && alias vim="nvim" vimdiff="nvim -d"
 command -v nvim >/dev/null && alias vi="nvim" vidiff="nvim -d"
+alias renamer="nvim +Renamer"
 
 # weather
 alias weather="curl wttr.in"

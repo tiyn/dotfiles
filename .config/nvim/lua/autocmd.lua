@@ -18,9 +18,7 @@ vim.api.nvim_create_autocmd({ "VimEnter" }, {
       return
     end
     local session_info = Session.info(vim.loop.cwd())
-    if session_info == nil then
-      Session.restore_latest()
-    else
+    if session_info ~= nil then
       Session.restore(vim.loop.cwd())
     end
   end,
