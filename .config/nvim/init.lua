@@ -108,7 +108,7 @@ vim.filetype.add({
     nim = "nim",
     py = "python",
     sage = "python",
-    sh = "shell",
+    sh = "bash",
     tex = "tex",
   },
 })
