@@ -72,10 +72,10 @@ alias contacts="khard"
 alias  paint="kolourpaint"
 
 # ls(d)
-alias l="eza --group-directories-first"
-alias la="eza -la --group-directories-first"
-alias ll="eza -l --group-directories-first"
-alias tree="eza --tree --group-directories-first"
+alias l="exa --group-directories-first"
+alias la="exa -la --group-directories-first"
+alias ll="exa -l --group-directories-first"
+alias tree="exa --tree --group-directories-first"
 
 # mkdir
 alias mkdir="mkdir -p"
