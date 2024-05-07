@@ -41,6 +41,10 @@ export TMUX_TMPDIR="${XDG_CACHE_HOME}/tmux"
 export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
 
+export CUDA_DIR="/opt/cuda"
+export CUDA_PATH="/opt/cuda"
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
+
 # external programs
 export OPENAUDIBLE_HOME="${HOME}/documents/openaudible"
 
