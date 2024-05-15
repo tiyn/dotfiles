@@ -1,17 +1,19 @@
-# dotfiles
+# Dotfiles
 
 ![vim-example](vim-example.png)
 
 My arch compatible user dotfiles.
 They were originally based on the dotfiles of [lukesmithxyz](https://github.com/lukesmithxyz/voidrice).
-This being some time, hundreds of commits and my personalized version of [larbs](https://github.com/TiynGER/larbs) ago, they are now quite different.
+This being some time, hundreds of commits and my personalized version of
+[larbs](https://github.com/TiynGER/larbs) ago, they are now quite different.
 
 ## Required and Recommended Software
 
 All requirements and recommendations get installed by my version of LARBS.
-To take a look at all the software it installs look at the [progs.csv](https://github.com/TiynGER/larbs/blob/master/progs.csv)  in my LARBS repository.
+To take a look at all the software it installs look at the
+[progs.csv](https://github.com/TiynGER/larbs/blob/master/progs.csv)  in my LARBS repository.
 
-## Migration of my dotfiles to other system
+## Migration of my Dotfiles to Other System
 
 - set alias in .bashrc: `alias config='/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME'`
 - clone this repository: `git clone --bare https://github.com/Tiyn/dotfiles $HOME/.dotfiles`
@@ -33,7 +35,7 @@ The step containing commenting out is needed because the colorscheme has
 problems being not available and disrupts the further process of the plugin
 installation.
 
-## Ignore local changes to config files
+## Ignore Local Changes to Config Files
 
 If you need to make local changes to config files that are not to be pushed
 run `config update-index --skip-worktree <file>` to stop git from showing them
@@ -85,6 +87,21 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 |        |       | MonBrightnessUp   | (display) Brightness increase                             |
 
 
-## Additional configs
+## Additional Configs
 
-Additional configs (and for example firefox plugins) can be found in my [wiki](https://github.com/tiyn/wiki).
+Additional configs (and for example firefox plugins) can be found in my
+[wiki](https://github.com/tiyn/wiki).
+
+## Additional Information
+
+This section contains information regarding special configurations that will be enabled or
+available by using these dotfiles.
+
+### Audio Setup
+
+This configuration features settings and profiles for
+[easyeffects](https://github.com/tiyn/wiki/blob/master/wiki/linux/easyeffects.md).
+Additionally to the flat profile there are also various profiles that are based on
+[AutoEQ](https://github.com/tiyn/wiki/blob/master/wiki/linux/audio.md#sound-server).
+Every profile that includes the name of a headphone is based on the AutoEQ-settings for this
+specific headphone.
