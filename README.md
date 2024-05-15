@@ -2,16 +2,17 @@
 
 ![vim-example](vim-example.png)
 
-My arch compatible user dotfiles.
-They were originally based on the dotfiles of [lukesmithxyz](https://github.com/lukesmithxyz/voidrice).
+My Arch Linux compatible user dotfiles.
+They were originally based on the dotfiles of
+[lukesmithxyz](https://github.com/lukesmithxyz/voidrice).
 This being some time, hundreds of commits and my personalized version of
-[larbs](https://github.com/TiynGER/larbs) ago, they are now quite different.
+[larbs](https://github.com/Tiyn/larbs) ago, they are now quite different.
 
 ## Required and Recommended Software
 
 All requirements and recommendations get installed by my version of LARBS.
 To take a look at all the software it installs look at the
-[progs.csv](https://github.com/TiynGER/larbs/blob/master/progs.csv)  in my LARBS repository.
+[progs.csv](https://github.com/Tiyn/larbs/blob/master/progs.csv)  in my LARBS repository.
 
 ## Migration of my Dotfiles to Other System
 
