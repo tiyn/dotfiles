@@ -102,7 +102,12 @@ available by using these dotfiles.
 
 This configuration features settings and profiles for
 [easyeffects](https://github.com/tiyn/wiki/blob/master/wiki/linux/easyeffects.md).
-Additionally to the flat profile there are also various profiles that are based on
-[AutoEQ](https://github.com/tiyn/wiki/blob/master/wiki/linux/audio.md#sound-server).
-Every profile that includes the name of a headphone is based on the AutoEQ-settings for this
-specific headphone.
+Additionally to the flat profile there are also various profiles for headphones.
+They mostly target to achieve curve similar to the
+[harman curve](https://github.com/tiyn/wiki/blob/master/wiki/linux/audio.md#headphone-audio-profiles).
+
+The following list matches the headphones and in-ear monitors to the base equalizer used.
+
+- Beyerdynamic DT 1770 (Velour): [AutoEQ](https://github.com/tiyn/wiki/blob/master/wiki/linux/audio.md#sound-server)
+- TANGZU Wan'er S.G: [AutoEQ](https://github.com/tiyn/wiki/blob/master/wiki/linux/audio.md#sound-server)
+- Tin HiFi T2 Plus: [AutoEQ](https://github.com/tiyn/wiki/blob/master/wiki/linux/audio.md#sound-server)
