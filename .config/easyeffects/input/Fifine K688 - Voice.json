@@ -205,7 +205,7 @@
             "attack": 1.0,
             "bypass": false,
             "curve-threshold": -60.0,
-            "curve-zone": -6.0,
+            "curve-zone": -5.0,
             "dry": -100.0,
             "hpf-frequency": 10.0,
             "hpf-mode": "off",
@@ -217,7 +217,7 @@
             "lpf-mode": "off",
             "makeup": 0.0,
             "output-gain": 0.0,
-            "reduction": -12.0,
+            "reduction": -20.0,
             "release": 280.0,
             "sidechain": {
                 "input": "Internal",
@@ -249,7 +249,7 @@
             "release": 1.0,
             "sidechain-preamp": 0.0,
             "stereo-link": 100.0,
-            "threshold": -5.0
+            "threshold": -10.0
         },
         "plugins_order": [
             "stereo_tools#0",
@@ -263,7 +263,7 @@
             "balance-out": 0.0,
             "bypass": false,
             "delay": 0.0,
-            "input-gain": 0.0,
+            "input-gain": -5.0,
             "middle-level": 0.0,
             "middle-panorama": 0.0,
             "mode": "LR > MS (Stereo to Mid-Side)",
