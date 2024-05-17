@@ -8,8 +8,8 @@ xclip_img="xclip -sel clip -t image/png"
 xclip_txt="xclip -sel clip -t text/plain"
 
 case "$(printf "a selected area\\na selected area (copy)\\ncurrent window\\ncurrent window (copy)\\nfull screen\\nfull screen (copy)\\ncolor picker (copy)" | dmenu -l 6 -i -p "Screenshot which area?")" in
-	"a selected area") maim -s $output ;;
-	"a selected area (copy)") maim -s | ${xclip_img} ;;
+	"a selected area") maim -s --hidecursor $output ;;
+	"a selected area (copy)") maim -s --hidecursor | ${xclip_img} ;;
 	"current window") maim -i "$(xdotool getactivewindow)" $output ;;
 	"current window (copy)") maim -i "$(xdotool getactivewindow)" | ${xclip_img} ;;
 	"full screen") maim $output ;;
