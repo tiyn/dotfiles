@@ -61,9 +61,11 @@ case "$1" in
     pkill -RTMIN+9 $STATUSBAR ;;
   tap) wpctl set-volume $Id 0.2
       touch ~/.local/state/loopback.lock
-      pw-loopback -C $Node & ;;
+      pw-loopback -C $Node &
+      notify-send -u low 'sxhkd' "Started loopback of $Device" ;;
   untap) killall pw-loopback
-      rm ~/.local/state/loopback.lock ;;
+      rm ~/.local/state/loopback.lock
+      notify-send -u low 'sxhkd' "Stopped all loopbacks" ;;
   tap_toggle)
     if [ -f ~/.local/state/loopback.lock ]; then
       lmc untap

@@ -8,9 +8,9 @@ extern=HDMI2
 
 case "$1" in
   toggle) (xrandr | grep "$extern disconnected")
-    (xrandr --listactivemonitors | grep $extern) || ((xrandr --output $extern --right-of $intern --auto && wallpaper) & exit)
+    (xrandr --listactivemonitors | grep $extern) || ((xrandr --output $extern --right-of $intern --auto && wallpaper desktop) & exit)
     (xrandr --listactivemonitors | grep $extern) && xrandr --output $extern --off
-    wallpaper
+    wallpaper desktop
     ;;
   *) cat << EOF
 monitor: cli script to enable and disable monitors.

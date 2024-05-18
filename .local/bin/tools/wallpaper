@@ -1,15 +1,33 @@
 #!/bin/sh
 
-# Based on a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+# Adapted from a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
+case "$1" in
+  desktop) bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
+      trueloc="$(readlink -f "$2")" &&
+      case "$(file --mime-type -b "$trueloc")" in
+          image/* ) ln -f "$(readlink -f "$2")" "$bgloc" && notify-send -i "$bgloc" "Desktop wallpaper has been changed." ;;
+          inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Random desktop wallpaper chosen." ;;
+          *) notify-send "🖼️ Error" "Not a valid image or directory." ; exit 1;;
+      esac
+      xwallpaper --zoom "$bgloc" ;;
+  lock) bgloc="${XDG_DATA_HOME:-$HOME/.local/share}/lock"
+      trueloc="$(readlink -f "$2")" &&
+      case "$(file --mime-type -b "$trueloc")" in
+          image/* ) ln -f "$(readlink -f "$2")" "$bgloc" && notify-send -i "$bgloc" "Lock screen wallpaper has been changed." ;;
+          inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Random lock screen wallpaper chosen." ;;
+          *) notify-send "🖼️ Error" "Not a valid image or directory." ; exit 1;;
+      esac ;;
+  *) cat << EOF
+wallpaper: cli script to set and reset the wallpaper of the desktop and lock
+           screen.
 
+Allowed options:
+  desktop [PATH]    Set the wallpaper of the desktop to the specified path.
+                    If no path is given reset it.
+  lock [PATH]       Set the wallpaper of the lock screen to the specified path.
+                    If no path is given reset it.
+  all else          Print this message
 
-trueloc="$(readlink -f "$1")" &&
-case "$(file --mime-type -b "$trueloc")" in
-	image/* ) ln -f "$(readlink -f "$1")" "$bgloc" && notify-send -i "$bgloc" "Changing wallpaper..." ;;
-	inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$bgloc" && notify-send -i "$bgloc" "Random Wallpaper chosen." ;;
-	*) notify-send "🖼️ Error" "Not a valid image or directory." ; exit 1;;
+EOF
 esac
-
-xwallpaper --zoom "$bgloc"

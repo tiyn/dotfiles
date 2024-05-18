@@ -34,6 +34,8 @@ super + backslash
         lmc deaf_toggle
 super + bracketleft
         dnd toggle
+super + apostrophe
+        lmc tap_toggle
 
 super + shift + l
         keymap toggle
