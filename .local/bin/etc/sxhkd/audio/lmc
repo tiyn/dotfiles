@@ -4,6 +4,11 @@
 # Based on a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 # Heavily extended and updated to a pipewire system
 
+Device="Audio Adapter (Unitek Y-247A) Mono"
+Name=$(wpctl status | grep "$Device")
+Id=$( echo $Name | cut -d '.' -f 1 | cut -c 5-)
+Node=$(wpctl inspect $Id | grep node.name | cut -d '=' -f 2)
+
 [ -z "$2" ] && num="5" || num="$2"
 
 case "$1" in
@@ -54,6 +59,17 @@ case "$1" in
   loop) playerctl loop none
     sleep 1
     pkill -RTMIN+9 $STATUSBAR ;;
+  tap) wpctl set-volume $Id 0.2
+      touch ~/.local/state/loopback.lock
+      pw-loopback -C $Node & ;;
+  untap) killall pw-loopback
+      rm ~/.local/state/loopback.lock ;;
+  tap_toggle)
+    if [ -f ~/.local/state/loopback.lock ]; then
+      lmc untap
+    else
+      lmc tap
+    fi ;;
   *) cat << EOF
 lmc: cli music interface for pulse for those with divine intellect too
 grand to remember the pamixer commands.
@@ -65,11 +81,16 @@ Allowed options:
   unmute        Unmute microphone
   deaf          Deaf sound
   undeaf        Undeaf sound
-  deaf_toggle    Toggle between deaf and undeaf
-  mute_toggle    Toggle between mute and unmute
+  deaf_toggle   Toggle between deaf and undeaf
+  mute_toggle   Toggle between mute and unmute
   previous      Play previous song in player
   playpause     Toggle play or pause in player
   next          Play next song in player
+  shuffle       Toggle the shuffle mode
+  loop          Toggle the loop mode
+  tap           Start loopback for device
+  untap         Stop all active loopbacks
+  tap_toggle   Start or stop loopback depending if it is already running
   all else	Print this message
 
 EOF

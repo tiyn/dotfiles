@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# Toggle touchpad. Requires xf86-input-synaptics.
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
+case "$1" in
+  toggle) (synclient | grep "TouchpadOff.*1" && synclient TouchpadOff=0)>/dev/null && notify-send "TouchPad reactivated." && exit
+        synclient TouchpadOff=1 && notify-send "TouchPad deactivated." ;;
+  *) cat << EOF
+touchpad: cli script to enable and disable the touchpad.
+
+Allowed options:
+  toggle	Toggle the touchpad on and off
+  all else	Print this message
+
+EOF
+esac

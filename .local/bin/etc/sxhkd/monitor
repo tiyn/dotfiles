@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# toggle external monitor
+# by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
+
+intern=LVDS1
+extern=HDMI2
+
+case "$1" in
+  toggle) (xrandr | grep "$extern disconnected")
+    (xrandr --listactivemonitors | grep $extern) || ((xrandr --output $extern --right-of $intern --auto && wallpaper) & exit)
+    (xrandr --listactivemonitors | grep $extern) && xrandr --output $extern --off
+    wallpaper
+    ;;
+  *) cat << EOF
+monitor: cli script to enable and disable monitors.
+
+Allowed options:
+  toggle	Toggle the set monitor on and off
+  all else	Print this message
+
+EOF
+esac

@@ -36,7 +36,7 @@ super + bracketleft
         dnd toggle
 
 super + shift + l
-        keymap_toggle
+        keymap toggle
 
 super + shift + r
         pkill -usr1 -x sxhkd ; notify-send -u low 'SXHKD' 'Reloaded config'
@@ -45,15 +45,15 @@ super + Return
         $TERMINAL
 
 Print
-        screenshot_menu
+        screenshot
 
 super + shift + space
         dunstctl close-all
 
 super + F5
-        monitor_toggle
+        monitor toggle
 super + F6
-        touchpad_toggle
+        touchpad toggle
 super + F7
         mount_menu
 super + F8

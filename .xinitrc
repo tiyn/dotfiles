@@ -7,7 +7,7 @@ xrandr --auto
 [ -f "$HOME/.config/xorg/xdefaults" ] && xrdb -merge "$HOME/.config/xorg/xdefaults" # global resources
 [ -f "$HOME/.config/xorg/xpcspec" ] && xrdb -merge "$HOME/.config/xorg/xpcspec" # local resources
 
-background_set
+wallpaper
 
 csum=""
 new_csum=$(sha1sum $(which dwm))

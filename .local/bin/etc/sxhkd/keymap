@@ -1,0 +1,25 @@
+#!/bin/sh
+layout=$(setxkbmap -query | grep "layout" | awk '{print $NF}') #| grep -q 'ru$' && $(setxkbmap de ; notify-send -u low 'SXHKD' 'Set keymap to german') || $(setxkbmap de ru ; notify-send -u low 'SXHKD' 'Set keymap to russian')
+variant=$(setxkbmap -query | grep "variant" | awk '{print $NF}')
+echo $variant
+
+case "$1" in
+  toggle) if [ "$layout" = "de" -a "$variant" = "nodeadkeys" ]
+    then
+        setxkbmap de && notify-send -u low 'SXHKD' 'Set keymap to german'
+    elif [ "$layout" = "de" -a "$variant" = "" ]
+    then
+        setxkbmap de ru && notify-send -u low 'SXHKD' 'Set keymap to russian (german)'
+    elif [ "$layout" = "de" -a "$variant" = "ru" ]
+    then
+        setxkbmap de nodeadkeys && notify-send -u low 'SXHKD' 'Set keymap to german (nodeadkeys)'
+    fi ;;
+  *) cat << EOF
+keymap: cli script to change the keymap quickly.
+
+Allowed options:
+  toggle	Loop through the different keymaps
+  all else	Print this message
+
+EOF
+esac
