@@ -81,12 +81,12 @@ Allowed options:
   down NUM	Decrease volume (5% default)
   mute          Mute microphone
   unmute        Unmute microphone
+  mute_toggle   Toggle between mute and unmute
   deaf          Deaf sound
   undeaf        Undeaf sound
   deaf_toggle   Toggle between deaf and undeaf
-  mute_toggle   Toggle between mute and unmute
-  previous      Play previous song in player
   playpause     Toggle play or pause in player
+  previous      Play previous song in player
   next          Play next song in player
   shuffle       Toggle the shuffle mode
   loop          Toggle the loop mode
