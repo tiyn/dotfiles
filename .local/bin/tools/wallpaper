@@ -2,20 +2,21 @@
 
 # Adapted from a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-[ -z "$WALLPAPER_DESKTOP" ] && wall_desk="${XDG_DATA_HOME:-$HOME/.local/share}/bg" || disk="$WALLPAPER_DESKTOP"
-[ -z "$WALLPAPER_LOCK" ] && wall_desk="${XDG_DATA_HOME:-$HOME/.local/share}/lock" || disk="$WALLPAPER_LOCK"
+[ -z "$WALLPAPER_DESKTOP" ] && wall_desk="$XDG_DATA_HOME/bg" || wall_desk="$WALLPAPER_DESKTOP"
+[ -z "$WALLPAPER_LOCK" ] && wall_lock="$XDG_DATA_HOME/lock" || wall_lock="$WALLPAPER_LOCK"
+
+echo $wall_desk
+echo $wall_lock
 
 case "$1" in
-  desktop) wall_desk="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
-      trueloc="$(readlink -f "$2")" &&
+  desktop) trueloc="$(readlink -f "$2")" &&
       case "$(file --mime-type -b "$trueloc")" in
           image/* ) ln -f "$(readlink -f "$2")" "$wall_desk" && notify-send -i "$wall_desk" "Desktop wallpaper has been changed." ;;
           inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$wall_desk" && notify-send -i "$wall_desk" "Random desktop wallpaper chosen." ;;
           *) notify-send "🖼️ Error" "Not a valid image or directory." ; exit 1;;
       esac
       xwallpaper --zoom "$wall_desk" ;;
-  lock) wall_lock="${XDG_DATA_HOME:-$HOME/.local/share}/lock"
-      trueloc="$(readlink -f "$2")" &&
+  lock) trueloc="$(readlink -f "$2")" &&
       case "$(file --mime-type -b "$trueloc")" in
           image/* ) ln -f "$(readlink -f "$2")" "$wall_lock" && notify-send -i "$wall_lock" "Lock screen wallpaper has been changed." ;;
           inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$wall_lock" && notify-send -i "$wall_lock" "Random lock screen wallpaper chosen." ;;
