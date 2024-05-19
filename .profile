@@ -79,5 +79,8 @@ export LESS_TERMCAP_ue="$(printf '%b' '[0m')"; a="${a%_}"
 echo "$0" | grep "bash$" >/dev/null && [ -f ~/.bashrc ] && source "${HOME}/.bashrc"
 echo "$0" | grep "zsh$" >/dev/null && [ -f ${ZDOTDIR}/.zshrc ] && source "${ZDOTDIR}/.zshrc"
 
+# load optional variables
+[ -f ~/.config/profile/local_profile ] && source "${HOME}/.config/profile/local_profile"
+
 # Start graphical server if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx

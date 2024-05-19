@@ -3,7 +3,8 @@
 # Status bar module for disk space
 # $1 should be drive mountpoint
 
-disk="/home"
+[ -z "$STATUSBAR_DISK" ] && disk="/home" || disk="$STATUSBAR_DISK"
+
 [ ! -z "$1" ] && disk="$1"
 
 icon="$disk"

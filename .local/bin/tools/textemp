@@ -2,7 +2,7 @@
 # copying latex templates from my template repository
 # (not included in the dotfiles)
 
-latexdir=~/code/main/latextemplates
+[ -z "$LATEX_TEMPLATE_DIR" ] && latexdir="~/code/main/latextemplates" || latexdir="$LATEX_TEMPLATE_DIR"
 
 articletemp=${latexdir}/article/*
 beamertemp=${latexdir}/beamer/*

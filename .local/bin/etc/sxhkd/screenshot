@@ -3,7 +3,9 @@
 # Requires maim. It lets you choose the kind of screenshot to take,
 # including copying the image or even highlighting an area to copy.
 
-output="$HOME/downloads/screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png"
+[ -z "$SCREENSHOT_DIR" ] && output_dir="$HOME/downloads" || output_dir="$SCREENSHOT_DIR"
+
+output="$output_dir/screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png"
 xclip_img="xclip -sel clip -t image/png"
 xclip_txt="xclip -sel clip -t text/plain"
 

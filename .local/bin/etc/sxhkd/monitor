@@ -3,8 +3,8 @@
 # toggle external monitor
 # by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-intern=LVDS1
-extern=HDMI2
+[ -z "$INTERNAL_MONITOR" ] && intern="LVDS1" || intern="$EXTERNAL_MONITOR"
+[ -z "$EXTERNAL_MONITOR" ] && extern="HDMI2" || extern="$INTERNAL_MONITOR"
 
 case "$1" in
   toggle) (xrandr | grep "$extern disconnected")
