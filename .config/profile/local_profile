@@ -1,20 +1,3 @@
 #!/bin/sh
 
-# relevant for: record_replay_start, record_start
-export CAPTURE_INPUT_AUDIO="easyeffects_sink.monitor"
-export CAPTURE_OUTPUT_AUDIO="easyeffects_source"
-export CAPTURE_DIR="$HOME/downloads"
-# relevant for: monitor
-export EXTERNAL_MONITOR="HDMI2"
-export INTERNAL_MONITOR="LVDS1"
-# relevant for: textemp
-export LATEX_TEMPLATE_DIR="~/code/main/latextemplates"
-# relevant for: lmc
-export LOOPBACK_DEVICE="PCM2902 Audio Codec Analog Stereo"
-# relevant for: disk
-export STATUSBAR_DISK="/home"
-# relevant for: wallpaper
-export WALLPAPER_DESKTOP="${XDG_DATA_HOME:-$HOME/.local/share}/bg"
-export WALLPAPER_LOCK="${XDG_DATA_HOME:-$HOME/.local/share}/lock"
-# relevant for: screenshot
-export SCREENSHOT_DIR="$HOME/downloads"
+#
