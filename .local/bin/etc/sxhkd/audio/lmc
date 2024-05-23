@@ -91,9 +91,9 @@ Allowed options:
   next          Play next song in player
   shuffle       Toggle the shuffle mode
   loop          Toggle the loop mode
-  tap           Start loopback for device
-  untap         Stop all active loopbacks
-  tap_toggle   Start or stop loopback depending if it is already running
+  tap           Start loopback for source device
+  untap         Stop all active source loopbacks
+  tap_toggle    Start or stop loopback depending if it is already running
   all else	Print this message
 
 EOF
