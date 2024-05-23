@@ -6,7 +6,7 @@
 
 [ -z "$LOOPBACK_DEVICE" ] && device="Easy Effects Source" || device="$LOOPBACK_DEVICE"
 
-name=$(wpctl status | grep "$device")
+name=$(wpctl status | sed -n '/Sources/,$p' | sed -n '/Filter/q;p' | grep "$device" | sed -e "s/*/\ /g")
 id=$( echo $name | cut -d '.' -f 1 | cut -c 5-)
 node=$(wpctl inspect $id | grep node.name | cut -d '=' -f 2)
 
