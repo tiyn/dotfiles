@@ -22,3 +22,6 @@ x-scheme-handler/mailto=mail.desktop
 x-scheme-handler/mid=mail.desktop
 message/rfc822=mail.desktop
 x-scheme-handler/msteams=teams.desktop
+
+[Added Associations]
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
