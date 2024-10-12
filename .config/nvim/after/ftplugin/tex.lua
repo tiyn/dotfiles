@@ -25,7 +25,7 @@ vim.api.nvim_create_autocmd({ 'VimLeave' },
 
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
-vim.o.textwidth = 100
+vim.o.textwidth = 80
 
 -- frabjous/knap
 vim.keymap.set('n', '<leader>p', require("knap").toggle_autopreviewing, { noremap = true })

@@ -1,4 +1,4 @@
-vim.o.go = "a"
+-- vim.o.go = "a"
 vim.o.showmode = false
 
 -- disable netrw
@@ -26,10 +26,10 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- enable nocompatible mode
-vim.o.nocompatible = true
+-- vim.o.nocompatible = true
 
 -- enable syntax highlighting
-vim.o.syntax = true
+vim.o.syntax = "true"
 
 -- enable true colors
 vim.o.termguicolors = true
@@ -57,8 +57,8 @@ vim.o.breakindent = true
 vim.o.hidden = true
 
 -- disable backupfiles
-vim.o.nobackup = true
-vim.o.nowritebackup = true
+-- vim.o.nobackup = true
+-- vim.o.nowritebackup = true
 
 -- set completeopt to have a better completion experience
 vim.o.completeopt = "menuone,noselect"
