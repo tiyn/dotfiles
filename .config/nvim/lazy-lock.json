@@ -55,7 +55,7 @@
   "tabular": { "branch": "master", "commit": "339091ac4dd1f17e225fe7d57b48aff55f99b23a" },
   "tccs.nvim": { "branch": "master", "commit": "e50c1504286b5ee2700961a600f26c9b338bd042" },
   "telescope.nvim": { "branch": "master", "commit": "776b509f80dd49d8205b9b0d94485568236d1192" },
-  "tidy.nvim": { "branch": "triggerable-tidy", "commit": "1cbed7676273057c8af22438deaae73cd5cb96b5" },
+  "tidy.nvim": { "branch": "main", "commit": "58fcc63de53840fa78946e4161e8883e67213f92" },
   "todo-comments.nvim": { "branch": "main", "commit": "a7e39ae9e74f2c8c6dc4eea6d40c3971ae84752d" },
   "trouble.nvim": { "branch": "main", "commit": "b9cf677f20bb2faa2dacfa870b084e568dca9572" },
   "undotree": { "branch": "master", "commit": "56c684a805fe948936cda0d1b19505b84ad7e065" },
