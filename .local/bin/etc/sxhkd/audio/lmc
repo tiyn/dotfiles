@@ -36,6 +36,7 @@ case "$1" in
       paplay ~/.local/bin/etc/sxhkd/audio/sound_resumed.wav
     fi ;;
   mute_toggle)
+    echo $(amixer get Capture)
     if amixer get Capture | tail -2 | grep -q '\[on\]'; then
       lmc mute
       lmc undeaf
