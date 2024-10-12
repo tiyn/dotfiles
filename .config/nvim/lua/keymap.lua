@@ -1,198 +1,108 @@
 -- setup keymap function
-local m = require("mapx").setup({ global = true, whichkey = true })
+local wk = require("which-key")
+local lazygit = require("FTerm"):new({ cmd = "lazygit" })
 
--- setup keymap groups
-m.nname("g", "LSP: goto")
-m.nname("gp", "LSP: preview")
-m.cname("w", "Write")
-m.cname("w!", "Write: overwrite")
-m.nname("<leader>g", "Git")
-m.nname("<leader>f", "Telescope: find ...")
-m.nname("<leader>gd", "Git: diff")
-m.nname("<leader>s", "Substitute")
-m.nname("<leader>t", "Terminal")
-m.nname("<C-W>", "Navigation")
-
--- unmap unwanted commands
-m.nnoremap("Zt", "<NOP>")
-m.nnoremap("ZT", "<NOP>")
-m.nnoremap("<Space>", "<NOP>")
-m.inoremap("<F2>", "<NOP>")
-m.inoremap("<F3>", "<NOP>")
-m.inoremap("<F4>", "<NOP>")
-m.inoremap("<F5>", "<NOP>")
-m.inoremap("<F6>", "<NOP>")
-m.inoremap("<F8>", "<NOP>")
-m.inoremap("<F9>", "<NOP>")
-m.nnoremap("<F9>", "<NOP>")
-m.inoremap("<F10>", "<NOP>")
-m.nnoremap("<F10>", "<NOP>")
-m.inoremap("<F11>", "<NOP>")
-m.nnoremap("<F11>", "<NOP>")
-m.inoremap("<F12>", "<NOP>")
-m.nnoremap("<F12>", "<NOP>")
-
--- spell
-m.nmap("<F6>s", "z=", "Spell: display suggestions")
-
--- shortcuts for quitting
-m.nnoremap("ZA", ":xa<CR>", "Exit: write and quit all buffers")
-m.nnoremap("ZQ", ":conf q<CR>", "Exit: quit current buffer")
-m.nnoremap("ZZ", ":x<CR>", "Exit: write and quit current buffer")
-
--- shortcut for split navigation
-m.nnoremap("<C-h>", "<C-w>h", "Navigation: go to left window")
-m.nnoremap("<C-j>", "<C-w>j", "Navigation: go to lower window")
-m.nnoremap("<C-k>", "<C-w>k", "Navigation: go to upper window")
-m.nnoremap("<C-l>", "<C-w>l", "Navigation: go to right window")
-
--- remap for dealing with word wrap
-m.nmap(
-  "j",
-  "v:count == 0 ? 'gj' : 'j'",
-  { "expr", "silent" },
-  "Navigation: go down in wrapped lines"
-)
-m.nmap("k", "v:count == 0 ? 'gk' : 'k'", { "expr", "silent" }, "Navigation: go up in wrapped lines")
-
--- compiler for languages
-m.nnoremap("<leader>c", ":w! | !compiler <c-r>%<CR>", "Compile: current file")
-
--- save file as sudo on files that require root permission
-m.cnoremap(
-  "w!!",
-  'execute "silent! write !sudo tee % >/dev/null" <bar> edit!',
-  "Write: overwrite file over with sudo"
-)
-
--- tpope/vim-abolish
-m.nnoremap("<leader>sa", ":%S//g<Left><Left>", "Substitute: free form")
-m.nnoremap("<leader>ss", ":%S/\\<<C-r><C-w>\\>//g<Left><Left>", "Substitute: word under cursor")
-
--- simrat39/symbols-outline.nvim
-m.nmap("<F3>", ":SymbolsOutline<CR>", "CTags: toggle")
-
--- nvim-tree/nvim-tree.lua
-m.nmap("<F2>", ":NvimTreeToggle toggle<CR>", "File tree: toggle")
-
--- mbbill/undotree
-m.nmap("<F1>", ":UndotreeToggle<CR>", "Undo tree: toggle")
-
--- amrbashir/nvim-docs-view
-m.nnoremap("go", ":DocsViewToggle<CR>", "LSP: toggle documentation window")
-
--- numtostr/fterm.nvim
-m.nnoremap("<leader>tt", require("FTerm").toggle, "Terminal: open")
-m.tnoremap("<leader>tt", require("FTerm").toggle, "Terminal: open")
-local lazygit = require("FTerm"):new({
-  cmd = "lazygit",
+wk.add({
+  -- setup keymap groups
+  {mode = "n", "g", desc = "LSP: goto"},
+  {mode = "n", "gp", desc = "LSP: preview"},
+  {mode = "c", "w", desc = "Write"},
+  {mode = "c", "w!", desc = "Write: overwrite"},
+  {mode = "n", "<leader>g", desc = "Git"},
+  {mode = "n", "<leader>f", desc = "Telescope: find"},
+  {mode = "n", "<leader>gd", desc = "Git: diff"},
+  {mode = "n", "<leader>s", desc = "Substitute"},
+  {mode = "n", "<leader>t", desc = "Terminal"},
+  {mode = "n", "<C-W>", desc = "Navigation"},
+  -- unmap unwanted commands
+  {mode = "n", "Zt", "<NOP>", noremap = true},
+  {mode = "n", "ZT", "<NOP>", noremap = true},
+  {mode = "n", "<Space>", "<NOP>", noremap = true},
+  {mode = "n", "<F2>", "<NOP>", noremap = true},
+  {mode = "n", "<F3>", "<NOP>", noremap = true},
+  {mode = "n", "<F4>", "<NOP>", noremap = true},
+  {mode = "n", "<F5>", "<NOP>", noremap = true},
+  {mode = "n", "<F6>", "<NOP>", noremap = true},
+  {mode = "n", "<F8>", "<NOP>", noremap = true},
+  {mode = "n", "<F9>", "<NOP>", noremap = true},
+  {mode = "n", "<F9>", "<NOP>", noremap = true},
+  {mode = "n", "<F10>", "<NOP>", noremap = true},
+  {mode = "n", "<F10>", "<NOP>", noremap = true},
+  {mode = "n", "<F11>", "<NOP>", noremap = true},
+  {mode = "n", "<F11>", "<NOP>", noremap = true},
+  {mode = "n", "<F12>", "<NOP>", noremap = true},
+  {mode = "n", "<F12>", "<NOP>", noremap = true},
+  -- spell
+  {mode = "n", "<F6>s", "z=", desc = "Spell: display suggestions"},
+  -- shortcuts for quitting
+  {mode = "n", "ZA", ":xa<CR>", desc = "Exit: write and quit all buffers", noremap = true},
+  {mode = "n", "ZQ", ":conf q<CR>", desc = "Exit: quit current buffer", noremap = true},
+  {mode = "n", "ZZ", ":x<CR>", desc = "Exit: write and quit current buffer", noremap = true},
+  -- shortcut for split navigation
+  {mode = "n", "<C-h>", "<C-w>h", desc = "Navigation: go to left window", noremap = true},
+  {mode = "n", "<C-j>", "<C-w>j", desc = "Navigation: go to lower window", noremap = true},
+  {mode = "n", "<C-k>", "<C-w>k", desc = "Navigation: go to upper window", noremap = true},
+  {mode = "n", "<C-l>", "<C-w>l", desc = "Navigation: go to right window", noremap = true},
+  -- remap for dealing with word wrap
+  {mode = "n",  "j", "gj", desc = "Navigation: go down in wrapped lines", silent = true},
+  {mode = "n", "k", "gk", desc = "Navigation: go up in wrapped lines", silent = true},
+  -- compiler for languages
+  {mode = "n", "<leader>c", ":w! | !compiler <c-r>%<CR>", desc = "Compile: current file", noremap = true},
+  {mode = "n", "w!!", 'execute "silent! write !sudo tee % >/dev/null" <bar> edit!', desc = "Write: overwrite file over with sudo", noremap = true},
+  -- tpope/vim-abolish
+  {mode = "n", "<leader>sa", ":%S//g<Left><Left>", desc = "Substitute: free form", noremap = true},
+  {mode = "n", "<leader>ss", ":%S/\\<<C-r><C-w>\\>//g<Left><Left>", desc = "Substitute: word under cursor", noremap = true},
+  -- simrat39/symbols-outline.nvim
+  {mode = "n", "<F3>", ":SymbolsOutline<CR>", desc = "CTags: toggle"},
+  -- nvim-tree/nvim-tree.lua
+  {mode = "n", "<F2>", ":NvimTreeToggle toggle<CR>", desc = "File tree: toggle"},
+  -- mbbill/undotree
+  {mode = "n", "<F1>", ":UndotreeToggle<CR>", desc = "Undo tree: toggle"},
+  -- amrbashir/nvim-docs-view
+  {mode = "n", "go", ":DocsViewToggle<CR>", desc = "LSP: toggle documentation window", noremap = true},
+  -- numtostr/fterm.nvim
+  {mode = "n", "<leader>tt", require("FTerm").toggle, desc = "Terminal: open", noremap = true},
+  {mode = "n", "<leader>gt", function() lazygit:toggle() end, desc = "Git: open lazygit", noremap = true},
+  {mode = "n", "<leader>tg", function() lazygit:toggle() end, desc = "Terminal: open lazygit", noremap = true},
+  {mode = "n", "<leader>tg", function() lazygit:toggle() end, desc = "Terminal: open lazygit", noremap = true},
+  -- sindrets/diffview.nvim
+  {mode = "n", "<leader>gdo", ":DiffviewOpen<CR>", desc = "Git: open diff"},
+  {mode = "n", "<leader>gdc", ":DiffviewClose<CR>", desc = "Git: close diff"},
+  -- folke/trouble.nvim
+  {mode = "n", "<leader>x", ":TroubleToggle<CR>", desc = "LSP: toggle error list"},
+  -- hrsh7th/nvim-cmp
+  {mode = "n", "gd", vim.lsp.buf.definition(), desc = "LSP: goto definition", noremap = true},
+  {mode = "n", "gD", vim.lsp.buf.declaration(), desc = "LSP: goto declaration", noremap = true},
+  {mode = "n", "gi", vim.lsp.buf.implementation(), desc = "LSP: list implementation", noremap = true},
+  {mode = "n", "gr", function() vim.lsp.buf.references() end, desc = "LSP: list references", noremap = true},
+  {mode = "n", "K", vim.lsp.buf.hover(), desc = "LSP: show documentation", noremap = true},
+  {mode = "n", "<F8>", function() require("conform").format({ async = true, lsp_fallback = true }) end, desc = "LSP: format", noremap = true},
+  -- rmagatti/goto-preview
+  {mode = "n", "gpd", function() require("goto-preview").goto_preview_definition() end, desc = "LSP: preview definition", noremap = true},
+  {mode = "n", "gpy", function() require("goto-preview").goto_preview_type_definition() end, desc = "LSP: preview type definition", noremap = true},
+  {mode = "n", "gpi", function() require("goto-preview").goto_preview_implementation() end, desc = "LSP: list preview implementation", noremap = true},
+  {mode = "n", "gpD", function() require("goto-preview").goto_preview_declaration() end, desc = "LSP: preview declaration", noremap = true},
+  {mode = "n", "gpr", function() require("goto-preview").goto_preview_references() end, desc = "LSP: list preview references", noremap = true},
+  {mode = "n", "gpc", function() require("goto-preview").close_all_win() end, desc = "LSP: close all preview windows", noremap = true},
+  -- filipdutescu/renamer.nvim
+  {mode = "n", "<F5>", function() require("renamer").rename() end, desc = "LSP: rename", noremap = true},
+  -- nvim-telescope/telescope.nvim
+  {mode = "n", "<F4>", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
+  {mode = "n", "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
+  -- kamykn/spelunker.vim
+  {mode = "n", "<F6>t", ":call spelunker#toggle()<CR>", desc = "Spelunker: toggle spell check", noremap = true},
+  {mode = "n", "<F6>l", function() if vim.opt.spelllang._value == "de_de" then vim.opt.spelllang = "en_us" print("Spell language set to en_us") else vim.opt.spelllang = "de_de" print("Spell language set to de_de") end vim.opt.spell = false end, desc = "Spell: toggle spell language", noremap = true},
+  -- kevinhwang91/nvim-ufo
+  {mode = "n", "K", function() local winid = require("ufo").peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end end, desc = "LSP: peek folded section", noremap = true},
+  -- kevinhwang91/nvim-hlslens
+  {mode = "n", "n", [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]], desc = "Search: search forward", noremap = true, silent = true},
+  {mode = "n", "N", [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]], desc = "Search: search backwards", noremap = true, silent = true},
+  -- sindrets/winshift.nvim
+  {mode = "n", "<C-W>m", ":WinShift<CR>", desc = "Navigation: enter window shift mode", noremap = true},
+  -- ggandor/leap.nvim
+  {mode = "n", "f", "<Plug>(leap-forward)", desc = "Navigation: enter leap mode for forward movement", noremap = true},
+  {mode = "n", "F", "<Plug>(leap-backward)", desc = "Navigation: enter leap mode for backwards movement", noremap = true},
+  {mode = "n", "gf", "<Plug>(leap-from-window)", desc = "Navigation: enter leap mode for other windows", noremap = true},
+  -- gnikdroy/projections.nvim
+  {mode = "n", "<leader>fp", function() vim.cmd("Telescope projections") end, desc = "Telescope: find projects", noremap = true},
 })
-m.nnoremap("<leader>gt", function()
-  lazygit:toggle()
-end, "Git: open lazygit")
-m.tnoremap("<leader>gt", function()
-  lazygit:toggle()
-end, "Git: open lazygit")
-m.nnoremap("<leader>tg", function()
-  lazygit:toggle()
-end, "Terminal: open lazygit")
-m.tnoremap("<leader>tg", function()
-  lazygit:toggle()
-end, "Terminal: open lazygit")
-
--- sindrets/diffview.nvim
-m.nmap("<leader>gdo", ":DiffviewOpen<CR>", "Git: open diff")
-m.nmap("<leader>gdc", ":DiffviewClose<CR>", "Git: close diff")
-
--- folke/trouble.nvim
-m.nmap("<leader>x", ":TroubleToggle<CR>", "LSP: toggle error list")
-
--- hrsh7th/nvim-cmp
-m.nnoremap("gd", vim.lsp.buf.definition(), "LSP: goto definition")
-m.nnoremap("gD", vim.lsp.buf.declaration(), "LSP: goto declaration")
-m.nnoremap("gi", vim.lsp.buf.implementation(), "LSP: list implementation")
-m.nnoremap("gr", function()
-  vim.lsp.buf.references()
-end, "LSP: list references")
-m.nnoremap("gy", vim.lsp.buf.type_definition(), "LSP: goto type definition")
-m.nnoremap("K", vim.lsp.buf.hover(), "LSP: show documentation")
-m.nnoremap("<F8>", function()
-  require("conform").format({ async = true, lsp_fallback = true })
-end, "LSP: format")
-
--- rmagatti/goto-preview
-m.nnoremap("gpd", function()
-  require("goto-preview").goto_preview_definition()
-end, "LSP: preview definition")
-m.nnoremap("gpy", function()
-  require("goto-preview").goto_preview_type_definition()
-end, "LSP: preview type definition")
-m.nnoremap("gpi", function()
-  require("goto-preview").goto_preview_implementation()
-end, "LSP: list preview implementation")
-m.nnoremap("gpD", function()
-  require("goto-preview").goto_preview_declaration()
-end, "LSP: preview declaration")
-m.nnoremap("gpr", function()
-  require("goto-preview").goto_preview_references()
-end, "LSP: list preview references")
-m.nnoremap("gpc", function()
-  require("goto-preview").close_all_win()
-end, "LSP: close all preview windows")
-
--- filipdutescu/renamer.nvim
-m.nnoremap("<F5>", function()
-  require("renamer").rename()
-end, "LSP: rename")
-
--- nvim-telescope/telescope.nvim
-m.nnoremap("<F4>", ":Telescope find_files<CR>", "Telescope: find files")
-m.nnoremap("<leader>ff", ":Telescope find_files<CR>", "Telescope: find files")
-
--- kamykn/spelunker.vim
-m.nnoremap("<F6>t", ":call spelunker#toggle()<CR>", "Spelunker: toggle spell check")
-m.nnoremap("<F6>l", function()
-  if vim.opt.spelllang._value == "de_de" then
-    vim.opt.spelllang = "en_us"
-    print("Spell language set to en_us")
-  else
-    vim.opt.spelllang = "de_de"
-    print("Spell language set to de_de")
-  end
-  vim.opt.spell = false
-end, "Spell: toggle spell language")
-
--- kevinhwang91/nvim-ufo
-m.nnoremap("K", function()
-  local winid = require("ufo").peekFoldedLinesUnderCursor()
-  if not winid then
-    vim.lsp.buf.hover()
-  end
-end, "LSP: peek folded section")
-
--- kevinhwang91/nvim-hlslens
-m.nnoremap(
-  "n",
-  [[<Cmd>execute('normal! ' . v:count1 . 'n')<CR><Cmd>lua require('hlslens').start()<CR>]],
-  "silent",
-  "Search: search forward"
-)
-m.nnoremap(
-  "N",
-  [[<Cmd>execute('normal! ' . v:count1 . 'N')<CR><Cmd>lua require('hlslens').start()<CR>]],
-  "silent",
-  "Search: search backwards"
-)
-
--- sindrets/winshift.nvim
-m.nnoremap("<C-W>m", ":WinShift<CR>", "Navigation: enter window shift mode")
-
--- ggandor/leap.nvim
-m.nnoremap("f", "<Plug>(leap-forward)", "Navigation: enter leap mode for forward movement")
-m.nnoremap("F", "<Plug>(leap-backward)", "Navigation: enter leap mode for backwards movement")
-m.nnoremap("gf", "<Plug>(leap-from-window)", "Navigation: enter leap mode for other windows")
-
--- gnikdroy/projections.nvim
-m.nnoremap("<leader>fp", function()
-  vim.cmd("Telescope projections")
-end, "Telescope: find projects")
