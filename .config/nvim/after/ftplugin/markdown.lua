@@ -2,7 +2,6 @@ vim.api.nvim_create_autocmd({ 'VimEnter' },
   {
     callback = function()
       require("tidy").opts.enabled_on_save = false
-      require("knap").toggle_autopreviewing()
     end
   })
 
