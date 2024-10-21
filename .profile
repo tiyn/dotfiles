@@ -15,7 +15,7 @@ export IMAGE="sxiv"
 export READER="zathura"
 export STATUSBAR="dwmblocks"
 export TERMINAL="st"
-export QT_QPA_PLATFORMTHEME="qt5ct"
+export QT_QPA_PLATFORMTHEME="qt6ct"
 
 export XDG_CACHE_HOME="${HOME}/.cache"
 export XDG_CONFIG_HOME="${HOME}/.config"
