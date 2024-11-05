@@ -471,20 +471,9 @@
             },
             "split-channels": false
         },
-        "loudness#0": {
-            "bypass": false,
-            "clipping": false,
-            "clipping-range": 6.0,
-            "fft": "16384",
-            "input-gain": 0.0,
-            "output-gain": 0.0,
-            "std": "Flat",
-            "volume": 0.0
-        },
         "plugins_order": [
             "equalizer#0",
-            "equalizer#1",
-            "loudness#0"
+            "equalizer#1"
         ]
     }
 }
