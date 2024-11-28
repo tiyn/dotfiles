@@ -177,6 +177,11 @@ fileviewer *.pdf
         \ %pc
         \ vifmimg clear
 
+" cbr
+filextype *.cbr
+        \ {View in zathura}
+        \ zathura ./%f,
+
 " CSV
 filetype *.csv,*.xlsx,*.sc sc-im %f
 
