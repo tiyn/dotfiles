@@ -140,6 +140,6 @@ alias yay="yay --sudoloop --noredownload --norebuild --combinedupgrade"
 
 # youtube-dl
 alias yta="yt-dlp -f 'bestaudio[ext=m4a]'"
-alias ytv="yt-dlp -f 'bestvide[ext=mp4]+bestaudio[ext=m4a]'"
-alias yta2c="yt-dlp --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestaudio/best'"
-alias ytv2c="yt-dlp --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestvideo[height>=720]+bestaudio/best'"
+alias ytv="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]'"
+alias yta2c="yt-dlp --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestaudio[ext=m4a]/best'"
+alias ytv2c="yt-dlp --external-downloader aria2c --external-downloader-args '-j 16 -x 16 -s 16 -k 2M' -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best'"
