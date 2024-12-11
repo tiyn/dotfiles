@@ -182,6 +182,11 @@ filextype *.cbr
         \ {View in zathura}
         \ zathura ./%f,
 
+" cbz
+filextype *.cbz
+        \ {View in zathura}
+        \ zathura ./%f,
+
 " CSV
 filetype *.csv,*.xlsx,*.sc sc-im %f
 
