@@ -4,7 +4,7 @@
 # Based on a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 # Heavily extended and updated to a pipewire system
 
-[ -z "$LOOPBACK_DEVICE" ] && device="Easy Effects Source" || device="$LOOPBACK_DEVICE"
+device=${LOOPBACK_DEVICE:-Easy Effects Source}
 
 name=$(wpctl status | sed -n '/Sources/,$p' | sed -n '/Filter/q;p' | grep "$device" | sed -e "s/*/\ /g")
 id=$( echo $name | cut -d '.' -f 1 | cut -c 5-)

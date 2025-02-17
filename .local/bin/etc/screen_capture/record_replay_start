@@ -1,8 +1,8 @@
 #!/bin/sh
 
-[ -z "$CAPTURE_INPUT_AUDIO" ] && audio_1="easyeffects_sink.monitor" || audio_1="$CAPTURE_INPUT_AUDIO"
-[ -z "$CAPTURE_OUTPUT_AUDIO" ] && audio_2="easyeffects_source" || audio_2="$CAPTURE_OUTPUT_AUDIO"
-[ -z "$CAPTURE_DIR" ] && output="$HOME/downloads" || output="$CAPTURE_DIR"
+audio_1=${CAPTURE_INPUT_AUDIO:-easyeffects_sink.monitor}
+audio_2=${CAPTURE_OUTPUT_AUDIO:-easyeffects_source}
+output=${CAPTURE_DIR:-$HOME/downloads}
 
 window=$(xdotool getwindowfocus)
 fps=60

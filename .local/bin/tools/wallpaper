@@ -2,11 +2,8 @@
 
 # Adapted from a script by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-[ -z "$WALLPAPER_DESKTOP" ] && wall_desk="$XDG_DATA_HOME/bg" || wall_desk="$WALLPAPER_DESKTOP"
-[ -z "$WALLPAPER_LOCK" ] && wall_lock="$XDG_DATA_HOME/lock" || wall_lock="$WALLPAPER_LOCK"
-
-echo $wall_desk
-echo $wall_lock
+wall_desk=${WALLPAPER_DESKTOP:-$XDG_DATA_HOME/bg}
+wall_lock=${WALLPAPER_LOCK:-$XDG_DATA_HOME/lock}
 
 case "$1" in
   desktop) trueloc="$(readlink -f "$2")" &&
