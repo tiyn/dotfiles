@@ -2,32 +2,32 @@
 # copying latex templates from my template repository
 # (not included in the dotfiles)
 
-[ -z "$LATEX_TEMPLATE_DIR" ] && latexdir="~/code/main/latextemplates" || latexdir="$LATEX_TEMPLATE_DIR"
+latexdir=${LATEX_TEMPLATE_DIR:-~/code/main/latextemplates}
+
+targetdir=${2:-.}
 
 articletemp=${latexdir}/article/*
-beamertemp=${latexdir}/beamer/*
+beamertemp=${latexdir}/beamer-minimal/*
 exercisetemp=${latexdir}/exercise/*
 handouttemp=${latexdir}/handout/*
-cvtemp=${latexdir}/cv/*
 lettertemp=${latexdir}/letter/*
 
 case "$1" in
-	a*) cp $articletemp . -r && exit;;
-	b*) cp $beamertemp . -r && exit ;;
-	c*) cp $cvtemp . -r && exit ;;
-	e*) cp $exercisetemp . -r && exit ;;
-	h*) cp $handouttemp . -r && exit ;;
-	l*) cp $lettertemp . -r && exit ;;
+	a|article) cp $articletemp $targetdir -r && exit;;
+	b|beamer) cp $beamertemp $targetdir -r && exit ;;
+	e|exercise) cp $exercisetemp $targetdir -r && exit ;;
+	h|handout) cp $handouttemp $targetdir -r && exit ;;
+	l|letter) cp $lettertemp $targetdir -r && exit ;;
 esac
 
 cat << EOF
-Allowed options
-	article     get article-template to current dir
-	beamer 	    get beamer-template to current dir
-	cv 	    get curriculum vitae-template to current dir
-	exercise    get exercise-template to current dir
-	handout     get handout-template to current dir
-	letter 	    get letter-template to current dir
+Usage: textemp <option> <target-dir>
 
-All of these commands can be truncated to one character.
+Allowed options
+
+	a[rticle]     get article-template to current dir
+	b[eamer]      get beamer-template to current dir
+	e[xercise]    get exercise-template to current dir
+	h[andout]     get handout-template to current dir
+	l[etter]      get letter-template to current dir
 EOF
