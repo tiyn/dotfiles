@@ -3,6 +3,7 @@
 audio_1=${CAPTURE_INPUT_AUDIO:-easyeffects_sink.monitor}
 audio_2=${CAPTURE_OUTPUT_AUDIO:-easyeffects_source}
 output=${CAPTURE_DIR:-$HOME/downloads}
+device=${CAPTURE_DEVICE:-cpu}
 
 window=$(xdotool getwindowfocus)
 fps=30
@@ -11,5 +12,5 @@ v_codec="h264"
 a_codec="aac"
 output="$output/recording-$(date '+%Y-%m-%d_%H-%M-%S').$format"
 
-gpu-screen-recorder -w $window -c $format -k $v_codec -ac $a_codec -f $fps -o $output &
+gpu-screen-recorder -encoder $device -w $window -c $format -k $v_codec -ac $a_codec -f $fps -o $output &
 notify-send -u low 'Screen record' 'Recording started'
