@@ -8,7 +8,6 @@ case "$1" in
     *.tex)
         file=$(readlink -f "$1")
         dir=$(dirname "$file")
-        escaped_dir=$(echo $(dirname "$file") | sed 's/+/\\+/g')
         base="${file%.*}"
         base=${base#"$dir/"}
         if [ -f "$dir/indent.log" ]; then rm "$dir/indent.log"; fi
