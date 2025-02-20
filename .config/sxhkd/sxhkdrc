@@ -78,6 +78,6 @@ XF86AudioLowerVolume
 XF86AudioRaiseVolume
         lmc up
 XF86MonBrightnessDown
-        light -U 15
+        brightnessctl set 15%-
 XF86MonBrightnessUp
-        light -A 15
+        brightnessctl set 15%+
