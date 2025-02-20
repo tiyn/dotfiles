@@ -1,4 +1,4 @@
 [Desktop Entry]
 Type=Application
 Name=Browser
-Exec=firefox %u
+Exec=zen-browser %u
