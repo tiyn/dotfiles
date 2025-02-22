@@ -7,7 +7,7 @@ export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's
 # Add flatpak to path
 export PATH="/var/lib/flatpak/exports/bin:${PATH}"
 
-export BROWSER="firefox"
+export BROWSER="zen-browser"
 export RTV_BROWSER="qutebrowser"
 export EDITOR="nvim"
 export FILE="vifmrun"

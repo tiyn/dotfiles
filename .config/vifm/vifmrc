@@ -248,8 +248,8 @@ fileviewer <video/*>
 
 " Web
 filextype *.html,*.htm
-        \ {Open with firefox}
-        \ firefox %f &,
+        \ {Open with default browser}
+        \ $BROWSER %f &,
 filetype *.html,*.htm links, lynx
 
 " Font
