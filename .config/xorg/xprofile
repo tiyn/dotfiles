@@ -10,4 +10,5 @@ sxhkd &                                                     # for shortcuts
 (sleep 10 ; pkill -RTMIN+4 $STATUSBAR) &                    # reload volume section of statusbar
 dunstctl rule dnd_low disable &                             # disable dnd for low urgencies
 dunstctl rule dnd_normal disable &                          # disable dnd for normal urgencies
+xss-lock -- slock &                                         # enable locking the screen upon sleep
 easyeffects --gapplication-service &                        # start audio server
