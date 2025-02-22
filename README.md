@@ -25,6 +25,7 @@ The following are some of the main programs that are installed by using this ins
 - Reader: `zathura`
 - Browser: `zen-browser`
 - Lockscreen: `slock`
+- Hotkey Service: `sxhkd`
 
 All requirements and recommendations get installed by my version of LARBS.
 To take a look at all the software it installs look at the
