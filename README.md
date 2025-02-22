@@ -8,7 +8,23 @@ They were originally based on the dotfiles of
 This being some time, hundreds of commits and my personalized version of
 [larbs](https://github.com/Tiyn/larbs) ago, they are now quite different.
 
-## Required and Recommended Software
+## Default Programs
+
+The following are some of the main programs that are installed by using this install script.
+
+- Operating System: `Arch Linux`
+- Window Manager: `dwm`
+- Audio Server: `pipewire`
+- Shell: `zsh`
+- Terminal Emulator: `st`
+- File Manager: `vifm`
+- Application Launcher: `dmenu(_run)`
+- Status Bar: `dwmblocks`
+- Notification Service: `dunst`
+- Text Editor: `neovim`
+- Reader: `zathura`
+- Browser: `zen-browser`
+- Lockscreen: `slock`
 
 All requirements and recommendations get installed by my version of LARBS.
 To take a look at all the software it installs look at the
