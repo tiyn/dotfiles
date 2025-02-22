@@ -12,8 +12,8 @@ total=$(echo $acpi | sed 's/.*:\ //')
 status="$(echo $total | cut -d',' -f1)"
 capacity="$(echo $total | cut -d',' -f2 | sed 's/%//')"
 
-if [ "$status" = "Discharging" ] && [ $capacity -le 15 ] ; then
-        notify-send -u critical "Battery" "Below 15%"
+if [ "$status" = "Discharging" ] && [ $capacity -le 20 ] ; then
+        notify-send -u critical "Battery" "Low capacity: $capacity%"
 fi
 
 if [ $capacity -gt 40 ]
