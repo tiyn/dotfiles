@@ -19,6 +19,8 @@ case "$1" in
           inode/directory ) ln -f "$(find "$trueloc" -iregex '.*.\(jpg\|jpeg\|png\|gif\)' -type f | shuf -n 1)" "$wall_lock" && notify-send -i "$wall_lock" "Random lock screen wallpaper chosen." ;;
           *) notify-send "🖼️ Error" "Not a valid image or directory." ; exit 1;;
       esac ;;
+  both) wallpaper desktop "$2" &&
+        wallpaper lock "$2";;
   *) cat << EOF
 wallpaper: cli script to set and reset the wallpaper of the desktop and lock
            screen.
@@ -27,6 +29,9 @@ Allowed options:
   desktop [PATH]    Set the wallpaper of the desktop to the specified path.
                     If no path is given reset it.
   lock [PATH]       Set the wallpaper of the lock screen to the specified path.
+                    If no path is given reset it.
+  both [PATH]       Set wallpaper for both lock screen and dektop to a
+                    specified path.
                     If no path is given reset it.
   all else          Print this message
 
