@@ -36,3 +36,6 @@ vim.o.textwidth = 100
 
 -- frabjous/knap
 vim.keymap.set('n', '<leader>p', require("knap").toggle_autopreviewing, { noremap = true })
+
+-- benlubas/molten-nvim
+require("quarto").activate()

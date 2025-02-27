@@ -13,6 +13,7 @@ wk.add({
   {mode = "n", "<leader>gd", desc = "Git: diff"},
   {mode = "n", "<leader>s", desc = "Substitute"},
   {mode = "n", "<leader>t", desc = "Terminal"},
+  {mode = "n", "<leader>r", desc = "Quarto"},
   {mode = "n", "<C-W>", desc = "Navigation"},
   -- unmap unwanted commands
   {mode = "n", "Zt", "<NOP>", noremap = true},
@@ -103,4 +104,11 @@ wk.add({
   {mode = "n", "gf", "<Plug>(leap-from-window)", desc = "Navigation: enter leap mode for other windows", noremap = true},
   -- gnikdroy/projections.nvim
   {mode = "n", "<leader>fp", function() vim.cmd("Telescope projections") end, desc = "Telescope: find projects", noremap = true},
+  -- quarto-dev/quarto-nvim
+  {mode = "n", "<leader>rc", require("quarto.runner").run_cell, desc = "Quarto: Run cell", noremap = true, silent = true},
+  {mode = "n", "<leader>ra", require("quarto.runner").run_above, desc = "Quarto: Run cell and above", noremap = true, silent = true},
+  {mode = "n", "<leader>rA", require("quarto.runner").run_all, desc = "Quarto: Run all cells", noremap = true, silent = true},
+  {mode = "n", "<leader>rl", require("quarto.runner").run_line, desc = "Quarto: Run line", noremap = true, silent = true},
+  {mode = "n", "<leader>rr", require("quarto.runner").run_range, desc = "Quarto: Run visual range", noremap = true, silent = true},
+  {mode = "n", "<leader>rL", function() require("quarto.runner").run_all(true) end, desc = "Quarto: Run all cells of all languages", noremap = true, silent = true},
 })
