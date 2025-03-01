@@ -7,6 +7,9 @@ background() { for ((i=2;i<=$#;i++)); do; ${@[1]} ${@[$i]} &> /dev/null &| ; don
 alias ":wq"="exit"
 alias ":q"="exit"
 
+# cat
+alias cat="bat"
+
 # cd
 alias ".."="cd .."
 alias "..."="cd ../.."
@@ -134,6 +137,7 @@ alias weather="curl wttr.in"
 
 # wget
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
+alias wget2c="aria2c"
 
 # yay
 alias yay="yay --sudoloop --noredownload --norebuild --combinedupgrade"
