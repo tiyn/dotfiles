@@ -9,6 +9,7 @@
   "comment.nvim": { "branch": "master", "commit": "e30b7f2008e52442154b66f7c519bfd2f1e32acb" },
   "conform.nvim": { "branch": "master", "commit": "40d4e98fcc3e6f485f0e8924c63734bc7e305967" },
   "cpsm": { "branch": "master", "commit": "1a5fc1b6169bb80c29b0b986130c4f3f1a9ed82e" },
+  "csvview.nvim": { "branch": "main", "commit": "ed446a55b4ff9297d9b94a955db3a2eca6cdb2b2" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "fterm.nvim": { "branch": "master", "commit": "d1320892cc2ebab472935242d9d992a2c9570180" },
   "fzy-lua-native": { "branch": "master", "commit": "820f745b7c442176bcc243e8f38ef4b985febfaf" },
