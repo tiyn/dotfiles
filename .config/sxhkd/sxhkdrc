@@ -49,6 +49,9 @@ super + Return
 Print
         screenshot
 
+super + space
+        touchpad toggle
+
 super + shift + space
         dunstctl close-all
 
