@@ -21,6 +21,6 @@ then
     fi
 fi
 
-[ -f /sys/class/net/e*/operstate ] && lanicon=$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /") || lanicon="^b#282828^^c#ff0000^  "
+[ -f /sys/class/net/e*/operstate ] && lanicon=$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /") || lanicon="^b#282828^^c#ff0000^  "
 
 echo "$lanicon" "$wifiicon"
