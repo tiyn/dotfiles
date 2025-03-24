@@ -24,7 +24,7 @@ return {
         highlight = { enable = true },
         autotag = { enable = false },
         rainbow = {
-          enable = false,
+          enable = true,
           extended_mode = true,
           max_file_lines = nil,
           -- colors = {},
