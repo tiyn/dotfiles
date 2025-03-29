@@ -52,7 +52,7 @@ wk.add({
   {mode = "n", "<leader>sa", ":%S//g<Left><Left>", desc = "Substitute: free form", noremap = true},
   {mode = "n", "<leader>ss", ":%S/\\<<C-r><C-w>\\>//g<Left><Left>", desc = "Substitute: word under cursor", noremap = true},
   -- simrat39/symbols-outline.nvim
-  {mode = "n", "<F3>", ":SymbolsOutline<CR>", desc = "CTags: toggle"},
+  {mode = "n", "<F3>", ":Outline<CR>", desc = "CTags: toggle"},
   -- nvim-tree/nvim-tree.lua
   {mode = "n", "<F2>", ":NvimTreeToggle toggle<CR>", desc = "File tree: toggle"},
   -- mbbill/undotree
@@ -70,9 +70,9 @@ wk.add({
   -- folke/trouble.nvim
   {mode = "n", "<leader>x", ":TroubleToggle<CR>", desc = "LSP: toggle error list"},
   -- hrsh7th/nvim-cmp
-  {mode = "n", "gd", vim.lsp.buf.definition(), desc = "LSP: goto definition", noremap = true},
-  {mode = "n", "gD", vim.lsp.buf.declaration(), desc = "LSP: goto declaration", noremap = true},
-  {mode = "n", "gi", vim.lsp.buf.implementation(), desc = "LSP: list implementation", noremap = true},
+  {mode = "n", "gd", function() vim.lsp.buf.definition() end, desc = "LSP: goto definition", noremap = true},
+  {mode = "n", "gD", function() vim.lsp.buf.declaration() end, desc = "LSP: goto declaration", noremap = true},
+  {mode = "n", "gi", function() vim.lsp.buf.implementation() end, desc = "LSP: list implementation", noremap = true},
   {mode = "n", "gr", function() vim.lsp.buf.references() end, desc = "LSP: list references", noremap = true},
   {mode = "n", "K", vim.lsp.buf.hover(), desc = "LSP: show documentation", noremap = true},
   {mode = "n", "<F8>", function() require("conform").format({ async = true, lsp_fallback = true }) end, desc = "LSP: format", noremap = true},

@@ -1,5 +1,5 @@
 return {
-  "amrbashir/nvim-docs-view",
+  "tiyn/nvim-docs-view",
   lazy = true,
   cmd = "DocsViewToggle",
   opts = {
