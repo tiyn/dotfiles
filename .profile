@@ -85,3 +85,6 @@ echo "$0" | grep "zsh$" >/dev/null && [ -f ${ZDOTDIR}/.zshrc ] && source "${ZDOT
 
 # Start graphical server if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+
+# start wayland using dwl
+# dwl -s ~/.config/wayland/wayland.conf

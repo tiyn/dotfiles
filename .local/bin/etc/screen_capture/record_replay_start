@@ -13,4 +13,5 @@ a_codec="opus"
 lenght=20
 
 gpu-screen-recorder -encoder $device -w $window -f $fps -a $audio_1 -a $audio_2 -c $format -k $v_codec -ac $a_codec -r $lenght -o $output &
+# gpu-screen-recorder -encoder $device -w screen -f $fps -a $audio_1 -a $audio_2 -c $format -k $v_codec -ac $a_codec -r $lenght -o $output & # wayland command
 notify-send -u low 'Screen record' 'Replay started'

@@ -13,4 +13,5 @@ a_codec="aac"
 output="$output/recording-$(date '+%Y-%m-%d_%H-%M-%S').$format"
 
 gpu-screen-recorder -encoder $device -w $window -c $format -k $v_codec -ac $a_codec -f $fps -o $output &
+# gpu-screen-recorder -encoder $device -w screen -c $format -k $v_codec -ac $a_codec -f $fps -o $output & # wayland command
 notify-send -u low 'Screen record' 'Recording started'
