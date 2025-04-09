@@ -9,12 +9,21 @@ output="$output/screenshot-$(date '+%Y-%m-%d_%H-%M-%S').png"
 xclip_img="xclip -sel clip -t image/png"
 xclip_txt="xclip -sel clip -t text/plain"
 
-case "$(printf "a selected area\\na selected area (copy)\\ncurrent window\\ncurrent window (copy)\\nfull screen\\nfull screen (copy)\\ncolor picker (copy)" | dmenu -l 6 -i -p "Screenshot which area?")" in
-	"a selected area") maim -s --hidecursor $output ;;
-	"a selected area (copy)") maim -s --hidecursor | ${xclip_img} ;;
-	"current window") maim -i "$(xdotool getactivewindow)" $output ;;
-	"current window (copy)") maim -i "$(xdotool getactivewindow)" | ${xclip_img} ;;
-	"full screen") maim $output ;;
-	"full screen (copy)") maim | ${xclip_img} ;;
-	"color picker (copy)") xcolor |tr -d '\n' | ${xclip_txt} ;;
-esac
+if [ $DISPLAY_SERVER = "wayland" ]; then
+    case "$(printf "a selected area\\na selected area (copy)\\nfull screen\\nfull screen (copy)" | dmenu -l 6 -i -p "Screenshot which area?")" in
+        "a selected area") grim -g "$(slurp)" $output ;;
+        "a selected area (copy)") grim -g "$(slurp)" - | wl-copy ;;
+        "full screen") grim $output ;;
+        "full screen (copy)") grim - | wl-copy ;;
+    esac
+elif [ $DISPLAY_SERVER = "xorg" ]; then
+    case "$(printf "a selected area\\na selected area (copy)\\ncurrent window\\ncurrent window (copy)\\nfull screen\\nfull screen (copy)\\ncolor picker (copy)" | dmenu -l 6 -i -p "Screenshot which area?")" in
+        "a selected area") maim -s --hidecursor $output ;;
+        "a selected area (copy)") maim -s --hidecursor | ${xclip_img} ;;
+        "current window") maim -i "$(xdotool getactivewindow)" $output ;;
+        "current window (copy)") maim -i "$(xdotool getactivewindow)" | ${xclip_img} ;;
+        "full screen") maim $output ;;
+        "full screen (copy)") maim | ${xclip_img} ;;
+        "color picker (copy)") xcolor |tr -d '\n' | ${xclip_txt} ;;
+    esac
+fi

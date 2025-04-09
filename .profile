@@ -1,6 +1,9 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+# sets default display server (can be overwritten in ~/.config/profile/local_profile)
+export DISPLAY_SERVER="xorg"
+
 # Adds `~/.local/bin` and all subdirectories to $PATH
 export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
 
@@ -13,7 +16,6 @@ export EDITOR="nvim"
 export FILE="vifmrun"
 export IMAGE="sxiv"
 export READER="zathura"
-export STATUSBAR="dwmblocks"
 export TERMINAL="st"
 export QT_QPA_PLATFORMTHEME="qt6ct"
 
@@ -83,8 +85,11 @@ echo "$0" | grep "zsh$" >/dev/null && [ -f ${ZDOTDIR}/.zshrc ] && source "${ZDOT
 # load optional variables
 [ -f ~/.config/profile/local_profile ] && source "${HOME}/.config/profile/local_profile"
 
-# Start graphical server if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
-
-# start wayland using dwl
-# dwl -s ~/.config/wayland/wayland.conf
+# Start graphical server based on set display server
+if [ $DISPLAY_SERVER = "wayland" ]; then
+    export STATUSBAR="waybar"
+    dwl -s ~/.config/wayland/wayland.conf
+elif [ $DISPLAY_SERVER = "xorg" ]; then
+    export STATUSBAR="dwmblocks"
+    [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+fi
