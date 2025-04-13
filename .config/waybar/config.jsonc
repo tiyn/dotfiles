@@ -24,7 +24,8 @@
     //     }
     // },
     "dwl/tags": {
-        "tag-labels": [ "", "", "", "", "", "", "", "", "", "" ]
+        "tag-labels": [ "", "", "", "", "", "", "", "", "", "" ],
+        "num-tags": 10
     },
     "dwl/window": {
         "format": "{layout} {title}"
@@ -34,7 +35,7 @@
         "spacing": 10
     },
     "clock": {
-        "format": "  {:%d %b %I:%M}"
+        "format": "  {:%d %b %H:%M}"
     },
     "battery": {
         "states": {
