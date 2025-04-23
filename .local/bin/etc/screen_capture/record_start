@@ -5,7 +5,7 @@ audio_2=${CAPTURE_OUTPUT_AUDIO:-easyeffects_source}
 output=${CAPTURE_DIR:-$HOME/downloads}
 device=${CAPTURE_DEVICE:-cpu}
 
-fps=30
+fps=60
 format="mp4"
 v_codec="h264"
 a_codec="aac"
@@ -17,5 +17,5 @@ elif [ $DISPLAY_SERVER = "xorg" ]; then
     window=$(xdotool getwindowfocus)
 fi
 
-gpu-screen-recorder -encoder $device -w $window -c $format -k $v_codec -ac $a_codec -f $fps -o $output &
+gpu-screen-recorder -encoder $device -w $window -c $format -k $v_codec -ac $a_codec -f $fps -o $output -a $audio_1 -a $audio_2 &
 notify-send -u low 'Screen record' 'Recording started'
