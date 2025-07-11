@@ -1,7 +1,6 @@
 #!/bin/sh
 exec swayidle -w \
     timeout 600 "brightnessctl -s set 0%" resume "brightnessctl -r"\
-    timeout 600 "notify-send -u critical 'Power' 'System will suspend in 20 minutes!'"\
     timeout 1200 "notify-send -u critical 'Power' 'Laptop will suspend in 10 minutes!'"\
     timeout 1200 "notify-send -u critical 'Power' 'Screen will turn off soon'"\
     timeout 1260 "wlr-randr --output eDP-1 --off" resume "wlr-randr --output eDP-1 --on"\
