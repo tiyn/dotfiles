@@ -13,7 +13,7 @@ Plug 'tomasiser/vim-code-dark'
 call plug#end()
 " end plugin section
 
-set go=a
+"set go=a
 
 " enable mouse for all modes
 set mouse=a
