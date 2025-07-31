@@ -21,7 +21,7 @@ return {
           "python",
           "lua",
         },
-        highlight = { enable = true },
+        -- highlight = { enable = true },
         autotag = { enable = false },
         -- rainbow = {
         --   enable = true,
