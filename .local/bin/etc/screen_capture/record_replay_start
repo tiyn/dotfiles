@@ -7,7 +7,8 @@ device=${CAPTURE_DEVICE:-cpu}
 
 fps=60
 format="mp4"
-v_codec="h264"
+v_codec="hevc"
+# v_codec="h264"
 a_codec="opus"
 lenght=20
 

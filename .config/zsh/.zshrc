@@ -185,7 +185,7 @@ fi
 eval $(thefuck --alias)
 
 # python
-#eval "$(pyenv init -)"
+eval "$(pyenv init -)"
 
 ##########################
 # COMMANDS BEFORE PROMPT #
