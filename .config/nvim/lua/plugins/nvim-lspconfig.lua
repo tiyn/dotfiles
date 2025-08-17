@@ -58,18 +58,18 @@ return {
       }
       local default = { __index = function() return {} end }
       setmetatable(servers, default)
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          require('lspconfig')[server_name].setup({
-            on_attach = Attach_func,
-            capabilities = Capabilities,
-            flags = {
-              debounce_text_changes = 150
-            },
-            settings = servers[server_name]
-          })
-        end
-      })
+      -- require("mason-lspconfig").setup_handlers({
+      --   function(server_name)
+      --     require('lspconfig')[server_name].setup({
+      --       on_attach = Attach_func,
+      --       capabilities = Capabilities,
+      --       flags = {
+      --         debounce_text_changes = 150
+      --       },
+      --       settings = servers[server_name]
+      --     })
+      --   end
+      -- })
     end
   }
 }

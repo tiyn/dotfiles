@@ -14,9 +14,9 @@ return {
         ["("] = ")",
         ["["] = "]",
         ["{"] = "}",
-        ["'"] = { closing = "'", enter = false },
-        ['"'] = { closing = '"', enter = false },
-        ["`"] = { closing = "`", enter = false },
+        ["'"] = "'",
+        ['"'] = '"',
+        ["`"] = "`",
       },
     },
     highlights = {
