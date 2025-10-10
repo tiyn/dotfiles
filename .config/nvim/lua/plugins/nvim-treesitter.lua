@@ -19,6 +19,7 @@ return {
           "markdown_inline",
           "latex",
           "python",
+          "rust",
           "lua",
         },
         -- highlight = { enable = true },

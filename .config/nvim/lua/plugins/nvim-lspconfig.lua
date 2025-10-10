@@ -1,18 +1,23 @@
 return {
   -- lang server management
   {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
+      "williamboman/mason-lspconfig.nvim",
       {
-        'hrsh7th/cmp-nvim-lsp',
+        "mrcjkb/rustaceanvim",
+        version = "^6",
+        lazy = false,
+      },
+      {
+        "hrsh7th/cmp-nvim-lsp",
         config = function()
           Capabilities = require("cmp_nvim_lsp").default_capabilities()
           Capabilities.textDocument.foldingRange = {
             dynamicRegistration = false,
-            lineFoldingOnly = true
+            lineFoldingOnly = true,
           }
-        end
+        end,
       },
     },
     config = function()
@@ -36,14 +41,14 @@ return {
           "texlab",
           -- "tsserver",
           "yamlls",
-        }
+        },
       })
 
       local servers = {
         lua_ls = {
-          Lua = {
+          lua = {
             diagnostics = {
-              globals = { 'vim' }
+              globals = { "vim" },
             },
             telemetry = { enable = false },
           },
@@ -53,10 +58,14 @@ return {
             -- language = "de-DE",
             enabled = { "latex" },
             dictionary = Dictionaries,
-          }
-        }
+          },
+        },
       }
-      local default = { __index = function() return {} end }
+      local default = {
+        __index = function()
+          return {}
+        end,
+      }
       setmetatable(servers, default)
       -- require("mason-lspconfig").setup_handlers({
       --   function(server_name)
@@ -70,6 +79,6 @@ return {
       --     })
       --   end
       -- })
-    end
-  }
+    end,
+  },
 }
