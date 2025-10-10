@@ -42,5 +42,6 @@ case "$file" in
 	*\.lua) lua "$file" ;;
 	*\.sent) setsid sent "$file" 2>/dev/null & ;;
         *\.r|*\.R) Rscript "$file" ;;
+        *\.rs) rustc "$file" && "$base" ;;
 	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac
