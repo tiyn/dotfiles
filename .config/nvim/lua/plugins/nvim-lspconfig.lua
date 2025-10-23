@@ -43,42 +43,38 @@ return {
           "yamlls",
         },
       })
-
+      local default_flags = {
+        debounce_text_changes = 150,
+        allow_incremental_sync = true,
+        progress = true,
+      }
       local servers = {
-        lua_ls = {
-          lua = {
-            diagnostics = {
-              globals = { "vim" },
-            },
-            telemetry = { enable = false },
-          },
-        },
         ltex = {
-          ltex = {
-            -- language = "de-DE",
-            enabled = { "latex" },
-            dictionary = Dictionaries,
+          settings = {
+            ltex = {
+              -- language = "de-DE",
+              enabled = { "latex", "markdown" },
+              dictionary = Dictionaries,
+            },
           },
         },
+        lua_ls = {
+          settings = {
+            lua = {
+              diagnostics = { globals = { "vim" } },
+              telemetry = { enable = false },
+            },
+          },
+        },
+        pyright = {}
       }
-      local default = {
-        __index = function()
-          return {}
-        end,
-      }
-      setmetatable(servers, default)
-      -- require("mason-lspconfig").setup_handlers({
-      --   function(server_name)
-      --     require('lspconfig')[server_name].setup({
-      --       on_attach = Attach_func,
-      --       capabilities = Capabilities,
-      --       flags = {
-      --         debounce_text_changes = 150
-      --       },
-      --       settings = servers[server_name]
-      --     })
-      --   end
-      -- })
+      for name, config in pairs(servers) do
+        vim.lsp.config(name, vim.tbl_extend("force", config, {
+          on_attach = on_attach,
+          capabilities = Capabilities,
+          flags = default_flags,
+        }))
+      end
     end,
   },
 }
