@@ -31,8 +31,6 @@ wk.add({
   {mode = "n", "<F10>", "<NOP>", noremap = true},
   {mode = "n", "<F11>", "<NOP>", noremap = true},
   {mode = "n", "<F12>", "<NOP>", noremap = true},
-  -- spell
-  {mode = "n", "<F6>s", "z=", desc = "Spell: display suggestions"},
   -- shortcuts for quitting
   {mode = "n", "ZA", ":xa<CR>", desc = "Exit: write and quit all buffers", noremap = true},
   {mode = "n", "ZQ", ":conf q<CR>", desc = "Exit: quit current buffer", noremap = true},
@@ -68,7 +66,7 @@ wk.add({
   {mode = "n", "<leader>gdo", ":DiffviewOpen<CR>", desc = "Git: open diff"},
   {mode = "n", "<leader>gdc", ":DiffviewClose<CR>", desc = "Git: close diff"},
   -- folke/trouble.nvim
-  {mode = "n", "<leader>x", ":TroubleToggle<CR>", desc = "LSP: toggle error list"},
+  {mode = "n", "<F4>", ":Trouble diagnostics toggle<CR>", desc = "LSP: toggle error list"},
   -- hrsh7th/nvim-cmp
   {mode = "n", "gd", function() vim.lsp.buf.definition() end, desc = "LSP: goto definition", noremap = true},
   {mode = "n", "gD", function() vim.lsp.buf.declaration() end, desc = "LSP: goto declaration", noremap = true},
@@ -86,11 +84,13 @@ wk.add({
   -- filipdutescu/renamer.nvim
   {mode = "n", "<F5>", function() require("renamer").rename() end, desc = "LSP: rename", noremap = true},
   -- nvim-telescope/telescope.nvim
-  {mode = "n", "<F4>", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
   {mode = "n", "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
+  {mode = "n", "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
+  -- gnikdroy/projections.nvim
+  {mode = "n", "<leader>fp", function() vim.cmd("Telescope projections") end, desc = "Telescope: find projects", noremap = true},
   -- kamykn/spelunker.vim
-  {mode = "n", "<F6>t", ":call spelunker#toggle()<CR>", desc = "Spelunker: toggle spell check", noremap = true},
-  {mode = "n", "<F6>l", function() if vim.opt.spelllang._value == "de_de" then vim.opt.spelllang = "en_us" print("Spell language set to en_us") else vim.opt.spelllang = "de_de" print("Spell language set to de_de") end vim.opt.spell = false end, desc = "Spell: toggle spell language", noremap = true},
+  {mode = "n", "<F10>t", ":call spelunker#toggle()<CR>", desc = "Spelunker: toggle spell check", noremap = true},
+  {mode = "n", "<F10>s", "z=", desc = "Spell: display suggestions"},
   -- kevinhwang91/nvim-ufo
   {mode = "n", "K", function() local winid = require("ufo").peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end end, desc = "LSP: peek folded section", noremap = true},
   -- kevinhwang91/nvim-hlslens
@@ -102,8 +102,6 @@ wk.add({
   {mode = "n", "f", "<Plug>(leap-forward)", desc = "Navigation: enter leap mode for forward movement", noremap = true},
   {mode = "n", "F", "<Plug>(leap-backward)", desc = "Navigation: enter leap mode for backwards movement", noremap = true},
   {mode = "n", "gf", "<Plug>(leap-from-window)", desc = "Navigation: enter leap mode for other windows", noremap = true},
-  -- gnikdroy/projections.nvim
-  {mode = "n", "<leader>fp", function() vim.cmd("Telescope projections") end, desc = "Telescope: find projects", noremap = true},
   -- quarto-dev/quarto-nvim
   {mode = "n", "<leader>rc", require("quarto.runner").run_cell, desc = "Quarto: Run cell", noremap = true, silent = true},
   {mode = "n", "<leader>ra", require("quarto.runner").run_above, desc = "Quarto: Run cell and above", noremap = true, silent = true},
