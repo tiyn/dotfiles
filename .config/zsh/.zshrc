@@ -81,6 +81,26 @@ function +vi-git-stash() {
     fi
 }
 
+##################
+# CUSTOM WIDGETS #
+##################
+
+_git_fix_master_main() {
+  if [[ $BUFFER == git\ * ]]; then
+    if [[ $BUFFER == *" master"* ]]; then
+      if git rev-parse --verify main >/dev/null 2>&1 \
+        && ! git rev-parse --verify master >/dev/null 2>&1; then
+        BUFFER=${BUFFER//" master"/" main"}
+      fi
+    fi
+  fi
+  zle accept-line
+}
+
+zle -N _git_fix_master_main
+
+bindkey "^M" _git_fix_master_main
+
 #########
 # STYLE #
 #########
