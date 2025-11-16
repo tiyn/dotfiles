@@ -85,21 +85,28 @@ function +vi-git-stash() {
 # CUSTOM WIDGETS #
 ##################
 
-_git_fix_master_main() {
+_git_fix_main_master() {
   if [[ $BUFFER == git\ * ]]; then
-    if [[ $BUFFER == *" master"* ]]; then
-      if git rev-parse --verify main >/dev/null 2>&1 \
-        && ! git rev-parse --verify master >/dev/null 2>&1; then
+    local has_main=0
+    local has_master=0
+    git rev-parse --verify main >/dev/null 2>&1   && has_main=1
+    git rev-parse --verify master >/dev/null 2>&1 && has_master=1
+    if [[ $has_main -eq 1 && $has_master -eq 0 ]]; then
+      if [[ $BUFFER == *" master"* ]]; then
         BUFFER=${BUFFER//" master"/" main"}
+      fi
+    fi
+    if [[ $has_master -eq 1 && $has_main -eq 0 ]]; then
+      if [[ $BUFFER == *" main"* ]]; then
+        BUFFER=${BUFFER//" main"/" master"}
       fi
     fi
   fi
   zle accept-line
 }
 
-zle -N _git_fix_master_main
-
-bindkey "^M" _git_fix_master_main
+zle -N _git_fix_main_master
+bindkey "^M" _git_fix_main_master
 
 #########
 # STYLE #
