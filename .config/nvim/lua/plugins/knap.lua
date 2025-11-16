@@ -15,7 +15,7 @@ return {
         textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
         -- markdown
         mdoutputext = "pdf",
-        mdtopdf = "pandoc %docroot% --toc --toc-depth=5 -V colorlinks=true -V linkcolor=blue -V urlcolor=red -V toccolor=gray -o %outputfile%",
+        mdtopdf = "pandoc %docroot% -H ~/.config/nvim/lua/resources/header.tex --toc --toc-depth=5 -V colorlinks=true -V linkcolor=blue -V urlcolor=red -V toccolor=gray -o %outputfile%",
         mdtopdfviewerlaunch = "zathura ./%outputfile%",
         mdtohtml = "pandoc --standalone %docroot% -o %outputfile%",
         mdtohtmlviewerlaunch = "firefox --kiosk --new-window %outputfile%",
