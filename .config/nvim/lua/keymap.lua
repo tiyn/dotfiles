@@ -70,6 +70,7 @@ wk.add({
   -- hrsh7th/nvim-cmp
   {mode = "n", "gd", function() vim.lsp.buf.definition() end, desc = "LSP: goto definition", noremap = true},
   {mode = "n", "gD", function() vim.lsp.buf.declaration() end, desc = "LSP: goto declaration", noremap = true},
+  {mode = "n", "gT", function() vim.lsp.buf.type_definition() end, desc = "LSP: goto type definition", noremap = true},
   {mode = "n", "gi", function() vim.lsp.buf.implementation() end, desc = "LSP: list implementation", noremap = true},
   {mode = "n", "gr", function() vim.lsp.buf.references() end, desc = "LSP: list references", noremap = true},
   {mode = "n", "K", vim.lsp.buf.hover(), desc = "LSP: show documentation", noremap = true},
