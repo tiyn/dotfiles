@@ -1,0 +1,13 @@
+% \usepackage[utf8]{inputenc}
+% \DeclareUnicodeCharacter{2605}{\ensuremath{\star}}
+%
+\usepackage{fontspec}
+\usepackage{newunicodechar}
+
+\newfontfamily\symbolafont{Symbola}
+
+% U+2605 BLACK STAR
+\newunicodechar{★}{{\symbolafont ★}}
+
+% U+2606 WHITE STAR
+\newunicodechar{☆}{{\symbolafont ☆}}
