@@ -191,17 +191,20 @@ setopt autocd autopushd
 autoload -Uz compinit && compinit
 
 # Plugin: command not found notice
-source /usr/share/doc/pkgfile/command-not-found.zsh
+[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Plugin: fuzzy completion
-source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+[ -f "/usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh" ] && source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
 
 # Plugin: autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
+[ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh && bindkey '^ ' autosuggest-accept
 
 # Plugin: syntax highlighting
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+[ -f "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ] && source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# Plugin: Autopair
+
+[ -f "/usr/share/zsh/plugins/zsh-autopair/zsh-autopair.plugin.zsh" ] && source /usr/share/zsh/plugins/zsh-autopair/zsh-autopair.plugin.zsh
 
 # Open shell with tmux always
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
