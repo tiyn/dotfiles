@@ -68,6 +68,8 @@ export PATH="${HOME}/.nimble/bin:${PATH}"
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
 
+eval "$(pyenv init --path)"
+
 # less/man colors
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
