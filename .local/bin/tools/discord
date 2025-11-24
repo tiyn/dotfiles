@@ -1,0 +1,6 @@
+#!/bin/sh
+if command -v vesktop >/dev/null 2>&1; then
+    exec vesktop --force-device-scale-factor=1.2 "$@"
+else
+    exec discord "$@"
+fi
