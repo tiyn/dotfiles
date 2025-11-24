@@ -5,7 +5,7 @@
 export DISPLAY_SERVER="xorg"
 
 # Adds `~/.local/bin` and all subdirectories to $PATH
-export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":${PATH}
 
 # Add flatpak to path
 export PATH="/var/lib/flatpak/exports/bin:${PATH}"
