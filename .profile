@@ -64,6 +64,12 @@ export PATH="${GOBIN}:${PATH}"
 # nim
 export PATH="${HOME}/.nimble/bin:${PATH}"
 
+# viper
+export VIPER_SILICON=""
+export VIPER_CARBON=""
+export VIPER_Z3="/bin/z3"
+export VIPER_BOOGIE="$HOME/.dotnet/tools/boogie"
+
 # python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"

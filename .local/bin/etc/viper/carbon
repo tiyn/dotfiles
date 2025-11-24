@@ -1,0 +1,2 @@
+#!/bin/sh
+java -jar "$VIPER_CARBON" --z3Exe "$VIPER_Z3" --boogieExe "$VIPER_BOOGIE" "$@"
