@@ -1,2 +1,3 @@
 #!/bin/sh
-exec $(export XDG_CURRENT_DESKTOP="GNOME" && threema-beta)
+export XDG_CURRENT_DESKTOP="GNOME"
+exec /usr/bin/threema-beta "$@"
