@@ -62,9 +62,13 @@ having changes.
 ## Hotkeys
 
 There are various shortcuts and hotkeys used in this version. Included in my build are the following.
-[Dwm](https://github.com/tiyn/dwm)s and [st](https://github.com/tiyn/st)s hotkeys can be found in their repositories.
+[dwm](https://github.com/tiyn/dwm) and [st](https://github.com/tiyn/st)s hotkeys can be found in their repositories.
+For Wayland [dwl](https://github.com/tiyn/dwl) is used instead of dwml.
 
-### SXHKD
+### Hotkey Daemon
+
+The default hotkey daemon is `sxhkd`.
+For Wayland `swhkd` is used instead.
 
 | ModKey | Shift | Key               | Function                                                  |
 | ------ | ----- | ----------------- | --------------------------------------------------------- |
@@ -81,13 +85,13 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 | Super  |       | r                 | (program) Spawn dmenu\_run                                |
 | Super  |       | s                 | (sounds) Pause song                                       |
 | Super  |       | x                 | (sounds) Toggle shuffling of songs                        |
-| Super  | Shift | l                 | (keyboard) Toggle keymap                                  |
-| Super  | Shift | r                 | (sxhkd) Restart sxkd                                      |
+| Super  | Shift | l                 | (keyboard) Toggle keymap (managed by dwl on wayland)      |
+| Super  | Shift | r                 | (sxhkd/swhkd) Restart sxhkd/swhkd                         |
 | Super  | Shift | Space             | (notifications) Close all notifications                   |
 | Super  |       | [                 | (notifications) Toggle dunst dnd                          |
 | Super  |       | ]                 | (sounds) Toggle mute                                      |
 | Super  |       | \                 | (sounds) Toggle deaf                                      |
-| Super  |       | F5                | (display) Enable 2 Screen Monitor                         |
+| Super  |       | F5                | (display) Enable 2 Screen Monitor (not needed on wayland) |
 | Super  |       | F6                | (keyboard) Toggle touchpad                                |
 | Super  |       | F7                | (mounting) Mounting drives                                |
 | Super  |       | F8                | (mounting) Unmounting drives                              |
@@ -98,11 +102,13 @@ There are various shortcuts and hotkeys used in this version. Included in my bui
 | Super  |       | Return            | (program) Spawn terminal                                  |
 |        |       | Print             | (program) Prompt to take a screenshot                     |
 |        |       | AudioMute         | (sound) Volume mute                                       |
-|        |       | AudioMicMute      | (sound) Mic Mute                                          |
+|        |       | AudioMicMute      | (sound) Mic Mute (currently not on wayland)               |
 |        |       | AudioLowerVolume  | (sound) Volume lower                                      |
 |        |       | AudioRaiseVolume  | (sound) Volume raise                                      |
-|        |       | MonBrightnessDown | (display) Brightness decrease                             |
-|        |       | MonBrightnessUp   | (display) Brightness increase                             |
+|        |       | MonBrightnessDown | (display) Brightness decrease (currently not on wayland)  |
+|        |       | MonBrightnessUp   | (display) Brightness increase (currently not on wayland)  |
+
+Additionally the right hand side control button is set to function as the compose key.
 
 
 ## Additional Configs
