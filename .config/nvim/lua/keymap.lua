@@ -9,6 +9,7 @@ wk.add({
   {mode = "n", "gp", desc = "LSP: preview"},
   {mode = "c", "w", desc = "Write"},
   {mode = "c", "w!", desc = "Write: overwrite"},
+  {mode = "n", "<leader>a", desc = "AI"},
   {mode = "n", "<leader>g", desc = "Git"},
   {mode = "n", "<leader>f", desc = "Telescope: find"},
   {mode = "n", "<leader>gd", desc = "Git: diff"},
@@ -113,4 +114,6 @@ wk.add({
   {mode = "n", "<leader>rl", require("quarto.runner").run_line, desc = "Quarto: Run line", noremap = true, silent = true},
   {mode = "n", "<leader>rr", require("quarto.runner").run_range, desc = "Quarto: Run visual range", noremap = true, silent = true},
   {mode = "n", "<leader>rL", function() require("quarto.runner").run_all(true) end, desc = "Quarto: Run all cells of all languages", noremap = true, silent = true},
+  -- huynle/ogpt-nvim
+  {mode = "n", "<leader>ai", ":OGPT<CR>", desc = "OGTP: Open AI View", noremap = true},
 })
