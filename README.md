@@ -108,9 +108,6 @@ For Wayland `swhkd` is used instead.
 |        |       | MonBrightnessDown | (display) Brightness decrease (currently not on wayland)  |
 |        |       | MonBrightnessUp   | (display) Brightness increase (currently not on wayland)  |
 
-Additionally the right hand side control button is set to function as the compose key.
-
-
 ## Additional Configs
 
 Additional configs (and for example firefox plugins) can be found in my
