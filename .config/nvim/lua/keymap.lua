@@ -1,5 +1,6 @@
 -- setup keymap function
 local wk = require("which-key")
+local telescope = require("telescope")
 local lazygit = require("FTerm"):new({ cmd = "lazygit" })
 
 wk.add({
@@ -8,6 +9,7 @@ wk.add({
   {mode = "n", "gp", desc = "LSP: preview"},
   {mode = "c", "w", desc = "Write"},
   {mode = "c", "w!", desc = "Write: overwrite"},
+  {mode = "n", "<leader>a", desc = "AI"},
   {mode = "n", "<leader>g", desc = "Git"},
   {mode = "n", "<leader>f", desc = "Telescope: find"},
   {mode = "n", "<leader>gd", desc = "Git: diff"},
@@ -61,7 +63,6 @@ wk.add({
   {mode = "n", "<leader>tt", require("FTerm").toggle, desc = "Terminal: open", noremap = true},
   {mode = "n", "<leader>gt", function() lazygit:toggle() end, desc = "Git: open lazygit", noremap = true},
   {mode = "n", "<leader>tg", function() lazygit:toggle() end, desc = "Terminal: open lazygit", noremap = true},
-  {mode = "n", "<leader>tg", function() lazygit:toggle() end, desc = "Terminal: open lazygit", noremap = true},
   -- sindrets/diffview.nvim
   {mode = "n", "<leader>gdo", ":DiffviewOpen<CR>", desc = "Git: open diff"},
   {mode = "n", "<leader>gdc", ":DiffviewClose<CR>", desc = "Git: close diff"},
@@ -87,6 +88,9 @@ wk.add({
   -- nvim-telescope/telescope.nvim
   {mode = "n", "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
   {mode = "n", "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
+  -- archie-judd/telescope-words.nvim
+  {mode = "n", "<leader>wd", telescope.extensions.telescope_words.search_dictionary, desc = "Telescope: search dictionary", noremap = true},
+  {mode = "n", "<leader>wt", telescope.extensions.telescope_words.search_thesaurus, desc = "Telescope: search thesaurus", noremap = true},
   -- gnikdroy/projections.nvim
   {mode = "n", "<leader>fp", function() vim.cmd("Telescope projections") end, desc = "Telescope: find projects", noremap = true},
   -- kamykn/spelunker.vim
@@ -110,4 +114,6 @@ wk.add({
   {mode = "n", "<leader>rl", require("quarto.runner").run_line, desc = "Quarto: Run line", noremap = true, silent = true},
   {mode = "n", "<leader>rr", require("quarto.runner").run_range, desc = "Quarto: Run visual range", noremap = true, silent = true},
   {mode = "n", "<leader>rL", function() require("quarto.runner").run_all(true) end, desc = "Quarto: Run all cells of all languages", noremap = true, silent = true},
+  -- huynle/ogpt-nvim
+  {mode = "n", "<leader>ai", ":OGPT<CR>", desc = "OGTP: Open AI View", noremap = true},
 })
