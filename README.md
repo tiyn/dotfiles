@@ -85,6 +85,7 @@ For Wayland `swhkd` is used instead.
 | Super  |       | r                 | (program) Spawn dmenu\_run                                |
 | Super  |       | s                 | (sounds) Pause song                                       |
 | Super  |       | x                 | (sounds) Toggle shuffling of songs                        |
+| Super  | Shift | b                 | (statusbar) Toggle statusbar (managed by dwm on x)        |
 | Super  | Shift | l                 | (keyboard) Toggle keymap (managed by dwl on wayland)      |
 | Super  | Shift | r                 | (sxhkd/swhkd) Restart sxhkd/swhkd                         |
 | Super  | Shift | Space             | (notifications) Close all notifications                   |
