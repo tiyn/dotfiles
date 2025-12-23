@@ -6,13 +6,13 @@ echo $variant
 case "$1" in
   toggle) if [ "$layout" = "de" -a "$variant" = "nodeadkeys" ]
     then
-        setxkbmap de && notify-send -u low 'SXHKD' 'Set keymap to german'
+        setxkbmap de -option compose:rctrl && notify-send -u low 'SXHKD' 'Set keymap to german'
     elif [ "$layout" = "de" -a "$variant" = "" ]
     then
-        setxkbmap de ru && notify-send -u low 'SXHKD' 'Set keymap to russian (german)'
+        setxkbmap de ru -option compose:rctrl && notify-send -u low 'SXHKD' 'Set keymap to russian (german)'
     elif [ "$layout" = "de" -a "$variant" = "ru" ]
     then
-        setxkbmap de nodeadkeys && notify-send -u low 'SXHKD' 'Set keymap to german (nodeadkeys)'
+        setxkbmap de nodeadkeys -option compose:rctrl && notify-send -u low 'SXHKD' 'Set keymap to german (nodeadkeys)'
     fi ;;
   *) cat << EOF
 keymap: cli script to change the keymap quickly.

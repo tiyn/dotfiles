@@ -2,7 +2,7 @@
 
 wifipercent="   0"
 
-[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ " && wifistatus="down"
+[ "$(cat /sys/class/net/w*/operstate)" = 'down' ] && wifiicon="^c#ff0000^ ^d^ " && wifistatus="down"
 
 [ ! -n "${wifiicon+var}" ] && wifistatus="up" && wifipercent=$(grep "^\s*w" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')
 
@@ -21,5 +21,6 @@ then
     fi
 fi
 
+[ -f /sys/class/net/e*/operstate ] && lanicon=$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /") || lanicon="^b#282828^^c#ff0000^  "
 
-echo "$(cat /sys/class/net/e*/operstate | sed "s/down/^b#282828^^c#ff0000^  /;s/up/^b#282828^^c#dfdfdf^ 󰈀 /")" "$wifiicon"
+echo "$lanicon" "$wifiicon"

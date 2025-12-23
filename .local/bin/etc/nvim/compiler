@@ -10,6 +10,7 @@ file=$(readlink -f "$1")
 dir=$(dirname "$file")
 base="${file%.*}"
 basenodir="${1%.*}"
+vipercmd="silicon" #"carbon"
 
 cd "$dir" || exit
 
@@ -25,6 +26,7 @@ textype() { \
 	}
 
 case "$file" in
+        *\.vpr) $vipercmd "$file" ;;
 	*\.ms) refer -PS -e "$file" | groff -me -ms -kept -T pdf > "$base".pdf ;;
 	*\.mom) refer -PS -e "$file" | groff -mom -kept -T pdf > "$base".pdf ;;
 	*\.[0-9]) refer -PS -e "$file" | groff -mandoc -T pdf > "$base".pdf ;;
@@ -37,10 +39,14 @@ case "$file" in
         *\.js) node "$file" ;;
         *\.c) if [ -f Makefile ]; then make run; else cc "$file" -o "$base" && "$base"; fi ;;
         *\.nim) nim c -r -d:noColors "$file" ;;
-	*\.py) python "$file" ;;
+	*\.py) python3 "$file" ;;
 	*\.go) go run "$file" ;;
 	*\.lua) lua "$file" ;;
 	*\.sent) setsid sent "$file" 2>/dev/null & ;;
         *\.r|*\.R) Rscript "$file" ;;
+        *\.smt2) z3 "$file" ;;
+        *\.rs) (cd "$dir" && cargo locate-project >/dev/null 2>&1) \
+            && (cd "$(dirname "$(cd "$dir" && cargo locate-project --message-format plain)")" && cargo run) \
+            || (rustc "$file" && "./$(basename "${file%.rs}")") ;;
 	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac

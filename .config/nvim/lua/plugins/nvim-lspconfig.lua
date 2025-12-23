@@ -1,18 +1,23 @@
 return {
   -- lang server management
   {
-    'neovim/nvim-lspconfig',
+    "neovim/nvim-lspconfig",
     dependencies = {
-      'williamboman/mason-lspconfig.nvim',
+      "williamboman/mason-lspconfig.nvim",
       {
-        'hrsh7th/cmp-nvim-lsp',
+        "mrcjkb/rustaceanvim",
+        version = "^6",
+        lazy = false,
+      },
+      {
+        "hrsh7th/cmp-nvim-lsp",
         config = function()
           Capabilities = require("cmp_nvim_lsp").default_capabilities()
           Capabilities.textDocument.foldingRange = {
             dynamicRegistration = false,
-            lineFoldingOnly = true
+            lineFoldingOnly = true,
           }
-        end
+        end,
       },
     },
     config = function()
@@ -36,40 +41,40 @@ return {
           "texlab",
           -- "tsserver",
           "yamlls",
-        }
+        },
       })
-
+      local default_flags = {
+        debounce_text_changes = 150,
+        allow_incremental_sync = true,
+        progress = true,
+      }
       local servers = {
-        lua_ls = {
-          Lua = {
-            diagnostics = {
-              globals = { 'vim' }
+        ltex = {
+          settings = {
+            ltex = {
+              -- language = "de-DE",
+              enabled = { "latex", "markdown" },
+              dictionary = Dictionaries,
             },
-            telemetry = { enable = false },
           },
         },
-        ltex = {
-          ltex = {
-            -- language = "de-DE",
-            enabled = { "latex" },
-            dictionary = Dictionaries,
-          }
-        }
-      }
-      local default = { __index = function() return {} end }
-      setmetatable(servers, default)
-      require("mason-lspconfig").setup_handlers({
-        function(server_name)
-          require('lspconfig')[server_name].setup({
-            on_attach = Attach_func,
-            capabilities = Capabilities,
-            flags = {
-              debounce_text_changes = 150
+        lua_ls = {
+          settings = {
+            lua = {
+              diagnostics = { globals = { "vim" } },
+              telemetry = { enable = false },
             },
-            settings = servers[server_name]
-          })
-        end
-      })
-    end
-  }
+          },
+        },
+        pyright = {}
+      }
+      for name, config in pairs(servers) do
+        vim.lsp.config(name, vim.tbl_extend("force", config, {
+          on_attach = on_attach,
+          capabilities = Capabilities,
+          flags = default_flags,
+        }))
+      end
+    end,
+  },
 }

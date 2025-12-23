@@ -45,7 +45,7 @@ return {
             "yamlfmt",
           }
         }
-      }
+      },
     },
     opts = { ui = { icons = Install_signs } }
   }

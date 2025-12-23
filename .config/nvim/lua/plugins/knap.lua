@@ -1,27 +1,55 @@
 return {
-  -- latex asynchronous pdf rendering
   {
     'frabjous/knap',
     ft = { 'tex' },
     config = function()
+
+      local function detect_engine()
+        local first_line = vim.api.nvim_buf_get_lines(0, 0, 1, false)[1] or ""
+        if first_line:match("^%%%s*xelatex") then
+          return "xelatex"
+        else
+          return "pdflatex"
+        end
+      end
+
+      local function set_engine()
+        local engine = detect_engine()
+
+        if engine == "xelatex" then
+          vim.g.knap_settings.textopdf =
+            "xelatex -synctex=1 -interaction=batchmode %docroot%"
+        else
+          vim.g.knap_settings.textopdf =
+            "pdflatex -synctex=1 -interaction=batchmode %docroot%"
+        end
+      end
+
       vim.g.knap_settings = {
         delay = 100,
-        -- tex
         texoutputext = "pdf",
-        textopdf = "pdflatex -synctex=1 -halt-on-error -interaction=batchmode %docroot%",
+        textopdf = "xelatex -synctex=1 -interaction=batchmode %docroot%",
         textopdfviewerlaunch =
-        "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' ./%outputfile%",
-        textopdfviewerrefresh = "none",
-        textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
-        -- markdown
-        mdoutputext = "pdf",
-        mdtopdf = "pandoc %docroot% --toc --toc-depth=5 -V colorlinks=true -V linkcolor=blue -V urlcolor=red -V toccolor=gray -o %outputfile%",
-        mdtopdfviewerlaunch = "zathura ./%outputfile%",
-        mdtohtml = "pandoc --standalone %docroot% -o %outputfile%",
-        mdtohtmlviewerlaunch = "firefox --kiosk --new-window %outputfile%",
-        mdtohtmlviewerrefresh = "none",
-        mdtopdfviewerrefresh = "none",
+          "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' ./%outputfile%",
+        textopdfviewerrefresh = "reload",
+        textopdfforwardjump =
+          "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
       }
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "KnapShowView",
+        callback = set_engine
+      })
+
+      vim.api.nvim_create_autocmd("User", {
+        pattern = "KnapCompile",
+        callback = set_engine
+      })
+
+      vim.api.nvim_create_autocmd("BufWritePost", {
+        pattern = "*.tex",
+        callback = set_engine
+      })
     end
   }
 }

@@ -1,5 +1,6 @@
 -- setup keymap function
 local wk = require("which-key")
+local telescope = require("telescope")
 local lazygit = require("FTerm"):new({ cmd = "lazygit" })
 
 wk.add({
@@ -8,11 +9,13 @@ wk.add({
   {mode = "n", "gp", desc = "LSP: preview"},
   {mode = "c", "w", desc = "Write"},
   {mode = "c", "w!", desc = "Write: overwrite"},
+  {mode = "n", "<leader>a", desc = "AI"},
   {mode = "n", "<leader>g", desc = "Git"},
   {mode = "n", "<leader>f", desc = "Telescope: find"},
   {mode = "n", "<leader>gd", desc = "Git: diff"},
   {mode = "n", "<leader>s", desc = "Substitute"},
   {mode = "n", "<leader>t", desc = "Terminal"},
+  {mode = "n", "<leader>r", desc = "Quarto"},
   {mode = "n", "<C-W>", desc = "Navigation"},
   -- unmap unwanted commands
   {mode = "n", "Zt", "<NOP>", noremap = true},
@@ -30,8 +33,6 @@ wk.add({
   {mode = "n", "<F10>", "<NOP>", noremap = true},
   {mode = "n", "<F11>", "<NOP>", noremap = true},
   {mode = "n", "<F12>", "<NOP>", noremap = true},
-  -- spell
-  {mode = "n", "<F6>s", "z=", desc = "Spell: display suggestions"},
   -- shortcuts for quitting
   {mode = "n", "ZA", ":xa<CR>", desc = "Exit: write and quit all buffers", noremap = true},
   {mode = "n", "ZQ", ":conf q<CR>", desc = "Exit: quit current buffer", noremap = true},
@@ -51,7 +52,7 @@ wk.add({
   {mode = "n", "<leader>sa", ":%S//g<Left><Left>", desc = "Substitute: free form", noremap = true},
   {mode = "n", "<leader>ss", ":%S/\\<<C-r><C-w>\\>//g<Left><Left>", desc = "Substitute: word under cursor", noremap = true},
   -- simrat39/symbols-outline.nvim
-  {mode = "n", "<F3>", ":SymbolsOutline<CR>", desc = "CTags: toggle"},
+  {mode = "n", "<F3>", ":Outline<CR>", desc = "CTags: toggle"},
   -- nvim-tree/nvim-tree.lua
   {mode = "n", "<F2>", ":NvimTreeToggle toggle<CR>", desc = "File tree: toggle"},
   -- mbbill/undotree
@@ -62,16 +63,16 @@ wk.add({
   {mode = "n", "<leader>tt", require("FTerm").toggle, desc = "Terminal: open", noremap = true},
   {mode = "n", "<leader>gt", function() lazygit:toggle() end, desc = "Git: open lazygit", noremap = true},
   {mode = "n", "<leader>tg", function() lazygit:toggle() end, desc = "Terminal: open lazygit", noremap = true},
-  {mode = "n", "<leader>tg", function() lazygit:toggle() end, desc = "Terminal: open lazygit", noremap = true},
   -- sindrets/diffview.nvim
   {mode = "n", "<leader>gdo", ":DiffviewOpen<CR>", desc = "Git: open diff"},
   {mode = "n", "<leader>gdc", ":DiffviewClose<CR>", desc = "Git: close diff"},
   -- folke/trouble.nvim
-  {mode = "n", "<leader>x", ":TroubleToggle<CR>", desc = "LSP: toggle error list"},
+  {mode = "n", "<F4>", ":Trouble diagnostics toggle<CR>", desc = "LSP: toggle error list"},
   -- hrsh7th/nvim-cmp
-  {mode = "n", "gd", vim.lsp.buf.definition(), desc = "LSP: goto definition", noremap = true},
-  {mode = "n", "gD", vim.lsp.buf.declaration(), desc = "LSP: goto declaration", noremap = true},
-  {mode = "n", "gi", vim.lsp.buf.implementation(), desc = "LSP: list implementation", noremap = true},
+  {mode = "n", "gd", function() vim.lsp.buf.definition() end, desc = "LSP: goto definition", noremap = true},
+  {mode = "n", "gD", function() vim.lsp.buf.declaration() end, desc = "LSP: goto declaration", noremap = true},
+  {mode = "n", "gT", function() vim.lsp.buf.type_definition() end, desc = "LSP: goto type definition", noremap = true},
+  {mode = "n", "gi", function() vim.lsp.buf.implementation() end, desc = "LSP: list implementation", noremap = true},
   {mode = "n", "gr", function() vim.lsp.buf.references() end, desc = "LSP: list references", noremap = true},
   {mode = "n", "K", vim.lsp.buf.hover(), desc = "LSP: show documentation", noremap = true},
   {mode = "n", "<F8>", function() require("conform").format({ async = true, lsp_fallback = true }) end, desc = "LSP: format", noremap = true},
@@ -85,11 +86,16 @@ wk.add({
   -- filipdutescu/renamer.nvim
   {mode = "n", "<F5>", function() require("renamer").rename() end, desc = "LSP: rename", noremap = true},
   -- nvim-telescope/telescope.nvim
-  {mode = "n", "<F4>", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
   {mode = "n", "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
+  {mode = "n", "<leader>ff", ":Telescope find_files<CR>", desc = "Telescope: find files", noremap = true},
+  -- archie-judd/telescope-words.nvim
+  {mode = "n", "<leader>wd", telescope.extensions.telescope_words.search_dictionary, desc = "Telescope: search dictionary", noremap = true},
+  {mode = "n", "<leader>wt", telescope.extensions.telescope_words.search_thesaurus, desc = "Telescope: search thesaurus", noremap = true},
+  -- gnikdroy/projections.nvim
+  {mode = "n", "<leader>fp", function() vim.cmd("Telescope projections") end, desc = "Telescope: find projects", noremap = true},
   -- kamykn/spelunker.vim
-  {mode = "n", "<F6>t", ":call spelunker#toggle()<CR>", desc = "Spelunker: toggle spell check", noremap = true},
-  {mode = "n", "<F6>l", function() if vim.opt.spelllang._value == "de_de" then vim.opt.spelllang = "en_us" print("Spell language set to en_us") else vim.opt.spelllang = "de_de" print("Spell language set to de_de") end vim.opt.spell = false end, desc = "Spell: toggle spell language", noremap = true},
+  {mode = "n", "<F10>t", ":call spelunker#toggle()<CR>", desc = "Spelunker: toggle spell check", noremap = true},
+  {mode = "n", "<F10>s", "z=", desc = "Spell: display suggestions"},
   -- kevinhwang91/nvim-ufo
   {mode = "n", "K", function() local winid = require("ufo").peekFoldedLinesUnderCursor() if not winid then vim.lsp.buf.hover() end end, desc = "LSP: peek folded section", noremap = true},
   -- kevinhwang91/nvim-hlslens
@@ -101,6 +107,13 @@ wk.add({
   {mode = "n", "f", "<Plug>(leap-forward)", desc = "Navigation: enter leap mode for forward movement", noremap = true},
   {mode = "n", "F", "<Plug>(leap-backward)", desc = "Navigation: enter leap mode for backwards movement", noremap = true},
   {mode = "n", "gf", "<Plug>(leap-from-window)", desc = "Navigation: enter leap mode for other windows", noremap = true},
-  -- gnikdroy/projections.nvim
-  {mode = "n", "<leader>fp", function() vim.cmd("Telescope projections") end, desc = "Telescope: find projects", noremap = true},
+  -- quarto-dev/quarto-nvim
+  {mode = "n", "<leader>rc", require("quarto.runner").run_cell, desc = "Quarto: Run cell", noremap = true, silent = true},
+  {mode = "n", "<leader>ra", require("quarto.runner").run_above, desc = "Quarto: Run cell and above", noremap = true, silent = true},
+  {mode = "n", "<leader>rA", require("quarto.runner").run_all, desc = "Quarto: Run all cells", noremap = true, silent = true},
+  {mode = "n", "<leader>rl", require("quarto.runner").run_line, desc = "Quarto: Run line", noremap = true, silent = true},
+  {mode = "n", "<leader>rr", require("quarto.runner").run_range, desc = "Quarto: Run visual range", noremap = true, silent = true},
+  {mode = "n", "<leader>rL", function() require("quarto.runner").run_all(true) end, desc = "Quarto: Run all cells of all languages", noremap = true, silent = true},
+  -- huynle/ogpt-nvim
+  {mode = "n", "<leader>ai", ":OGPT<CR>", desc = "OGTP: Open AI View", noremap = true},
 })

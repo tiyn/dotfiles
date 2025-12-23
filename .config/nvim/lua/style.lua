@@ -21,6 +21,7 @@ Menu_signs = {
   path = "",
 }
 
+
 Lsp_signs = {
   Array = "",
   Boolean = "⊥",
@@ -106,22 +107,17 @@ Lualine_signs = {
   unnamed = "",
 }
 
-vim.fn.sign_define(
-  "DiagnosticSignError",
-  { texthl = "DiagnosticSignError", text = Error_sign, numhl = "DiagnosticSignError" }
-)
-vim.fn.sign_define(
-  "DiagnosticSignWarn",
-  { texthl = "DiagnosticSignWarn", text = Warn_sign, numhl = "DiagnosticSignWarn" }
-)
-vim.fn.sign_define(
-  "DiagnosticSignInfo",
-  { texthl = "DiagnosticSignInfo", text = Info_sign, numhl = "DiagnosticSignInfo" }
-)
-vim.fn.sign_define(
-  "DiagnosticSignHint",
-  { texthl = "DiagnosticSignHint", text = Hint_sign, numhl = "DiagnosticSignHint" }
-)
+vim.diagnostic.config({
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = Error_sign,
+      [vim.diagnostic.severity.WARN] = Warn_sign,
+      [vim.diagnostic.severity.INFO] = Info_sign,
+      [vim.diagnostic.severity.HINT] = Hint_sign,
+    },
+  },
+})
 
 -- enable colorcolumn when textwidth is set
 vim.o.cursorline = true

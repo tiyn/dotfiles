@@ -1,0 +1,86 @@
+super + b
+        $BROWSER
+
+super + m
+        thunderbird
+
+super + u
+        record_stop
+
+super + i
+        record_start
+
+super + o
+        record_replay_start
+
+super + p
+        record_replay_save
+
+super + a
+        lmc previous
+
+super + s
+        lmc playpause
+
+super + d
+        lmc next
+
+super + c
+        lmc loop
+
+super + x
+        lmc shuffle
+
+super + bracketright
+        lmc mute_toggle
+
+super + backslash
+        lmc deaf_toggle
+
+super + apostrophe
+        lmc tap_toggle
+
+super + bracketleft
+        dnd toggle
+
+super + shift + b
+        killall -SIGUSR1 waybar
+
+super + shift + r
+        pkill -HUP swhkd ; notify-send -u low 'SWHKD' 'Reloaded hotkeys'
+
+super + shift + space
+        dunstctl close-all
+
+super + F7
+        mount_menu
+
+super + F8
+        umount_menu
+
+super + F9
+        systemctl restart NetworkManager ; notify-send -u low 'Network' 'Restartet NM'
+
+super + F10
+        prompt "Lock computer?" "swaylock -i ~/.local/share/lock"
+
+super + shift + F10
+        prompt "Hibernate computer?" "systemctl hibernate"
+
+super + F11
+        prompt "Shutdown computer?" "shutdown -h now"
+
+super + F12
+        prompt "Reboot computer?" "reboot now"
+
+Print
+        screenshot
+
+XF86AudioMute
+        lmc deaf_toggle
+
+XF86AudioLowerVolume
+        lmc down
+
+XF86AudioRaiseVolume
+        lmc up

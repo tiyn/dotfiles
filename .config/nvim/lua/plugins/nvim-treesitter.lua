@@ -7,7 +7,7 @@ return {
       -- automatically close html-tags
       'windwp/nvim-ts-autotag',
       -- color brackets
-      'p00f/nvim-ts-rainbow',
+      -- 'p00f/nvim-ts-rainbow',
     },
     config = function()
       require("nvim-treesitter.configs").setup({
@@ -19,17 +19,18 @@ return {
           "markdown_inline",
           "latex",
           "python",
+          "rust",
           "lua",
         },
-        highlight = { enable = true },
+        -- highlight = { enable = true },
         autotag = { enable = false },
-        rainbow = {
-          enable = false,
-          extended_mode = true,
-          max_file_lines = nil,
-          -- colors = {},
-          -- termcolors = {}
-        }
+        -- rainbow = {
+        --   enable = true,
+        --   extended_mode = true,
+        --   max_file_lines = nil,
+        --   -- colors = {},
+        --   -- termcolors = {}
+        -- }
       })
     end
   }

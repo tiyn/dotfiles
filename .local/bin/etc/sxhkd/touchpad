@@ -4,13 +4,17 @@
 # by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
 case "$1" in
-  toggle) (synclient | grep "TouchpadOff.*1" && synclient TouchpadOff=0)>/dev/null && notify-send "TouchPad reactivated." && exit
-        synclient TouchpadOff=1 && notify-send "TouchPad deactivated." ;;
+  on) synclient TouchpadOff=0 && notify-send "TouchPad activated." ;;
+  off) synclient TouchpadOff=1 && notify-send "TouchPad deactivated." ;;
+  toggle) (synclient | grep "TouchpadOff.*1") && touchpad on && exit
+    touchpad off ;;
   *) cat << EOF
 touchpad: cli script to enable and disable the touchpad.
 
 Allowed options:
-  toggle	Toggle the touchpad on and off
+  on            Turn touchpad on
+  off           Turn touchpad off
+  toggle	Toggle the touchpad on or off
   all else	Print this message
 
 EOF

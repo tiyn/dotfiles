@@ -24,6 +24,8 @@ message/rfc822=mail.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
 inode/directory=file-browser.desktop
+x-scheme-handler/betterdiscord=discord.desktop
+x-scheme-handler/discord=vesktop.desktop
 
 [Added Associations]
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;

@@ -1,8 +1,11 @@
 #!/bin/sh
 # Profile file. Runs on login.
 
+# sets default display server (can be overwritten in ~/.config/profile/local_profile)
+export DISPLAY_SERVER="xorg"
+
 # Adds `~/.local/bin` and all subdirectories to $PATH
-export PATH="${PATH}:$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')"
+export PATH="$(du "${HOME}/.local/bin/" | cut -f2 | tr '\n' ':' | sed 's/:*$//')":${PATH}
 
 # Add flatpak to path
 export PATH="/var/lib/flatpak/exports/bin:${PATH}"
@@ -13,7 +16,6 @@ export EDITOR="nvim"
 export FILE="vifmrun"
 export IMAGE="sxiv"
 export READER="zathura"
-export STATUSBAR="dwmblocks"
 export TERMINAL="st"
 export QT_QPA_PLATFORMTHEME="qt6ct"
 
@@ -40,6 +42,7 @@ export SUDO_ASKPASS="${HOME}/.local/bin/tools/pw_menu"
 export TMUX_TMPDIR="${XDG_CACHE_HOME}/tmux"
 export WGETRC="${XDG_CONFIG_HOME}/wgetrc"
 export ZDOTDIR="${XDG_CONFIG_HOME}/zsh"
+export BAT_THEME="Visual Studio Dark+"
 
 export CUDA_DIR="/opt/cuda"
 export CUDA_PATH="/opt/cuda"
@@ -61,9 +64,17 @@ export PATH="${GOBIN}:${PATH}"
 # nim
 export PATH="${HOME}/.nimble/bin:${PATH}"
 
+# viper
+export VIPER_SILICON=""
+export VIPER_CARBON=""
+export VIPER_Z3="/bin/z3"
+export VIPER_BOOGIE="$HOME/.dotnet/tools/boogie"
+
 # python
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
+
+eval "$(pyenv init --path)"
 
 # less/man colors
 export LESS=-R
@@ -82,5 +93,11 @@ echo "$0" | grep "zsh$" >/dev/null && [ -f ${ZDOTDIR}/.zshrc ] && source "${ZDOT
 # load optional variables
 [ -f ~/.config/profile/local_profile ] && source "${HOME}/.config/profile/local_profile"
 
-# Start graphical server if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+# Start graphical server based on set display server
+if [ $DISPLAY_SERVER = "wayland" ]; then
+    export STATUSBAR="waybar"
+    dwl -s ~/.config/wayland/wayland.conf
+elif [ $DISPLAY_SERVER = "xorg" ]; then
+    export STATUSBAR="dwmblocks"
+    [ "$(tty)" = "/dev/tty1" ] && ! pgrep -x Xorg >/dev/null && exec startx
+fi

@@ -1,0 +1,85 @@
+
+{
+    "layer": "bottom", // Waybar at top layer
+    "position": "top", // Waybar position (top|bottom|left|right)
+    "height": 5, // Waybar height (to be removed for auto height)
+    // "width": 1280, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["dwl/tags", "dwl/window"],
+    "modules-right": ["cpu", "memory", "pulseaudio#output", "pulseaudio#input", "network", "battery", "clock", "tray"],
+    // Modules configuration
+    // "sway/workspaces": {
+    //     "disable-scroll": true,
+    //     "all-outputs": true,
+    //     "format": "{name}: {icon}",
+    //     "format-icons": {
+    //         "1": "",
+    //         "2": "",
+    //         "3": "",
+    //         "4": "",
+    //         "5": "",
+    //         "urgent": "",
+    //         "focused": "",
+    //         "default": ""
+    //     }
+    // },
+    "dwl/tags": {
+        "tag-labels": [ "", "", "", "", "", "", "", "", "", "" ],
+        "num-tags": 10
+    },
+    "dwl/window": {
+        "format": "{layout} {title}"
+    },
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+    "clock": {
+        "format": "  {:%d %b %H:%M}"
+    },
+    "battery": {
+        "states": {
+            "good": 75,
+            "warning": 25,
+            "critical": 15
+        },
+        "format": "{icon}",
+        "format-icons": {
+            "default": ["<span color=\"#f00\"></span>", "<span color=\"#ff0\"></span>", "", "", ""],
+            "charging": ["<span color=\"#f00\"></span>", "<span color=\"#ff0\"></span>", "", "", ""]
+        }
+        // "format-charging": "{capacity}%",
+        // "format-plugged": "{capacity}%",
+        // "format-alt": "{time} ",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+    },
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "<span color=\"#f00\"></span>",
+        "format-icons": [ "" ]
+    },
+    "pulseaudio#output": {
+        // "scroll-step": 1, // %, can be a float
+        "format-source": "",
+        "format-source-muted": "<span color=\"#f00\"></span>",
+        "format": "{format_source}"
+    },
+    "pulseaudio#input": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon}",
+        "format-muted": "<span color=\"#f00\"></span>",
+        "format-bluetooth": "{format_source}",
+        "format-icons": [ "<span color=\"#f00\"></span>", "", "", ""]
+    },
+    //disk-usage, gpu
+    "cpu": {
+        "format": "",
+        "tooltip": true
+    },
+    "memory": {
+        "format": ""
+    }
+}

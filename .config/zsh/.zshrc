@@ -81,6 +81,33 @@ function +vi-git-stash() {
     fi
 }
 
+##################
+# CUSTOM WIDGETS #
+##################
+
+_git_fix_main_master() {
+  if [[ $BUFFER == git\ * ]]; then
+    local has_main=0
+    local has_master=0
+    git rev-parse --verify main >/dev/null 2>&1   && has_main=1
+    git rev-parse --verify master >/dev/null 2>&1 && has_master=1
+    if [[ $has_main -eq 1 && $has_master -eq 0 ]]; then
+      if [[ $BUFFER == *" master"* ]]; then
+        BUFFER=${BUFFER//" master"/" main"}
+      fi
+    fi
+    if [[ $has_master -eq 1 && $has_main -eq 0 ]]; then
+      if [[ $BUFFER == *" main"* ]]; then
+        BUFFER=${BUFFER//" main"/" master"}
+      fi
+    fi
+  fi
+  zle accept-line
+}
+
+zle -N _git_fix_main_master
+bindkey "^M" _git_fix_main_master
+
 #########
 # STYLE #
 #########
@@ -164,17 +191,20 @@ setopt autocd autopushd
 autoload -Uz compinit && compinit
 
 # Plugin: command not found notice
-source /usr/share/doc/pkgfile/command-not-found.zsh
+[ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
 # Plugin: fuzzy completion
-source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
+[ -f "/usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh" ] && source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
 
 # Plugin: autosuggestions
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-bindkey '^ ' autosuggest-accept
+[ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh && bindkey '^ ' autosuggest-accept
 
 # Plugin: syntax highlighting
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+[ -f "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ] && source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+
+# Plugin: Autopair
+
+[ -f "/usr/share/zsh/plugins/zsh-autopair/zsh-autopair.plugin.zsh" ] && source /usr/share/zsh/plugins/zsh-autopair/zsh-autopair.plugin.zsh
 
 # Open shell with tmux always
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
@@ -185,7 +215,7 @@ fi
 eval $(thefuck --alias)
 
 # python
-#eval "$(pyenv init -)"
+eval "$(pyenv init -)"
 
 ##########################
 # COMMANDS BEFORE PROMPT #

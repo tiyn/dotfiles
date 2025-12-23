@@ -15,7 +15,7 @@ return {
       },
       { "tiyn/tccs.nvim" },
       {
-        "roobert/action-hints.nvim",
+        "tiyn/action-hints.nvim",
         config = function()
           require("action-hints").setup({
             template = {
