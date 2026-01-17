@@ -4,3 +4,4 @@ Xft.rgba: rgb
 Xft.autohint: true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcdfilter
+Sxiv.background: #000000
