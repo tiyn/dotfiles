@@ -1,0 +1,7 @@
+[binds]
+<plus> = zoom 1
+
+p = prev
+n = next
+
+<Shift+R> = rotate by 90

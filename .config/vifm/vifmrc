@@ -267,8 +267,8 @@ fileviewer *.[1-8] man ./%c | col -b
 
 " Images
 filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp
-        \ {View in sxiv}
-        \ sxiv -ia %c %d &,
+        \ {View in imv}
+        \ imv %c %d &,
 fileviewer <image/*>
         \ vifmimg draw %px %py %pw %ph %c
         \ %pc
