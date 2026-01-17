@@ -76,11 +76,13 @@ super + F12
 Print
         screenshot
 
-XF86AudioMute
+mute
         lmc deaf_toggle
 
-XF86AudioLowerVolume
+volumedown
         lmc down
 
-XF86AudioRaiseVolume
+volumeup
         lmc up
+
+# super + shift + F23
