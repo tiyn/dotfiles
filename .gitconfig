@@ -22,3 +22,5 @@
         show-syntax-themes = true
 [merge]
         conflictStyle = zdiff3
+[credential]
+	helper = store
