@@ -21,6 +21,7 @@ return {
           "python",
           "rust",
           "lua",
+          "yaml",
         },
         -- highlight = { enable = true },
         autotag = { enable = false },
