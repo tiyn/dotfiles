@@ -99,6 +99,9 @@ alias octave="octave --persist"
 # pacman
 alias pac="sudo pacman"
 
+# papis
+alias papis='PYTHONWARNINGS=ignore::DeprecationWarning python -m papis'
+
 # ping
 alias ping="ping -c 5"
 
