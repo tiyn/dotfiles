@@ -1,7 +1,12 @@
+Artifact
+Artifacts
 Bonitur
+Destruction
 Entlebucher Sennenhund
+Französischvokabeln
 Gym
 Homeserver
+Immigrationsgeschichte
 Impro-Theater
 Improtheater
 Infokratie
@@ -17,6 +22,7 @@ Poetry
 Poetry-Slam
 Poetryslam
 Pollenhose
+SDS-Plenum
 Slam
 Slammern
 Slams
@@ -24,6 +30,8 @@ Torrenting
 Uni-Theater
 Unitheater
 egozentristisch
+gedätscht
+gepiekst
 ira
 shiftete
 Ça

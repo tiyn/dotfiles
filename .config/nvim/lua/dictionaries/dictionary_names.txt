@@ -1,6 +1,7 @@
 APV
 Akallabêth
 Annoyed Altisaur
+Asiahung
 Aule
 Barros
 Beek
@@ -18,7 +19,10 @@ DeepSeek
 Edain
 Elodie
 Eyal
+Frevert
+Freverts
 Greater
+Grixis
 Guttersnipe
 Habenhausen
 Higgers
@@ -29,6 +33,7 @@ Jeanine
 Kratom
 Kubitschek
 Käte
+L'histoire de Souleyman
 MTG
 Magic
 Magic: The Gathering
@@ -38,6 +43,7 @@ Matvey
 Mint
 Nate
 Númenor
+Oberweseler
 Overwatch
 Pluribus
 PopOS
@@ -48,6 +54,7 @@ Shiny
 SommerAka
 SommerAkademie
 TCAV
+Tjark
 Weizman
 WinterAka
 WinterAkademie
