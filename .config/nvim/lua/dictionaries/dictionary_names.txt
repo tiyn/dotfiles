@@ -1,8 +1,10 @@
 APV
 Akallabêth
+Anki
 Annoyed Altisaur
 Asiahung
 Aule
+Aules
 Barros
 Beek
 Boarding Party
@@ -16,13 +18,16 @@ CdE
 Combi
 Commander
 DeepSeek
+Doom-Scrolling
 Edain
 Elodie
 Eyal
+Forest
 Frevert
 Freverts
 Greater
 Grixis
+Gump
 Guttersnipe
 Habenhausen
 Higgers
@@ -33,7 +38,6 @@ Jeanine
 Kratom
 Kubitschek
 Käte
-L'histoire de Souleyman
 MTG
 Magic
 Magic: The Gathering
@@ -45,6 +49,7 @@ Nate
 Númenor
 Oberweseler
 Overwatch
+Papis
 Pluribus
 PopOS
 Precon
@@ -53,7 +58,10 @@ Shinies
 Shiny
 SommerAka
 SommerAkademie
+Souleyman
+Stina
 TCAV
+Thinkpad
 Tjark
 Weizman
 WinterAka

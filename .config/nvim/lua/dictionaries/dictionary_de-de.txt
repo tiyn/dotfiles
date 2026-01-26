@@ -14,6 +14,7 @@ Ira
 Jahreszeitenunterschied
 Jahreszeitenunterschiede
 Königinnensubstanz
+LLM-Paper
 Magazinbeute
 Magazinbeuten
 Meta
@@ -23,6 +24,7 @@ Poetry-Slam
 Poetryslam
 Pollenhose
 SDS-Plenum
+SPM-Gruppe
 Slam
 Slammern
 Slams
@@ -32,6 +34,7 @@ Unitheater
 egozentristisch
 gedätscht
 gepiekst
+histoire
 ira
 shiftete
 Ça
