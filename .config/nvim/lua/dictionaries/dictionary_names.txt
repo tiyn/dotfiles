@@ -2,6 +2,7 @@ APV
 Akallabêth
 Anki
 Annoyed Altisaur
+ApoRed
 Asiahung
 Aule
 Aules
@@ -30,20 +31,25 @@ Grixis
 Gump
 Guttersnipe
 Habenhausen
+Hailo
 Higgers
 IFAM
 IFAMs
 IMRaD
+Ira
 Jeanine
 Kratom
 Kubitschek
 Käte
+LLMs
 MTG
 Magic
 Magic: The Gathering
+Maite
 Marten
 Mathis
 Matvey
+MiiMii
 Mint
 Nate
 Númenor
@@ -54,6 +60,7 @@ Pluribus
 PopOS
 Precon
 Precons
+Severance
 Shinies
 Shiny
 SommerAka
