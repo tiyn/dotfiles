@@ -33,6 +33,7 @@ Gump
 Guttersnipe
 Habenhausen
 Hailo
+Hellmers
 Higgers
 IFAM
 IFAMs
@@ -61,6 +62,7 @@ Pluribus
 PopOS
 Precon
 Precons
+Ruschenbaum
 Severance
 Shinies
 Shiny

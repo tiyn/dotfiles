@@ -3,6 +3,7 @@ Artifacts
 Bonitur
 Crowd-Interaction
 Destruction
+Dictation
 Entlebucher Sennenhund
 Französischvokabeln
 Gym
@@ -29,6 +30,7 @@ SPM-Gruppe
 Slam
 Slammern
 Slams
+Speech-to-Text
 Torrenting
 Uni-Theater
 Unitheater
