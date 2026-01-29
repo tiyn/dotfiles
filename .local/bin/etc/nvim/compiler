@@ -10,7 +10,7 @@ file=$(readlink -f "$1")
 dir=$(dirname "$file")
 base="${file%.*}"
 basenodir="${1%.*}"
-vipercmd="silicon" #"carbon"
+vipercmd="carbon" #"silicon"
 
 cd "$dir" || exit
 
