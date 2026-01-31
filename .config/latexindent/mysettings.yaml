@@ -1,0 +1,20 @@
+defaultIndent: '  '
+indentAfterItems:
+  itemize: 1
+  itemize*: 1
+  enumerate: 1
+  enumerate*: 1
+indentRules:
+  item: 1
+noAdditionalIndentGlobal:
+  item: 1
+indentAfterHeadings:
+  textit:
+    indentAfterThisHeading: 1
+    level: 1
+  footnote:
+    indentAfterThisHeading: 1
+    level: 1
+noAdditionalIndent:
+  textit: 1
+  footnote: 1
