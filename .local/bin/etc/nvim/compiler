@@ -27,6 +27,7 @@ textype() { \
 
 case "$file" in
 	*\.[0-9]) refer -PS -e "$file" | groff -mandoc -T pdf > "$base".pdf ;;
+        *\.bash) bash "$file" ;;
 	*\.go) go run "$file" ;;
 	*\.lua) lua "$file" ;;
 	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
@@ -49,5 +50,6 @@ case "$file" in
         *\.smt2) z3 "$file" ;;
         *\.tex) textype "$file" ;;
         *\.vpr) $vipercmd "$file" ;;
+        *\.zsh) zsh "$file" ;;
 	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac
