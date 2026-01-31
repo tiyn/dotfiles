@@ -24,22 +24,40 @@ return {
       require("mason-lspconfig").setup({
         automatic_setup = true,
         ensure_installed = {
-          "bashls",
+          -- assembler
+          "asm_lsp",
+          -- c
           "clangd",
+          -- docker
           "dockerls",
+          -- go
           "gopls",
+          -- html
           "html",
+          -- json
           "jsonls",
+          -- xml
           "lemminx",
+          -- latex
           "ltex",
-          "lua_ls",
-          "marksman",
-          "nimls",
-          "pyright",
-          "r_language_server",
-          "sqlls",
           "texlab",
+          -- lua
+          "lua_ls",
+          -- markdown
+          "marksman",
+          -- nim
+          "nimls",
+          -- python
+          "pyright",
+          -- r
+          "r_language_server",
+          -- shell
+          "bashls",
+          -- sql
+          "sqlls",
+          -- typescript / javascript
           "ts_ls",
+          -- yaml
           "yamlls",
         },
       })
