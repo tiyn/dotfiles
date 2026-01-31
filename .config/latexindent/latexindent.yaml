@@ -18,3 +18,7 @@ indentAfterHeadings:
 noAdditionalIndent:
   textit: 1
   footnote: 1
+removeTrailingWhitespace:
+  beforeProcessing: 0
+  afterProcessing: 1
+indentPreamble: 1
