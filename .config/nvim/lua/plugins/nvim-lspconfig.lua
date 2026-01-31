@@ -39,7 +39,7 @@ return {
           "r_language_server",
           "sqlls",
           "texlab",
-          -- "tsserver",
+          "ts_ls",
           "yamlls",
         },
       })
