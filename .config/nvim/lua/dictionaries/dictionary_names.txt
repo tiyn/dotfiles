@@ -27,6 +27,7 @@ Eyal
 Forest
 Frevert
 Freverts
+GrapheneOS
 Greater
 Grixis
 Gump
@@ -38,6 +39,7 @@ Higgers
 IFAM
 IFAMs
 IMRaD
+Ikigai
 Ira
 Jeanine
 Kratom
@@ -54,10 +56,12 @@ Matvey
 MiiMii
 Mint
 Nate
+NeoVIM
 Númenor
 Oberweseler
 Overwatch
 Papis
+PfingstAka
 Pluribus
 PopOS
 Precon
@@ -73,6 +77,7 @@ Stina
 TCAV
 Thinkpad
 Tjark
+VIM
 Weizman
 Willenborg
 WinterAka
