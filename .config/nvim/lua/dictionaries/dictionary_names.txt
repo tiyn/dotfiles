@@ -11,6 +11,7 @@ Beek
 Boarding Party
 Boelsen
 Bontjes
+CATS
 CDSS
 Casper
 Caspers
@@ -20,10 +21,12 @@ Combi
 Commander
 Daisy's
 DeepSeek
+Dekarldent
 Doom-Scrolling
 Edain
 Elodie
 Eyal
+FIDO-Stick
 Forest
 Frevert
 Freverts
@@ -38,6 +41,7 @@ Higgers
 IFAM
 IFAMs
 IMRaD
+Int
 Ira
 Jeanine
 Kratom

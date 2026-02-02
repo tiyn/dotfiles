@@ -6,6 +6,8 @@ Destruction
 Dictation
 Entlebucher Sennenhund
 Französischvokabeln
+Genervtheit
+Gestresstheit
 Gym
 Homeserver
 Immigrationsgeschichte
@@ -20,6 +22,7 @@ LLM-Paper
 Magazinbeute
 Magazinbeuten
 Meta
+Ne
 Orgas
 Poetry
 Poetry-Slam
@@ -27,6 +30,7 @@ Poetryslam
 Pollenhose
 SDS-Plenum
 SPM-Gruppe
+Scammer
 Slam
 Slammern
 Slams
@@ -34,6 +38,7 @@ Speech-to-Text
 Torrenting
 Uni-Theater
 Unitheater
+aneinandergelehnt
 egozentristisch
 gedätscht
 gepiekst
