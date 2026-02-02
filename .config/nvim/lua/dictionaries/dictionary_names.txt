@@ -30,6 +30,7 @@ FIDO-Stick
 Forest
 Frevert
 Freverts
+GrapheneOS
 Greater
 Grixis
 Gump
@@ -41,6 +42,7 @@ Higgers
 IFAM
 IFAMs
 IMRaD
+Ikigai
 Int
 Ira
 Jeanine
@@ -58,10 +60,12 @@ Matvey
 MiiMii
 Mint
 Nate
+NeoVIM
 Númenor
 Oberweseler
 Overwatch
 Papis
+PfingstAka
 Pluribus
 PopOS
 Precon
@@ -77,6 +81,7 @@ Stina
 TCAV
 Thinkpad
 Tjark
+VIM
 Weizman
 Willenborg
 WinterAka
