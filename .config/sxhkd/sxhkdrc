@@ -30,9 +30,9 @@ super + m
 
 super + plus
         lmc mute_toggle
-super + udiaeresis
-        lmc deaf_toggle
 super + numbersign
+        lmc deaf_toggle
+super + udiaeresis
         dnd toggle
 super + odiaeresis
         lmc tap_toggle
