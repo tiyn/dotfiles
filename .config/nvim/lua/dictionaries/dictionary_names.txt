@@ -12,6 +12,7 @@ Boarding Party
 Boelsen
 Bontjes
 Brusch
+CAR
 CATS
 CDSS
 Casper
@@ -41,6 +42,7 @@ Habenhausen
 Hailo
 Hellmers
 Higgers
+Hough
 IFAM
 IFAMs
 IMRaD
@@ -64,8 +66,11 @@ MiiMii
 Mint
 Nate
 NeoVIM
+NextCloud
 Númenor
+OFFIS
 Oberweseler
+OpenCloud
 Overwatch
 Pane
 Papis
@@ -75,6 +80,7 @@ PopOS
 Precon
 Precons
 Ruschenbaum
+Sedef
 Severance
 Shinies
 Shiny
@@ -82,10 +88,12 @@ Skyrim
 SommerAka
 SommerAkademie
 Souleyman
+SpotiFLAC
 Stina
 TCAV
 Thinkpad
 Tjark
+Tornow
 VIM
 Weizman
 Willenborg
@@ -95,3 +103,4 @@ Writhing Chrysalis
 Ziegeleiweg
 Zimin
 flac
+npy

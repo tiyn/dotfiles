@@ -1,5 +1,6 @@
 Artifact
 Artifacts
+Betreuerrolle
 Bonitur
 Crowd-Interaction
 Destruction
@@ -37,16 +38,19 @@ Slam
 Slammern
 Slams
 Speech-to-Text
+Stations
 Torrenting
 Uni-Theater
 Unitheater
 aneinandergelehnt
+cyber-physische
 egozentristisch
 gedätscht
 gepiekst
 histoire
 ira
 performistisch
+respekt-
 rumgealbert
 shiftete
 ultra
