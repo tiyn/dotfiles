@@ -1,5 +1,6 @@
 APV
 Akallabêth
+An
 Anki
 Annoyed Altisaur
 ApoRed
@@ -8,6 +9,7 @@ Aule
 Aules
 Barros
 Beek
+Betterov
 Boarding Party
 Boelsen
 Bontjes
@@ -43,6 +45,7 @@ Hailo
 Hellmers
 Higgers
 Hough
+Höper
 IFAM
 IFAMs
 IMRaD
@@ -79,7 +82,9 @@ Pluribus
 PopOS
 Precon
 Precons
+Reeves
 Ruschenbaum
+Sagehorn
 Sedef
 Severance
 Shinies
