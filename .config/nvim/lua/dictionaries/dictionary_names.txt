@@ -35,6 +35,7 @@ Flac
 Forest
 Frevert
 Freverts
+Friesenturnier
 GrapheneOS
 Greater
 Grixis
@@ -57,6 +58,7 @@ Kratom
 Kubitschek
 Käte
 LLMs
+LightDM
 MTG
 Magic
 Magic: The Gathering
@@ -82,6 +84,7 @@ Pluribus
 PopOS
 Precon
 Precons
+PyEnv
 Reeves
 Ruschenbaum
 Sagehorn
