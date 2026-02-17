@@ -28,13 +28,13 @@ super + b
 super + m
         thunderbird
 
-super + bracketright
+super + plus
         lmc mute_toggle
-super + backslash
+super + numbersign
         lmc deaf_toggle
-super + bracketleft
+super + udiaeresis
         dnd toggle
-super + apostrophe
+super + odiaeresis
         lmc tap_toggle
 
 super + shift + l

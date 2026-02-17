@@ -1,5 +1,6 @@
 APV
 Akallabêth
+An
 Anki
 Annoyed Altisaur
 ApoRed
@@ -8,9 +9,12 @@ Aule
 Aules
 Barros
 Beek
+Betterov
 Boarding Party
 Boelsen
 Bontjes
+Brusch
+CAR
 CATS
 CDSS
 Casper
@@ -27,9 +31,11 @@ Edain
 Elodie
 Eyal
 FIDO-Stick
+Flac
 Forest
 Frevert
 Freverts
+Friesenturnier
 GrapheneOS
 Greater
 Grixis
@@ -39,6 +45,8 @@ Habenhausen
 Hailo
 Hellmers
 Higgers
+Hough
+Höper
 IFAM
 IFAMs
 IMRaD
@@ -51,6 +59,7 @@ Kratom
 Kubitschek
 Käte
 LLMs
+LightDM
 MTG
 Magic
 Magic: The Gathering
@@ -58,14 +67,19 @@ Maite
 Marten
 Mathis
 Matvey
+Mauli
 Mentos
 MiiMii
 Mint
 Nate
 NeoVIM
+NextCloud
 Númenor
+OFFIS
 Oberweseler
+OpenCloud
 Overwatch
+Pane
 Papis
 Pauper
 PfingstAka
@@ -73,18 +87,25 @@ Pluribus
 PopOS
 Precon
 Precons
+PyEnv
+Reeves
 Ruschenbaum
 SPM
+Sagehorn
+Sedef
 Severance
 Shinies
 Shiny
+Skyrim
 SommerAka
 SommerAkademie
 Souleyman
+SpotiFLAC
 Stina
 TCAV
 Thinkpad
 Tjark
+Tornow
 VIM
 Weizman
 Willenborg
@@ -93,3 +114,5 @@ WinterAkademie
 Writhing Chrysalis
 Ziegeleiweg
 Zimin
+flac
+npy
