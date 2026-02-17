@@ -46,6 +46,7 @@ Ikigai
 Int
 Ira
 Jeanine
+Karamasov
 Kratom
 Kubitschek
 Käte
@@ -57,6 +58,7 @@ Maite
 Marten
 Mathis
 Matvey
+Mentos
 MiiMii
 Mint
 Nate
@@ -65,12 +67,14 @@ Númenor
 Oberweseler
 Overwatch
 Papis
+Pauper
 PfingstAka
 Pluribus
 PopOS
 Precon
 Precons
 Ruschenbaum
+SPM
 Severance
 Shinies
 Shiny
