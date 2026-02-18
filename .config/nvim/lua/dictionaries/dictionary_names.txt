@@ -55,6 +55,7 @@ Ikigai
 Int
 Ira
 Jeanine
+Karamasov
 Kratom
 Kubitschek
 Käte
@@ -69,6 +70,7 @@ Marten
 Mathis
 Matvey
 Mauli
+Mentos
 MiiMii
 Mint
 Nate
@@ -82,6 +84,7 @@ OpenCloud
 Overwatch
 Pane
 Papis
+Pauper
 PfingstAka
 PfingstAka
 PfingstAkademie
@@ -92,6 +95,7 @@ Precons
 PyEnv
 Reeves
 Ruschenbaum
+SPM
 Sagehorn
 Sedef
 Severance

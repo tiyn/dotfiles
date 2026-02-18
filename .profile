@@ -72,9 +72,15 @@ export VIPER_BOOGIE="$HOME/.dotnet/tools/boogie"
 
 # python
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
 
-eval "$(pyenv init --path)"
+if [ -d "$PYENV_ROOT" ] && [ -x "PYENV_ROOT/bin/pyenv" ]; then
+    export PATH="$PYENV_ROOT/bin:$PATH"
+    if command -v timeout >/DEV/NULL 2>&1; then
+        timeout 2s  -c sh -c 'eval "$($PYENV_ROOT/bin/pyenv init --path)"' 2>/dev/null
+    else
+        eval "$($PYENV_ROOT/bin/pyenv init --path 2>/dev/null)" || true
+    fi
+fi
 
 # less/man colors
 export LESS=-R
