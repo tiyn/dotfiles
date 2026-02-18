@@ -1,9 +1,12 @@
+Ambiguity
 Artifact
 Artifacts
 Betreuerrolle
 Bonitur
+Branch
 Crowd-Interaction
 Destruction
+Developer
 Dictation
 Dreams
 Entlebucher Sennenhund
@@ -57,6 +60,8 @@ gepiekst
 histoire
 ira
 performistisch
+pseudomotivierend
+pseudomotivierende
 respekt-
 rumgealbert
 shiftete

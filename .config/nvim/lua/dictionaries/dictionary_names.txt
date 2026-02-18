@@ -26,6 +26,7 @@ Commander
 Daisy's
 DeepSeek
 Dekarldent
+Destiny 2
 Doom-Scrolling
 Edain
 Elodie
@@ -60,6 +61,7 @@ Käte
 LLMs
 LightDM
 MTG
+Maarten
 Magic
 Magic: The Gathering
 Maite
@@ -75,11 +77,14 @@ NextCloud
 Númenor
 OFFIS
 Oberweseler
+Odysee
 OpenCloud
 Overwatch
 Pane
 Papis
 PfingstAka
+PfingstAka
+PfingstAkademie
 Pluribus
 PopOS
 Precon
