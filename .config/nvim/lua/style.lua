@@ -129,27 +129,3 @@ vim.opt_local.colorcolumn = "+" .. vim.fn.join(vim.fn.range(0, 254), ",+")
 vim.o.list = true
 vim.opt.listchars:append("space:" .. Space_sign)
 vim.opt.listchars:append("eol:" .. Return_sign)
-
--- custom viper-highlighting
-local viper_group = vim.api.nvim_create_augroup("ViperSyntax", { clear = true })
-vim.api.nvim_create_autocmd("FileType", {
-  group = viper_group,
-  pattern = "viper",
-  callback = function()
-    vim.cmd("syntax enable")
-    vim.cmd([[
-      syntax keyword viperKeyword method function returns requires ensures invariant
-      syntax keyword viperKeyword if else while var field predicate
-      syntax keyword viperKeyword assert
-
-      syntax keyword viperType Int Bool Ref
-
-      syntax match viperComment "//.*$"
-      syntax match viperNumber "\v\d+"
-    ]])
-    vim.api.nvim_set_hl(0, "viperKeyword", { link = "Keyword" })
-    vim.api.nvim_set_hl(0, "viperType", { link = "Type" })
-    vim.api.nvim_set_hl(0, "viperComment", { link = "Comment" })
-    vim.api.nvim_set_hl(0, "viperNumber", { link = "Number" })
-  end,
-})
