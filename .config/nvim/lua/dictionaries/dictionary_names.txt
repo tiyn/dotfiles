@@ -28,6 +28,7 @@ DeepSeek
 Dekarldent
 Destiny 2
 Doom-Scrolling
+Eckhoff
 Edain
 Elodie
 Eyal
@@ -73,6 +74,7 @@ Mauli
 Mentos
 MiiMii
 Mint
+NIM
 Nate
 NeoVIM
 NextCloud
@@ -97,6 +99,7 @@ Reeves
 Ruschenbaum
 SPM
 Sagehorn
+Scheller
 Sedef
 Severance
 Shinies

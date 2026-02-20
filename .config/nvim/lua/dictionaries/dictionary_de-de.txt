@@ -1,6 +1,7 @@
 Ambiguity
 Artifact
 Artifacts
+Automated Program Verification
 Betreuerrolle
 Bonitur
 Branch
@@ -10,6 +11,8 @@ Developer
 Dictation
 Dreams
 Entlebucher Sennenhund
+Extraction
+For-Loop
 Formatter
 Französischvokabeln
 GOAT
@@ -48,6 +51,7 @@ Stations
 Torrenting
 Uni-Theater
 Unitheater
+While-Loop
 Wrap-Up-Folie
 aneinandergelehnt
 bürgerlicher
