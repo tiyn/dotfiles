@@ -1,7 +1,6 @@
 Ambiguity
 Artifact
 Artifacts
-Automated Program Verification
 Betreuerrolle
 Bonitur
 Branch
@@ -51,6 +50,7 @@ Stations
 Torrenting
 Uni-Theater
 Unitheater
+Verification
 While-Loop
 Wrap-Up-Folie
 aneinandergelehnt
