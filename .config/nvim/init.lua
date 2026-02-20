@@ -110,6 +110,7 @@ vim.filetype.add({
     sage = "python",
     sh = "bash",
     tex = "tex",
+    vpr = "viper",
   },
 })
 
