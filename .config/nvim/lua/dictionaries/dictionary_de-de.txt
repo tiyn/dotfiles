@@ -9,7 +9,7 @@ Destruction
 Developer
 Dictation
 Dreams
-Entlebucher Sennenhund
+Entlebucher
 Extraction
 For-Loop
 Formatter
@@ -26,6 +26,7 @@ Infokratie
 Ira
 Jahreszeitenunterschied
 Jahreszeitenunterschiede
+Kardinälin
 Königinnensubstanz
 LLM-Paper
 Magazinbeute
@@ -41,6 +42,7 @@ Pollenhose
 SDS-Plenum
 SPM-Gruppe
 Scammer
+Sennenhund
 Slam
 Slammern
 Slams
@@ -53,6 +55,7 @@ Unitheater
 Verification
 While-Loop
 Wrap-Up-Folie
+Zweifelsfall
 algenverseucht
 aneinandergelehnt
 bürgerlicher
