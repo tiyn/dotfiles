@@ -52,6 +52,7 @@ Hailo
 Hellmers
 Higgers
 Hough
+Hue
 Höper
 IFAM
 IFAMs
@@ -59,6 +60,7 @@ IMRaD
 Ikigai
 Int
 Ira
+JT
 Jeanine
 Karamasov
 Kluge
@@ -116,6 +118,7 @@ SommerAkademie
 Souleyman
 SpotiFLAC
 Stina
+Stud.IP
 TCAV
 Thinkpad
 Tjark
