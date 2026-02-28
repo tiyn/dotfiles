@@ -48,6 +48,8 @@ export CUDA_DIR="/opt/cuda"
 export CUDA_PATH="/opt/cuda"
 export XLA_FLAGS=--xla_gpu_cuda_data_dir=/opt/cuda
 
+export YDOTOOL_SOCKET="$HOME/.ydotool_socket"
+
 # external programs
 export OPENAUDIBLE_HOME="${HOME}/documents/openaudible"
 
