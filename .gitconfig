@@ -24,3 +24,5 @@
         conflictStyle = zdiff3
 [credential]
 	helper = store
+[alias]
+	graph = log --graph

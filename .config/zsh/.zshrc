@@ -87,20 +87,59 @@ function +vi-git-stash() {
 
 _git_intercept() {
 
-  # keifu instead of git log --graph
-  if [[ "$BUFFER" =~ ^git[[:space:]]+log.*--graph ]]; then
-    BUFFER="keifu"
-  fi
+  # use keifu instead of git log --graph
+  if [[ "$BUFFER" =~ ^([a-zA-Z0-9_-]+)[[:space:]]+([a-zA-Z0-9_-]+)(.*)$ ]]; then
 
-  if [[ "$BUFFER" =~ ^config[[:space:]]+log.*--graph ]]; then
-    BUFFER="(cd $HOME/.dotfiles && keifu)"
-  fi
+    local cmd=${match[1]}
+    local subcmd=${match[2]}
+    local rest=${match[3]}
 
-  # keifu instead of config log --graph
-  if [[ "$BUFFER" =~ ^config[[:space:]]+log.*--graph ]]; then
-    local gitdir="$HOME/.dotfiles"
-    local worktree="$HOME"
-    BUFFER="GIT_DIR=$gitdir GIT_WORK_TREE=$worktree keifu"
+    # directly via git log --graph
+    if [[ "$cmd" == "git" && "$subcmd" == "log" && "$rest" == *"--graph"* ]]; then
+      BUFFER="keifu"
+      zle accept-line
+      return
+    fi
+
+    # check for git-alias
+    if [[ "$cmd" == "git" ]]; then
+      local alias_expansion
+      alias_expansion=$(git config --get "alias.$subcmd" 2>/dev/null)
+
+      if [[ -n "$alias_expansion" && "$alias_expansion" == log*--graph* ]]; then
+        BUFFER="keifu"
+        zle accept-line
+        return
+      fi
+    fi
+
+    # shell-alias
+    if alias "$cmd" &>/dev/null; then
+      local expansion=$(alias "$cmd")
+      expansion=${expansion#*=}
+      expansion=${expansion#\'}
+      expansion=${expansion%\'}
+
+      if [[ "$expansion" =~ --git-dir=([^[:space:]]+) ]]; then
+        local gitdir=${match[1]}
+
+        if [[ "$subcmd" == "log" && "$rest" == *"--graph"* ]]; then
+          BUFFER="(cd $gitdir && keifu)"
+          zle accept-line
+          return
+        fi
+
+        # git-alias within shell-alias
+        local alias_expansion
+        alias_expansion=$(git --git-dir="$gitdir" config --get "alias.$subcmd" 2>/dev/null)
+
+        if [[ -n "$alias_expansion" && "$alias_expansion" == log*--graph* ]]; then
+          BUFFER="(cd $gitdir && keifu)"
+          zle accept-line
+          return
+        fi
+      fi
+    fi
   fi
 
   # swap main and master Fix
