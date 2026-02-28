@@ -85,28 +85,43 @@ function +vi-git-stash() {
 # CUSTOM WIDGETS #
 ##################
 
-_git_fix_main_master() {
+_git_intercept() {
+
+  # keifu instead of git log --graph
+  if [[ "$BUFFER" =~ ^git[[:space:]]+log.*--graph ]]; then
+    BUFFER="keifu"
+  fi
+
+  if [[ "$BUFFER" =~ ^config[[:space:]]+log.*--graph ]]; then
+    BUFFER="(cd $HOME/.dotfiles && keifu)"
+  fi
+
+  # keifu instead of config log --graph
+  if [[ "$BUFFER" =~ ^config[[:space:]]+log.*--graph ]]; then
+    local gitdir="$HOME/.dotfiles"
+    local worktree="$HOME"
+    BUFFER="GIT_DIR=$gitdir GIT_WORK_TREE=$worktree keifu"
+  fi
+
+  # swap main and master Fix
   if [[ $BUFFER == git\ * ]]; then
     local has_main=0
     local has_master=0
     git rev-parse --verify main >/dev/null 2>&1   && has_main=1
     git rev-parse --verify master >/dev/null 2>&1 && has_master=1
     if [[ $has_main -eq 1 && $has_master -eq 0 ]]; then
-      if [[ $BUFFER == *" master"* ]]; then
-        BUFFER=${BUFFER//" master"/" main"}
-      fi
+      BUFFER=${BUFFER//" master"/" main"}
     fi
     if [[ $has_master -eq 1 && $has_main -eq 0 ]]; then
-      if [[ $BUFFER == *" main"* ]]; then
-        BUFFER=${BUFFER//" main"/" master"}
-      fi
+      BUFFER=${BUFFER//" main"/" master"}
     fi
   fi
+
   zle accept-line
 }
 
-zle -N _git_fix_main_master
-bindkey "^M" _git_fix_main_master
+zle -N _git_intercept
+bindkey "^M" _git_intercept
 
 #########
 # STYLE #
