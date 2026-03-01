@@ -25,4 +25,5 @@
 [credential]
 	helper = store
 [alias]
-	graph = log --graph
+        graph = log --graph
+        amend = commit --amend --no-edit
