@@ -27,3 +27,4 @@
 [alias]
         graph = log --graph
         amend = commit --amend --no-edit
+        fpush = push --force-with-lease --force-if-includes
