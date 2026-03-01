@@ -213,6 +213,10 @@ autoload -U colors && colors
 # Enable git info in prompt
 autoload -Uz vcs_info
 
+# Enable smart history search
+bindkey -M vicmd 'j' history-beginning-search-forward
+bindkey -M vicmd 'k' history-beginning-search-backward
+
 ###############
 # KEYBINDINGS #
 ###############
