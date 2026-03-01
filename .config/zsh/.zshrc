@@ -85,7 +85,51 @@ function +vi-git-stash() {
 # CUSTOM WIDGETS #
 ##################
 
-_git_intercept() {
+_find_venv_upwards() {
+  local dir="$PWD"
+
+  while [[ "$dir" != "/" ]]; do
+    if [[ -f "$dir/pyvenv.cfg" ]]; then
+      echo "$dir"
+      return
+    fi
+    dir=$(dirname "$dir")
+  done
+}
+
+_auto_venv() {
+  local venv_dir
+  venv_dir=$(_find_venv_upwards)
+
+  # Falls wir eine andere venv aktiv haben → deaktivieren
+  if [[ -n "$VIRTUAL_ENV" && "$VIRTUAL_ENV" != "$venv_dir" ]]; then
+    deactivate 2>/dev/null
+  fi
+
+  # Falls passende venv gefunden → aktivieren
+  if [[ -n "$venv_dir" && "$VIRTUAL_ENV" != "$venv_dir" ]]; then
+    source "$venv_dir/bin/activate"
+  fi
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd _auto_venv
+_auto_venv
+
+_accept_line() {
+
+  # automatically push to remote
+  if [[ "$BUFFER" == "git push" ]]; then
+    local branch
+    branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+    if [[ -n "$branch" ]]; then
+      git rev-parse --abbrev-ref --symbolic-full-name @{u} &>/dev/null
+      if [[ $? -ne 0 ]]; then
+        BUFFER="git push -u origin $branch"
+      fi
+    fi
+  fi
 
   # use keifu instead of git log --graph
   if [[ "$BUFFER" =~ ^([a-zA-Z0-9_-]+)[[:space:]]+([a-zA-Z0-9_-]+)(.*)$ ]]; then
@@ -159,8 +203,8 @@ _git_intercept() {
   zle accept-line
 }
 
-zle -N _git_intercept
-bindkey "^M" _git_intercept
+zle -N _accept_line
+bindkey "^M" _accept_line
 
 #########
 # STYLE #
