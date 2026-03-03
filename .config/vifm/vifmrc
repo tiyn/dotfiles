@@ -208,11 +208,11 @@ fileviewer *.djvu
         \ %pc
         \ vifmimg clear
 
-" epub
-filextype *.epub
+" (k)epub
+filextype *.epub,*.kepub
         \ {View in zathura}
         \ zathura ./%f,
-fileviewer *.epub
+fileviewer *.epub,*.kepub
         \ vifmimg epub %px %py %pw %ph %c
         \ %pc
         \ vifmimg clear
@@ -434,7 +434,7 @@ set vifminfo=dhistory,savedirs,chistory,state,tui,shistory,
 " file types
 set classify='  :dir:/, :exe:,  :reg:, :link:'
 " various file names
-set classify+='  ::../::,  ::*.sh::,  ::*.[hc]pp::,  ::*.[hc]::,  ::/^copying|license$/::,  ::.git/,,*.git/::,  ::*.epub,,*.fb2,,*.djvu::,  ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
+set classify+='  ::../::,  ::*.sh::,  ::*.[hc]pp::,  ::*.[hc]::, ::/^copying|license$/::,  ::.git/,,*.git/::,  ::*.epub,,*.kepub,,*.fb2,,*.djvu::,  ::*.pdf::, ::*.htm,,*.html,,**.[sx]html,,*.xml::'
 " archives
 set classify+=' ::*.7z,,*.ace,,*.arj,,*.bz2,,*.cpio,,*.deb,,*.dz,,*.gz,,*.jar,,*.lzh,,*.lzma,,*.rar,,*.rpm,,*.rz,,*.tar,,*.taz,,*.tb2,,*.tbz,,*.tbz2,,*.tgz,,*.tlz,,*.trz,,*.txz,,*.tz,,*.tz2,,*.xz,,*.z,,*.zip,,*.zoo::'
 " images
