@@ -101,12 +101,10 @@ _auto_venv() {
   local venv_dir
   venv_dir=$(_find_venv_upwards)
 
-  # Falls wir eine andere venv aktiv haben → deaktivieren
   if [[ -n "$VIRTUAL_ENV" && "$VIRTUAL_ENV" != "$venv_dir" ]]; then
     deactivate 2>/dev/null
   fi
 
-  # Falls passende venv gefunden → aktivieren
   if [[ -n "$venv_dir" && "$VIRTUAL_ENV" != "$venv_dir" ]]; then
     source "$venv_dir/bin/activate"
   fi
@@ -210,54 +208,54 @@ bindkey "^M" _accept_line
 # STYLE #
 #########
 
-# Set style for version control
+# set style for version control
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:git*:*' get-revision true
 zstyle ':vcs_info:git*:*' check-for-changes true
 zstyle ':vcs_info:git*' formats "(%s) %c%u %b%m"
 zstyle ':vcs_info:git*' actionformats "(%s|%a) %12.12i %c%u %b%m"
-# Show remote ref name and number of commits ahead-of or behind
-# Show count of stashed changes
+# show remote ref name and number of commits ahead-of or behind
+# show count of stashed changes
 zstyle ':vcs_info:git*+set-message:*' hooks git-st git-stash
 
-# Set style for completion options
+# set style for completion options
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*' # Case insensitive completion
 zmodload zsh/complist
 _comp_options+=(globdots)
 
-# Disable sort when completing `git checkout`
+# disable sort when completing `git checkout`
 zstyle ':completion:*:git-checkout:*' sort false
-# Set descriptions format to enable group support
+# set descriptions format to enable group support
 zstyle ':completion:*:descriptions' format '[%d]'
-# Set list-colors to enable filename colorizing
+# set list-colors to enable filename colorizing
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-# Preview directory's content with eza when completing cd
+# preview directory's content with eza when completing cd
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
-# Switch group using `,` and `.`
+# switch group using `,` and `.`
 zstyle ':fzf-tab:*' switch-group ',' '.'
 
-# Set default Vim Cursor shape
+# set default Vim Cursor shape
 zle -N zle-keymap-select
 zle -N zle-line-init
 echo -ne '\e[5 q'
 
-# Set default prompt
+# set default prompt
 PS1='%B%{$fg[blue]%}[%{$fg[blue]%}%n%{$fg[blue]%}@%{$fg[blue]%}%M %{$fg[blue]%}%~%{$fg[blue]%}]%{$reset_color%}\$%b '
 RPROMPT='%B%{$fg[blue]%}$vcs_info_msg_0_%{$reset_color%}%b'
 setopt prompt_subst
 
-# Copy to x11 clipboard
+# copy to x11 clipboard
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
 
-# Enable colors
+# enable colors
 autoload -U colors && colors
 
-# Enable git info in prompt
+# enable git info in prompt
 autoload -Uz vcs_info
 
-# Enable smart history search
+# enable smart history search
 bindkey -M vicmd 'j' history-beginning-search-forward
 bindkey -M vicmd 'k' history-beginning-search-backward
 
@@ -265,11 +263,11 @@ bindkey -M vicmd 'k' history-beginning-search-backward
 # KEYBINDINGS #
 ###############
 
-# Enable vi mode
+# enable vi mode
 bindkey -v
 export KEYTIMEOUT=1
 
-# Vim bindings in tab mode
+# vim bindings in tab mode
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
@@ -280,48 +278,50 @@ bindkey -v '^?' backward-delete-char
 # ADDITIONAL FEATURES #
 #######################
 
-# Load alias
+# load alias
 [ -f "$HOME/.config/aliasrc" ] && source "$HOME/.config/aliasrc" # Load aliases
 
-# Disable ctrl-s and ctrl-q.
+# disable ctrl-s and ctrl-q.
 stty -ixon
 
-# Automatically cd if given a directory
+# automatically cd if given a directory
 setopt autocd autopushd
 
-# Enable compinit
+# enable compinit
 autoload -Uz compinit && compinit
 
-# Plugin: command not found notice
+# plugin: command not found notice
 [ -f "/usr/share/doc/pkgfile/command-not-found.zsh" ] && source /usr/share/doc/pkgfile/command-not-found.zsh
 
-# Plugin: fuzzy completion
+# plugin: fuzzy completion
 [ -f "/usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh" ] && source /usr/share/zsh/plugins/fzf-tab-git/fzf-tab.plugin.zsh
 
-# Plugin: autosuggestions
+# plugin: autosuggestions
 [ -f "/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh && bindkey '^ ' autosuggest-accept
 
-# Plugin: syntax highlighting
+# plugin: syntax highlighting
 [ -f "/usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ] && source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 
-# Plugin: Autopair
+# plugin: Autopair
 
 [ -f "/usr/share/zsh/plugins/zsh-autopair/zsh-autopair.plugin.zsh" ] && source /usr/share/zsh/plugins/zsh-autopair/zsh-autopair.plugin.zsh
 
-# Open shell with tmux always
+# open shell with tmux always
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
     tmux attack-session -t $USER || tmux new-session -s $USER
 fi
 
-# set up thefuck
+# thefuck
 eval $(thefuck --alias)
 
 # python
 eval "$(pyenv init -)"
 
+# opam
+[[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null
+
 ##########################
 # COMMANDS BEFORE PROMPT #
 ##########################
 
-# Display pfetch when starting zsh
 pfetch
