@@ -83,10 +83,10 @@ Mentos
 Metzener
 MiiMii
 Mint
-NIM
 Nate
 NeoVIM
 NextCloud
+Nim
 Númenor
 OFFIS
 Oberweseler
