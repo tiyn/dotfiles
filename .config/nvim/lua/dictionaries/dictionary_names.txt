@@ -125,6 +125,8 @@ TCAV
 Thinkpad
 Tjark
 Tornow
+TrackPoint
+UDEV
 VIM
 Weizman
 Willenborg
@@ -133,6 +135,9 @@ WinterAkademie
 Writhing
 Ziegeleiweg
 Zimin
+eKiwi
 flac
 inf
+liquidctl
 npy
+zedbraxmen
