@@ -83,14 +83,15 @@ Mentos
 Metzener
 MiiMii
 Mint
-NIM
 Nate
 NeoVIM
 NextCloud
+Nim
 Númenor
 OFFIS
 Oberweseler
 Odysee
+Opam
 OpenCloud
 Overwatch
 Pane
@@ -106,6 +107,7 @@ Precon
 Precons
 PyEnv
 Reeves
+Rocq
 Ruschenbaum
 SPM
 Sagehorn
