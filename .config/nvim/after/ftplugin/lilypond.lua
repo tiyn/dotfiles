@@ -54,4 +54,8 @@ if vim.b.first_start_lilypond then
 end
 vim.b.first_start_lilypond = true
 
-vim.cmd.Viewer()
+vim.schedule(function()
+  if vim.fn.exists(":Viewer") == 2 then
+    vim.cmd.Viewer()
+  end
+end)

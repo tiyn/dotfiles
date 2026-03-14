@@ -1,6 +1,7 @@
 return {
   -- lillypond integration
   "martineausimon/nvim-lilypond-suite",
+  ft = "lilypond",
   dependencies = "uga-rosa/cmp-dictionary",
   config = function()
     require("nvls").setup({
