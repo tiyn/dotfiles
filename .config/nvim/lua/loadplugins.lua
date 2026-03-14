@@ -12,14 +12,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-return require("lazy").setup({
+return require("lazy").setup(
+  {
     -- import plugins from the plugins directory
-    { import = 'plugins' },
+    { import = "plugins" },
   },
   -- lazy.nvim configuration
   {
     ui = {
-      icons = Lazy_signs
-    }
+      icons = Lazy_signs,
+    },
   }
 )

@@ -1,4 +1,5 @@
 return {
+  -- lillypond integration
   "martineausimon/nvim-lilypond-suite",
   dependencies = "uga-rosa/cmp-dictionary",
   config = function()

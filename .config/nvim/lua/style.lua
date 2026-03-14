@@ -21,7 +21,6 @@ Menu_signs = {
   path = "",
 }
 
-
 Lsp_signs = {
   Array = "",
   Boolean = "⊥",
@@ -108,6 +107,7 @@ Lualine_signs = {
 }
 
 vim.diagnostic.config({
+  virtual_text = false,
   severity_sort = true,
   signs = {
     text = {

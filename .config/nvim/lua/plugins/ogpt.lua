@@ -1,6 +1,7 @@
 return {
-{
-  "huynle/ogpt.nvim",
+  -- ollama llm integration
+  {
+    "huynle/ogpt.nvim",
     event = "VeryLazy",
     opts = {
       default_provider = "ollama",
@@ -11,16 +12,16 @@ return {
           api_host = "http://localhost:11434", -- free resources: https://github.com/cheahjs/free-llm-api-resources
           api_key = "",
           model = "deepseek-r1:7b",
-        }
-      }
+        },
+      },
     },
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim"
-    }
-},
-{
+      "nvim-telescope/telescope.nvim",
+    },
+  },
+  {
     "folke/edgy.nvim",
     event = "VeryLazy",
     init = function()
@@ -135,5 +136,5 @@ return {
         },
       },
     },
-  }
+  },
 }

@@ -1,7 +1,5 @@
 return {
   -- improved movement of windows
-  {
-    "sindrets/winshift.nvim",
-    opts = {},
-  },
+  "sindrets/winshift.nvim",
+  opts = {},
 }

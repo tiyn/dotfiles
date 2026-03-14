@@ -1,6 +1,4 @@
 return {
   -- improved keybindings, previewing them
-  {
-    "folke/which-key.nvim",
-    }
-  }
+  "folke/which-key.nvim",
+}

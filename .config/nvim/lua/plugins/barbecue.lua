@@ -1,5 +1,5 @@
 return {
-  {
+  -- vs code like topbar
     "utilyre/barbecue.nvim",
     name = "barbecue",
     version = "*",
@@ -10,7 +10,6 @@ return {
     opts = {
       theme = {
         normal = { bg = "#272727" },
-      }
+      },
     },
-  }
 }

@@ -1,8 +1,7 @@
 return {
-  {
-    'kevinhwang91/nvim-hlslens',
-    opts = {
-      calm_down = true,
-    }
-  }
+  -- improved virtual text
+  "kevinhwang91/nvim-hlslens",
+  opts = {
+    calm_down = true,
+  },
 }

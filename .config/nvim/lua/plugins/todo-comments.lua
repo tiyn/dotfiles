@@ -1,8 +1,8 @@
 return {
   -- todo symbols and highlighting
   {
-    'folke/todo-comments.nvim',
-    dependencies = { 'nvim-lua/plenary.nvim' },
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     opts = {
       keywords = {
         ERRO = { icon = Error_sign, color = "error" },
@@ -12,11 +12,11 @@ return {
         TODO = { icon = Todo_sign, color = "info" },
         INFO = { icon = Info_sign, color = "hint", alt = { "NOTE" } },
         PERF = { icon = Perfect_sign, color = "default" },
-        TEST = { icon = Test_sign, color = "test" }
+        TEST = { icon = Test_sign, color = "test" },
       },
       colors = {
-        default = { "Operator" }
-      }
-    }
-  }
+        default = { "Operator" },
+      },
+    },
+  },
 }

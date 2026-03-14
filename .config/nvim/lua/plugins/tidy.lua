@@ -4,7 +4,7 @@ return {
     "mcauley-penney/tidy.nvim",
     branch = "main",
     opts = {
-      filetype_exclude = { "diff" }
-    }
-  }
+      filetype_exclude = { "diff" },
+    },
+  },
 }

@@ -2,8 +2,8 @@
 local dictionary_base = "/home/user/.config/nvim/lua/dictionaries/"
 
 local Dictionary_files = {
-  ["de-DE"] = {"dictionary_de-de.txt", "dictionary_names.txt"},
-  ["en-US"] = {"dictionary_en-us.txt", "dictionary_names.txt"},
+  ["de-DE"] = { "dictionary_de-de.txt", "dictionary_names.txt" },
+  ["en-US"] = { "dictionary_en-us.txt", "dictionary_names.txt" },
 }
 
 function GetDictFiles(lang)
@@ -35,8 +35,8 @@ function ReadFiles(lang)
   return dict
 end
 
-for k,v in pairs(Dictionary_files) do
-  for a,b in pairs(v) do
+for k, v in pairs(Dictionary_files) do
+  for a, b in pairs(v) do
     Dictionary_files[k][a] = dictionary_base .. b
   end
 end

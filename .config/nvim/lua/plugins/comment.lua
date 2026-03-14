@@ -1,7 +1,5 @@
 return {
   -- commenting improvements
-  {
-    'numtostr/comment.nvim',
-    opts = {}
-  }
+  "numtostr/comment.nvim",
+  opts = {},
 }
