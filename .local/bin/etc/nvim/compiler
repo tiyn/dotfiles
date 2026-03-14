@@ -51,5 +51,6 @@ case "$file" in
         *\.tex) textype "$file" ;;
         *\.vpr) $vipercmd "$file" ;;
         *\.zsh) zsh "$file" ;;
+        *\.ly) lilypond "$file" ;;
 	*) sed 1q "$file" | grep "^#!/" | sed "s/^#!//" | xargs -r -I % "$file" ;;
 esac

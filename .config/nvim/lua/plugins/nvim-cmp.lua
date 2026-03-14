@@ -8,6 +8,7 @@ return {
       -- cmp sources
       'hrsh7th/cmp-buffer',
       'hrsh7th/cmp-path',
+      'uga-rosa/cmp-dictionary',
       'lukas-reineke/cmp-under-comparator',
       -- luasnip
       {
@@ -69,7 +70,8 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
-          { name = 'buffer' }
+          { name = 'buffer' },
+          { name = 'dictionary' }
         },
         formatting = {
           format = require("lspkind").cmp_format({
