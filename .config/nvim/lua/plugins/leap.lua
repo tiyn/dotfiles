@@ -1,6 +1,6 @@
 return {
   -- improved movement
-  "ggandor/leap.nvim",
+  url = "https://codeberg.org/andyg/leap.nvim",
   config = function()
     require("leap").opts.highlight_unlabeled_phase_one_targets = true
     require("leap").opts.equivalence_classes = { " \t\r\n", "([{", ")]}", "'\"`" }
