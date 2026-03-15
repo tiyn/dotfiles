@@ -53,6 +53,7 @@ Torrenting
 Uni-Theater
 Unitheater
 Verification
+Vokabelkarten
 While-Loop
 Wrap-Up-Folie
 Zweifelsfall

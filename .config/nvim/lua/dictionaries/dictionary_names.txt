@@ -28,6 +28,7 @@ CdE
 Chrysalis
 Combi
 Commander
+Crusader
 Daisy's
 DeepSeek
 Dekarldent
@@ -64,8 +65,10 @@ Ikigai
 Int
 Ira
 JT
+Jacobin
 Jeanine
 Karamasov
+Kingdoms
 Kluge
 Kratom
 Kreyenhop
@@ -73,6 +76,7 @@ Kubitschek
 Käte
 LLMs
 LightDM
+LilyPond
 MTG
 Maarten
 Magic
