@@ -10,17 +10,32 @@ My debian-based/arch compatible server/root-account dotfiles.
 
 - git
 - tmux
-- neovim
 - zsh
 - eza
 - sc-im (recommended)
+- neovim (>0.10.0)
 
 #### Debian-based Systems
 
-- `apt install git tmux neovim zsh`
+- `apt install git tmux zsh`
 - get the rest manually
   - [eza](https://github.com/eza-community/eza)
   - [sc-im (recommended)](https://github.com/andmarti1424/sc-im/wiki/Ubuntu-with-XLSX-import-&-export)
+- `apt install neovim` (read note below!)
+
+For some Debian systems it can be useful to install neovim manually to get a newer version number
+than the one shipped with the slow debian release schedule.
+For this the following lines can be used.
+
+```tex
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
+tar xzf nvim-linux-x86_64.tar.gz
+sudo mv nvim-linux-x86_64 /usr/local/nvim
+sudo ln -s /usr/local/nvim/bin/nvim /usr/local/bin/nvim
+```
+
+Updating works accordingly.
+
 
 #### Arch-based Systems
 
