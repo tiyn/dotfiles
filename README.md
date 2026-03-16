@@ -15,6 +15,9 @@ My debian-based/arch compatible server/root-account dotfiles.
 - sc-im (recommended)
 - neovim (>0.10.0)
 
+Additionally npm, rust or nimble may be needed for some vim language server to work.
+By default these have been disabled.
+
 #### Debian-based Systems
 
 - `apt install git tmux zsh`
