@@ -13,6 +13,7 @@ My debian-based/arch compatible server/root-account dotfiles.
 - zsh
 - eza
 - sc-im (recommended)
+- tree-sitter (recommended)
 - neovim (>0.10.0)
 
 #### Debian-based Systems
@@ -22,12 +23,13 @@ My debian-based/arch compatible server/root-account dotfiles.
   - [eza](https://github.com/eza-community/eza)
   - [sc-im (recommended)](https://github.com/andmarti1424/sc-im/wiki/Ubuntu-with-XLSX-import-&-export)
 - `apt install neovim` (read note below!)
+- `apt install tree-sitter` (read note below!)
 
 For some Debian systems it can be useful to install neovim manually to get a newer version number
 than the one shipped with the slow debian release schedule.
 For this the following lines can be used.
 
-```tex
+```sh
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux-x86_64.tar.gz
 tar xzf nvim-linux-x86_64.tar.gz
 sudo mv nvim-linux-x86_64 /usr/local/nvim
@@ -36,6 +38,14 @@ sudo ln -s /usr/local/nvim/bin/nvim /usr/local/bin/nvim
 
 Updating works accordingly.
 
+The same goes for tree-sitter.
+
+```sh
+curl -L https://github.com/tree-sitter/tree-sitter/releases/latest/download/tree-sitter-linux-x64.gz \
+| gunzip > tree-sitter
+chmod +x tree-sitter
+sudo mv tree-sitter /usr/local/bin/
+```
 
 #### Arch-based Systems
 
