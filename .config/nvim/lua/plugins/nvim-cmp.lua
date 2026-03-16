@@ -16,7 +16,7 @@ return {
         require("luasnip.loaders.from_snipmate").lazy_load()
       end,
       version = "v2.*",
-      build = "make install_jsregexp",
+      -- build = "make install_jsregexp",
       dependencies = { "saadparwaiz1/cmp_luasnip" },
     },
   },
