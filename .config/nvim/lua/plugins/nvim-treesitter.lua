@@ -17,7 +17,7 @@ return {
         "html",
         "markdown",
         "markdown_inline",
-        "latex",
+        -- "latex", -- TODO: currently prone to errors
         "python",
         "rust",
         "lua",
