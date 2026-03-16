@@ -9,8 +9,9 @@ return {
     -- 'p00f/nvim-ts-rainbow',
   },
   config = function()
-    require("nvim-treesitter.config").setup({
-      ensure_installed = {
+    local treesitter = require("nvim-treesitter")
+    treesitter.setup()
+    treesitter.install({
         "bash",
         "css",
         "html",
@@ -21,16 +22,20 @@ return {
         "rust",
         "lua",
         "yaml",
-      },
-      -- highlight = { enable = true },
-      autotag = { enable = false },
-      -- rainbow = {
-      --   enable = true,
-      --   extended_mode = true,
-      --   max_file_lines = nil,
-      --   -- colors = {},
-      --   -- termcolors = {}
-      -- }
     })
+    require("nvim-ts-autotag").setup({
+      opts = {
+        enable_close = true,
+        enable_rename = true,
+      }
+    })
+    -- WARN: not directly compatible anymore
+    -- highlight = { enable = true },
+    -- rainbow = {
+    --   enable = true,
+    --   extended_mode = true,
+    --   max_file_lines = nil,
+    --   -- colors = {},
+    --   -- termcolors = {}
   end,
 }

@@ -28,13 +28,13 @@ return {
         -- c
         "clangd",
         -- docker
-        "dockerls",
+        -- "dockerls", -- TODO: needs extra steps to install (npm)
         -- go
-        "gopls",
+        -- "gopls", -- TODO: needs extra steps to install (go)
         -- html
-        "html",
+        -- "html", -- TODO: needs extra steps to install (npm)
         -- json
-        "jsonls",
+        -- "jsonls", -- TODO: needs extra steps to install (npm)
         -- xml
         "lemminx",
         -- latex
@@ -47,17 +47,17 @@ return {
         -- nim
         -- "nimls", -- TODO: needs extra steps to install (nimble)
         -- python
-        "pyright",
+        -- "pyright", -- TODO: needs extra steps to install (npm)
         -- r
         -- "r_language_server", -- TODO: installation takes really long
         -- shell
-        "bashls",
+        -- "bashls", -- TODO: needs extra steps to install (npm)
         -- sql
-        "sqlls",
+        -- "sqlls", -- TODO: needs extra steps to install (npm)
         -- typescript / javascript
-        "ts_ls",
+        -- "ts_ls", -- TODO: needs extra steps to install (npm)
         -- yaml
-        "yamlls",
+        -- "yamlls", -- TODO: needs extra steps to install (npm)
       },
     })
     local default_flags = {
