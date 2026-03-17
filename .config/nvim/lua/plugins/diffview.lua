@@ -1,5 +1,5 @@
 return {
-  -- side by side git diffs for merge conflicts
+  -- side by side git diff mode coloring
   "sindrets/diffview.nvim",
   opts = {},
 }

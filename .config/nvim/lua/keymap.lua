@@ -397,4 +397,6 @@ wk.add({
   },
   -- huynle/ogpt-nvim
   { mode = "n", "<leader>ai", ":OGPT<CR>", desc = "OGTP: Open AI View", noremap = true },
+  -- potamides/pantran.nvim
+  { mode = {"n", "v"}, "<leader>tr", ":Pantran<CR>", desc = "Pantran: translate", noremap = true },
 })
