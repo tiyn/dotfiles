@@ -21,6 +21,7 @@ Brusch
 CAR
 CATS
 CDSS
+CUDA
 Casper
 Caspers
 Cato
@@ -33,6 +34,7 @@ Daisy's
 DeepSeek
 Dekarldent
 Destiny 2
+Distrobox
 Doom-Scrolling
 Doyma
 Eckhoff
@@ -81,6 +83,7 @@ MTG
 Maarten
 Magic
 Maite
+Marmelab
 Marten
 Mathis
 Matvey
@@ -109,6 +112,7 @@ PfingstAka
 PfingstAkademie
 Pluribus
 PopOS
+Portainer
 Precision
 Precon
 Precons
@@ -136,6 +140,7 @@ Thinkpad
 Tjark
 Tornow
 TrackPoint
+Traefik
 UDEV
 VIM
 Weizman
@@ -145,9 +150,12 @@ WinterAkademie
 Writhing
 Ziegeleiweg
 Zimin
+baseimage-gui
+ctop
 eKiwi
 flac
 inf
+jlesages
 liquidctl
 npy
 zedbraxmen

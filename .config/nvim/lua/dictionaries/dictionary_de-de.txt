@@ -33,6 +33,7 @@ Magazinbeute
 Magazinbeuten
 Meta
 Mods
+Mono
 Ne
 Orgas
 Poetry
@@ -48,6 +49,7 @@ Slammern
 Slams
 Soundness
 Speech-to-Text
+Spells
 Stations
 Torrenting
 Uni-Theater
@@ -71,6 +73,7 @@ ira
 performistisch
 pseudomotivierend
 pseudomotivierende
+reingeredet
 respekt-
 rumgealbert
 shiftete
