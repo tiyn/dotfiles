@@ -1,5 +1,6 @@
 {
   "action-hints.nvim": { "branch": "main", "commit": "ac72c23c2e901084e0c08a743942d8d7b8c560de" },
+  "auto-session": { "branch": "main", "commit": "62437532b38495551410b3f377bcf4aaac574ebe" },
   "barbecue": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
   "blink.download": { "branch": "main", "commit": "86361b98f3c8317904a08e3bd12cf3cdcbe3e925" },
   "blink.pairs": { "branch": "main", "commit": "5a34bf6ea72340a70083548e186d745ac4882899" },
