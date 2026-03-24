@@ -433,7 +433,7 @@ wk.add({
 vim.keymap.set("n", "K", function()
   local winid = require("ufo").peekFoldedLinesUnderCursor()
   if not winid then
-    vim.lsp.buf.hover({ border = "rounded" })
+    vim.lsp.buf.hover({ border = "rounded", focusable = false, max_width = 100 })
   end
 end, {
   buffer = bufnr,
