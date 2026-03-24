@@ -160,7 +160,6 @@ wk.add({
     desc = "LSP: list references",
     noremap = true,
   },
-  { mode = "n", "K", vim.lsp.buf.hover(), desc = "LSP: show documentation", noremap = true },
   {
     mode = "n",
     "<F8>",
@@ -284,19 +283,6 @@ wk.add({
     noremap = true,
   },
   { mode = "n", "<F10>s", "z=", desc = "Spell: display suggestions" },
-  -- kevinhwang91/nvim-ufo
-  {
-    mode = "n",
-    "K",
-    function()
-      local winid = require("ufo").peekFoldedLinesUnderCursor()
-      if not winid then
-        vim.lsp.buf.hover()
-      end
-    end,
-    desc = "LSP: peek folded section",
-    noremap = true,
-  },
   -- kevinhwang91/nvim-hlslens
   {
     mode = "n",
@@ -398,5 +384,58 @@ wk.add({
   -- huynle/ogpt-nvim
   { mode = "n", "<leader>ai", ":OGPT<CR>", desc = "OGTP: Open AI View", noremap = true },
   -- potamides/pantran.nvim
-  { mode = {"n", "v"}, "<leader>tr", ":Pantran<CR>", desc = "Pantran: translate", noremap = true },
+  {
+    mode = { "n", "v" },
+    "<leader>tr",
+    ":Pantran<CR>",
+    desc = "Pantran: translate",
+    noremap = true,
+  },
+  -- aaronik/treewalkr.nvim
+  { mode = { "n", "v" }, "<leader><C-k>", "<cmd>Treewalker Up<cr>", silent = true },
+  { mode = { "n", "v" }, "<leader><C-j>", "<cmd>Treewalker Down<cr>", silent = true },
+  { mode = { "n", "v" }, "<leader><C-h>", "<cmd>Treewalker Left<cr>", silent = true },
+  { mode = { "n", "v" }, "<leader><C-l>", "<cmd>Treewalker Right<cr>", silent = true },
+  { mode = { "n" }, "<leader><C-S-k>", "<cmd>Treewalker SwapUp<cr>", silent = true },
+  { mode = { "n" }, "<leader><C-S-j>", "<cmd>Treewalker SwapDown<cr>", silent = true },
+  { mode = { "n" }, "<leader><C-S-h>", "<cmd>Treewalker SwapLeft<cr>", silent = true },
+  { mode = { "n" }, "<leader><C-S-l>", "<cmd>Treewalker SwapRight<cr>", silent = true },
+
+  -- monaqa/dial.nvim
+  {
+    mode = { "n" },
+    "<C-a>",
+    function()
+      require("dial.map").manipulate("increment", "normal")
+    end,
+    silent = true,
+  },
+  {
+    mode = { "n" },
+    "<C-x>",
+    function()
+      require("dial.map").manipulate("decrement", "normal")
+    end,
+    silent = true,
+  },
+
+  -- Wansmer/treesj
+  {
+    mode = { "n" },
+    "<leader>m",
+    function()
+      require("treesj").toggle()
+    end,
+  },
+})
+
+-- kevinhwang91/nvim-ufo - lspconfig
+vim.keymap.set("n", "K", function()
+  local winid = require("ufo").peekFoldedLinesUnderCursor()
+  if not winid then
+    vim.lsp.buf.hover({ border = "rounded" })
+  end
+end, {
+  buffer = bufnr,
+  desc = "LSP: show documentation / peek folded section",
 })

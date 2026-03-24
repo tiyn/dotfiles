@@ -95,6 +95,9 @@ vim.o.shiftwidth = 4
 vim.o.softtabstop = 4
 vim.o.textwidth = 80
 
+-- set session options
+vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
+
 -- read files correctly
 vim.filetype.add({
   extension = {

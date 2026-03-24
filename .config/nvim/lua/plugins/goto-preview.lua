@@ -3,6 +3,9 @@ return {
   "rmagatti/goto-preview",
   dependencies = "rmagatti/logger.nvim",
   config = function()
-    require("goto-preview").setup({})
+    require("goto-preview").setup({
+      border = "rounded",
+      preview_window_title = { enable = true, position = "center" },
+    })
   end,
 }
