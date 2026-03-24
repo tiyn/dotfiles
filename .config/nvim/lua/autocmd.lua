@@ -114,8 +114,3 @@ end, {
   nargs = 1,
   complete = "file",
 })
-
--- stevearc/oil.nvim
-vim.api.nvim_create_user_command("Renamer", function(opts)
-  vim.cmd("Oil " .. opts.args)
-end, { nargs = "*" })
