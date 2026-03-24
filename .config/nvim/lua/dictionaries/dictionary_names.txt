@@ -93,6 +93,8 @@ Mentos
 Metzener
 MiiMii
 Mint
+MusikAka
+MusikAkademie
 NVIM
 NVIM-Plugin
 NVIM-Plugins
