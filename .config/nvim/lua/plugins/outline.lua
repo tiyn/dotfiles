@@ -1,12 +1,20 @@
 return {
-  -- outline for code
   "hedyhli/outline.nvim",
-  opts = {
-    outline_window = {
-      width = 25,
-    },
-    symbols = {
-      icon_source = "lspkind",
+  keys = {
+    {
+      "<F3>",
+      "<cmd>Outline<CR>",
+      desc = "CTags: toggle",
     },
   },
+  config = function()
+    require("outline").setup({
+      outline_window = {
+        width = 25,
+      },
+      symbols = {
+        icon_source = "lspkind",
+      },
+    })
+  end,
 }

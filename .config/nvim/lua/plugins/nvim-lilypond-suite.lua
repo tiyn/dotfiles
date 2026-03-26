@@ -28,7 +28,6 @@ return {
         },
       },
     })
-
     local lily_dicts = {
       "~/.local/share/nvim/lazy/nvim-lilypond-suite/lilywords/keywords",
       "~/.local/share/nvim/lazy/nvim-lilypond-suite/lilywords/musicCommands",
@@ -36,7 +35,6 @@ return {
       "~/.local/share/nvim/lazy/nvim-lilypond-suite/lilywords/articulations",
       "~/.local/share/nvim/lazy/nvim-lilypond-suite/lilywords/dynamics",
     }
-
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "lilypond",
       callback = function()
@@ -45,5 +43,53 @@ return {
         })
       end,
     })
+
+    local fluidsynth_job = nil
+
+    vim.keymap.set("n", "<leader>pm", function()
+      local midi = vim.fn.expand("%:r") .. ".midi"
+
+      if fluidsynth_job then
+        vim.fn.jobstop(fluidsynth_job)
+        fluidsynth_job = nil
+        print("fluidsynth stopped")
+        return
+      end
+
+      fluidsynth_job = vim.fn.jobstart({ "fluidsynth", "-i", midi })
+      print("fluidsynth playing (Ctrl-C to stop)")
+    end, {
+      buffer = bufnr,
+      desc = "Lilypond: output MIDI",
+    })
+
+    vim.keymap.set("n", "<leader>pp", "<cmd>Viewer<CR>", {
+      buffer = bufnr,
+      desc = "Lilypond: open PDF",
+    })
+
+    vim.keymap.set("n", "<C-c>", function()
+      if fluidsynth_job then
+        vim.fn.jobstop(fluidsynth_job)
+        fluidsynth_job = nil
+        print("fluidsynth stopped")
+      else
+        vim.cmd("normal! <C-c>")
+      end
+    end, {
+      buffer = bufnr,
+      desc = "Stop MIDI playback",
+    })
+
+    if vim.b.first_start_lilypond then
+      return
+    end
+    vim.b.first_start_lilypond = true
+
+    vim.schedule(function()
+      if vim.fn.exists(":Viewer") == 2 then
+        vim.cmd.Viewer()
+      end
+    end)
   end,
 }

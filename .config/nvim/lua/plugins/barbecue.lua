@@ -1,15 +1,15 @@
 return {
   -- vs code like topbar
-    "utilyre/barbecue.nvim",
-    name = "barbecue",
-    version = "*",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-      "nvim-tree/nvim-web-devicons", -- optional dependency
+  "utilyre/barbecue.nvim",
+  name = "barbecue",
+  version = "*",
+  dependencies = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  opts = {
+    theme = {
+      normal = { bg = "#272727" },
     },
-    opts = {
-      theme = {
-        normal = { bg = "#272727" },
-      },
-    },
+  },
 }

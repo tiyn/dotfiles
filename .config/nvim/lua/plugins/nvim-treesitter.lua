@@ -30,13 +30,5 @@ return {
         enable_rename = true,
       },
     })
-    -- WARN: not directly compatible anymore
-    -- highlight = { enable = true },
-    -- rainbow = {
-    --   enable = true,
-    --   extended_mode = true,
-    --   max_file_lines = nil,
-    --   -- colors = {},
-    --   -- termcolors = {}
   end,
 }

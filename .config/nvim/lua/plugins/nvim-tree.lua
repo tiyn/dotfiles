@@ -8,21 +8,30 @@ return {
       lazy = true,
     },
   },
-  opts = {
-    sort_by = "case_sensitive",
-    view = {
-      width = 30,
-    },
-    filters = {
-      dotfiles = true,
-    },
-    renderer = {
-      group_empty = true,
-      icons = {
-        glyphs = {
-          git = Git_signs,
-        },
-      },
+  keys = {
+    {
+      "<F2>",
+      "<cmd>NvimTreeToggle<CR>",
+      desc = "File tree: toggle",
     },
   },
+  config = function()
+    require("nvim-tree").setup({
+      sort_by = "case_sensitive",
+      view = {
+        width = 30,
+      },
+      filters = {
+        dotfiles = true,
+      },
+      renderer = {
+        group_empty = true,
+        icons = {
+          glyphs = {
+            git = Git_signs,
+          },
+        },
+      },
+    })
+  end,
 }

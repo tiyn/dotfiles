@@ -1,9 +1,27 @@
 return {
   -- improves vims increment and decrement functions
   "monaqa/dial.nvim",
+  keys = {
+    {
+      "<C-a>",
+      function()
+        require("dial.map").manipulate("increment", "normal")
+      end,
+      silent = true,
+      desc = "Increment value",
+    },
+    {
+      "<C-x>",
+      function()
+        require("dial.map").manipulate("decrement", "normal")
+      end,
+      silent = true,
+      desc = "Decrement value",
+    },
+  },
   config = function()
     local augend = require("dial.augend")
-    require("dial.config").augends:register_group{
+    require("dial.config").augends:register_group({
       default = {
         augend.integer.alias.decimal,
         augend.integer.alias.hex,
@@ -19,6 +37,6 @@ return {
         augend.constant.alias.en_weekday,
         augend.constant.alias.en_weekday_full,
       },
-    }
-  end
+    })
+  end,
 }
