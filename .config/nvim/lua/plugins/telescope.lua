@@ -4,6 +4,7 @@ return {
   version = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "archie-judd/telescope-words.nvim",
   },
   keys = {
