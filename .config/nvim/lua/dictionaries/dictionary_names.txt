@@ -49,6 +49,7 @@ Frevert
 Freverts
 Friesenturnier
 Gathering
+Gondor
 GrapheneOS
 Greater
 Grixis
@@ -80,6 +81,7 @@ Käte
 LLMs
 LightDM
 LilyPond
+Line Dance
 MTG
 Maarten
 Magic
@@ -150,6 +152,7 @@ Tornow
 TrackPoint
 Traefik
 UDEV
+Umbar
 VIM
 Verdener
 Weizman
