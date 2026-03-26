@@ -1,7 +1,7 @@
 return {
   -- fuzzy finder
   "nvim-telescope/telescope.nvim",
-  version = "0.1.2",
+  version = "*",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "archie-judd/telescope-words.nvim",
