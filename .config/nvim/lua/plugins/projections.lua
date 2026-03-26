@@ -14,22 +14,22 @@ return {
       desc = "Telescope: find projects",
     },
   },
-  config = function()
-    require("projections").setup({
-      workspaces = { -- Default workspaces to search for
-        { "~/code/main", { ".git" } },
-        { "~/code/uni", { ".git" } },
-      },
-      store_hooks = {
-        pre = function()
-          -- nvim-tree
-          local nvim_tree_present, api = pcall(require, "nvim-tree.api")
-          if nvim_tree_present then
-            api.tree.close()
-          end
-        end,
-      },
-    })
+  opts = {
+    workspaces = {
+      { "~/code/main", { ".git" } },
+      { "~/code/uni", { ".git" } },
+    },
+    store_hooks = {
+      pre = function()
+        local ok, api = pcall(require, "nvim-tree.api")
+        if ok then
+          api.tree.close()
+        end
+      end,
+    },
+  },
+  config = function(_, opts)
+    require("projections").setup(opts)
     require("telescope").load_extension("projections")
   end,
 }

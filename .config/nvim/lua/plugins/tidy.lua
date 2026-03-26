@@ -3,11 +3,12 @@ return {
   "mcauley-penney/tidy.nvim",
   branch = "main",
   ft = { "markdown", "tex" },
-  config = function()
+  opts = {
+    filetype_exclude = { "diff" },
+  },
+  config = function(_, opts)
     local tidy = require("tidy")
-    tidy.setup({
-      filetype_exclude = { "diff" },
-    })
+    tidy.setup(opts)
     tidy.opts.enabled_on_save = false
     vim.api.nvim_create_autocmd("BufLeave", {
       pattern = { "*.md", "*.tex" },

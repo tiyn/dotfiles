@@ -1,4 +1,5 @@
 return {
+  -- tree-like outline sidebar
   "hedyhli/outline.nvim",
   keys = {
     {
@@ -7,14 +8,12 @@ return {
       desc = "CTags: toggle",
     },
   },
-  config = function()
-    require("outline").setup({
-      outline_window = {
-        width = 25,
-      },
-      symbols = {
-        icon_source = "lspkind",
-      },
-    })
-  end,
+  opts = {
+    outline_window = {
+      width = 25,
+    },
+    symbols = {
+      icon_source = "lspkind",
+    },
+  },
 }

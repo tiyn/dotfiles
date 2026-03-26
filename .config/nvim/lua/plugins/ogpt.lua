@@ -8,14 +8,11 @@ return {
     "nvim-telescope/telescope.nvim",
     {
       "folke/edgy.nvim",
-
       event = "VeryLazy",
-
       init = function()
         vim.opt.laststatus = 3
         vim.opt.splitkeep = "screen" -- or "topline" or "screen"
       end,
-
       opts = {
         exit_when_last = false,
         animate = {

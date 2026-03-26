@@ -46,19 +46,17 @@ return {
       desc = "LSP: close all preview windows",
     },
   },
-  config = function()
-    require("goto-preview").setup({
-      border = "rounded",
-      preview_window_title = { enable = true, position = "center" },
+  opts = {
+    border = "rounded",
+    preview_window_title = { enable = true, position = "center" },
 
-      post_open_hook = function(bufnr, winid)
-        local close = function()
-          require("goto-preview").close_all_win()
-        end
+    post_open_hook = function(bufnr, _)
+      local close = function()
+        require("goto-preview").close_all_win()
+      end
 
-        vim.keymap.set("n", "<c-h>", close, { buffer = bufnr, silent = true })
-        vim.keymap.set("n", "q", close, { buffer = bufnr, silent = true })
-      end,
-    })
-  end,
+      vim.keymap.set("n", "<c-h>", close, { buffer = bufnr, silent = true })
+      vim.keymap.set("n", "q", close, { buffer = bufnr, silent = true })
+    end,
+  },
 }

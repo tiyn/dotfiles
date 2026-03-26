@@ -3,9 +3,7 @@ return {
   "tiyn/tccs.nvim",
   lazy = false,
   priority = 1000,
-  config = function()
-    require("tccs").setup({
-      require("tccs").load(),
-    })
-  end,
+  opts = {
+    require("tccs").load(),
+  },
 }

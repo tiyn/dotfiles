@@ -11,13 +11,14 @@ return {
     "romgrk/fzy-lua-native",
     "nixprime/cpsm",
   },
-  config = function()
+  opts = {
+    modes = { ":", "/", "?" },
+    accept_key = "<CR>",
+    reject_key = "<C-e>",
+  },
+  config = function(_, opts)
     local wilder = require("wilder")
-    wilder.setup({
-      modes = { ":", "/", "?" },
-      accept_key = "<CR>",
-      reject_key = "<C-e>",
-    })
+    wilder.setup(opts)
     wilder.set_option("pipeline", {
       wilder.branch(
         wilder.python_file_finder_pipeline({

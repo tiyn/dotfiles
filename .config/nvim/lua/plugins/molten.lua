@@ -65,28 +65,30 @@ return {
           desc = "Quarto: Run all cells of all languages",
         },
       },
-      config = function()
-        require("quarto").setup({
-          lspFeatures = {
-            languages = { "python" },
-            chunks = "all",
-            diagnostics = {
-              enabled = true,
-              triggers = { "BufWritePost" },
-            },
-            completion = {
-              enabled = true,
-            },
-          },
-          codeRunner = {
+      opts = {
+        lspFeatures = {
+          languages = { "python" },
+          chunks = "all",
+          diagnostics = {
             enabled = true,
-            default_method = "molten",
+            triggers = { "BufWritePost" },
           },
-        })
+          completion = {
+            enabled = true,
+          },
+        },
+        codeRunner = {
+          enabled = true,
+          default_method = "molten",
+        },
+      },
+      config = function(_, opts)
+        local quarto = require("quarto")
+        quarto.setup(opts)
         vim.api.nvim_create_autocmd("FileType", {
           pattern = "markdown",
           callback = function()
-            require("quarto").activate()
+            quarto.activate()
           end,
         })
       end,

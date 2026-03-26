@@ -17,7 +17,7 @@ return {
       end,
       version = "v2.*",
       -- build = "make install_jsregexp",
-      dependencies = { "saadparwaiz1/cmp_luasnip" },
+      dependencies = "saadparwaiz1/cmp_luasnip",
     },
   },
   config = function()

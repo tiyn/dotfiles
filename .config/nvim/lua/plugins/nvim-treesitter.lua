@@ -4,9 +4,16 @@ return {
   build = ":TSUpdate",
   dependencies = {
     -- automatically close html-tags
-    "windwp/nvim-ts-autotag",
-    -- color brackets
-    -- 'p00f/nvim-ts-rainbow',
+    {
+      "windwp/nvim-ts-autotag",
+      opts = {
+        opts = {
+          enable_close = true,
+          enable_rename = true,
+        },
+      },
+    },
+    -- 'p00f/nvim-ts-rainbow', -- color brackets
     "nvim-treesitter/nvim-treesitter-context",
   },
   config = function()
@@ -23,12 +30,6 @@ return {
       "rust",
       "lua",
       "yaml",
-    })
-    require("nvim-ts-autotag").setup({
-      opts = {
-        enable_close = true,
-        enable_rename = true,
-      },
     })
   end,
 }

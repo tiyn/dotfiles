@@ -10,7 +10,5 @@ return {
       end,
     },
   },
-  config = function()
-    require("treesj").setup()
-  end,
+  opts = {},
 }

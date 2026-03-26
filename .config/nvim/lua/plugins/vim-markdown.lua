@@ -3,5 +3,5 @@ return {
   "preservim/vim-markdown",
   ft = { "markdown" },
   dependencies = { "godlygeek/tabular" },
-  config = function() end,
+  config = function() end, -- needed this way by the plugin
 }

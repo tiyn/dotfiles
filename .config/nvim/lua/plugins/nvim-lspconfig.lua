@@ -19,47 +19,32 @@ return {
       end,
     },
   },
-  config = function()
-    require("mason-lspconfig").setup({
-      automatic_setup = true,
-      ensure_installed = {
-        -- assembler
-        "asm_lsp",
-        -- c
-        "clangd",
-        -- docker
-        "dockerls",
-        -- go
-        "gopls",
-        -- html
-        "html",
-        -- json
-        "jsonls",
-        -- xml
-        "lemminx",
-        -- latex
-        "ltex",
-        "texlab",
-        -- lua
-        "lua_ls",
-        -- markdown
-        "marksman",
-        -- nim
-        "nimls",
-        -- python
-        "pyright",
-        -- r
-        "r_language_server",
-        -- shell
-        "bashls",
-        -- sql
-        "sqlls",
-        -- typescript / javascript
-        "ts_ls",
-        -- yaml
-        "yamlls",
-      },
-    })
+  opts = {
+    automatic_setup = true,
+    ensure_installed = {
+      "asm_lsp",
+      "clangd",
+      "dockerls",
+      "gopls",
+      "html",
+      "jsonls",
+      "lemminx",
+      "ltex",
+      "texlab",
+      "lua_ls",
+      "marksman",
+      "nimls",
+      "pyright",
+      "r_language_server",
+      "bashls",
+      "sqlls",
+      "ts_ls",
+      "yamlls",
+    },
+  },
+  config = function(_, opts)
+    local mason_lspconfig = require("mason-lspconfig")
+    mason_lspconfig.setup(opts)
     local default_flags = {
       debounce_text_changes = 150,
       allow_incremental_sync = true,
@@ -69,7 +54,6 @@ return {
       ltex = {
         settings = {
           ltex = {
-            -- language = "de-DE",
             enabled = { "latex", "markdown" },
             dictionary = Dictionaries,
           },
@@ -95,10 +79,16 @@ return {
         })
       )
     end
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-    vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-    vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, opts)
-    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-    vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+    vim.api.nvim_create_autocmd("LspAttach", {
+      callback = function(args)
+        local bufnr = args.buf
+        local opts = { buffer = bufnr }
+        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
+        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
+        vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, opts)
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
+        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
+      end,
+    })
   end,
 }

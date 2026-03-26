@@ -4,9 +4,7 @@ return {
   keys = {
     {
       "<leader>p",
-      function()
-        require("knap").toggle_autopreviewing()
-      end,
+      function() require("knap").toggle_autopreviewing() end,
       desc = "Knap: toggle autopreview",
     },
   },
