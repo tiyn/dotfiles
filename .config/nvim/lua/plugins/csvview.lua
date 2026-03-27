@@ -1,8 +1,7 @@
 return {
   -- improved csv handling
   "hat0uma/csvview.nvim",
-  ft = "csv",
-  cmd = { "CsvViewEnable", "CsvViewDisable", "CsvViewToggle" },
+  ft = { "csv" },
   opts = {
     parser = { comments = { "#", "//" } },
     keymaps = {

@@ -5,6 +5,7 @@ return {
     "kevinhwang91/nvim-hlslens",
     "lewis6991/gitsigns.nvim",
   },
+  lazy = false,
   opts = {
     marks = {
       Cursor = { highlight = "Normal" },

@@ -1,7 +1,7 @@
 return {
   -- show indentation lines
   "lukas-reineke/indent-blankline.nvim",
-  event = "BufReadPre",
+  lazy = false,
   main = "ibl",
   opts = {},
 }

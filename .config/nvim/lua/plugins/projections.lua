@@ -1,10 +1,10 @@
 return {
   -- navigate between projects using telescope
   "gnikdroy/projections.nvim",
+  branch = "pre_release",
   dependencies = {
     "nvim-telescope/telescope.nvim",
   },
-  branch = "pre_release",
   keys = {
     {
       "<leader>fp",

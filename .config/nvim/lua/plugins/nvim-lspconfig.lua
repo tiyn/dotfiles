@@ -3,22 +3,9 @@ return {
   "neovim/nvim-lspconfig",
   dependencies = {
     "williamboman/mason-lspconfig.nvim",
-    {
-      "mrcjkb/rustaceanvim",
-      version = "^6",
-      lazy = false,
-    },
-    {
-      "hrsh7th/cmp-nvim-lsp",
-      config = function()
-        Capabilities = require("cmp_nvim_lsp").default_capabilities()
-        Capabilities.textDocument.foldingRange = {
-          dynamicRegistration = false,
-          lineFoldingOnly = true,
-        }
-      end,
-    },
+    "hrsh7th/cmp-nvim-lsp",
   },
+  lazy = false,
   opts = {
     automatic_setup = true,
     ensure_installed = {
@@ -69,12 +56,17 @@ return {
       },
       pyright = {},
     }
+    local capabilities = require("cmp_nvim_lsp").default_capabilities()
+    capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = true,
+    }
     for name, config in pairs(servers) do
       vim.lsp.config(
         name,
         vim.tbl_extend("force", config, {
           on_attach = on_attach,
-          capabilities = Capabilities,
+          capabilities = capabilities,
           flags = default_flags,
         })
       )

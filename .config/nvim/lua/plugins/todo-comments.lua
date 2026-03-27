@@ -2,6 +2,7 @@ return {
   -- todo symbols and highlighting
   "folke/todo-comments.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  lazy = false,
   opts = {
     keywords = {
       ERRO = { icon = Error_sign, color = "error" },

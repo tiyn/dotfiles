@@ -1,6 +1,7 @@
 return {
   -- improved keybindings, previewing them
   "folke/which-key.nvim",
+  lazy = false,
   config = function()
     require("which-key").add({
       { mode = "n", "g", desc = "LSP: goto" },

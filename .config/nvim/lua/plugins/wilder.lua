@@ -2,15 +2,13 @@ return {
   -- improved wild menu
   "gelguy/wilder.nvim",
   dependencies = {
-    {
-      "nvim-tree/nvim-web-devicons",
-      lazy = true,
-    },
+    "nvim-tree/nvim-web-devicons",
     "roxma/nvim-yarp",
     "roxma/vim-hug-neovim-rpc",
     "romgrk/fzy-lua-native",
     "nixprime/cpsm",
   },
+  lazy = false,
   opts = {
     modes = { ":", "/", "?" },
     accept_key = "<CR>",

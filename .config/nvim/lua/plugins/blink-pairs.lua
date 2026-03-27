@@ -1,8 +1,9 @@
 return {
-  -- rainbow auto-pairs
+  -- rainbow and auto-pairs for parenthesis
   "saghen/blink.pairs",
   version = "*", -- (recommended) only required with prebuilt binaries
-  dependencies = "saghen/blink.download", -- download prebuilt binaries from github releases
+  dependencies = { "saghen/blink.download" }, -- download prebuilt binaries from github releases
+  lazy = false,
   --- @module 'blink.pairs'
   --- @type blink.pairs.Config
   opts = {

@@ -3,19 +3,10 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   dependencies = {
-    -- automatically close html-tags
-    {
-      "windwp/nvim-ts-autotag",
-      opts = {
-        opts = {
-          enable_close = true,
-          enable_rename = true,
-        },
-      },
-    },
-    -- 'p00f/nvim-ts-rainbow', -- color brackets
+    "windwp/nvim-ts-autotag", -- automatically close html-tags
     "nvim-treesitter/nvim-treesitter-context",
   },
+  lazy = false,
   config = function()
     local treesitter = require("nvim-treesitter")
     treesitter.setup()

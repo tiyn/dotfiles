@@ -4,22 +4,13 @@ return {
   dependencies = {
     "nvim-lua/plenary.nvim",
     "onsails/lspkind-nvim",
-    -- cmp sources
     "hrsh7th/cmp-buffer",
     "hrsh7th/cmp-path",
     "uga-rosa/cmp-dictionary",
     "lukas-reineke/cmp-under-comparator",
-    -- luasnip
-    {
-      "l3mon4d3/luasnip",
-      config = function()
-        require("luasnip.loaders.from_snipmate").lazy_load()
-      end,
-      version = "v2.*",
-      -- build = "make install_jsregexp",
-      dependencies = "saadparwaiz1/cmp_luasnip",
-    },
+    "l3mon4d3/luasnip",
   },
+  lazy = false,
   config = function()
     local cmp = require("cmp")
     cmp.setup({

@@ -4,26 +4,10 @@ return {
   dependencies = {
     "nvim-tree/nvim-web-devicons",
     "tiyn/tccs.nvim",
-    {
-      "f-person/git-blame.nvim",
-      config = function()
-        vim.g.gitblame_display_virtual_text = 0
-      end,
-    },
-    {
-      "tiyn/action-hints.nvim",
-      config = function()
-        require("action-hints").setup({
-          template = {
-            -- definition = { text = "D", color = "#add8e6" },
-            -- references = { text = "R%s", color = "#ff6666" },
-            definition = { text = Definition_sign, color = "#add8e6" },
-            references = { text = Reference_sign, color = "#ff6666" },
-          },
-        })
-      end,
-    },
+    "f-person/git-blame.nvim",
+    "tiyn/action-hints.nvim",
   },
+  lazy = false,
   opts = {
     options = {
       globalstatus = true,

@@ -1,8 +1,8 @@
 return {
   -- lillypond integration
   "martineausimon/nvim-lilypond-suite",
-  ft = "lilypond",
-  dependencies = "uga-rosa/cmp-dictionary",
+  dependencies = { "uga-rosa/cmp-dictionary" },
+  ft = { "lilypond" },
   opts = {
     lilypond = {
       mappings = {
