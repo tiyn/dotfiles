@@ -1,6 +1,7 @@
 return {
   -- highlighting for the viper verification language
   "tiyn/viper.nvim",
-  ft = { "viper" },
+  event = { "BufReadPre", "BufNewFile" },
+  pattern = "*.vpr",
   opts = {},
 }
