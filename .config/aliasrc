@@ -138,6 +138,9 @@ alias renamer="nvim +Renamer"
 # weather
 alias weather="curl wttr.in"
 
+# whisper.cpp
+alias whisper="whisper-cli -m ~/.config/whisper-cli/ggml-large-v3-turbo-german-q5_0.bin"
+
 # wget
 alias wget="wget --hsts-file=$XDG_CACHE_HOME/wget-hsts"
 alias wget2c="aria2c"
