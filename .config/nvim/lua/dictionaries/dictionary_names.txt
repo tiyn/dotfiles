@@ -53,6 +53,7 @@ Gondor
 GrapheneOS
 Greater
 Grixis
+Grosshardt
 Gump
 Guttersnipe
 Habenhausen
@@ -156,6 +157,7 @@ Umbar
 VIM
 Verdener
 Weizman
+Whisper
 Willenborg
 WinterAka
 WinterAkademie
