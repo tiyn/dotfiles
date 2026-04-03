@@ -49,6 +49,9 @@ Frevert
 Freverts
 Friesenturnier
 Gathering
+Glaive
+Glenn
+Glenns
 Gondor
 GrapheneOS
 Greater
@@ -58,6 +61,7 @@ Gump
 Guttersnipe
 Habenhausen
 Hailo
+Helldivers
 Hellmers
 Higgers
 Hough
@@ -129,6 +133,7 @@ Precons
 PyEnv
 Rebowl
 Reeves
+Reichenecker
 Rocq
 Ruschenbaum
 SPM
