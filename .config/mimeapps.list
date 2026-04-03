@@ -28,6 +28,7 @@ x-scheme-handler/betterdiscord=discord.desktop
 x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/sgnl=signal.desktop
 x-scheme-handler/signalcaptcha=signal.desktop
+x-scheme-handler/freetube=freetube.desktop
 
 [Added Associations]
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
