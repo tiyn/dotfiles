@@ -36,13 +36,14 @@ DeepSeek
 Dekarldent
 Destiny 2
 Distrobox
-Doom-Scrolling
+Doom
 Doyma
 Eckhoff
 Edain
 Elodie
 Eyal
-FIDO-Stick
+FIDO
+Face
 Flac
 Forest
 Frevert
@@ -64,6 +65,7 @@ Hailo
 Helldivers
 Hellmers
 Higgers
+Hillmannplatz
 Hough
 Hue
 Höper
@@ -83,6 +85,7 @@ Kratom
 Kreyenhop
 Kubitschek
 Käte
+LLM
 LLMs
 LightDM
 LilyPond
@@ -103,12 +106,13 @@ Mint
 MusikAka
 MusikAkademie
 NVIM
-NVIM-Plugin
-NVIM-Plugins
+NVIM
+NVIM
 Nate
 NeoVIM
 NextCloud
 Nim
+North
 Númenor
 OFFIS
 Oberhausern
@@ -116,6 +120,7 @@ Oberweseler
 Odysee
 Opam
 OpenCloud
+Ove
 Overwatch
 Pane
 Papis
@@ -136,9 +141,13 @@ Reeves
 Reichenecker
 Rocq
 Ruschenbaum
+SDS
 SPM
+Saber
 Sagehorn
+Sagehorner
 Scheller
+Scrolling
 Sedef
 Severance
 Shinies
@@ -152,7 +161,7 @@ Stina
 Stud.IP
 TCAV
 Thinkpad
-Till-Ove
+Till
 Tjark
 Tornow
 TrackPoint
