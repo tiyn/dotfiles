@@ -29,7 +29,7 @@ return {
     vim.g.knap_settings = {
       delay = 100,
       texoutputext = "pdf",
-      textopdf = "xelatex -synctex=1 -interaction=batchmode %docroot%",
+      textopdf = "pdflatex -synctex=1 -interaction=batchmode %docroot%",
       textopdfviewerlaunch = "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' ./%outputfile%",
       textopdfviewerrefresh = "reload",
       textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
