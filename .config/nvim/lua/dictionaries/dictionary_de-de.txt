@@ -45,6 +45,7 @@ Paper
 Platformer
 Poetry
 Pollenhose
+Renamer
 Scammer
 Sennenhund
 Slam
