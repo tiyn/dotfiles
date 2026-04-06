@@ -41,6 +41,8 @@ Doyma
 Eckhoff
 Edain
 Elodie
+Euphoria
+Explodes
 Eyal
 FIDO
 Face
@@ -79,6 +81,7 @@ JT
 Jacobin
 Jeanine
 Karamasov
+Keep
 Kingdoms
 Kluge
 Kratom
@@ -109,9 +112,10 @@ NVIM
 NVIM
 NVIM
 Nate
-NeoVIM
+Neovim
 NextCloud
 Nim
+Nobody
 North
 Númenor
 OFFIS
@@ -153,6 +157,7 @@ Severance
 Shinies
 Shiny
 Skyrim
+Snape
 SommerAka
 SommerAkademie
 Souleyman
@@ -160,6 +165,7 @@ SpotiFLAC
 Stina
 Stud.IP
 TCAV
+Talking
 Thinkpad
 Till
 Tjark
@@ -178,6 +184,7 @@ WinterAkademie
 Writhing
 Ziegeleiweg
 Zimin
+and
 baseimage-gui
 ctop
 eKiwi
