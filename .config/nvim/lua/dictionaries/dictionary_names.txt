@@ -12,6 +12,7 @@ Aule
 Aules
 Baez
 Barros
+Beater
 Beek
 Bela
 Betterov
@@ -28,9 +29,11 @@ Caspers
 Cato
 CdE
 Chrysalis
+Color
 Combi
 Commander
 Crusader
+DPU
 Daisy's
 DeepSeek
 Dekarldent
@@ -133,6 +136,7 @@ Peperaci
 PfingstAka
 PfingstAka
 PfingstAkademie
+Pillion
 Pluribus
 PopOS
 Portainer
@@ -178,6 +182,7 @@ VIM
 Verdener
 Weizman
 Whisper
+Wife
 Willenborg
 WinterAka
 WinterAkademie
