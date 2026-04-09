@@ -41,6 +41,7 @@ Destiny 2
 Distrobox
 Doom
 Doyma
+EasyEffects
 Eckhoff
 Edain
 Elodie
@@ -94,6 +95,8 @@ Käte
 LLM
 LLMs
 LightDM
+LightDM-GTK-Greeter
+LightDM-Mini-Greeter
 LilyPond
 Line Dance
 MTG
@@ -116,6 +119,7 @@ NVIM
 NVIM
 Nate
 Neovim
+NetworkManager
 NextCloud
 Nim
 Nobody
@@ -178,6 +182,7 @@ TrackPoint
 Traefik
 UDEV
 Umbar
+V1del
 VIM
 Verdener
 Weizman
@@ -187,6 +192,7 @@ Willenborg
 WinterAka
 WinterAkademie
 Writhing
+X.Org
 Ziegeleiweg
 Zimin
 and
@@ -198,4 +204,7 @@ inf
 jlesages
 liquidctl
 npy
+ramdisk
+systemd
+xinput
 zedbraxmen
