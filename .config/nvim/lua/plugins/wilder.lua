@@ -63,7 +63,7 @@ return {
       "renderer",
       wilder.popupmenu_renderer({
         highlighter = highlighters,
-        left = { " ", wilder.popupmenu_devicons() },
+        -- left = { " ", wilder.popupmenu_devicons() }, -- has problems with mason
         right = { " ", wilder.popupmenu_scrollbar() },
       })
     )
