@@ -15,7 +15,9 @@ Barros
 Beater
 Beek
 Bela
+Bennie
 Betterov
+Bladee
 Boarding
 Boelsen
 Bontjes
@@ -74,6 +76,7 @@ Higgers
 Hillmannplatz
 Hough
 Hue
+Hunter
 Höper
 IFAM
 IFAMs
@@ -202,6 +205,7 @@ baseimage-gui
 ctop
 eKiwi
 flac
+glaive
 inf
 jlesages
 liquidctl
