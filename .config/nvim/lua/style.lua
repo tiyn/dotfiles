@@ -121,7 +121,7 @@ vim.diagnostic.config({
 
 -- enable colorcolumn when textwidth is set
 vim.o.cursorline = true
-vim.opt_local.colorcolumn = "+" .. vim.fn.join(vim.fn.range(0, 254), ",+")
+vim.opt_local.colorcolumn = "+" .. vim.fn.join(vim.fn.range(1, 254), ",+")
 -- alternatively highlight only one line for colorcolumn
 -- vim.o.colorcolumn = "-0"
 
