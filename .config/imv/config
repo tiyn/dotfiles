@@ -1,3 +1,7 @@
+[options]
+
+background = #FFFFFF
+
 [binds]
 <plus> = zoom 1
 

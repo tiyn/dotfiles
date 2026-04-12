@@ -217,11 +217,6 @@ fileviewer *.epub,*.kepub
         \ %pc
         \ vifmimg clear
 
-" svg
-filextype *.svg
-        \ {View in inkview}
-        \ inkview %f,
-
 " Audio
 filetype *.wav,*.mp3,*.flac,*.m4a,*.wma,*.ape,*.ac3,*.og[agx],*.spx,*.opus,*.aac
        \ {Play using mpv}
@@ -266,7 +261,7 @@ filetype *.[1-8] man ./%c
 fileviewer *.[1-8] man ./%c | col -b
 
 " Images
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.gif,*.xpm,*.webp,*.svg,*.svgz
         \ {View in imv}
         \ imv %c %d &,
 fileviewer <image/*>
@@ -480,6 +475,12 @@ vnoremap rr :!lp %f<cr>
 " Mapping lower case conversion
 nnoremap cn :!cleanname %f<cr>
 vnoremap cn :!cleanname %f<cr>
+
+" Quicker pane navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
 
 " ------------------------------------------------------------------------------
 
