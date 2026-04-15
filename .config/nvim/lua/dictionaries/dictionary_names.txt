@@ -56,12 +56,14 @@ Flac
 Forest
 Frevert
 Freverts
+Friedl
 Friesenturnier
 Gathering
 Glaive
 Glenn
 Glenns
 Gondor
+Governikus
 GrapheneOS
 Greater
 Grixis
@@ -97,6 +99,7 @@ Kubitschek
 Käte
 LLM
 LLMs
+Lanz
 Later
 LightDM
 LightDM-GTK-Greeter
@@ -163,6 +166,7 @@ Saber
 Sagehorn
 Sagehorner
 Scheller
+Schrang
 Scrolling
 Sedef
 Severance
@@ -174,8 +178,10 @@ SommerAka
 SommerAkademie
 Souleyman
 SpotiFLAC
+Sprave
 Stina
 Stud.IP
+Styropyro
 TCAV
 Talking
 Thinkpad
