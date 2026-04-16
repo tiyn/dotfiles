@@ -8,6 +8,8 @@ return {
       function()
         require("treesj").toggle()
       end,
+      mode = "n",
+      desc = "Join/split block",
     },
   },
   opts = {},

@@ -1,7 +1,10 @@
 return {
   -- folding improvements
   "kevinhwang91/nvim-ufo",
-  dependencies = { "kevinhwang91/promise-async" },
+  dependencies = {
+    "kevinhwang92/promise-async",
+    "neovim/nvim-lspconfig",
+  },
   keys = {
     {
       "K",
@@ -10,7 +13,7 @@ return {
         if not winid then
           vim.lsp.buf.hover({
             border = "rounded",
-            focusable = false,
+            focusable = true, -- set to false to disable pressing K twice to focus the window
             max_width = 100,
           })
         end
