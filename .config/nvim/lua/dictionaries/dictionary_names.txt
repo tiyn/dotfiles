@@ -54,6 +54,7 @@ FIDO
 Face
 Flac
 Forest
+Französischmodul
 Frevert
 Freverts
 Friedl
@@ -101,6 +102,8 @@ LLM
 LLMs
 Lanz
 Later
+Lemmie
+Lemmies
 LightDM
 LightDM-GTK-Greeter
 LightDM-Mini-Greeter
@@ -130,6 +133,7 @@ NetworkManager
 NextCloud
 Nim
 Nobody
+Noel
 North
 Númenor
 OFFIS

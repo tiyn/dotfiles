@@ -4,6 +4,8 @@ Artifacts
 Betreuerrolle
 Bonitur
 Branch
+Branch
+Branches
 Crowd
 Destruction
 Developer
@@ -37,6 +39,8 @@ Königinnensubstanz
 Loop
 Magazinbeute
 Magazinbeuten
+Merge
+Merges
 Meta
 Mods
 Mono
@@ -47,7 +51,10 @@ Platformer
 Poetry
 Pollenhose
 Presenter
+Quizabend
 Renamer
+Repositories
+Repository
 Scammer
 Sennenhund
 Slam
