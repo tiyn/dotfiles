@@ -1,4 +1,5 @@
 {
+  "FTerm.nvim": { "branch": "master", "commit": "d1320892cc2ebab472935242d9d992a2c9570180" },
   "action-hints.nvim": { "branch": "main", "commit": "ac72c23c2e901084e0c08a743942d8d7b8c560de" },
   "auto-session": { "branch": "main", "commit": "62437532b38495551410b3f377bcf4aaac574ebe" },
   "barbecue": { "branch": "main", "commit": "cd7e7da622d68136e13721865b4d919efd6325ed" },
@@ -63,6 +64,7 @@
   "outline.nvim": { "branch": "main", "commit": "c293eb56db880a0539bf9d85b4a27816960b863e" },
   "pantran.nvim": { "branch": "main", "commit": "b87c3ae48cba4659587fb75abd847e5b7a7c9ca0" },
   "papis.nvim": { "branch": "main", "commit": "25e69f25e51b2d46178a213356adbc28b0f918ef" },
+  "platformio.nvim": { "branch": "main", "commit": "546e1e0b5afdd970f140d0ccaf322d41c0f23941" },
   "plenary.nvim": { "branch": "master", "commit": "74b06c6c75e4eeb3108ec01852001636d85a932b" },
   "popup-menu.nvim": { "branch": "master", "commit": "b618bd0c824a20417d845fa0022327228e6988a2" },
   "projections.nvim": { "branch": "pre_release", "commit": "889914169fa1f5c00fb8659653b5a8330fb223e6" },
