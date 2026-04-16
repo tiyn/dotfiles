@@ -481,11 +481,13 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
+nnoremap <C-x> <C-w>x
 
 qnoremap <C-h> <C-w>h
 qnoremap <C-l> <C-w>l
 qnoremap <C-j> <C-w>j
 qnoremap <C-k> <C-w>k
+qnoremap <C-x> <C-w>x
 
 " ------------------------------------------------------------------------------
 
