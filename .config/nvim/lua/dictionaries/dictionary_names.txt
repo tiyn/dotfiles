@@ -16,6 +16,7 @@ Beater
 Beek
 Bela
 Bennie
+Berim
 Betterov
 Bladee
 Boarding
@@ -39,6 +40,7 @@ DPU
 Daisy's
 DeepSeek
 Dekarldent
+Delivery
 Destiny 2
 Distrobox
 Doom
@@ -47,11 +49,13 @@ EasyEffects
 Eckhoff
 Edain
 Elodie
+Ernsting's
 Euphoria
 Explodes
 Eyal
 FIDO
 Face
+Fischerhude
 Flac
 Forest
 Französischmodul
@@ -90,6 +94,7 @@ Ira
 JT
 Jacobin
 Jeanine
+Jojen
 Karamasov
 Keep
 Kingdoms
@@ -155,11 +160,13 @@ Pillion
 Pluribus
 PopOS
 Portainer
+Power
 Precision
 Precon
 Precons
 PyEnv
 Rebowl
+Reed
 Reeves
 Reichenecker
 Rocq
@@ -171,6 +178,7 @@ Sagehorn
 Sagehorner
 Scheller
 Schrang
+Schwerdtner
 Scrolling
 Sedef
 Severance
