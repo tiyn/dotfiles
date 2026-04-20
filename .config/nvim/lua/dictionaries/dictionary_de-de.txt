@@ -69,6 +69,8 @@ Spells
 Stations
 Sub
 Torrenting
+Trainspotter
+Trefferverhältnis
 Uni
 Unitheater
 Verification
@@ -76,6 +78,7 @@ Vokabelkarten
 While
 Wohnungslose
 Wrap-Up
+Xiayun
 Zweifelsfall
 algenverseucht
 aneinandergelehnt
@@ -105,5 +108,6 @@ shiftete
 temps
 to
 ultra
+warpl
 Ça
 ça
