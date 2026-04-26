@@ -23,13 +23,14 @@ return {
       if engine == "xelatex" then
         vim.g.knap_settings.textopdf = "xelatex -synctex=1 -interaction=batchmode %docroot%"
       else
-        vim.g.knap_settings.textopdf = "pdflatex -synctex=1 -interaction=batchmode %docroot%"
+        vim.g.knap_settings.textopdf = "pdflatex --shell-escape -synctex=1 -interaction=batchmode %docroot%"
       end
     end
     vim.g.knap_settings = {
       delay = 100,
       texoutputext = "pdf",
-      textopdf = "pdflatex -synctex=1 -interaction=batchmode %docroot%",
+      -- textopdf = "pdflatex --shell-escape -synctex=1 -interaction=batchmode %docroot%",
+      textopdf = "xelatex -synctex=1 -interaction=batchmode %docroot%",
       textopdfviewerlaunch = "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' ./%outputfile%",
       textopdfviewerrefresh = "reload",
       textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
