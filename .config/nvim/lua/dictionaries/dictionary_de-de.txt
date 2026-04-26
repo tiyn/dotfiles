@@ -7,6 +7,7 @@ Branch
 Branch
 Branches
 Crowd
+Cutie
 Destruction
 Developer
 Dictation
@@ -23,6 +24,7 @@ GOAT
 Genervtheit
 Gestresstheit
 Gym
+Handwerksunternehmen
 Homeserver
 Immigrationsgeschichte
 Impro
@@ -82,6 +84,8 @@ Xiayun
 Zweifelsfall
 algenverseucht
 aneinandergelehnt
+awkward
+be
 bürgerlicher
 bürgerlichere
 bürgerlicheren
@@ -93,6 +97,7 @@ fois
 gedätscht
 gepiekst
 geupdatet
+gonna
 histoire
 ira
 kinky
@@ -106,8 +111,11 @@ reingeredet
 rumgealbert
 shiftete
 temps
+this
 to
 ultra
 warpl
+well
+will
 Ça
 ça

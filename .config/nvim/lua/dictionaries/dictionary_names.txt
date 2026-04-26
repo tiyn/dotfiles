@@ -1,3 +1,4 @@
+AI
 APV
 Accuracy
 Akallabêth
@@ -6,6 +7,7 @@ An
 Anki
 Annoyed
 ApoRed
+Applied
 Arrabbiata
 Asiahung
 Aule
@@ -36,8 +38,11 @@ Color
 Combi
 Commander
 Crusader
+DFKI
+DFKIs
 DPU
 Daisy's
+Darth
 DeepSeek
 Dekarldent
 Delivery
@@ -51,6 +56,7 @@ Edain
 Elodie
 Ernsting's
 Euphoria
+Explainable
 Explodes
 Eyal
 FIDO
@@ -75,6 +81,7 @@ Grixis
 Grosshardt
 Gump
 Guttersnipe
+Haarentor
 Habenhausen
 Hailo
 Helldivers
@@ -100,6 +107,7 @@ Karamasov
 Keep
 Kingdoms
 Kluge
+KohakuHub
 Kratom
 Kreyenhop
 Kubitschek
@@ -115,6 +123,8 @@ LightDM-GTK-Greeter
 LightDM-Mini-Greeter
 LilyPond
 Line Dance
+Lounge
+MEVIS
 MTG
 Maarten
 Magic
@@ -125,6 +135,7 @@ Mathis
 Matvey
 Mauli
 Mentos
+Meshtastic
 Metzener
 MiiMii
 Mint
@@ -141,6 +152,7 @@ Nim
 Nobody
 Noel
 North
+Novruz
 Númenor
 OFFIS
 Oberhausern
@@ -167,6 +179,7 @@ Precision
 Precon
 Precons
 PyEnv
+RStudio
 Rebowl
 Reed
 Reeves
@@ -188,6 +201,7 @@ Shinies
 Shiny
 Skyrim
 Snape
+Softbrod
 SommerAka
 SommerAkademie
 Souleyman
@@ -195,6 +209,7 @@ SpotiFLAC
 Sprave
 Stina
 Stud.IP
+Study
 Styropyro
 TCAV
 Talking
@@ -209,6 +224,7 @@ Umbar
 V1del
 VIM
 Verdener
+Wechloy
 Weizman
 Whisper
 Wife
