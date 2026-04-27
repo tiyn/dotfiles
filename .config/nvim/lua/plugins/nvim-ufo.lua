@@ -2,7 +2,7 @@ return {
   -- folding improvements
   "kevinhwang91/nvim-ufo",
   dependencies = {
-    "kevinhwang92/promise-async",
+    "kevinhwang91/promise-async",
     "neovim/nvim-lspconfig",
   },
   keys = {

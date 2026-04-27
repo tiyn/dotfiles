@@ -9,9 +9,9 @@ return {
   },
   keys = {
     {
-      "<leader>ai",
+      "<leader>ao",
       "<cmd>OGPT<CR>",
-      desc = "OGPT: Open AI View",
+      desc = "OGPT: Toggle chat",
     },
   },
   opts = {
