@@ -3,7 +3,8 @@ return {
   "carlos-algms/agentic.nvim",
   --- @type agentic.PartialUserConfig
   opts = {
-    provider = "gemini-acp",
+    -- provider = "gemini-acp",
+    provider = "codex-acp",
     diagnostic_icons = {
       error = Error_sign,
       warn = Warn_sign,
