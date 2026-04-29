@@ -1,6 +1,7 @@
 AI
 APV
 Accuracy
+Agentic
 Akallabêth
 Altisaur
 An
@@ -29,10 +30,12 @@ CAR
 CATS
 CDSS
 CUDA
+Carré
 Casper
 Caspers
 Cato
 CdE
+CdEs
 Chrysalis
 Color
 Combi
@@ -64,12 +67,14 @@ Face
 Fischerhude
 Flac
 Forest
+Forgejo
 Französischmodul
 Frevert
 Freverts
 Friedl
 Friesenturnier
 Gathering
+GitNex
 Glaive
 Glenn
 Glenns
@@ -114,6 +119,7 @@ Kubitschek
 Käte
 LLM
 LLMs
+LabNex
 Lanz
 Later
 Lemmie
@@ -135,6 +141,7 @@ Mathis
 Matvey
 Mauli
 Mentos
+Meret
 Meshtastic
 Metzener
 MiiMii
@@ -215,6 +222,7 @@ TCAV
 Talking
 Thinkpad
 Till
+Timmendorfer
 Tjark
 Tornow
 TrackPoint
@@ -224,6 +232,7 @@ Umbar
 V1del
 VIM
 Verdener
+Viano
 Wechloy
 Weizman
 Whisper

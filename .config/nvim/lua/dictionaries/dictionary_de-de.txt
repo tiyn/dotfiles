@@ -12,6 +12,7 @@ Destruction
 Developer
 Dictation
 Dirt
+Diskursartefakten
 Dom
 Dreams
 Embedding
@@ -70,6 +71,7 @@ Speedruns
 Spells
 Stations
 Sub
+Terraforming
 Torrenting
 Trainspotter
 Trefferverhältnis
