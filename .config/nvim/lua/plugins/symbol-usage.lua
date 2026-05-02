@@ -29,7 +29,11 @@ return {
 
     require("symbol-usage").setup({
       text_format = text_format,
+<<<<<<< HEAD
       vt_position = "end_of_line",
+||||||| 6714ddc
+=======
+>>>>>>> f01c70951e053d56cbfed781149becf3f9299a3f
     })
   end,
 }
