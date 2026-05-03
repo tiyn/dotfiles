@@ -13,6 +13,7 @@ Arrabbiata
 Asiahung
 Aule
 Aules
+Babybel
 Baez
 Barros
 Beater
@@ -110,6 +111,7 @@ Jeanine
 Jojen
 Karamasov
 Keep
+Keycap
 Kingdoms
 Kluge
 KohakuHub
@@ -124,11 +126,13 @@ Lanz
 Later
 Lemmie
 Lemmies
+Letterboxd
 LightDM
 LightDM-GTK-Greeter
 LightDM-Mini-Greeter
 LilyPond
 Line Dance
+Loafer
 Lounge
 MEVIS
 MTG
@@ -146,6 +150,7 @@ Meshtastic
 Metzener
 MiiMii
 Mint
+Mukluk
 MusikAka
 MusikAkademie
 NVIM
