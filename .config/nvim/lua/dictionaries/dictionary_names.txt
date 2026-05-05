@@ -1,5 +1,6 @@
 AI
 APV
+Abdulkarim
 Accuracy
 Agentic
 Akallabêth
@@ -197,6 +198,7 @@ Rebowl
 Reed
 Reeves
 Reichenecker
+Rida
 Rocq
 Ruschenbaum
 SDS
