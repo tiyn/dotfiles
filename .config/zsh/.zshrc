@@ -85,12 +85,40 @@ function +vi-git-stash() {
 # CUSTOM WIDGETS #
 ##################
 
+mkcd() {
+  mkdir -p -- "$1" &&
+  cd -- "$1"
+}
+
+uv() {
+  if [[ "$1" == "init" ]]; then
+    shift
+
+    if [[ "$1" == "--normal" ]]; then
+      shift
+      command uv init "$@"
+    else
+      command uv init --bare "$@" || return
+
+      if [[ $# -eq 0 ]]; then
+        command uv venv || return
+
+        if [[ -f ".venv/bin/activate" ]]; then
+          source .venv/bin/activate
+        fi
+      fi
+    fi
+  else
+    command uv "$@"
+  fi
+}
+
 _find_venv_upwards() {
   local dir="$PWD"
 
   while [[ "$dir" != "/" ]]; do
-    if [[ -f "$dir/pyvenv.cfg" ]]; then
-      echo "$dir"
+    if [[ -f "$dir/.venv/pyvenv.cfg" ]]; then
+      echo "$dir/.venv"
       return
     fi
     dir=$(dirname "$dir")
@@ -313,9 +341,6 @@ fi
 
 # thefuck
 eval $(thefuck --alias)
-
-# python
-eval "$(pyenv init -)"
 
 # opam
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" > /dev/null 2> /dev/null
