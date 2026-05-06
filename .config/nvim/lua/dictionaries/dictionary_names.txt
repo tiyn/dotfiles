@@ -1,6 +1,8 @@
 AI
 APV
+Abdulkarim
 Accuracy
+Agentic
 Akallabêth
 Altisaur
 An
@@ -12,6 +14,7 @@ Arrabbiata
 Asiahung
 Aule
 Aules
+Babybel
 Baez
 Barros
 Beater
@@ -29,10 +32,12 @@ CAR
 CATS
 CDSS
 CUDA
+Carré
 Casper
 Caspers
 Cato
 CdE
+CdEs
 Chrysalis
 Color
 Combi
@@ -53,6 +58,7 @@ Doyma
 EasyEffects
 Eckhoff
 Edain
+Edibles
 Elodie
 Ernsting's
 Euphoria
@@ -64,12 +70,14 @@ Face
 Fischerhude
 Flac
 Forest
+Forgejo
 Französischmodul
 Frevert
 Freverts
 Friedl
 Friesenturnier
 Gathering
+GitNex
 Glaive
 Glenn
 Glenns
@@ -105,6 +113,7 @@ Jeanine
 Jojen
 Karamasov
 Keep
+Keycap
 Kingdoms
 Kluge
 KohakuHub
@@ -114,15 +123,18 @@ Kubitschek
 Käte
 LLM
 LLMs
+LabNex
 Lanz
 Later
 Lemmie
 Lemmies
+Letterboxd
 LightDM
 LightDM-GTK-Greeter
 LightDM-Mini-Greeter
 LilyPond
 Line Dance
+Loafer
 Lounge
 MEVIS
 MTG
@@ -135,10 +147,12 @@ Mathis
 Matvey
 Mauli
 Mentos
+Meret
 Meshtastic
 Metzener
 MiiMii
 Mint
+Mukluk
 MusikAka
 MusikAkademie
 NVIM
@@ -184,6 +198,7 @@ Rebowl
 Reed
 Reeves
 Reichenecker
+Rida
 Rocq
 Ruschenbaum
 SDS
@@ -215,6 +230,7 @@ TCAV
 Talking
 Thinkpad
 Till
+Timmendorfer
 Tjark
 Tornow
 TrackPoint
@@ -224,6 +240,7 @@ Umbar
 V1del
 VIM
 Verdener
+Viano
 Wechloy
 Weizman
 Whisper

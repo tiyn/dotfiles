@@ -12,10 +12,12 @@ Destruction
 Developer
 Dictation
 Dirt
+Diskursartefakten
 Dom
 Dreams
 Embedding
 Entlebucher
+Eskortflug
 Extraction
 For
 Formatter
@@ -30,12 +32,14 @@ Immigrationsgeschichte
 Impro
 Improtheater
 Infokratie
+Informatikstudierende
 Informatikstudiun
 Interaction
 Ira
 Jahreszeitenunterschied
 Jahreszeitenunterschiede
 Kardinälin
+Keycap
 Kreatindosis
 Königinnensubstanz
 Loop
@@ -70,6 +74,7 @@ Speedruns
 Spells
 Stations
 Sub
+Terraforming
 Torrenting
 Trainspotter
 Trefferverhältnis
@@ -89,6 +94,7 @@ be
 bürgerlicher
 bürgerlichere
 bürgerlicheren
+cosplayt
 cyber
 egozentristisch
 en
