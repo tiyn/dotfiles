@@ -51,7 +51,7 @@ Darth
 DeepSeek
 Dekarldent
 Delivery
-Destiny 2
+Destiny
 Distrobox
 Doom
 Doyma
@@ -111,6 +111,7 @@ JT
 Jacobin
 Jeanine
 Jojen
+Jungjohann
 Karamasov
 Keep
 Keycap
