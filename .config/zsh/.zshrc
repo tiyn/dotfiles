@@ -113,7 +113,7 @@ uv() {
     fi
 }
 
-find_uv_root() {
+find_python_root() {
     local target="$1"
     local dir
 
@@ -142,7 +142,7 @@ uvshim() {
     local uv_root=""
     local first_arg="$1"
 
-    uv_root="$(find_uv_root "$first_arg")"
+    uv_root="$(find_python_root "$first_arg")"
 
     if [[ -n "$uv_root" ]]; then
         uv run --project "$uv_root" "$cmd" "$@"

@@ -14,7 +14,7 @@ vipercmd="carbon" #"silicon"
 
 cd "$dir" || exit
 
-has_uv_project() {
+has_python_version() {
     dir="$PWD"
     while [ "$dir" != "/" ]; do
         if [ -f "$dir/.python-version" ] || [ -f "$dir/pyproject.toml" ]; then
@@ -45,7 +45,7 @@ case "$file" in
 *\.mom) refer -PS -e "$file" | groff -mom -kept -T pdf >"$base".pdf ;;
 *\.ms) refer -PS -e "$file" | groff -me -ms -kept -T pdf >"$base".pdf ;;
 *\.py)
-    if has_uv_project; then
+    if has_python_version; then
         uv run python "$file"
     else
         python3 "$file"
