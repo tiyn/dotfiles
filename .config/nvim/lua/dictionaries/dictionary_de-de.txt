@@ -30,6 +30,7 @@ Handwerksunternehmen
 Higher-Up
 Higher-Ups
 Homeserver
+Hot
 Immigrationsgeschichte
 Impro
 Improtheater
@@ -53,6 +54,7 @@ Meta
 Mods
 Mono
 Ne
+Nights
 Orgas
 Paper
 Platformer

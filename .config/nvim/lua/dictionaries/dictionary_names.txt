@@ -55,6 +55,7 @@ Destiny
 Distrobox
 Doom
 Doyma
+Dressler
 EasyEffects
 Eckhoff
 Edain
@@ -164,6 +165,7 @@ Neovim
 NetworkManager
 NextCloud
 Nim
+Njinmah
 Nobody
 Noel
 North
