@@ -14,6 +14,7 @@ Arrabbiata
 Asiahung
 Aule
 Aules
+Autoencoder
 Babybel
 Baez
 Barros
@@ -120,6 +121,7 @@ Kingdoms
 Kluge
 KohakuHub
 Kratom
+KreativAkademie
 Kreyenhop
 Kubitschek
 Käte
@@ -254,6 +256,7 @@ WinterAkademie
 Writhing
 X.Org
 Years
+Yorma
 Ziegeleiweg
 Zimin
 and
