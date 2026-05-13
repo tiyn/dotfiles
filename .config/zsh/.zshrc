@@ -152,9 +152,24 @@ uvshim() {
 }
 
 python() { uvshim python "$@"; }
+
 python3() { uvshim python3 "$@"; }
-pip() { uvshim pip "$@"; }
-pytest() { uvshim pytest "$@"; }
+
+pip() {
+    local uv_root
+    uv_root="$(find_python_root)"
+
+    if [[ -n "$uv_root" ]]; then
+        if [[ "$1" == "install" ]]; then
+            shift
+            uv add "$@"
+        else
+            uv pip "$@"
+        fi
+    else
+        command pip "$@"
+    fi
+}
 
 _find_venv_upwards() {
     local dir="$PWD"
