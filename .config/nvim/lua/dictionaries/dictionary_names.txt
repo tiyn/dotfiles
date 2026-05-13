@@ -241,6 +241,7 @@ Tornow
 TrackPoint
 Traefik
 UDEV
+UMAP
 Umbar
 V1del
 VIM
