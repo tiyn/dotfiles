@@ -32,6 +32,7 @@ Brusch
 CAR
 CATS
 CDSS
+CORE
 CUDA
 Carré
 Casper
@@ -39,6 +40,7 @@ Caspers
 Cato
 CdE
 CdEs
+Cewe
 Chrysalis
 Color
 Combi
@@ -122,6 +124,7 @@ Kluge
 KohakuHub
 Kratom
 KreativAkademie
+Kreyenbrück
 Kreyenhop
 Kubitschek
 Käte
@@ -194,6 +197,7 @@ Pluribus
 PopOS
 Portainer
 Power
+Pratik
 Precision
 Precon
 Precons
