@@ -394,7 +394,7 @@ autoload -Uz compinit && compinit
 
 # open shell with tmux always
 if [[ -n "$PS1" ]] && [[ -z "$TMUX" ]] && [[ -n "$SSH_CONNECTION" ]]; then
-    tmux attack-session -t $USER || tmux new-session -s $USER
+    tmux attach-session -t $USER || tmux new-session -s $USER
 fi
 
 # thefuck
