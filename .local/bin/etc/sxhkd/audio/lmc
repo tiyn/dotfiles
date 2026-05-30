@@ -7,8 +7,8 @@
 device=${LOOPBACK_DEVICE:-Easy Effects Source}
 
 name=$(wpctl status | sed -n '/Sources/,$p' | sed -n '/Filter/q;p' | grep "$device" | sed -e "s/*/\ /g")
-id=$( echo $name | cut -d '.' -f 1 | cut -c 5-)
-node=$(wpctl inspect $id | grep node.name | cut -d '=' -f 2)
+ident=$(wpctl status | sed -n '/Sources/,$p' | sed -n '/Filter/q;p' | grep "$device" | grep -oE '[0-9]+\.' | tr -d '.')
+node=$(wpctl inspect $ident | grep node.name | cut -d '=' -f 2)
 
 [ -z "$2" ] && num="5" || num="$2"
 
@@ -61,7 +61,7 @@ case "$1" in
   loop) playerctl loop none
     sleep 1
     pkill -RTMIN+9 $STATUSBAR ;;
-  tap) wpctl set-volume $id 1.0
+  tap) wpctl set-volume $ident 1.0
       touch ~/.local/state/loopback.lock
       pw-loopback -C $node &
       notify-send -u low 'sxhkd' "Started loopback of $device" ;;
