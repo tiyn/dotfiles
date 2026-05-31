@@ -102,12 +102,13 @@ uv() {
 
             if [[ $# -eq 0 ]]; then
                 command uv venv || return
-
-                if [[ -f ".venv/bin/activate" ]]; then
-                    source .venv/bin/activate
-                fi
+                _auto_venv
             fi
         fi
+    elif [[ "$1" == "sync" ]]; then
+        shift
+        command uv sync "$@" || return
+        _auto_venv
     else
         command uv "$@"
     fi
