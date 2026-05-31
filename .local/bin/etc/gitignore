@@ -1,0 +1,136 @@
+#!/bin/sh
+
+CONFIG_DIR="${XDG_CONFIG_HOME:-$HOME/.config}/gitignore"
+
+usage() {
+    cat <<EOF
+Usage:
+  gitignore TEMPLATE...
+      Create a new .gitignore from templates.
+
+  gitignore -f TEMPLATE...
+      Overwrite existing .gitignore.
+
+  gitignore --add TEMPLATE...
+      Append templates to existing .gitignore.
+
+  gitignore --list
+      List available templates.
+
+  gitignore --show TEMPLATE
+      Show a template.
+
+Templates are searched in:
+  $CONFIG_DIR
+EOF
+}
+
+list_templates() {
+    [ -d "$CONFIG_DIR" ] || exit 0
+
+    find "$CONFIG_DIR" -type f -exec basename {} \; | sort
+}
+
+show_template() {
+    file="$CONFIG_DIR/$1"
+
+    if [ ! -f "$file" ]; then
+        echo "Unknown template: $1" >&2
+        exit 1
+    fi
+
+    cat "$file"
+}
+
+append_template() {
+    template="$1"
+    file="$CONFIG_DIR/$template"
+
+    if [ ! -f "$file" ]; then
+        echo "Unknown template: $template" >&2
+        exit 1
+    fi
+
+    {
+        echo
+        echo "# --- $template ---"
+        cat "$file"
+    } >> .gitignore
+}
+
+create_gitignore() {
+    mode="$1"
+    shift
+
+    if [ -f .gitignore ] && [ "$mode" != "force" ]; then
+        echo ".gitignore already exists." >&2
+        echo "Use -f to overwrite or --add to append." >&2
+        exit 1
+    fi
+
+    : > .gitignore
+
+    for template in "$@"; do
+        append_template "$template"
+    done
+}
+
+add_templates() {
+    [ -f .gitignore ] || touch .gitignore
+
+    for template in "$@"; do
+        append_template "$template"
+    done
+}
+
+case "$1" in
+    --help|-h)
+        usage
+        ;;
+
+    --list)
+        list_templates
+        ;;
+
+    --show)
+        shift
+
+        [ $# -eq 1 ] || {
+            echo "--show requires exactly one template" >&2
+            exit 1
+        }
+
+        show_template "$1"
+        ;;
+
+    --add)
+        shift
+
+        [ $# -gt 0 ] || {
+            echo "No templates specified" >&2
+            exit 1
+        }
+
+        add_templates "$@"
+        ;;
+
+    -f)
+        shift
+
+        [ $# -gt 0 ] || {
+            echo "No templates specified" >&2
+            exit 1
+        }
+
+        create_gitignore force "$@"
+        ;;
+
+    "")
+        usage
+        exit 1
+        ;;
+
+    *)
+        create_gitignore normal "$@"
+        ;;
+esac
