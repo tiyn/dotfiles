@@ -1,6 +1,5 @@
 [user]
-	email = tiyn@posteo.eu
-	; email = tiyn@mail-mk.eu
+	email = mail@tiyn.eu
 	name = tiyn
 [filter "lfs"]
 	process = git-lfs filter-process
