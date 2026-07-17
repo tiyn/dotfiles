@@ -3,6 +3,8 @@ APV
 Abdulkarim
 Accuracy
 Agentic
+Airsonic
+Airsonic-Advanced
 Akallabêth
 Altisaur
 An
@@ -46,6 +48,8 @@ Color
 Combi
 Commander
 Crusader
+DAW
+DAWs
 DFKI
 DFKIs
 DPU
@@ -55,6 +59,7 @@ DeepSeek
 Dekarldent
 Delivery
 Destiny
+Discogs
 Distrobox
 Doom
 Doyma
@@ -73,14 +78,17 @@ FIDO
 Face
 Fischerhude
 Flac
+FluidSynth
 Forest
 Forgejo
 Französischmodul
+Freizeitkarte
 Frevert
 Freverts
 Friedl
 Friesenturnier
 Gathering
+Geofabrik
 GitNex
 Glaive
 Glenn
@@ -153,6 +161,7 @@ Marten
 Mathis
 Matvey
 Mauli
+MediaInfo
 Mentos
 Meret
 Meshtastic
@@ -160,6 +169,7 @@ Metzener
 MiiMii
 Mint
 Mukluk
+MusicBrainz
 MusikAka
 MusikAkademie
 NVIM
@@ -181,6 +191,7 @@ Oberhausern
 Oberweseler
 Odysee
 Opam
+OpenAudible
 OpenCloud
 Ove
 Overwatch
@@ -194,6 +205,7 @@ PfingstAka
 PfingstAkademie
 Pillion
 Pluribus
+Podgrab
 PopOS
 Portainer
 Power
@@ -202,6 +214,8 @@ Precision
 Precon
 Precons
 PyEnv
+QMapShack
+Qobuz
 RStudio
 Rebowl
 Reed
@@ -209,6 +223,7 @@ Reeves
 Reichenecker
 Rida
 Rocq
+Routino
 Ruschenbaum
 SDS
 SPM
@@ -230,6 +245,7 @@ SommerAka
 SommerAkademie
 Souleyman
 SpotiFLAC
+Spotlistr
 Sprave
 Stina
 Stud.IP
@@ -264,17 +280,26 @@ Years
 Yorma
 Ziegeleiweg
 Zimin
+aac 
+aiff
+alac
 and
 baseimage-gui
 ctop
+dts
 eKiwi
 flac
+fre:ac 
 glaive
 inf
 jlesages
 liquidctl
+metaflac
 npy
 ramdisk
 systemd
+wav
+wma 
 xinput
+yt-dl
 zedbraxmen
