@@ -4,48 +4,68 @@ return {
   keys = {
     {
       "<leader>p",
-      function() require("knap").toggle_autopreviewing() end,
+      function()
+        require("knap").toggle_autopreviewing()
+      end,
       desc = "Knap: toggle autopreview",
     },
   },
   config = function()
     local knap = require("knap")
-    local function detect_engine()
-      local first_line = vim.api.nvim_buf_get_lines(0, 0, 1, false)[1] or ""
-      if first_line:match("^%%%s*xelatex") then
-        return "xelatex"
-      else
-        return "pdflatex"
-      end
-    end
-    local function set_engine()
-      local engine = detect_engine()
-      if engine == "xelatex" then
-        vim.g.knap_settings.textopdf = "xelatex -synctex=1 -interaction=batchmode %docroot%"
-      else
-        vim.g.knap_settings.textopdf = "pdflatex --shell-escape -synctex=1 -interaction=batchmode %docroot%"
-      end
-    end
     vim.g.knap_settings = {
       delay = 100,
       texoutputext = "pdf",
-      -- textopdf = "pdflatex --shell-escape -synctex=1 -interaction=batchmode %docroot%",
-      textopdf = "xelatex -synctex=1 -interaction=batchmode %docroot%",
-      textopdfviewerlaunch = "zathura --synctex-editor-command 'nvim --headless -es --cmd \"lua require('\"'\"'knaphelper'\"'\"').relayjump('\"'\"'%servername%'\"'\"','\"'\"'%{input}'\"'\"',%{line},0)\"' ./%outputfile%",
-      textopdfviewerrefresh = "reload",
+      textopdf = "pdflatex --shell-escape -synctex=1 -interaction=batchmode %docroot%",
+      textopdfviewerlaunch = "zathura --synctex-editor-command "
+        .. "'nvim --headless -es --cmd "
+        .. "\"lua require('\"'\"'knaphelper'\"'\"').relayjump("
+        .. "'\"'\"'%servername%'\"'\"',"
+        .. "'\"'\"'%{input}'\"'\"',%{line},0)\"' "
+        .. "%outputfile%",
+      textopdfviewerrefresh = "none",
       textopdfforwardjump = "zathura --synctex-forward=%line%:%column%:%srcfile% %outputfile%",
     }
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "KnapShowView",
-      callback = set_engine,
-    })
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "KnapCompile",
-      callback = set_engine,
-    })
-    vim.api.nvim_create_autocmd("BufWritePost", {
+    local function set_tex_engine(bufnr)
+      bufnr = bufnr or vim.api.nvim_get_current_buf()
+      if not vim.api.nvim_buf_is_valid(bufnr) then
+        return
+      end
+      local lines = vim.api.nvim_buf_get_lines(bufnr, 0, 15, false)
+      local use_xelatex = false
+      for _, line in ipairs(lines) do
+        local lower = line:lower()
+        -- Detect XeLaTeX from the first 15 lines. Supported forms include the following.
+        --   % !TeX program = xelatex
+        --   % xelatex
+        -- and packages which require or commonly imply XeLaTeX.
+        if
+          lower:match("^%%+%s*!tex%s+program%s*=%s*xelatex")
+          or lower:match("^%%+%s*xelatex%s*$")
+          or lower:match("\\usepackage[^}]*{fontspec}")
+          or lower:match("\\usepackage[^}]*{unicode%-math}")
+          or lower:match("\\usepackage[^}]*{mathspec}")
+        then
+          use_xelatex = true
+          break
+        end
+      end
+      local settings = vim.b[bufnr].knap_settings or {}
+      if use_xelatex then
+        settings.textopdf = "xelatex --shell-escape -synctex=1 -interaction=batchmode %docroot%"
+      else
+        settings.textopdf = "pdflatex --shell-escape -synctex=1 -interaction=batchmode %docroot%"
+      end
+      vim.b[bufnr].knap_settings = settings
+    end
+    vim.api.nvim_create_autocmd({
+      "BufReadPost",
+      "BufNewFile",
+      "BufWritePost",
+    }, {
       pattern = "*.tex",
-      callback = set_engine,
+      callback = function(args)
+        set_tex_engine(args.buf)
+      end,
     })
     vim.api.nvim_create_autocmd("FileType", {
       pattern = { "tex", "markdown" },
@@ -58,6 +78,7 @@ return {
           desc = "Knap: jump to cursor",
         })
         if vim.bo[bufnr].filetype == "tex" then
+          set_tex_engine(bufnr)
           knap.toggle_autopreviewing()
         end
       end,

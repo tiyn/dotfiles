@@ -27,13 +27,28 @@ has_python_version() {
 
 textype() {
     command="pdflatex --shell-escape"
-    (sed 5q "$file" | grep -i -q 'xelatex') && command="xelatex"
-    $command --output-directory="$dir" "$base" &&
-        grep -i addbibresource "$file" >/dev/null &&
-        biber --input-directory "$dir" "$base" &&
-        $command --output-directory="$dir" "$base" &&
-        makeglossaries "$basenodir" &&
-        $command --output-directory="$dir" "$base"
+    # Detect XeLaTeX from the first 15 lines. Supported forms include:
+    #   % !TeX program = xelatex
+    #   % xelatex
+    # and packages which require or commonly imply XeLaTeX.
+    if sed -n '1,15p' "$file" | grep -Eiq \
+        '(^%+[[:space:]]*!tex[[:space:]]+program[[:space:]]*=[[:space:]]*xelatex)|(^%+[[:space:]]*xelatex[[:space:]]*$)|(\\usepackage[^}]*\{(fontspec|unicode-math|mathspec)\})'; then
+        command="xelatex"
+    fi
+
+    $command --output-directory="$dir" "$base" || return 1
+
+    if grep -iq '\\addbibresource' "$file"; then
+        biber --input-directory "$dir" "$base" || return 1
+        $command --output-directory="$dir" "$base" || return 1
+    fi
+
+    if grep -iq '\\makeglossaries' "$file"; then
+        makeglossaries "$basenodir" || return 1
+        $command --output-directory="$dir" "$base" || return 1
+    fi
+
+    return 0
 }
 
 case "$file" in
