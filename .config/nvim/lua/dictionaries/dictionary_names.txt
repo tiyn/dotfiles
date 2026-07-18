@@ -119,6 +119,7 @@ Ikigai
 Immich
 Int
 Ira
+Ironman
 JT
 Jacobin
 Jeanine
@@ -149,6 +150,7 @@ LightDM-GTK-Greeter
 LightDM-Mini-Greeter
 LilyPond
 Line Dance
+Linuxize
 Loafer
 Lounge
 MEVIS
@@ -247,6 +249,7 @@ Souleyman
 SpotiFLAC
 Spotlistr
 Sprave
+StackOverflow
 Stina
 Stud.IP
 Study
@@ -260,6 +263,7 @@ Tjark
 Tornow
 TrackPoint
 Traefik
+UDEV
 UDEV
 UMAP
 Umbar
@@ -293,11 +297,17 @@ fre:ac
 glaive
 inf
 jlesages
+jupytext
 liquidctl
+matplotlib
 metaflac
+notedown
 npy
+pip
 ramdisk
+scikit-learn
 systemd
+venv
 wav
 wma 
 xinput
