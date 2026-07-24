@@ -305,6 +305,7 @@ notedown
 npy
 pip
 ramdisk
+rembg
 scikit-learn
 systemd
 venv
