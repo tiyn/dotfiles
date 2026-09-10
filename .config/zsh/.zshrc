@@ -401,6 +401,9 @@ fi
 # thefuck
 eval $(thefuck --alias)
 
+# direnv
+eval "$(direnv hook zsh)"
+
 # opam
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" >/dev/null 2>/dev/null
 
