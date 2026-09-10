@@ -7,7 +7,7 @@ return {
   },
   lazy = false,
   opts = {
-    automatic_setup = true,
+    automatic_enable = true,
     ensure_installed = {
       "asm_lsp",
       "clangd",
@@ -16,7 +16,7 @@ return {
       "html",
       "jsonls",
       "lemminx",
-      "ltex",
+      "ltex_plus",
       "texlab",
       "lua_ls",
       "marksman",
@@ -38,7 +38,7 @@ return {
       progress = true,
     }
     local servers = {
-      ltex = {
+      ltex_plus = {
         settings = {
           ltex = {
             enabled = { "latex", "markdown" },
