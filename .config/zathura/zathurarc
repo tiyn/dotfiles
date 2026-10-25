@@ -5,6 +5,7 @@ set guioptions none
 map u scroll full-up
 map d scroll full-down
 map D toggle_page_mode
+map <C-d> cycle_first_column
 map r reload
 map R rotate
 map K zoom in
