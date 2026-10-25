@@ -6,10 +6,35 @@
 # presentations.  Runs scripts based on extention or shebang
 # by lukesmithxyz, checkout github.com/lukesmithxyz/voidrice
 
-file=$(readlink -f "$1")
+usage() {
+    printf 'Usage: %s [--clear] FILE\n' "${0##*/}"
+}
+
+clear_tex=0
+input_file=""
+while [ "$#" -gt 0 ]; do
+    case "$1" in
+        --clear) clear_tex=1 ;;
+        --)
+            shift
+            [ "$#" -eq 1 ] && [ -z "$input_file" ] || { usage >&2; exit 2; }
+            input_file=$1
+            break
+            ;;
+        -*) usage >&2; exit 2 ;;
+        *)
+            [ -z "$input_file" ] || { usage >&2; exit 2; }
+            input_file=$1
+            ;;
+    esac
+    shift
+done
+[ -n "$input_file" ] || { usage >&2; exit 2; }
+
+file=$(readlink -f -- "$input_file") || exit 1
 dir=$(dirname "$file")
 base="${file%.*}"
-basenodir="${1%.*}"
+basenodir="${input_file%.*}"
 vipercmd="carbon" #"silicon"
 
 cd "$dir" || exit
@@ -26,26 +51,48 @@ has_python_version() {
 }
 
 textype() {
-    command="pdflatex --shell-escape"
+    # latexmk selects BibTeX or Biber from the generated build files, including
+    # bibliography declarations in input files, and resolves cross-references.
+    if ! command -v latexmk >/dev/null 2>&1; then
+        printf '%s\n' 'compiler: latexmk is required for automatic LaTeX and bibliography compilation.' >&2
+        return 127
+    fi
+
+    tex_engine="-pdf"
     # Detect XeLaTeX from the first 15 lines. Supported forms include:
     #   % !TeX program = xelatex
     #   % xelatex
     # and packages which require or commonly imply XeLaTeX.
     if sed -n '1,15p' "$file" | grep -Eiq \
         '(^%+[[:space:]]*!tex[[:space:]]+program[[:space:]]*=[[:space:]]*xelatex)|(^%+[[:space:]]*xelatex[[:space:]]*$)|(\\usepackage[^}]*\{(fontspec|unicode-math|mathspec)\})'; then
-        command="xelatex"
+        tex_engine="-xelatex"
+    fi
+    if sed -n '1,15p' "$file" | grep -Eiq \
+        '(^%+[[:space:]]*!tex[[:space:]]+program[[:space:]]*=[[:space:]]*lualatex)|(^%+[[:space:]]*lualatex[[:space:]]*$)'; then
+        tex_engine="-lualatex"
     fi
 
-    $command --output-directory="$dir" "$base" || return 1
+    # Run in the document directory so resources/lib.bib and other relative
+    # paths keep working. Prefix the filename to handle names beginning with '-'.
+    tex_input="./$(basename "$file")"
+    tex_job=$(basename "$base")
 
-    if grep -iq '\\addbibresource' "$file"; then
-        biber --input-directory "$dir" "$base" || return 1
-        $command --output-directory="$dir" "$base" || return 1
-    fi
+    run_latexmk() {
+        # Preserve the original script's shell-escape setting for pdfLaTeX.
+        if [ "$tex_engine" = "-pdf" ]; then
+            latexmk "$tex_engine" -shell-escape -interaction=nonstopmode \
+                -halt-on-error -file-line-error "$tex_input"
+        else
+            latexmk "$tex_engine" -interaction=nonstopmode \
+                -halt-on-error -file-line-error "$tex_input"
+        fi
+    }
 
-    if grep -iq '\\makeglossaries' "$file"; then
-        makeglossaries "$basenodir" || return 1
-        $command --output-directory="$dir" "$base" || return 1
+    run_latexmk || return 1
+
+    if sed 's/%.*//' "$file" | grep -iq '\\makeglossaries'; then
+        makeglossaries "$tex_job" || return 1
+        run_latexmk || return 1
     fi
 
     return 0
@@ -80,7 +127,13 @@ case "$file" in
     (rustc "$file" && "./$(basename "${file%.rs}")") ;;
 *\.sh) dash "$file" ;;
 *\.smt2) z3 "$file" ;;
-*\.tex) textype "$file" ;;
+*\.tex)
+    textype "$file" || exit 1
+    # Clean only successful TeX builds, including glossary processing.
+    if [ "$clear_tex" -eq 1 ]; then
+        texclear "$file"
+    fi
+    ;;
 *\.vpr) $vipercmd "$file" ;;
 *\.zsh) zsh "$file" ;;
 *\.ly) lilypond "$file" ;;
