@@ -4,6 +4,7 @@
         "equalizer#0": {
             "balance": 0.0,
             "bypass": false,
+            "decramp": "Off",
             "input-gain": -5.6,
             "left": {
                 "band0": {
@@ -239,6 +240,7 @@
         "equalizer#1": {
             "balance": 0.0,
             "bypass": false,
+            "decramp": "Off",
             "input-gain": -4.6,
             "left": {
                 "band0": {
@@ -471,9 +473,22 @@
             },
             "split-channels": false
         },
+        "loudness#0": {
+            "bypass": false,
+            "clipping": false,
+            "clipping-range": 6.0,
+            "fft": "4096",
+            "iir-approximation": "Normal",
+            "input-gain": 0.0,
+            "mode": "FFT",
+            "output-gain": 0.0,
+            "std": "ISO226-2023",
+            "volume": -10.0
+        },
         "plugins_order": [
             "equalizer#0",
-            "equalizer#1"
+            "equalizer#1",
+            "loudness#0"
         ]
     }
 }
