@@ -1,6 +1,7 @@
 return {
   -- scrollbar with git and diagnostics support for easier navigation
   "petertriho/nvim-scrollbar",
+  branch = "v1", -- TODO: eventually upgrade to v2
   dependencies = {
     "kevinhwang91/nvim-hlslens",
     "lewis6991/gitsigns.nvim",

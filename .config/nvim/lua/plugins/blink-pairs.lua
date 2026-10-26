@@ -3,6 +3,9 @@ return {
   "saghen/blink.pairs",
   version = "*", -- (recommended) only required with prebuilt binaries
   dependencies = { "saghen/blink.download" }, -- download prebuilt binaries from github releases
+  build = function()
+    require("blink.pairs").download():pwait(60000)
+  end,
   lazy = false,
   --- @module 'blink.pairs'
   --- @type blink.pairs.Config
@@ -26,7 +29,6 @@ return {
         "BlinkPairsBlue",
       },
       priority = 200,
-      ns = vim.api.nvim_create_namespace("blink.pairs"),
     },
     debug = false,
   },
