@@ -78,7 +78,7 @@ alias  paint="kolourpaint"
 alias l="eza --group-directories-first --icons"
 alias la="eza -la --group-directories-first --icons --git"
 alias ll="eza -l --group-directories-first --icons --git"
-alias tree="eza --tree --group-directories-first --icons"
+alias tree="eza --group-directories-first --icons --tree"
 
 # mkdir
 alias mkdir="mkdir -p"
